@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b6D-ai-Sa5">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--OpportunitiesVC-->
+        <scene sceneID="ebG-tI-bhR">
+            <objects>
+                <viewController title="OpportunitiesVC" id="LAF-OQ-JQA" customClass="HomeBizVC" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u8A-Rf-fnN"/>
+                        <viewControllerLayoutGuide type="bottom" id="G16-IT-5Td"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="phW-ky-le0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Opportunities" id="tTA-Fs-0XG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sHg-OV-B2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4890" y="-1345"/>
+        </scene>
+        <!--EventsVC-->
+        <scene sceneID="G88-VE-TwK">
+            <objects>
+                <viewController title="EventsVC" id="wLw-WX-gfs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qvw-hL-0fr"/>
+                        <viewControllerLayoutGuide type="bottom" id="e1a-oA-Csq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rft-qQ-cuN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Events" id="Vz6-nl-tnP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tCR-gy-ZV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3369" y="-1373"/>
+        </scene>
+        <!--DiscussVC-->
+        <scene sceneID="Q2y-FH-rvL">
+            <objects>
+                <viewController title="DiscussVC" id="WNe-fQ-dko" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="amf-Bm-LLZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="U9r-wE-4hP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wM4-eb-QVd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Discuss" id="xlV-QT-5PO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vvw-kU-oFA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5630" y="-1351"/>
+        </scene>
+        <!--HomeRootVC-->
+        <scene sceneID="cfp-ZI-3iO">
+            <objects>
+                <tabBarController title="HomeRootVC" id="H6O-mk-hHm" customClass="HomeTabBarController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="YMS-IG-aUh" userLabel="Home"/>
+                    <navigationItem key="navigationItem" title="Home" id="ddR-6h-EA0">
+                        <barButtonItem key="leftBarButtonItem" title="Help" id="V0n-W2-Lcu"/>
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="NOr-fB-boi">
+                            <connections>
+                                <segue destination="kLK-bx-wtc" kind="show" id="Kqe-o9-z9Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="NSj-3o-fLH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="LAF-OQ-JQA" kind="relationship" relationship="viewControllers" id="Mhy-aE-bzN"/>
+                        <segue destination="WNe-fQ-dko" kind="relationship" relationship="viewControllers" id="Ldy-jo-xRb"/>
+                        <segue destination="wLw-WX-gfs" kind="relationship" relationship="viewControllers" id="dUX-uQ-Xeg"/>
+                        <segue destination="sjs-Xt-dbb" kind="relationship" relationship="viewControllers" id="0x3-5d-kRZ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eqh-5u-6wj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationBar contentMode="scaleToFill" id="Pe5-BX-hfj">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Home" id="Qaw-nX-fFx">
+                            <barButtonItem key="rightBarButtonItem" title="Help" id="Nde-db-AHR"/>
+                            <connections>
+                                <outlet property="leftBarButtonItem" destination="Nde-db-AHR" id="mr5-Ef-axR"/>
+                            </connections>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </objects>
+            <point key="canvasLocation" x="-4561" y="-2269"/>
+        </scene>
+        <!--ReadingVC-->
+        <scene sceneID="X1z-8P-mfE">
+            <objects>
+                <viewController title="ReadingVC" id="sjs-Xt-dbb" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2jg-AX-D8P"/>
+                        <viewControllerLayoutGuide type="bottom" id="99L-mY-8fR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rx4-AX-r1C">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Reading" id="ACG-XE-sco"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gx-eL-NXV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4165" y="-1373"/>
+        </scene>
+        <!--HomeNC-->
+        <scene sceneID="f8d-Za-ert">
+            <objects>
+                <navigationController title="HomeNC" id="b6D-ai-Sa5" customClass="HomeNavigationController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="XXS-6R-pGu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pYN-7j-5CD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="H6O-mk-hHm" kind="relationship" relationship="rootViewController" id="yJP-Rt-x9k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C2r-Wn-KrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3995" y="-2901"/>
+        </scene>
+        <!--SearchVC-->
+        <scene sceneID="ekH-D8-GfD">
+            <objects>
+                <viewController title="SearchVC" id="kLK-bx-wtc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l3g-bG-PzU"/>
+                        <viewControllerLayoutGuide type="bottom" id="XJb-lj-0fv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NGO-I1-JCL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Wi-Wn-RmK">
+                                <rect key="frame" x="46" y="0.0" width="554" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kLK-bx-wtc" id="aHR-7p-ZS3"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf5-no-8SY">
+                                <rect key="frame" x="0.0" y="7" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qx2-5y-gUc"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="8cj-HB-bVo" id="5am-xZ-rFR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5YP-nd-Xzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="8cj-HB-bVo">
+                    <connections>
+                        <outlet property="delegate" destination="kLK-bx-wtc" id="Dhs-2v-w1W"/>
+                        <outlet property="searchBar" destination="0Wi-Wn-RmK" id="wtE-9J-UvK"/>
+                        <outlet property="searchContentsController" destination="kLK-bx-wtc" id="gQ8-4G-YIy"/>
+                        <outlet property="searchResultsDataSource" destination="kLK-bx-wtc" id="5nI-ha-QHU"/>
+                        <outlet property="searchResultsDelegate" destination="kLK-bx-wtc" id="jFK-f0-Rvx"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-3442" y="-2211"/>
+        </scene>
+    </scenes>
+</document>

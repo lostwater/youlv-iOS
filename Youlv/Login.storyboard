@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yhm-0x-i7E">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--SignupVC-->
+        <scene sceneID="J3N-QJ-H8M">
+            <objects>
+                <viewController title="SignupVC" id="wm9-QA-MvQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w6O-0h-zXk"/>
+                        <viewControllerLayoutGuide type="bottom" id="mVN-NV-fwJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7bR-kg-zVK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="SignUp" id="oip-bu-vlN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SY4-0j-qD1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1737" y="-2572"/>
+        </scene>
+        <!--LoginNC-->
+        <scene sceneID="c3g-2N-v0T">
+            <objects>
+                <navigationController title="LoginNC" id="yhm-0x-i7E" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tf0-dD-eg0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PFB-GV-1QB" kind="relationship" relationship="rootViewController" id="Dfn-m4-9h7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FC7-NX-qKf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3185" y="-2572"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="SFQ-7V-CYo">
+            <objects>
+                <viewController title="LoginVC" id="PFB-GV-1QB" customClass="LoginViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Cg-O8-2K2"/>
+                        <viewControllerLayoutGuide type="bottom" id="GgC-07-bsa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IY6-NW-iOC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="110" image="iconlogo" translatesAutoresizingMaskIntoConstraints="NO" id="eKB-Fm-amR">
+                                <rect key="frame" x="245" y="129" width="110" height="110"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yvk-f8-79O">
+                                <rect key="frame" x="170" y="382" width="260" height="45"/>
+                                <state key="normal" title="BtnLogin" image="buttonlogin" backgroundImage="buttonlogin">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="BtnLoginClicked:" destination="PFB-GV-1QB" eventType="touchDragInside" id="3Il-DJ-USA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.074509803921568626" green="0.62745098039215685" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GgC-07-bsa" firstAttribute="top" secondItem="Yvk-f8-79O" secondAttribute="bottom" constant="86" id="MWR-Sc-uWV"/>
+                            <constraint firstAttribute="centerX" secondItem="Yvk-f8-79O" secondAttribute="centerX" constant="-12" id="i2L-QU-IOk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Login" id="im0-Pu-b3U">
+                        <barButtonItem key="rightBarButtonItem" title="BtnSignup" id="J43-0H-Ezg">
+                            <connections>
+                                <segue destination="wm9-QA-MvQ" kind="push" id="OWG-FI-QZg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="BtnLogin" destination="Yvk-f8-79O" id="Ydx-Ee-scj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c7L-dv-Wpl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2471" y="-2564"/>
+        </scene>
+        <!--RecommendedTopicsVC-->
+        <scene sceneID="4mG-xF-I95">
+            <objects>
+                <viewController title="RecommendedTopicsVC" id="MiL-bH-b80" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GKP-iD-h1U"/>
+                        <viewControllerLayoutGuide type="bottom" id="3jL-Ph-0hu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="16Y-SA-Qkk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1B-mR-hc8">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Skip" id="PNH-jp-sVN"/>
+                                    <barButtonItem title="Next" id="Few-4h-amF"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7wQ-GI-mU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1967" y="-3425"/>
+        </scene>
+        <!--RecommendedUsersVC-->
+        <scene sceneID="l6c-o2-3SA">
+            <objects>
+                <viewController title="RecommendedUsersVC" id="aho-Vk-c9P" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="20b-yV-AcQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="R6t-QP-8WZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zma-aa-prH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UhZ-wY-zJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1914" y="-2695"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="buttonlogin" width="260" height="45"/>
+        <image name="iconlogo" width="110" height="110"/>
+    </resources>
+</document>

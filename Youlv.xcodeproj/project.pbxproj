@@ -7,12 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B10C9E71ADAEE7C00695853 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9E61ADAEE7C00695853 /* Home.storyboard */; };
+		0B10C9EA1ADB054D00695853 /* NewPublish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9E91ADB054D00695853 /* NewPublish.storyboard */; };
+		0B10C9EC1ADB06E600695853 /* Discorvery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */; };
+		0B10C9EF1ADB070300695853 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9EE1ADB070300695853 /* Messages.storyboard */; };
+		0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B10C9F21ADB090800695853 /* HomeTabBarController.swift */; };
 		0B5FDEFE1AD6A2EF00773360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */; };
-		0B5FDF001AD6A2EF00773360 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FDEFF1AD6A2EF00773360 /* ViewController.swift */; };
-		0B5FDF031AD6A2EF00773360 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B5FDF011AD6A2EF00773360 /* Main.storyboard */; };
 		0B5FDF051AD6A2EF00773360 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B5FDF041AD6A2EF00773360 /* Images.xcassets */; };
 		0B5FDF081AD6A2EF00773360 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B5FDF061AD6A2EF00773360 /* LaunchScreen.xib */; };
 		0B5FDF141AD6A2EF00773360 /* YoulvTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FDF131AD6A2EF00773360 /* YoulvTests.swift */; };
+		0BCAEE221AD7CC6300421B7A /* TopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */; };
+		0BCAEE241AD82ACB00421B7A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */; };
+		0BCECFC01AD99B8E006BE53A /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFBF1AD99B8E006BE53A /* HomeNavigationController.swift */; };
+		0BCECFC61AD99EE6006BE53A /* down_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BCECFC21AD99EE6006BE53A /* down_dark.png */; };
+		0BCECFC71AD99EE6006BE53A /* DropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFC51AD99EE6006BE53A /* DropDownListView.m */; };
+		0BCECFE81ADA3481006BE53A /* HomeBizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFE71ADA3481006BE53A /* HomeBizVC.swift */; };
+		0BCECFEA1ADAAA46006BE53A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BCECFE91ADAAA45006BE53A /* Login.storyboard */; };
+		0BCECFED1ADAAD95006BE53A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFEC1ADAAD95006BE53A /* LoginViewController.swift */; };
+		0BCECFEF1ADABD0D006BE53A /* Others.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BCECFEE1ADABD0D006BE53A /* Others.storyboard */; };
+		0BCECFF11ADABFBE006BE53A /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFF01ADABFBE006BE53A /* NewViewController.swift */; };
+		0BCECFF51ADAC238006BE53A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BCECFF41ADAC238006BE53A /* Main.storyboard */; };
+		0BCECFF71ADAE23F006BE53A /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFF61ADAE23F006BE53A /* MessagesViewController.swift */; };
+		0BCECFF91ADAE2A1006BE53A /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */; };
+		0BCECFFB1ADAE2D0006BE53A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +43,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B10C9E61ADAEE7C00695853 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		0B10C9E91ADB054D00695853 /* NewPublish.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewPublish.storyboard; sourceTree = "<group>"; };
+		0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discorvery.storyboard; sourceTree = "<group>"; };
+		0B10C9EE1ADB070300695853 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Messages.storyboard; path = ../Messages.storyboard; sourceTree = "<group>"; };
+		0B10C9F21ADB090800695853 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeTabBarController.swift; path = Controllers/HomeTabBarController.swift; sourceTree = "<group>"; };
 		0B5FDEF81AD6A2EF00773360 /* Youlv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Youlv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5FDEFC1AD6A2EF00773360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B5FDEFF1AD6A2EF00773360 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0B5FDF021AD6A2EF00773360 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B5FDF041AD6A2EF00773360 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0B5FDF071AD6A2EF00773360 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0B5FDF0D1AD6A2EF00773360 /* YoulvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoulvTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5FDF121AD6A2EF00773360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B5FDF131AD6A2EF00773360 /* YoulvTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoulvTests.swift; sourceTree = "<group>"; };
+		0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopTabBarController.swift; path = ../TopTabBarController.swift; sourceTree = "<group>"; };
+		0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Youlv-Bridging-Header.h"; sourceTree = "<group>"; };
+		0BCECFBF1AD99B8E006BE53A /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		0BCECFC21AD99EE6006BE53A /* down_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down_dark.png; sourceTree = "<group>"; };
+		0BCECFC31AD99EE6006BE53A /* DropDownChooseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownChooseProtocol.h; sourceTree = "<group>"; };
+		0BCECFC41AD99EE6006BE53A /* DropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownListView.h; sourceTree = "<group>"; };
+		0BCECFC51AD99EE6006BE53A /* DropDownListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownListView.m; sourceTree = "<group>"; };
+		0BCECFE71ADA3481006BE53A /* HomeBizVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBizVC.swift; sourceTree = "<group>"; };
+		0BCECFE91ADAAA45006BE53A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		0BCECFEC1ADAAD95006BE53A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0BCECFEE1ADABD0D006BE53A /* Others.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Others.storyboard; sourceTree = "<group>"; };
+		0BCECFF01ADABFBE006BE53A /* NewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
+		0BCECFF41ADAC238006BE53A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0BCECFF61ADAE23F006BE53A /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
+		0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +93,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B10C9E81ADAEE8E00695853 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				0B10C9E61ADAEE7C00695853 /* Home.storyboard */,
+				0BCECFE91ADAAA45006BE53A /* Login.storyboard */,
+				0BCECFF41ADAC238006BE53A /* Main.storyboard */,
+				0BCECFEE1ADABD0D006BE53A /* Others.storyboard */,
+				0B10C9E91ADB054D00695853 /* NewPublish.storyboard */,
+				0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */,
+				0B10C9EE1ADB070300695853 /* Messages.storyboard */,
+			);
+			name = StoryBoards;
+			sourceTree = "<group>";
+		};
 		0B5FDEEF1AD6A2EF00773360 = {
 			isa = PBXGroup;
 			children = (
@@ -77,9 +128,11 @@
 		0B5FDEFA1AD6A2EF00773360 /* Youlv */ = {
 			isa = PBXGroup;
 			children = (
+				0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */,
 				0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */,
-				0B5FDEFF1AD6A2EF00773360 /* ViewController.swift */,
-				0B5FDF011AD6A2EF00773360 /* Main.storyboard */,
+				0BCECFEB1ADAAD76006BE53A /* Controllers */,
+				0BCECFBA1AD99A0F006BE53A /* CustomControllers */,
+				0B10C9E81ADAEE8E00695853 /* StoryBoards */,
 				0B5FDF041AD6A2EF00773360 /* Images.xcassets */,
 				0B5FDF061AD6A2EF00773360 /* LaunchScreen.xib */,
 				0B5FDEFB1AD6A2EF00773360 /* Supporting Files */,
@@ -110,6 +163,42 @@
 				0B5FDF121AD6A2EF00773360 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0BCECFBA1AD99A0F006BE53A /* CustomControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0BCECFC11AD99EE5006BE53A /* dropDownList */,
+				0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */,
+				0BCECFE71ADA3481006BE53A /* HomeBizVC.swift */,
+			);
+			name = CustomControllers;
+			sourceTree = "<group>";
+		};
+		0BCECFC11AD99EE5006BE53A /* dropDownList */ = {
+			isa = PBXGroup;
+			children = (
+				0BCECFC21AD99EE6006BE53A /* down_dark.png */,
+				0BCECFC31AD99EE6006BE53A /* DropDownChooseProtocol.h */,
+				0BCECFC41AD99EE6006BE53A /* DropDownListView.h */,
+				0BCECFC51AD99EE6006BE53A /* DropDownListView.m */,
+			);
+			path = dropDownList;
+			sourceTree = "<group>";
+		};
+		0BCECFEB1ADAAD76006BE53A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0BCECFEC1ADAAD95006BE53A /* LoginViewController.swift */,
+				0BCECFF01ADABFBE006BE53A /* NewViewController.swift */,
+				0B10C9F21ADB090800695853 /* HomeTabBarController.swift */,
+				0BCECFBF1AD99B8E006BE53A /* HomeNavigationController.swift */,
+				0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */,
+				0BCECFF61ADAE23F006BE53A /* MessagesViewController.swift */,
+				0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */,
+				0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,9 +281,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B5FDF031AD6A2EF00773360 /* Main.storyboard in Resources */,
+				0BCECFF51ADAC238006BE53A /* Main.storyboard in Resources */,
+				0BCECFC61AD99EE6006BE53A /* down_dark.png in Resources */,
 				0B5FDF081AD6A2EF00773360 /* LaunchScreen.xib in Resources */,
+				0BCECFEF1ADABD0D006BE53A /* Others.storyboard in Resources */,
 				0B5FDF051AD6A2EF00773360 /* Images.xcassets in Resources */,
+				0B10C9EC1ADB06E600695853 /* Discorvery.storyboard in Resources */,
+				0B10C9EA1ADB054D00695853 /* NewPublish.storyboard in Resources */,
+				0B10C9E71ADAEE7C00695853 /* Home.storyboard in Resources */,
+				0B10C9EF1ADB070300695853 /* Messages.storyboard in Resources */,
+				0BCECFEA1ADAAA46006BE53A /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +308,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B5FDF001AD6A2EF00773360 /* ViewController.swift in Sources */,
+				0BCECFF71ADAE23F006BE53A /* MessagesViewController.swift in Sources */,
+				0BCECFFB1ADAE2D0006BE53A /* UserViewController.swift in Sources */,
+				0BCECFED1ADAAD95006BE53A /* LoginViewController.swift in Sources */,
+				0BCECFC01AD99B8E006BE53A /* HomeNavigationController.swift in Sources */,
+				0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */,
 				0B5FDEFE1AD6A2EF00773360 /* AppDelegate.swift in Sources */,
+				0BCECFF91ADAE2A1006BE53A /* DiscoveryViewController.swift in Sources */,
+				0BCAEE221AD7CC6300421B7A /* TopTabBarController.swift in Sources */,
+				0BCECFC71AD99EE6006BE53A /* DropDownListView.m in Sources */,
+				0BCECFE81ADA3481006BE53A /* HomeBizVC.swift in Sources */,
+				0BCAEE241AD82ACB00421B7A /* MainTabBarController.swift in Sources */,
+				0BCECFF11ADABFBE006BE53A /* NewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,14 +342,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0B5FDF011AD6A2EF00773360 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0B5FDF021AD6A2EF00773360 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0B5FDF061AD6A2EF00773360 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -339,10 +437,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Youlv/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Youlv/Youlv-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -351,10 +452,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Youlv/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Youlv/Youlv-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -411,6 +514,7 @@
 				0B5FDF191AD6A2EF00773360 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B5FDF1A1AD6A2EF00773360 /* Build configuration list for PBXNativeTarget "YoulvTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +523,7 @@
 				0B5FDF1C1AD6A2EF00773360 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
