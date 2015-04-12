@@ -46,7 +46,7 @@
 		0B10C9E61ADAEE7C00695853 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0B10C9E91ADB054D00695853 /* NewPublish.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewPublish.storyboard; sourceTree = "<group>"; };
 		0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discorvery.storyboard; sourceTree = "<group>"; };
-		0B10C9EE1ADB070300695853 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Messages.storyboard; path = ../Messages.storyboard; sourceTree = "<group>"; };
+		0B10C9EE1ADB070300695853 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		0B10C9F21ADB090800695853 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeTabBarController.swift; path = Controllers/HomeTabBarController.swift; sourceTree = "<group>"; };
 		0B5FDEF81AD6A2EF00773360 /* Youlv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Youlv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5FDEFC1AD6A2EF00773360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		0B5FDF0D1AD6A2EF00773360 /* YoulvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoulvTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5FDF121AD6A2EF00773360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B5FDF131AD6A2EF00773360 /* YoulvTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoulvTests.swift; sourceTree = "<group>"; };
-		0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopTabBarController.swift; path = ../TopTabBarController.swift; sourceTree = "<group>"; };
+		0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabBarController.swift; sourceTree = "<group>"; };
 		0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Youlv-Bridging-Header.h"; sourceTree = "<group>"; };
 		0BCECFBF1AD99B8E006BE53A /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
