@@ -12,6 +12,8 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.navigationController?.navigationBar.backItem?.title = "";
+
         //self.navigationController?.setNavigationBarHidden(true, animated: false)
         // Do any additional setup after loading the view.
     }
@@ -30,11 +32,6 @@ class LoginViewController: UIViewController {
     }
     
 
-    
-    func goToMain()
-    {
-        
-    }
 
     /*
     // MARK: - Navigation
