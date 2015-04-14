@@ -13,6 +13,7 @@ class TopTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         reLocTabBar();
+        setTabBar();
         // Do any additional setup after loading the view.
     }
 
@@ -27,10 +28,25 @@ class TopTabBarController: UITabBarController {
         if self.navigationController != nil
         {
             var y =  self.navigationController?.navigationBar.frame.size.height;
-            tabBar.frame = CGRectMake(0,self.navigationController!.navigationBar.frame.origin.y + navigationController!.navigationBar.frame.size.height,tabBar.frame.size.width,tabBar.frame.size.width);
+            tabBar.frame = CGRectMake(0,self.navigationController!.navigationBar.frame.origin.y + navigationController!.navigationBar.frame.size.height,tabBar.frame.size.width,tabBar.frame.size.height);
             
         }
      }
+    
+    func setTabBar()
+    {
+        tabBar.backgroundImage = UIImage()
+        //var bg = UIToolbar(frame: CGRectMake(tabBar.frame.origin.x, tabBar.frame.origin.y, tabBar.frame.size.width, 86))
+        //bg.setBackgroundImage(UIImage(named: "bgtabbar86px"), forToolbarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
+        //self.view.addSubview(bg);
+        
+        var bgframe = CGRectMake(0, tabBar.frame.origin.y, tabBar.frame.size.width, 35);
+        var bgImage = UIImage(named: "bgtabbar86px")
+        var bgIV = UIImageView(frame: bgframe);
+        bgIV.image = bgImage;
+        bgIV.contentMode = UIViewContentMode.ScaleToFill;
+        view.addSubview(bgIV);
+    }
 
 
     /*

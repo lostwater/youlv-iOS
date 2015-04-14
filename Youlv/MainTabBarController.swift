@@ -69,9 +69,16 @@ class MainTabBarController: UITabBarController {
     
     func buttonTapped()
     {
-        var newVC = self.storyboard!.instantiateViewControllerWithIdentifier("newViewController") as! UIViewController
-        self.presentViewController(newVC as UIViewController,animated:true,completion:nil)
+        presentNewVC()
     }
+    
+    func presentNewVC()
+    {
+        var storyBoard = UIStoryboard(name:"NewPublish",bundle:nil)
+        var viewController = storyBoard.instantiateInitialViewController() as! UIViewController
+        self.presentViewController(viewController,animated:true,completion:nil)
+    }
+    
 
     /*
     // MARK: - Navigation

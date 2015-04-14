@@ -34,6 +34,7 @@
 		0BCECFF71ADAE23F006BE53A /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFF61ADAE23F006BE53A /* MessagesViewController.swift */; };
 		0BCECFF91ADAE2A1006BE53A /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */; };
 		0BCECFFB1ADAE2D0006BE53A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */; };
+		0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		0BCECFF61ADAE23F006BE53A /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
 		0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslucentNavBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				0BCECFC11AD99EE5006BE53A /* dropDownList */,
+				0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */,
 				0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */,
 				0BCECFE71ADA3481006BE53A /* HomeBizVC.swift */,
 			);
@@ -328,6 +331,7 @@
 				0BCECFC01AD99B8E006BE53A /* HomeNavigationController.swift in Sources */,
 				0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */,
 				0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */,
+				0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */,
 				0B5FDEFE1AD6A2EF00773360 /* AppDelegate.swift in Sources */,
 				0BCECFF91ADAE2A1006BE53A /* DiscoveryViewController.swift in Sources */,
 				0B93C9FD1ADC26D7003117BE /* SignupViewController.swift in Sources */,
