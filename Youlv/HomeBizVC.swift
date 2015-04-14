@@ -12,7 +12,7 @@ class HomeBizVC: UIViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.navigationController? != nil
+        if self.navigationController != nil
         {
         var frame = CGRectMake(0.0, 0.0, 200.0, self.navigationController!.navigationBar.bounds.size.height);
            // var menu = SINavigationMenuView(frame: frame,title: "Menu");

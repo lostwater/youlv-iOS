@@ -29,23 +29,7 @@ class RecommenedViewController: UIViewController {
     func doLayout()
         
     {
-        var bv = UIView()
-        self.navigationController?.navigationBar.backItem?.backBarButtonItem?.target = nil;
-                var starty = BottomBarImageView.frame.origin.y;
-        var endy = starty + BottomBarImageView.frame.height;
-        var cnetery = (starty+endy)/2;
-        var centerx = BottomBarImageView.frame.width/2;
-        var centerx1 = centerx/2;
-        var centerx2 = centerx/2+centerx;
-        var b1frame = CGRectMake(0,starty,centerx,BottomBarImageView.frame.height);
-        var b2frame = CGRectMake(centerx,starty,centerx,BottomBarImageView.frame.height);
-        //BtnNext.setTitle("test", forState: UIControlState.Normal)
-        
-        var NewBtnSkip = UIButton(frame: b1frame);
-        var NewBtnNext = UIButton();
-        NewBtnNext.setTitle("下12一步", forState: UIControlState.Normal);
-
-        BottomBarImageView.addSubview(NewBtnNext)    }
+   }
 
     /*
     // MARK: - Navigation

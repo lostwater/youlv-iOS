@@ -32,16 +32,7 @@ class HomeTabBarController: TopTabBarController,DropDownChooseDataSource,DropDow
     var dropDown : DropDownListView?
      var chooseArray = [["1","2"]]
     
-    override init()
-    {
-        super.init()
-        
 
-    }
-
-    required override init(coder aDecoder: NSCoder) {
-        super.init(coder:aDecoder);
-    }
 
 
     
@@ -49,6 +40,7 @@ class HomeTabBarController: TopTabBarController,DropDownChooseDataSource,DropDow
     override func viewDidLoad() {
         super.viewDidLoad()
         addDropdown();
+        setTabItems();
         //addCenterButton();
 
         // Do any additional setup after loading the view.
@@ -59,11 +51,35 @@ class HomeTabBarController: TopTabBarController,DropDownChooseDataSource,DropDow
         // Dispose of any resources that can be recreated.
     }
     
+    func setTabItems()
+    {
+        let normalimages = [
+            UIImage(named: "buttonopportunityblack") as UIImage?,
+            UIImage(named: "buttondiscussblack") as UIImage?,
+            UIImage(named: "buttoneventblack") as UIImage?,
+            UIImage(named: "buttonreadblack") as UIImage?,
+        
+        ]
+        let selectedimages = [
+            UIImage(named: "buttonopportunityblue") as UIImage?,
+            UIImage(named: "buttondiscussblue") as UIImage?,
+            UIImage(named: "buttoneventblue") as UIImage?,
+            UIImage(named: "buttonreadblue") as UIImage?
+        ]
+        for var i = 0; i < viewControllers!.count; ++i
+        {
+            var vc = viewControllers![i] as! UIViewController
+            vc.tabBarItem?.image = normalimages[i]! as UIImage
+            vc.tabBarItem?.selectedImage = selectedimages[i]! as UIImage
+        }
+
+    }
+    
     func addDropdown()
     {
         self.title = "Home";
         let w : CGFloat = 200.0;
-        if(navigationController? != nil)
+        if(navigationController != nil)
         {
         var x = navigationController!.navigationBar.frame.size.width - w;
         x = x/2;

@@ -19,6 +19,7 @@
 		0B93C9FB1ADC0936003117BE /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */; };
 		0B93C9FD1ADC26D7003117BE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */; };
 		0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */; };
+		0B93CA011ADCC5E5003117BE /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B93CA001ADCC5E5003117BE /* View.xib */; };
 		0BCAEE221AD7CC6300421B7A /* TopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */; };
 		0BCAEE241AD82ACB00421B7A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */; };
 		0BCECFC01AD99B8E006BE53A /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFBF1AD99B8E006BE53A /* HomeNavigationController.swift */; };
@@ -62,6 +63,7 @@
 		0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginNavigationController.swift; path = Controllers/LoginNavigationController.swift; sourceTree = "<group>"; };
 		0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = Controllers/SignupViewController.swift; sourceTree = "<group>"; };
 		0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommenedViewController.swift; sourceTree = "<group>"; };
+		0B93CA001ADCC5E5003117BE /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = View.xib; path = Youlv/Views/View.xib; sourceTree = "<group>"; };
 		0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabBarController.swift; sourceTree = "<group>"; };
 		0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Youlv-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		0B5FDEEF1AD6A2EF00773360 = {
 			isa = PBXGroup;
 			children = (
+				0B93CA001ADCC5E5003117BE /* View.xib */,
 				0B5FDEFA1AD6A2EF00773360 /* Youlv */,
 				0B5FDF101AD6A2EF00773360 /* YoulvTests */,
 				0B5FDEF91AD6A2EF00773360 /* Products */,
@@ -290,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B93CA011ADCC5E5003117BE /* View.xib in Resources */,
 				0BCECFF51ADAC238006BE53A /* Main.storyboard in Resources */,
 				0BCECFC61AD99EE6006BE53A /* down_dark.png in Resources */,
 				0B5FDF081AD6A2EF00773360 /* LaunchScreen.xib in Resources */,

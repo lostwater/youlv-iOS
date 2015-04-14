@@ -27,7 +27,7 @@ class TopTabBarController: UITabBarController {
         if self.navigationController != nil
         {
             var y =  self.navigationController?.navigationBar.frame.size.height;
-            tabBar.frame = CGRectMake(0,y!,tabBar.frame.size.width,tabBar.frame.size.height);
+            tabBar.frame = CGRectMake(0,self.navigationController!.navigationBar.frame.origin.y + navigationController!.navigationBar.frame.size.height,tabBar.frame.size.width,tabBar.frame.size.width);
             
         }
      }

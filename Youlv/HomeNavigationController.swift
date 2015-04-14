@@ -12,13 +12,14 @@ class HomeNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //addDropDown();
+        addDropDown();
         // Do any additional setup after loading the view.
         var homeStoryBoard = UIStoryboard(name:"Home",bundle:nil)
-        var vc = homeStoryBoard.instantiateInitialViewController() as UIViewController
-        //self.navigationController?.pushViewController(vc, animated: false)
+        var vc = homeStoryBoard.instantiateInitialViewController() as! UIViewController
         
     }
+    
+    
 
 
 

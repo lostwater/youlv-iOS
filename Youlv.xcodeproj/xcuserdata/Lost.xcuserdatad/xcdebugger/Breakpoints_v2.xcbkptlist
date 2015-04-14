@@ -56,6 +56,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Youlv.TopTabBarController.reLocTabBar (Youlv.TopTabBarController)() -&gt; ()"
                   moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/TopTabBarController.swift"
                   timestampString = "450354441.69113"
                   startingColumnNumber = "9223372036854775807"
@@ -70,6 +71,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Youlv.TopTabBarController.reLocTabBar (Youlv.TopTabBarController)() -&gt; ()"
                   moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/TopTabBarController.swift"
                   timestampString = "450354441.691537"
                   startingColumnNumber = "9223372036854775807"
@@ -88,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/MainTabBarController.swift"
-            timestampString = "450560462.487486"
+            timestampString = "450693732.564035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "addCenterButton()"
             landmarkType = "5">
          </BreakpointContent>
@@ -180,6 +182,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Youlv.LoginViewController.BtnLoginClicked (Youlv.LoginViewController)(Swift.AnyObject) -&gt; ()"
                   moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/LoginViewController.swift"
                   timestampString = "450541774.987163"
                   startingColumnNumber = "9223372036854775807"
@@ -194,6 +197,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "reabstraction thunk helper from @callee_owned (@in ()) -&gt; (@out ()) to @callee_owned () -&gt; (@unowned ())"
                   moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/LoginViewController.swift"
                   timestampString = "450541774.987417"
                   startingColumnNumber = "9223372036854775807"
@@ -208,6 +212,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "reabstraction thunk helper from @callee_owned () -&gt; (@unowned ()) to @callee_unowned @objc_block () -&gt; (@unowned ())"
                   moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/LoginViewController.swift"
                   timestampString = "450541774.987617"
                   startingColumnNumber = "9223372036854775807"
@@ -240,13 +245,14 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Youlv.LoginViewController.BtnLoginClicked (Youlv.LoginViewController)(Swift.AnyObject) -&gt; ()"
                   moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/LoginViewController.swift"
-                  timestampString = "450541937.427997"
+                  timestampString = "450690564.223528"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "256">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "265">
                </Location>
                <Location
                   shouldBeEnabled = "No"
@@ -254,13 +260,14 @@
                   continueAfterRunningActions = "No"
                   symbolName = "reabstraction thunk helper from @callee_owned (@in ()) -&gt; (@out ()) to @callee_owned () -&gt; (@unowned ())"
                   moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/LoginViewController.swift"
-                  timestampString = "450541937.428547"
+                  timestampString = "450690564.223943"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "8">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "12">
                </Location>
                <Location
                   shouldBeEnabled = "No"
@@ -268,13 +275,14 @@
                   continueAfterRunningActions = "No"
                   symbolName = "reabstraction thunk helper from @callee_owned () -&gt; (@unowned ()) to @callee_unowned @objc_block () -&gt; (@unowned ())"
                   moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/LoginViewController.swift"
-                  timestampString = "450541937.428954"
+                  timestampString = "450690564.224329"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "4">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "9">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -334,11 +342,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/HomeTabBarController.swift"
-            timestampString = "450556279.708646"
+            timestampString = "450709524.902002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "addDropdown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -350,11 +358,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/HomeTabBarController.swift"
-            timestampString = "450556279.708646"
+            timestampString = "450709524.902002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "HomeTabBarController"
             landmarkType = "3">
          </BreakpointContent>
@@ -366,11 +374,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/HomeTabBarController.swift"
-            timestampString = "450550486.067302"
+            timestampString = "450709524.902002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "HomeTabBarController"
             landmarkType = "3">
          </BreakpointContent>
@@ -398,11 +406,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/HomeTabBarController.swift"
-            timestampString = "450556279.708646"
+            timestampString = "450709524.902002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "addDropdown()"
             landmarkType = "5">
          </BreakpointContent>
@@ -523,13 +531,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Youlv/RecommenedViewController.swift"
-            timestampString = "450645362.785759"
+            filePath = "Youlv/MainTabBarController.swift"
+            timestampString = "450693732.564035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "doLayout()"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "addCenterButton()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -539,13 +547,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Youlv/RecommenedViewController.swift"
-            timestampString = "450645362.785759"
+            filePath = "Youlv/LoginViewController.swift"
+            timestampString = "450690469.44297"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "doLayout()"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "BtnLoginClicked(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -555,13 +563,61 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Youlv/RecommenedViewController.swift"
-            timestampString = "450643892.001991"
+            filePath = "Youlv/LoginViewController.swift"
+            timestampString = "450690524.868776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "doLayout()"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "BtnLoginClicked(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Youlv/LoginViewController.swift"
+            timestampString = "450690548.520016"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "LoginViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Youlv/LoginViewController.swift"
+            timestampString = "450690553.73724"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "LoginViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Youlv/Controllers/HomeTabBarController.swift"
+            timestampString = "450709524.902002"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "setTabItems()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func BtnLoginClicked(sender: AnyObject) {
         var mainStoryBoard = UIStoryboard(name:"Main",bundle:nil)
-        var mainViewController = mainStoryBoard.instantiateInitialViewController() as UIViewController
+        var mainViewController = mainStoryBoard.instantiateInitialViewController() as! UIViewController
         self.presentViewController(mainViewController,animated:true,completion:nil)
     }
     
