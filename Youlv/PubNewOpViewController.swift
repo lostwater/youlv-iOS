@@ -1,14 +1,14 @@
 //
-//  NewViewController.swift
+//  PubNewOpViewController.swift
 //  Youlv
 //
-//  Created by Lost on 12/04/2015.
+//  Created by Lost on 15/04/2015.
 //  Copyright (c) 2015 Ramy. All rights reserved.
 //
 
 import UIKit
 
-class NewViewController: UIViewController {
+class PubNewOpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +20,7 @@ class NewViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBOutlet weak var BtnClose: UIButton!
     
-    @IBAction func BtnCloseClicked(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false,completion:nil);
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true;
-    }
-
 
     /*
     // MARK: - Navigation

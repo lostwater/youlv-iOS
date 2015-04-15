@@ -39,7 +39,7 @@ class HomeTabBarController: TopTabBarController,DropDownChooseDataSource,DropDow
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addDropdown();
+        //addDropdown();
         setTabItems();
         //addCenterButton();
 
@@ -73,8 +73,8 @@ class HomeTabBarController: TopTabBarController,DropDownChooseDataSource,DropDow
             vc.tabBarItem?.selectedImage = selectedimages[i]! as UIImage
             vc.tabBarItem.title = ""
         }
-        tabBar.frame = CGRectMake(tabBar.frame.origin.x,tabBar.frame.origin.y,
-        tabBar.frame.width,86)
+        //tabBar.frame = CGRectMake(tabBar.frame.origin.x,tabBar.frame.origin.y,
+        //tabBar.frame.width,86)
 
     }
     

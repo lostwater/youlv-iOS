@@ -21,7 +21,7 @@
                                 <rect key="frame" x="217" y="235" width="60" height="32"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.71021713040000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Opportunities" id="tTA-Fs-0XG"/>
                 </viewController>
@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="-5630" y="-1351"/>
         </scene>
-        <!--HomeRootVC-->
+        <!--HomeTabController-->
         <scene sceneID="cfp-ZI-3iO">
             <objects>
-                <tabBarController title="HomeRootVC" id="H6O-mk-hHm" customClass="HomeTabBarController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController title="HomeTabController" id="H6O-mk-hHm" customClass="HomeTabBarController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" id="YMS-IG-aUh" userLabel="Home"/>
                     <navigationItem key="navigationItem" id="ddR-6h-EA0">
                         <barButtonItem key="leftBarButtonItem" image="buttonhelp" id="dJ5-2D-eGz"/>

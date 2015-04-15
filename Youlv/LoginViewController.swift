@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          self.navigationController?.navigationBar.backItem?.title = "";
+        //self.view.backgroundColor = UIColorFromRGB(0x00b1f1);
 
         //self.navigationController?.setNavigationBarHidden(true, animated: false)
         // Do any additional setup after loading the view.
@@ -31,6 +32,14 @@ class LoginViewController: UIViewController {
         self.presentViewController(mainViewController,animated:true,completion:nil)
     }
     
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
 
 
     /*

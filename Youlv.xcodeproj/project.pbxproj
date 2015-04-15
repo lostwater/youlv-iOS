@@ -35,6 +35,7 @@
 		0BCECFF91ADAE2A1006BE53A /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */; };
 		0BCECFFB1ADAE2D0006BE53A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */; };
 		0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */; };
+		0BEED3E31ADE90590093E06B /* PubNewOpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED3E21ADE90590093E06B /* PubNewOpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
 		0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslucentNavBarController.swift; sourceTree = "<group>"; };
+		0BEED3E21ADE90590093E06B /* PubNewOpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubNewOpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 		0BCECFEB1ADAAD76006BE53A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0BEED3E21ADE90590093E06B /* PubNewOpViewController.swift */,
 				0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */,
 				0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */,
 				0BCECFEC1ADAAD95006BE53A /* LoginViewController.swift */,
@@ -332,6 +335,7 @@
 				0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */,
 				0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */,
 				0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */,
+				0BEED3E31ADE90590093E06B /* PubNewOpViewController.swift in Sources */,
 				0B5FDEFE1AD6A2EF00773360 /* AppDelegate.swift in Sources */,
 				0BCECFF91ADAE2A1006BE53A /* DiscoveryViewController.swift in Sources */,
 				0B93C9FD1ADC26D7003117BE /* SignupViewController.swift in Sources */,
