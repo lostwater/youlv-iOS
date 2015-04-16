@@ -12,7 +12,6 @@ class SignupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavBar();
 
         // Do any additional setup after loading the view.
     }
@@ -22,12 +21,7 @@ class SignupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setNavBar()
-    {
-        
-        self.navigationItem.titleView?.tintColor=UIColor.whiteColor();
-        self.navigationController?.navigationBar.backItem?.title="ca";
-    }
+
 
     /*
     // MARK: - Navigation

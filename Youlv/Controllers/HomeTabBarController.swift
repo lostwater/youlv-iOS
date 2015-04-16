@@ -71,8 +71,9 @@ class HomeTabBarController: TopTabBarController,DropDownChooseDataSource,DropDow
             var vc = viewControllers![i] as! UIViewController
             vc.tabBarItem?.image = normalimages[i]! as UIImage
             vc.tabBarItem?.selectedImage = selectedimages[i]! as UIImage
-            vc.tabBarItem.title = ""
+            vc.tabBarItem.title = ""            
         }
+        
         //tabBar.frame = CGRectMake(tabBar.frame.origin.x,tabBar.frame.origin.y,
         //tabBar.frame.width,86)
 

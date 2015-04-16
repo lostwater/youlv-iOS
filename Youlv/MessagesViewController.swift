@@ -10,8 +10,16 @@ import UIKit
 
 class MessagesViewController: UIViewController {
 
+
+    @IBOutlet weak var newChatMenuView: UIView!
+    @IBOutlet var UITapGR: UITapGestureRecognizer!
+    @IBOutlet weak var newChatMenuButton: UIBarButtonItem!
+    @IBAction func newChatMenuButtonClicked(sender: AnyObject) {
+        newChatMenuView.hidden = false;
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -19,6 +27,10 @@ class MessagesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func viewTapped(sender: AnyObject) {
+        newChatMenuView.hidden = true;
     }
     
 

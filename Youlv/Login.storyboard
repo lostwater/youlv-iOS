@@ -25,14 +25,26 @@
                                     <constraint firstAttribute="height" constant="45" id="pMG-Y9-yTG"/>
                                 </constraints>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="Vpr-Jm-Z92">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="Vpr-Jm-Z92">
                                 <rect key="frame" x="170" y="205" width="260" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Ghb-cs-N6f"/>
+                                    <constraint firstAttribute="width" constant="260" id="STE-aS-Xv5"/>
+                                </constraints>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="1dD-B6-ePj">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="1dD-B6-ePj">
                                 <rect key="frame" x="170" y="265" width="260" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="WFc-uy-bqN"/>
+                                    <constraint firstAttribute="width" constant="260" id="iAz-M2-1VO"/>
+                                </constraints>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="VO1-Q6-FMA">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="VO1-Q6-FMA">
                                 <rect key="frame" x="170" y="147" width="260" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="gJb-yA-gKe"/>
+                                    <constraint firstAttribute="width" constant="260" id="nyr-TK-LVK"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyp-Zw-E6I">
                                 <rect key="frame" x="188" y="103" width="34" height="21"/>
@@ -61,7 +73,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="n1s-Aj-FxQ" kind="push" id="wDt-lU-MPh"/>
+                                    <segue destination="n1s-Aj-FxQ" kind="show" id="wDt-lU-MPh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdL-Bj-rgM">
@@ -178,7 +190,7 @@
                                     <rect key="frame" x="345" y="64" width="110" height="110"/>
                                 </variation>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-CH-eRa">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-CH-eRa">
                                 <rect key="frame" x="170" y="208" width="260" height="45"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconusername" translatesAutoresizingMaskIntoConstraints="NO" id="ue5-bq-fEF">
@@ -194,8 +206,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="rvh-Kr-40h">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="rvh-Kr-40h">
                                 <rect key="frame" x="170" y="278" width="260" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="1Ew-m3-lpS"/>
+                                    <constraint firstAttribute="width" constant="260" id="qqZ-qy-UkF"/>
+                                </constraints>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconpassword" translatesAutoresizingMaskIntoConstraints="NO" id="lQR-8p-re2">
                                 <rect key="frame" x="188" y="286" width="30" height="30"/>
@@ -542,7 +558,7 @@
     <resources>
         <image name="alpha0" width="1" height="1"/>
         <image name="bgbottombar98px" width="10" height="49"/>
-        <image name="bgloginbar" width="260" height="45"/>
+        <image name="bgloginbar" width="47" height="45"/>
         <image name="buttonarrowsleftwhite" width="18" height="18"/>
         <image name="buttonlogin" width="260" height="45"/>
         <image name="buttonsendcode" width="74" height="45"/>
@@ -555,7 +571,7 @@
         <image name="line48px" width="1" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OWG-FI-QZg"/>
         <segue reference="Xuh-yA-qQ5"/>
+        <segue reference="OWG-FI-QZg"/>
     </inferredMetricsTieBreakers>
 </document>

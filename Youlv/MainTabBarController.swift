@@ -13,13 +13,8 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addCenterButton();
-        self.navigationController?.navigationBar.backgroundColor=UIColor.blueColor();
-        var homeStoryBoard = UIStoryboard(name:"Home",bundle:nil)
-        var vc = homeStoryBoard.instantiateInitialViewController() as! UIViewController
-        self.viewControllers?[0]=vc;
-        vc.tabBarItem.title = " ";
-        vc.title = ""
-        setTabBarItems();
+
+                setTabBarItems();
         // Do any additional setup after loading the view.
     }
 
@@ -30,6 +25,15 @@ class MainTabBarController: UITabBarController {
     
     func setTabBarItems()
     {
+        var homeStoryBoard = UIStoryboard(name:"Home",bundle:nil)
+        var vc = homeStoryBoard.instantiateInitialViewController() as! UIViewController
+        self.viewControllers?[0]=vc;
+        vc.tabBarItem.title = " ";
+        vc.title = ""
+
+        var messssageStoryBorad = UIStoryboard(name:"Messages",bundle:nil)
+        self.viewControllers?[1] = messssageStoryBorad.instantiateInitialViewController() as! UIViewController
+        
         let normalimage1 = UIImage(named: "buttonhomepagegrey") as UIImage?
         let selectedimage1 = UIImage(named: "buttonhomepageblue") as UIImage?
         let normalimage2 = UIImage(named: "buttonmessagegrey") as UIImage?

@@ -49,23 +49,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         
         
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "alpha0"), forBarMetrics: UIBarMetrics.Default)
         
         //navigationBar.shadowImage = UIImage()
         //navigationBar.translucent = true
         UINavigationBar.appearance().translucent = false;
         UINavigationBar.appearance().tintColor = UIColor.whiteColor();
         UINavigationBar.appearance().backItem?.title = "";
-        var navAppearance = UINavigationBar.appearance();
-        navAppearance.titleTextAttributes =
+        UINavigationBar.appearance().titleTextAttributes =
             [
                 NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 24)!,
                 NSForegroundColorAttributeName:UIColor.whiteColor()
         ];
-        navAppearance.barTintColor = UIColorFromRGB(0x00B1F1)
-        //UIStatusBar
-        
-        //self.view.backgroundColor=UIColor.blueColor();
+        UINavigationBar.appearance().barTintColor = UIColorFromRGB(0x00B1F1)
+        UIBarButtonItem.appearance().setBackButtonBackgroundImage(UIImage(named: "buttonarrowleftwhite"), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -500, vertical: 0), forBarMetrics: UIBarMetrics.Default)
+
         
     }
     

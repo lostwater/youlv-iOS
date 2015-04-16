@@ -40,7 +40,7 @@ class TopTabBarController: UITabBarController {
         //bg.setBackgroundImage(UIImage(named: "bgtabbar86px"), forToolbarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         //self.view.addSubview(bg);
         
-        var bgframe = CGRectMake(0, tabBar.frame.origin.y, tabBar.frame.size.width, 35);
+        var bgframe = CGRectMake(0, 0, tabBar.frame.size.width, 35);
         var bgImage = UIImage(named: "bgtabbar86px")
         var bgIV = UIImageView(frame: bgframe);
         bgIV.image = bgImage;

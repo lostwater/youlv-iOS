@@ -261,10 +261,10 @@
             </objects>
             <point key="canvasLocation" x="-1653" y="-3539"/>
         </scene>
-        <!--新话题-->
+        <!--NewTopicVC-->
         <scene sceneID="unr-nn-bRl">
             <objects>
-                <viewController id="gjs-mn-6XQ" sceneMemberID="viewController">
+                <viewController title="NewTopicVC" id="gjs-mn-6XQ" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xei-ec-QR0"/>
                         <viewControllerLayoutGuide type="bottom" id="20n-YB-npV"/>
@@ -273,10 +273,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2bR-lX-kB8">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2bR-lX-kB8">
                                 <rect key="frame" x="0.0" y="122" width="600" height="478"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="内容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcb-LM-9Jy">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="内容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcb-LM-9Jy">
                                         <rect key="frame" x="21" y="0.0" width="56" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="MgV-2K-KzD"/>
@@ -328,14 +328,14 @@
                                         <exclude reference="q8s-Wm-CjA"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="0Xe-hM-rMk"/>
-                                        <exclude reference="10r-8O-hqd"/>
-                                        <exclude reference="Bau-IL-oOj"/>
-                                        <exclude reference="GvR-Kt-mT1"/>
                                         <exclude reference="KtX-Zh-UZ3"/>
                                         <exclude reference="QAk-Pe-eV4"/>
                                         <exclude reference="cxk-Y6-eac"/>
                                         <exclude reference="ejX-qQ-Y9n"/>
+                                        <exclude reference="0Xe-hM-rMk"/>
+                                        <exclude reference="10r-8O-hqd"/>
+                                        <exclude reference="Bau-IL-oOj"/>
+                                        <exclude reference="GvR-Kt-mT1"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -343,18 +343,18 @@
                                         <include reference="q8s-Wm-CjA"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="0Xe-hM-rMk"/>
-                                        <include reference="10r-8O-hqd"/>
-                                        <include reference="Bau-IL-oOj"/>
-                                        <include reference="GvR-Kt-mT1"/>
                                         <include reference="KtX-Zh-UZ3"/>
                                         <include reference="QAk-Pe-eV4"/>
                                         <include reference="cxk-Y6-eac"/>
                                         <include reference="ejX-qQ-Y9n"/>
+                                        <include reference="0Xe-hM-rMk"/>
+                                        <include reference="10r-8O-hqd"/>
+                                        <include reference="Bau-IL-oOj"/>
+                                        <include reference="GvR-Kt-mT1"/>
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2t-GO-pWU">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2t-GO-pWU">
                                 <rect key="frame" x="557" y="72" width="27" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="aB3-We-5lb"/>
@@ -379,7 +379,7 @@
                                     <segue destination="bUw-bU-S51" kind="show" id="R6x-cC-iVb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKL-BB-AH6">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKL-BB-AH6">
                                 <rect key="frame" x="16" y="67" width="110" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NaC-9A-aDg"/>
@@ -433,26 +433,26 @@
                             <mask key="constraints">
                                 <exclude reference="bya-Nw-XRw"/>
                                 <exclude reference="cAB-5g-oeQ"/>
-                                <exclude reference="Jgj-jg-ijn"/>
-                                <exclude reference="qRO-Mi-lgW"/>
-                                <exclude reference="HqR-f9-Ivi"/>
                                 <exclude reference="4g8-rH-GzB"/>
                                 <exclude reference="aJM-pZ-ooV"/>
                                 <exclude reference="i0f-fo-iHj"/>
                                 <exclude reference="xiI-Dk-pGO"/>
+                                <exclude reference="Jgj-jg-ijn"/>
+                                <exclude reference="qRO-Mi-lgW"/>
+                                <exclude reference="HqR-f9-Ivi"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="bya-Nw-XRw"/>
                                 <include reference="cAB-5g-oeQ"/>
-                                <include reference="Jgj-jg-ijn"/>
-                                <include reference="qRO-Mi-lgW"/>
-                                <include reference="HqR-f9-Ivi"/>
                                 <include reference="4g8-rH-GzB"/>
                                 <include reference="aJM-pZ-ooV"/>
                                 <include reference="i0f-fo-iHj"/>
                                 <exclude reference="xiI-Dk-pGO"/>
+                                <include reference="Jgj-jg-ijn"/>
+                                <include reference="qRO-Mi-lgW"/>
+                                <include reference="HqR-f9-Ivi"/>
                             </mask>
                         </variation>
                     </view>
