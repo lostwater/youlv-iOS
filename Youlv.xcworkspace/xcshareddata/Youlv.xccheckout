@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>13336DD4-FB09-4ED8-B818-D379BEF38B40</string>
+	<string>448FDFF6-1AE8-4E95-822E-2FE8ADD40E58</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Youlv</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>git.ramy-inc.com:ios-team/Youlv-IOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Youlv.xcodeproj</string>
+	<string>Youlv.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>7CED0927ABAB776EFD538273A0E9A6C6C4551619</key>
-		<string>../..</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>git.ramy-inc.com:ios-team/Youlv-IOS.git</string>

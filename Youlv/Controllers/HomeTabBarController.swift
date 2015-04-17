@@ -7,42 +7,15 @@
 //
 
 import UIKit
-    protocol dDropDownChooseDelegate
-    {
-        
-        var DropDownChooseDelegate:NSObject{get set}
-        func chooseAtSection(section:NSInteger,	index i:NSInteger)
-    }
-    
-   protocol  dDropDownChooseDataSource
-   {
-    var DropDownChooseDataSource:NSObject{get set}
-    func numberOfSections() -> NSInteger
-    func numberOfRowsInSection (section:NSInteger) -> NSInteger
-    func titleInSection(section:NSInteger,index i:NSInteger)->String
-    func defaultShowSection(section:NSInteger)->NSInteger
 
-
-    }
    
     
-class HomeTabBarController: TopTabBarController,DropDownChooseDataSource,DropDownChooseDelegate
+class HomeTabBarController: TopTabBarController
 {
-
-    var dropDown : DropDownListView?
-     var chooseArray = [["1","2"]]
-    
-
-
-
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //addDropdown();
         setTabItems();
-        //addCenterButton();
-
         // Do any additional setup after loading the view.
     }
 
@@ -79,26 +52,6 @@ class HomeTabBarController: TopTabBarController,DropDownChooseDataSource,DropDow
 
     }
     
-    func addDropdown()
-    {
-        self.title = "Home";
-        let w : CGFloat = 200.0;
-        if(navigationController != nil)
-        {
-        var x = navigationController!.navigationBar.frame.size.width - w;
-        x = x/2;
-        dropDown = DropDownListView(frame: CGRectMake(x,0, w, navigationController!.navigationBar.frame.height), dataSource:self, delegate:self);
-        //dropDown?.center = navigationController!.navigationBar.center;
-        dropDown!.mSuperView = self.view;
-        //self.navigationController?.navigationBar.addSubview(dropDown!);
-        //self.tabBarController?.navigationItem.titleView = dropDown;
-        //self.tabBarController?.navigationController?.pushViewController(self, animated: false)
-        self.tabBarController?.navigationController?.navigationBar.backgroundColor = UIColor.blueColor();
-        }
-        
-        //self.navigationController?.navigationItem.titleView = dropDown;
-    }
-    
     func addCenterButton()
     {
         var centerButton = UIButton();
@@ -110,31 +63,7 @@ class HomeTabBarController: TopTabBarController,DropDownChooseDataSource,DropDow
     }
 
     
-    //pragma mark -- dropDownListDelegate
-    func chooseAtSection(section:NSInteger,	index i:NSInteger)
-    {
-   
-    }
     
-    //pragma mark -- dropdownList DataSource
-    func numberOfSections() -> NSInteger
-    {
-        return chooseArray.count;
-    }
-    func numberOfRowsInSection (section:NSInteger) -> NSInteger
-    {
-        var arry = chooseArray[section];
-        return arry.count
-    }
-    func titleInSection(section:NSInteger,index i:NSInteger)->String
-    {
-        return chooseArray[section][i];
-    }
-    func defaultShowSection(section:NSInteger)->NSInteger
-    {
-    return 0;
-    }
-
     /*
     // MARK: - Navigation
 

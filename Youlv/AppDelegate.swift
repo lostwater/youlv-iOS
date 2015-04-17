@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setNavBar()
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
-        
+        		
         return true
     }
 

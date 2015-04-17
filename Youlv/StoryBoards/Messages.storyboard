@@ -289,6 +289,32 @@
             </objects>
             <point key="canvasLocation" x="-783" y="-772.5"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="sJX-aP-UWd">
+            <objects>
+                <tableViewController id="zAw-4x-6z4" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GRD-oI-Ocf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Vpg-dx-3hk">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vpg-dx-3hk" id="bJd-tR-CJ1">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zAw-4x-6z4" id="oOo-TH-BqR"/>
+                            <outlet property="delegate" destination="zAw-4x-6z4" id="J61-T2-dba"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5uY-qH-oHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-163" y="-620"/>
+        </scene>
         <!--MyFriendsVC-->
         <scene sceneID="8fT-SY-xK7">
             <objects>
@@ -301,20 +327,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ekJ-uG-eUe">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Scq-eV-7Z7" id="DYi-vM-HiU"/>
-                                </connections>
-                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ki5-4j-HE7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableFooterView" contentMode="redraw" id="IJC-Fv-bTK">
+                                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ekJ-uG-eUe" firstAttribute="top" secondItem="O6B-51-IKm" secondAttribute="bottom" id="5nU-oG-vQF"/>
-                            <constraint firstAttribute="centerX" secondItem="ekJ-uG-eUe" secondAttribute="centerX" id="Jfs-3u-PgN"/>
-                            <constraint firstAttribute="width" secondItem="ekJ-uG-eUe" secondAttribute="width" id="O5B-xd-qcw"/>
+                            <constraint firstAttribute="width" secondItem="ki5-4j-HE7" secondAttribute="width" id="0V0-ZA-SbN"/>
+                            <constraint firstAttribute="width" secondItem="ki5-4j-HE7" secondAttribute="width" id="BDt-mf-fKh"/>
+                            <constraint firstAttribute="height" secondItem="ki5-4j-HE7" secondAttribute="height" id="CNi-BJ-mZd"/>
+                            <constraint firstAttribute="centerX" secondItem="ki5-4j-HE7" secondAttribute="centerX" id="e8n-Vd-Ytm"/>
+                            <constraint firstItem="ki5-4j-HE7" firstAttribute="leading" secondItem="YN7-iA-gIx" secondAttribute="leadingMargin" constant="-16" id="s5J-el-a38"/>
+                            <constraint firstAttribute="centerY" secondItem="ki5-4j-HE7" secondAttribute="centerY" id="yhF-O4-YAJ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BDt-mf-fKh"/>
+                                <exclude reference="s5J-el-a38"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="我的好友" id="rOz-2r-OSl"/>
                     <connections>
@@ -325,7 +362,6 @@
                 <searchDisplayController id="J8B-I0-MYO">
                     <connections>
                         <outlet property="delegate" destination="Scq-eV-7Z7" id="AgL-tN-dWd"/>
-                        <outlet property="searchBar" destination="ekJ-uG-eUe" id="cql-GU-hUP"/>
                         <outlet property="searchContentsController" destination="Scq-eV-7Z7" id="sef-NS-P7M"/>
                         <outlet property="searchResultsDataSource" destination="Scq-eV-7Z7" id="VYs-Zj-kHB"/>
                         <outlet property="searchResultsDelegate" destination="Scq-eV-7Z7" id="l5I-ek-Xc7"/>
@@ -355,7 +391,7 @@
         <!--StartGroupChat1VC-->
         <scene sceneID="5eL-JC-CVF">
             <objects>
-                <viewController title="StartGroupChat1VC" id="rO6-Be-4Zn" sceneMemberID="viewController">
+                <viewController title="StartGroupChat1VC" id="rO6-Be-4Zn" customClass="StartGroupChat1ViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BHA-RA-34n"/>
                         <viewControllerLayoutGuide type="bottom" id="uB2-qa-1IH"/>
@@ -364,11 +400,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfI-vv-BDw">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfI-vv-BDw">
                                 <rect key="frame" x="265" y="119" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="5qI-Fg-7hb"/>
+                                    <constraint firstAttribute="width" constant="70" id="pXO-zv-uhJ"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="buttonuploadpic">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="uploadPicClicked:" destination="rO6-Be-4Zn" eventType="touchUpInside" id="mJ5-QB-h9R"/>
+                                </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="line48px" translatesAutoresizingMaskIntoConstraints="NO" id="2Pi-AQ-kvJ">
                                 <rect key="frame" x="0.0" y="239" width="600" height="1"/>
@@ -439,6 +482,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="groupPicButton" destination="FfI-vv-BDw" id="dxb-nH-mOE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W3i-pF-hv8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

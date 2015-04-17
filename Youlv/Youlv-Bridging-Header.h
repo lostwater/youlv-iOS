@@ -5,6 +5,7 @@
 //#import "NIDropDown.h"
 #import "DropDownListView.h"
 #import "DropDownChooseProtocol.h"
+#import "FSMediaPicker.h"
 
 
 //

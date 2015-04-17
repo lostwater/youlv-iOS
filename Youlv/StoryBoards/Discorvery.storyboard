@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SWC-SE-bG1">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="EX4-ni-xiy">
+            <objects>
+                <navigationController id="SWC-SE-bG1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XBy-gU-Hw7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vUu-6J-3tS" kind="relationship" relationship="rootViewController" id="JQn-5S-QQ6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KIW-zN-mvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-358" y="270"/>
+        </scene>
+        <!--DiscoveryVC-->
+        <scene sceneID="Jvh-8R-V4d">
+            <objects>
+                <viewController title="DiscoveryVC" id="vUu-6J-3tS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VCR-sE-tBy"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mcn-2K-kZB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wzx-kY-ZJC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="CWc-xF-aBI">
+                                <rect key="frame" x="0.0" y="64" width="600" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Umh-1c-bky"/>
+                                </constraints>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQw-w0-0hg">
+                                <rect key="frame" x="194" y="462" width="97" height="25"/>
+                                <state key="normal" title="律师招聘" image="iconjob">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbd-hC-nFV">
+                                <rect key="frame" x="194" y="508" width="97" height="25"/>
+                                <state key="normal" title="友律调查" image="iconresearch">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hot-bQ-ERG">
+                                <rect key="frame" x="194" y="550" width="79" height="25"/>
+                                <state key="normal" title="学院派" image="iconacademism">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwD-ha-830">
+                                <rect key="frame" x="194" y="402" width="80" height="25"/>
+                                <state key="normal" title="微访谈 " image="iconinterview">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CWc-xF-aBI" firstAttribute="width" secondItem="Wzx-kY-ZJC" secondAttribute="width" id="Z3G-MW-6IJ"/>
+                            <constraint firstItem="CWc-xF-aBI" firstAttribute="top" secondItem="VCR-sE-tBy" secondAttribute="bottom" id="cN9-lw-gyQ"/>
+                            <constraint firstAttribute="centerX" secondItem="CWc-xF-aBI" secondAttribute="centerX" id="shw-uT-bPK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="发现" id="K2p-P6-NG0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="git-Bp-6gN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="412" y="256"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="iconacademism" width="25" height="25"/>
+        <image name="iconinterview" width="25" height="25"/>
+        <image name="iconjob" width="25" height="25"/>
+        <image name="iconresearch" width="25" height="25"/>
+    </resources>
+</document>

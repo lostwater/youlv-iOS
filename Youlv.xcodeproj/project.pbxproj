@@ -19,6 +19,15 @@
 		0B93C9FB1ADC0936003117BE /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */; };
 		0B93C9FD1ADC26D7003117BE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */; };
 		0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */; };
+		0BBE373C1AE103E700FA0018 /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BBE373B1AE103E700FA0018 /* Friend.storyboard */; };
+		0BBE373E1AE105B900FA0018 /* FriendCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE373D1AE105B900FA0018 /* FriendCellView.swift */; };
+		0BBE37401AE105FC00FA0018 /* MessagesHomeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE373F1AE105FC00FA0018 /* MessagesHomeCellView.swift */; };
+		0BBE37431AE1064000FA0018 /* FriendHomeMessageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE37421AE1064000FA0018 /* FriendHomeMessageCellView.swift */; };
+		0BBE37451AE1067400FA0018 /* JoinGroupsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE37441AE1067400FA0018 /* JoinGroupsCellView.swift */; };
+		0BBE37471AE1069B00FA0018 /* MyGroupsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE37461AE1069B00FA0018 /* MyGroupsCellView.swift */; };
+		0BBE37491AE10A3000FA0018 /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE37481AE10A3000FA0018 /* MyFriendsViewController.swift */; };
+		0BBE374B1AE10CA200FA0018 /* DropDownNavTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE374A1AE10CA200FA0018 /* DropDownNavTitleViewController.swift */; };
+		0BBE374D1AE15DC700FA0018 /* StartGroupChat1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE374C1AE15DC700FA0018 /* StartGroupChat1ViewController.swift */; };
 		0BCAEE221AD7CC6300421B7A /* TopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */; };
 		0BCAEE241AD82ACB00421B7A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */; };
 		0BCECFC01AD99B8E006BE53A /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFBF1AD99B8E006BE53A /* HomeNavigationController.swift */; };
@@ -35,6 +44,8 @@
 		0BCECFFB1ADAE2D0006BE53A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */; };
 		0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */; };
 		0BEED3E31ADE90590093E06B /* PubNewOpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED3E21ADE90590093E06B /* PubNewOpViewController.swift */; };
+		0D4EF4C570043DD060CA4710 /* libPods-YoulvTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DF49B96C5C3ABABDB9AD47 /* libPods-YoulvTests.a */; };
+		5CA628DE0C8F043BE5B3A326 /* libPods-Youlv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3559EBB7821ADCB4534DDA87 /* libPods-Youlv.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,11 +59,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00DF49B96C5C3ABABDB9AD47 /* libPods-YoulvTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoulvTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		02DEE20A9728714FF4EF1428 /* Pods-YoulvTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YoulvTests/Pods-YoulvTests.release.xcconfig"; sourceTree = "<group>"; };
 		0B10C9E61ADAEE7C00695853 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0B10C9E91ADB054D00695853 /* NewPublish.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewPublish.storyboard; sourceTree = "<group>"; };
 		0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discorvery.storyboard; sourceTree = "<group>"; };
 		0B10C9EE1ADB070300695853 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
-		0B10C9F21ADB090800695853 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeTabBarController.swift; path = Controllers/HomeTabBarController.swift; sourceTree = "<group>"; };
+		0B10C9F21ADB090800695853 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		0B5FDEF81AD6A2EF00773360 /* Youlv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Youlv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5FDEFC1AD6A2EF00773360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,9 +74,18 @@
 		0B5FDF0D1AD6A2EF00773360 /* YoulvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoulvTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5FDF121AD6A2EF00773360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B5FDF131AD6A2EF00773360 /* YoulvTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoulvTests.swift; sourceTree = "<group>"; };
-		0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginNavigationController.swift; path = Controllers/LoginNavigationController.swift; sourceTree = "<group>"; };
-		0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = Controllers/SignupViewController.swift; sourceTree = "<group>"; };
+		0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
+		0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommenedViewController.swift; sourceTree = "<group>"; };
+		0BBE373B1AE103E700FA0018 /* Friend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friend.storyboard; sourceTree = "<group>"; };
+		0BBE373D1AE105B900FA0018 /* FriendCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCellView.swift; sourceTree = "<group>"; };
+		0BBE373F1AE105FC00FA0018 /* MessagesHomeCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesHomeCellView.swift; sourceTree = "<group>"; };
+		0BBE37421AE1064000FA0018 /* FriendHomeMessageCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendHomeMessageCellView.swift; sourceTree = "<group>"; };
+		0BBE37441AE1067400FA0018 /* JoinGroupsCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupsCellView.swift; sourceTree = "<group>"; };
+		0BBE37461AE1069B00FA0018 /* MyGroupsCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsCellView.swift; sourceTree = "<group>"; };
+		0BBE37481AE10A3000FA0018 /* MyFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFriendsViewController.swift; sourceTree = "<group>"; };
+		0BBE374A1AE10CA200FA0018 /* DropDownNavTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownNavTitleViewController.swift; sourceTree = "<group>"; };
+		0BBE374C1AE15DC700FA0018 /* StartGroupChat1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGroupChat1ViewController.swift; sourceTree = "<group>"; };
 		0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabBarController.swift; sourceTree = "<group>"; };
 		0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Youlv-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -83,6 +105,10 @@
 		0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslucentNavBarController.swift; sourceTree = "<group>"; };
 		0BEED3E21ADE90590093E06B /* PubNewOpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubNewOpViewController.swift; sourceTree = "<group>"; };
+		3559EBB7821ADCB4534DDA87 /* libPods-Youlv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC61B62063B859E8AC526E62 /* Pods-Youlv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youlv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Youlv/Pods-Youlv.debug.xcconfig"; sourceTree = "<group>"; };
+		BC08593F6B57076AEFC6518F /* Pods-Youlv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youlv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Youlv/Pods-Youlv.release.xcconfig"; sourceTree = "<group>"; };
+		EE4810F8803C5B0455DAAD19 /* Pods-YoulvTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YoulvTests/Pods-YoulvTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CA628DE0C8F043BE5B3A326 /* libPods-Youlv.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,12 +124,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D4EF4C570043DD060CA4710 /* libPods-YoulvTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00D46CBCE78E1A669ED42DDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC61B62063B859E8AC526E62 /* Pods-Youlv.debug.xcconfig */,
+				BC08593F6B57076AEFC6518F /* Pods-Youlv.release.xcconfig */,
+				EE4810F8803C5B0455DAAD19 /* Pods-YoulvTests.debug.xcconfig */,
+				02DEE20A9728714FF4EF1428 /* Pods-YoulvTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		0A4801D2A72F8C7AC1EE4270 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3559EBB7821ADCB4534DDA87 /* libPods-Youlv.a */,
+				00DF49B96C5C3ABABDB9AD47 /* libPods-YoulvTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0B10C9E81ADAEE8E00695853 /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,8 +161,9 @@
 				0B10C9E91ADB054D00695853 /* NewPublish.storyboard */,
 				0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */,
 				0B10C9EE1ADB070300695853 /* Messages.storyboard */,
+				0BBE373B1AE103E700FA0018 /* Friend.storyboard */,
 			);
-			name = StoryBoards;
+			path = StoryBoards;
 			sourceTree = "<group>";
 		};
 		0B5FDEEF1AD6A2EF00773360 = {
@@ -123,6 +172,8 @@
 				0B5FDEFA1AD6A2EF00773360 /* Youlv */,
 				0B5FDF101AD6A2EF00773360 /* YoulvTests */,
 				0B5FDEF91AD6A2EF00773360 /* Products */,
+				00D46CBCE78E1A669ED42DDD /* Pods */,
+				0A4801D2A72F8C7AC1EE4270 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +191,7 @@
 			children = (
 				0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */,
 				0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */,
+				0BBE37411AE1060500FA0018 /* Views */,
 				0BCECFEB1ADAAD76006BE53A /* Controllers */,
 				0BCECFBA1AD99A0F006BE53A /* CustomControllers */,
 				0B10C9E81ADAEE8E00695853 /* StoryBoards */,
@@ -175,6 +227,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0BBE37411AE1060500FA0018 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0BBE373D1AE105B900FA0018 /* FriendCellView.swift */,
+				0BBE373F1AE105FC00FA0018 /* MessagesHomeCellView.swift */,
+				0BBE37421AE1064000FA0018 /* FriendHomeMessageCellView.swift */,
+				0BBE37441AE1067400FA0018 /* JoinGroupsCellView.swift */,
+				0BBE37461AE1069B00FA0018 /* MyGroupsCellView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0BCECFBA1AD99A0F006BE53A /* CustomControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,8 +246,9 @@
 				0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */,
 				0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */,
 				0BCECFE71ADA3481006BE53A /* HomeBizVC.swift */,
+				0BBE374A1AE10CA200FA0018 /* DropDownNavTitleViewController.swift */,
 			);
-			name = CustomControllers;
+			path = CustomControllers;
 			sourceTree = "<group>";
 		};
 		0BCECFC11AD99EE5006BE53A /* dropDownList */ = {
@@ -212,8 +277,10 @@
 				0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */,
 				0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */,
 				0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */,
+				0BBE37481AE10A3000FA0018 /* MyFriendsViewController.swift */,
+				0BBE374C1AE15DC700FA0018 /* StartGroupChat1ViewController.swift */,
 			);
-			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,9 +290,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B5FDF171AD6A2EF00773360 /* Build configuration list for PBXNativeTarget "Youlv" */;
 			buildPhases = (
+				56FBB407D50A4B4466363E32 /* Check Pods Manifest.lock */,
 				0B5FDEF41AD6A2EF00773360 /* Sources */,
 				0B5FDEF51AD6A2EF00773360 /* Frameworks */,
 				0B5FDEF61AD6A2EF00773360 /* Resources */,
+				E75F57A321247F7FE2DDC08C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -240,9 +309,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B5FDF1A1AD6A2EF00773360 /* Build configuration list for PBXNativeTarget "YoulvTests" */;
 			buildPhases = (
+				A9DCA3575BFBADEA6E4634F8 /* Check Pods Manifest.lock */,
 				0B5FDF091AD6A2EF00773360 /* Sources */,
 				0B5FDF0A1AD6A2EF00773360 /* Frameworks */,
 				0B5FDF0B1AD6A2EF00773360 /* Resources */,
+				2CE336171D52621D51D4E00F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,6 +373,7 @@
 				0BCECFEF1ADABD0D006BE53A /* Others.storyboard in Resources */,
 				0B5FDF051AD6A2EF00773360 /* Images.xcassets in Resources */,
 				0B10C9EC1ADB06E600695853 /* Discorvery.storyboard in Resources */,
+				0BBE373C1AE103E700FA0018 /* Friend.storyboard in Resources */,
 				0B10C9EA1ADB054D00695853 /* NewPublish.storyboard in Resources */,
 				0B10C9E71ADAEE7C00695853 /* Home.storyboard in Resources */,
 				0B10C9EF1ADB070300695853 /* Messages.storyboard in Resources */,
@@ -318,21 +390,91 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2CE336171D52621D51D4E00F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YoulvTests/Pods-YoulvTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56FBB407D50A4B4466363E32 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A9DCA3575BFBADEA6E4634F8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E75F57A321247F7FE2DDC08C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Youlv/Pods-Youlv-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0B5FDEF41AD6A2EF00773360 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BBE37471AE1069B00FA0018 /* MyGroupsCellView.swift in Sources */,
 				0BCECFF71ADAE23F006BE53A /* MessagesViewController.swift in Sources */,
+				0BBE374B1AE10CA200FA0018 /* DropDownNavTitleViewController.swift in Sources */,
 				0B93C9FB1ADC0936003117BE /* LoginNavigationController.swift in Sources */,
+				0BBE373E1AE105B900FA0018 /* FriendCellView.swift in Sources */,
 				0BCECFFB1ADAE2D0006BE53A /* UserViewController.swift in Sources */,
 				0BCECFED1ADAAD95006BE53A /* LoginViewController.swift in Sources */,
 				0BCECFC01AD99B8E006BE53A /* HomeNavigationController.swift in Sources */,
 				0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */,
 				0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */,
+				0BBE37451AE1067400FA0018 /* JoinGroupsCellView.swift in Sources */,
+				0BBE374D1AE15DC700FA0018 /* StartGroupChat1ViewController.swift in Sources */,
 				0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */,
 				0BEED3E31ADE90590093E06B /* PubNewOpViewController.swift in Sources */,
 				0B5FDEFE1AD6A2EF00773360 /* AppDelegate.swift in Sources */,
+				0BBE37431AE1064000FA0018 /* FriendHomeMessageCellView.swift in Sources */,
+				0BBE37401AE105FC00FA0018 /* MessagesHomeCellView.swift in Sources */,
 				0BCECFF91ADAE2A1006BE53A /* DiscoveryViewController.swift in Sources */,
 				0B93C9FD1ADC26D7003117BE /* SignupViewController.swift in Sources */,
 				0BCAEE221AD7CC6300421B7A /* TopTabBarController.swift in Sources */,
@@ -340,6 +482,7 @@
 				0BCECFE81ADA3481006BE53A /* HomeBizVC.swift in Sources */,
 				0BCAEE241AD82ACB00421B7A /* MainTabBarController.swift in Sources */,
 				0BCECFF11ADABFBE006BE53A /* NewViewController.swift in Sources */,
+				0BBE37491AE10A3000FA0018 /* MyFriendsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +597,7 @@
 		};
 		0B5FDF181AD6A2EF00773360 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC61B62063B859E8AC526E62 /* Pods-Youlv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -469,6 +613,7 @@
 		};
 		0B5FDF191AD6A2EF00773360 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC08593F6B57076AEFC6518F /* Pods-Youlv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -483,6 +628,7 @@
 		};
 		0B5FDF1B1AD6A2EF00773360 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE4810F8803C5B0455DAAD19 /* Pods-YoulvTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -502,6 +648,7 @@
 		};
 		0B5FDF1C1AD6A2EF00773360 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02DEE20A9728714FF4EF1428 /* Pods-YoulvTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
