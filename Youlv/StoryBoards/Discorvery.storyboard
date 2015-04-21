@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -40,41 +41,131 @@
                                     <constraint firstAttribute="height" constant="200" id="Umh-1c-bky"/>
                                 </constraints>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQw-w0-0hg">
-                                <rect key="frame" x="194" y="462" width="97" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQw-w0-0hg">
+                                <rect key="frame" x="16" y="475" width="97" height="25"/>
                                 <state key="normal" title="律师招聘" image="iconjob">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbd-hC-nFV">
-                                <rect key="frame" x="194" y="508" width="97" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbd-hC-nFV">
+                                <rect key="frame" x="16" y="520" width="97" height="25"/>
                                 <state key="normal" title="友律调查" image="iconresearch">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hot-bQ-ERG">
-                                <rect key="frame" x="194" y="550" width="79" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hot-bQ-ERG">
+                                <rect key="frame" x="16" y="565" width="79" height="25"/>
                                 <state key="normal" title="学院派" image="iconacademism">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwD-ha-830">
-                                <rect key="frame" x="194" y="402" width="80" height="25"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wvv-Zt-Yfu">
+                                <rect key="frame" x="0.0" y="264" width="600" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faa-88-mOc">
+                                        <rect key="frame" x="0.0" y="10" width="301" height="30"/>
+                                        <state key="normal" title="topic1">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6l3-e6-okO">
+                                        <rect key="frame" x="300" y="10" width="300" height="30"/>
+                                        <state key="normal" title="topic2">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBA-mh-ylt">
+                                        <rect key="frame" x="0.0" y="60" width="301" height="30"/>
+                                        <state key="normal" title="topic3">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSw-9R-Z9a">
+                                        <rect key="frame" x="300" y="60" width="300" height="30"/>
+                                        <state key="normal" title="topic4">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="line48px" translatesAutoresizingMaskIntoConstraints="NO" id="OwT-IU-LC3">
+                                        <rect key="frame" x="300" y="13" width="1" height="24"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="line48px" translatesAutoresizingMaskIntoConstraints="NO" id="F1V-GR-epl">
+                                        <rect key="frame" x="300" y="63" width="1" height="24"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="OwT-IU-LC3" secondAttribute="centerY" constant="25" id="7Vh-Nk-PeF"/>
+                                    <constraint firstItem="F1V-GR-epl" firstAttribute="centerY" secondItem="yBA-mh-ylt" secondAttribute="centerY" id="J88-xd-Vqn"/>
+                                    <constraint firstItem="faa-88-mOc" firstAttribute="top" secondItem="Wvv-Zt-Yfu" secondAttribute="top" id="Jpk-uV-1sZ"/>
+                                    <constraint firstItem="6l3-e6-okO" firstAttribute="leading" secondItem="OwT-IU-LC3" secondAttribute="leading" id="Jsn-xN-ixf"/>
+                                    <constraint firstAttribute="centerX" secondItem="F1V-GR-epl" secondAttribute="centerX" id="LZa-cb-VkK"/>
+                                    <constraint firstItem="eSw-9R-Z9a" firstAttribute="leading" secondItem="F1V-GR-epl" secondAttribute="leading" id="MwW-lW-b7D"/>
+                                    <constraint firstItem="faa-88-mOc" firstAttribute="centerY" secondItem="OwT-IU-LC3" secondAttribute="centerY" id="NhT-S3-HNx"/>
+                                    <constraint firstItem="eSw-9R-Z9a" firstAttribute="centerY" secondItem="F1V-GR-epl" secondAttribute="centerY" id="Pkj-Pm-09M"/>
+                                    <constraint firstAttribute="trailing" secondItem="eSw-9R-Z9a" secondAttribute="trailing" id="Plc-RI-61e"/>
+                                    <constraint firstAttribute="height" constant="100" id="Rym-UX-8a4"/>
+                                    <constraint firstAttribute="centerX" secondItem="OwT-IU-LC3" secondAttribute="centerX" id="SBZ-vD-iaf"/>
+                                    <constraint firstItem="eSw-9R-Z9a" firstAttribute="centerY" secondItem="F1V-GR-epl" secondAttribute="centerY" id="UeN-mt-8Os"/>
+                                    <constraint firstItem="F1V-GR-epl" firstAttribute="centerY" secondItem="yBA-mh-ylt" secondAttribute="centerY" id="VH7-9e-zAZ"/>
+                                    <constraint firstItem="faa-88-mOc" firstAttribute="trailing" secondItem="OwT-IU-LC3" secondAttribute="trailing" id="WEH-4a-lZx"/>
+                                    <constraint firstItem="6l3-e6-okO" firstAttribute="centerY" secondItem="OwT-IU-LC3" secondAttribute="centerY" id="ZSF-Tb-GM6"/>
+                                    <constraint firstItem="faa-88-mOc" firstAttribute="leading" secondItem="Wvv-Zt-Yfu" secondAttribute="leading" id="aOB-4K-JqH"/>
+                                    <constraint firstAttribute="centerY" secondItem="F1V-GR-epl" secondAttribute="centerY" constant="-25" id="aZO-g2-gnh"/>
+                                    <constraint firstAttribute="trailing" secondItem="6l3-e6-okO" secondAttribute="trailing" id="buD-Ai-Rv1"/>
+                                    <constraint firstItem="F1V-GR-epl" firstAttribute="trailing" secondItem="yBA-mh-ylt" secondAttribute="trailing" id="ezy-9M-yqh"/>
+                                    <constraint firstItem="yBA-mh-ylt" firstAttribute="leading" secondItem="Wvv-Zt-Yfu" secondAttribute="leading" id="fAJ-e3-fTu"/>
+                                    <constraint firstItem="F1V-GR-epl" firstAttribute="leading" secondItem="eSw-9R-Z9a" secondAttribute="trailing" id="fvf-q7-1Ix"/>
+                                    <constraint firstItem="F1V-GR-epl" firstAttribute="leading" secondItem="yBA-mh-ylt" secondAttribute="trailing" id="htk-Np-Lyu"/>
+                                    <constraint firstItem="F1V-GR-epl" firstAttribute="leading" secondItem="eSw-9R-Z9a" secondAttribute="trailing" id="mkn-cV-sW7"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Jpk-uV-1sZ"/>
+                                        <exclude reference="VH7-9e-zAZ"/>
+                                        <exclude reference="fvf-q7-1Ix"/>
+                                        <exclude reference="htk-Np-Lyu"/>
+                                        <exclude reference="mkn-cV-sW7"/>
+                                        <exclude reference="UeN-mt-8Os"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwD-ha-830">
+                                <rect key="frame" x="16" y="430" width="85" height="25"/>
                                 <state key="normal" title="微访谈 " image="iconinterview">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Wvv-Zt-Yfu" secondAttribute="centerX" id="Cem-se-g7d"/>
+                            <constraint firstItem="dQw-w0-0hg" firstAttribute="top" secondItem="cwD-ha-830" secondAttribute="bottom" constant="20" id="IWa-If-Gmn"/>
+                            <constraint firstItem="dQw-w0-0hg" firstAttribute="leading" secondItem="Wzx-kY-ZJC" secondAttribute="leadingMargin" id="RdZ-qH-sYG"/>
+                            <constraint firstItem="Mcn-2K-kZB" firstAttribute="top" secondItem="hot-bQ-ERG" secondAttribute="bottom" constant="10" id="YUL-ho-idc"/>
+                            <constraint firstItem="bbd-hC-nFV" firstAttribute="leading" secondItem="Wzx-kY-ZJC" secondAttribute="leadingMargin" id="YVv-rN-EB5"/>
                             <constraint firstItem="CWc-xF-aBI" firstAttribute="width" secondItem="Wzx-kY-ZJC" secondAttribute="width" id="Z3G-MW-6IJ"/>
+                            <constraint firstItem="hot-bQ-ERG" firstAttribute="leading" secondItem="Wzx-kY-ZJC" secondAttribute="leadingMargin" id="aVD-kv-WBt"/>
                             <constraint firstItem="CWc-xF-aBI" firstAttribute="top" secondItem="VCR-sE-tBy" secondAttribute="bottom" id="cN9-lw-gyQ"/>
+                            <constraint firstItem="Wvv-Zt-Yfu" firstAttribute="width" secondItem="Wzx-kY-ZJC" secondAttribute="width" id="cwu-M9-v9e"/>
+                            <constraint firstAttribute="centerY" secondItem="Wvv-Zt-Yfu" secondAttribute="centerY" constant="100" id="ldA-9N-dgC"/>
+                            <constraint firstItem="bbd-hC-nFV" firstAttribute="top" secondItem="dQw-w0-0hg" secondAttribute="bottom" constant="20" id="o9p-75-vOI"/>
+                            <constraint firstItem="cwD-ha-830" firstAttribute="leading" secondItem="Wzx-kY-ZJC" secondAttribute="leadingMargin" id="phg-rf-CGO"/>
                             <constraint firstAttribute="centerX" secondItem="CWc-xF-aBI" secondAttribute="centerX" id="shw-uT-bPK"/>
+                            <constraint firstItem="cwD-ha-830" firstAttribute="leading" secondItem="dQw-w0-0hg" secondAttribute="trailing" constant="20" id="szv-Tm-ZLR"/>
+                            <constraint firstItem="Wvv-Zt-Yfu" firstAttribute="top" secondItem="CWc-xF-aBI" secondAttribute="bottom" id="v1D-OB-zMv"/>
+                            <constraint firstItem="hot-bQ-ERG" firstAttribute="top" secondItem="bbd-hC-nFV" secondAttribute="bottom" constant="20" id="zAX-Og-flb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ldA-9N-dgC"/>
+                                <exclude reference="szv-Tm-ZLR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="发现" id="K2p-P6-NG0"/>
                 </viewController>
@@ -88,5 +179,6 @@
         <image name="iconinterview" width="25" height="25"/>
         <image name="iconjob" width="25" height="25"/>
         <image name="iconresearch" width="25" height="25"/>
+        <image name="line48px" width="1" height="24"/>
     </resources>
 </document>

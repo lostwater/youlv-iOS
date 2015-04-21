@@ -27,9 +27,8 @@ class MainTabBarController: UITabBarController {
     {
         var homeStoryBoard = UIStoryboard(name:"Home",bundle:nil)
         var vc = homeStoryBoard.instantiateInitialViewController() as! UIViewController
-        self.viewControllers?[0]=vc;
-        vc.tabBarItem.title = " ";
-        vc.title = ""
+        self.viewControllers?[0]=homeStoryBoard.instantiateInitialViewController() as! UIViewController;
+        self.viewControllers?[4]=UIStoryboard(name:"User",bundle:nil).instantiateInitialViewController() as! UIViewController
 
         var messssageStoryBorad = UIStoryboard(name:"Messages",bundle:nil)
         self.viewControllers?[1] = messssageStoryBorad.instantiateInitialViewController() as! UIViewController
@@ -54,6 +53,7 @@ class MainTabBarController: UITabBarController {
         {
             vc.tabBarItem?.setTitlePositionAdjustment(UIOffset(horizontal: 0,vertical: 20))
         }
+        viewControllers?[2].tabBarItem?.enabled = false;
   
 
     }
@@ -63,11 +63,14 @@ class MainTabBarController: UITabBarController {
     {
         let buttonimage = UIImage(named: "buttonplus") as UIImage?
         var centerButton = UIButton();
-        centerButton.frame = CGRectMake(0,0,50,50);
+        let x = self.view.frame.width/2 - 25
+        centerButton.frame = CGRectMake(x,0,50,50);
         centerButton.setImage(buttonimage, forState:UIControlState.Normal);
-        centerButton.center = self.tabBar.center;
+        //centerButton.center = self.tabBar.center;
         centerButton.addTarget(self,action:Selector("buttonTapped"),forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(centerButton);
+        //	self.view.addSubview(centerButton);
+        
+        self.tabBar.addSubview(centerButton)
         tabBar.frame = CGRectMake(tabBar.frame.origin.x,tabBar.frame.origin.y+0,tabBar.frame.width,tabBar.frame.height)
     }
     

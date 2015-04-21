@@ -12,6 +12,10 @@
 		0B10C9EC1ADB06E600695853 /* Discorvery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */; };
 		0B10C9EF1ADB070300695853 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9EE1ADB070300695853 /* Messages.storyboard */; };
 		0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B10C9F21ADB090800695853 /* HomeTabBarController.swift */; };
+		0B2AF2C11AE6493300F7A5F9 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B2AF2C01AE6493300F7A5F9 /* User.storyboard */; };
+		0B2AF2C31AE6A2EB00F7A5F9 /* MyProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF2C21AE6A2EB00F7A5F9 /* MyProfileTableViewController.swift */; };
+		0B2AF2C51AE6A32200F7A5F9 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF2C41AE6A32200F7A5F9 /* UserTableViewController.swift */; };
+		0B2AF2C71AE6A61700F7A5F9 /* MyOpportunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF2C61AE6A61700F7A5F9 /* MyOpportunitiesTableViewController.swift */; };
 		0B5FDEFE1AD6A2EF00773360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */; };
 		0B5FDF051AD6A2EF00773360 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B5FDF041AD6A2EF00773360 /* Images.xcassets */; };
 		0B5FDF081AD6A2EF00773360 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B5FDF061AD6A2EF00773360 /* LaunchScreen.xib */; };
@@ -66,6 +70,10 @@
 		0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discorvery.storyboard; sourceTree = "<group>"; };
 		0B10C9EE1ADB070300695853 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		0B10C9F21ADB090800695853 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		0B2AF2C01AE6493300F7A5F9 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		0B2AF2C21AE6A2EB00F7A5F9 /* MyProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyProfileTableViewController.swift; path = ../StoryBoards/MyProfileTableViewController.swift; sourceTree = "<group>"; };
+		0B2AF2C41AE6A32200F7A5F9 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		0B2AF2C61AE6A61700F7A5F9 /* MyOpportunitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOpportunitiesTableViewController.swift; sourceTree = "<group>"; };
 		0B5FDEF81AD6A2EF00773360 /* Youlv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Youlv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5FDEFC1AD6A2EF00773360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +170,7 @@
 				0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */,
 				0B10C9EE1ADB070300695853 /* Messages.storyboard */,
 				0BBE373B1AE103E700FA0018 /* Friend.storyboard */,
+				0B2AF2C01AE6493300F7A5F9 /* User.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -265,6 +274,7 @@
 		0BCECFEB1ADAAD76006BE53A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0B2AF2C61AE6A61700F7A5F9 /* MyOpportunitiesTableViewController.swift */,
 				0BEED3E21ADE90590093E06B /* PubNewOpViewController.swift */,
 				0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */,
 				0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */,
@@ -279,6 +289,8 @@
 				0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */,
 				0BBE37481AE10A3000FA0018 /* MyFriendsViewController.swift */,
 				0BBE374C1AE15DC700FA0018 /* StartGroupChat1ViewController.swift */,
+				0B2AF2C21AE6A2EB00F7A5F9 /* MyProfileTableViewController.swift */,
+				0B2AF2C41AE6A32200F7A5F9 /* UserTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -372,6 +384,7 @@
 				0B5FDF081AD6A2EF00773360 /* LaunchScreen.xib in Resources */,
 				0BCECFEF1ADABD0D006BE53A /* Others.storyboard in Resources */,
 				0B5FDF051AD6A2EF00773360 /* Images.xcassets in Resources */,
+				0B2AF2C11AE6493300F7A5F9 /* User.storyboard in Resources */,
 				0B10C9EC1ADB06E600695853 /* Discorvery.storyboard in Resources */,
 				0BBE373C1AE103E700FA0018 /* Friend.storyboard in Resources */,
 				0B10C9EA1ADB054D00695853 /* NewPublish.storyboard in Resources */,
@@ -458,6 +471,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B2AF2C31AE6A2EB00F7A5F9 /* MyProfileTableViewController.swift in Sources */,
+				0B2AF2C51AE6A32200F7A5F9 /* UserTableViewController.swift in Sources */,
 				0BBE37471AE1069B00FA0018 /* MyGroupsCellView.swift in Sources */,
 				0BCECFF71ADAE23F006BE53A /* MessagesViewController.swift in Sources */,
 				0BBE374B1AE10CA200FA0018 /* DropDownNavTitleViewController.swift in Sources */,
@@ -465,6 +480,7 @@
 				0BBE373E1AE105B900FA0018 /* FriendCellView.swift in Sources */,
 				0BCECFFB1ADAE2D0006BE53A /* UserViewController.swift in Sources */,
 				0BCECFED1ADAAD95006BE53A /* LoginViewController.swift in Sources */,
+				0B2AF2C71AE6A61700F7A5F9 /* MyOpportunitiesTableViewController.swift in Sources */,
 				0BCECFC01AD99B8E006BE53A /* HomeNavigationController.swift in Sources */,
 				0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */,
 				0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */,
