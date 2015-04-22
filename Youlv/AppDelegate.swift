@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        setNavBar()
+        setAppearance()
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         		
         return true
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         UINavigationBar.appearance().setBackgroundImage(UIImage(named: "alpha0"), forBarMetrics: UIBarMetrics.Default)
-        
+        UINavigationBar.appearance().shadowImage = UIImage(named: "alpha0");
         //navigationBar.shadowImage = UIImage()
         //navigationBar.translucent = true
         UINavigationBar.appearance().translucent = false;
@@ -64,8 +64,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColorFromRGB(0x00B1F1)
         UIBarButtonItem.appearance().setBackButtonBackgroundImage(UIImage(named: "buttonarrowleftwhite"), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -500, vertical: 0), forBarMetrics: UIBarMetrics.Default)
+    
 
         
+    }
+    
+    func setAppearance()
+    {
+        //UITableViewCell.appearance().accessoryView = UIImageView(image: UIImage(named: "buttonarrowsrightblue")) as UIView
+        setNavBar()
     }
     
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {
@@ -80,5 +87,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-}
+} 
 

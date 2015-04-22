@@ -245,10 +245,10 @@
             </objects>
             <point key="canvasLocation" x="-234" y="-4065"/>
         </scene>
-        <!--NewTopicVC-->
+        <!--NewTopicNC-->
         <scene sceneID="keg-CZ-i87">
             <objects>
-                <navigationController title="NewTopicVC" id="Yre-li-IDj" sceneMemberID="viewController">
+                <navigationController title="NewTopicNC" id="Yre-li-IDj" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XFT-09-CfO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -606,7 +606,7 @@
                         <viewControllerLayoutGuide type="top" id="Gd9-gG-qKn"/>
                         <viewControllerLayoutGuide type="bottom" id="T7O-MC-mZJ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bCd-ET-xkv">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="bCd-ET-xkv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -638,14 +638,14 @@
                                     <action selector="BtnCloseClicked:" destination="imR-x3-3nY" eventType="touchUpInside" id="DCm-4e-Ibb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="公道如此容易" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYS-xG-Zn2">
-                                <rect key="frame" x="249" y="124" width="102" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公道如此容易" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYS-xG-Zn2">
+                                <rect key="frame" x="249" y="80" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="友律" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taM-Vi-uyZ">
-                                <rect key="frame" x="283" y="84" width="34" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="友律" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taM-Vi-uyZ">
+                                <rect key="frame" x="283" y="40" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

@@ -29,6 +29,71 @@
             </objects>
             <point key="canvasLocation" x="-4893" y="-1319"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="7hj-p0-MRz">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="lVA-zg-Aml" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5wW-aL-WhC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Xj9-5j-93Z">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M5z-TL-waq">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <scopeButtonTitles>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                    </scopeButtonTitles>
+                                    <connections>
+                                        <outlet property="delegate" destination="lVA-zg-Aml" id="yo5-nF-OlY"/>
+                                    </connections>
+                                </searchBar>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dqe-GL-CtP">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dqe-GL-CtP" id="eIs-QS-uai">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lVA-zg-Aml" id="GiQ-1R-Obf"/>
+                            <outlet property="delegate" destination="lVA-zg-Aml" id="abb-cR-Xrr"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="8jq-57-Kdz" id="Adm-Zy-5e4"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mUz-vF-vK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="7l8-We-Slp">
+                    <connections>
+                        <outlet property="delegate" destination="lVA-zg-Aml" id="lvY-An-2CY"/>
+                        <outlet property="searchContentsController" destination="lVA-zg-Aml" id="ab2-ko-maG"/>
+                        <outlet property="searchResultsDataSource" destination="lVA-zg-Aml" id="Pj6-rX-ffe"/>
+                        <outlet property="searchResultsDelegate" destination="lVA-zg-Aml" id="pJd-59-lpK"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="8jq-57-Kdz">
+                    <connections>
+                        <outlet property="delegate" destination="lVA-zg-Aml" id="4TR-b9-Jxa"/>
+                        <outlet property="searchBar" destination="M5z-TL-waq" id="zNV-Sr-Ku4"/>
+                        <outlet property="searchContentsController" destination="lVA-zg-Aml" id="Kg0-dN-Rfl"/>
+                        <outlet property="searchResultsDataSource" destination="lVA-zg-Aml" id="CEz-fI-4oe"/>
+                        <outlet property="searchResultsDelegate" destination="lVA-zg-Aml" id="2Y4-By-oZZ"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-3462" y="-2188"/>
+        </scene>
         <!--EventsVC-->
         <scene sceneID="G88-VE-TwK">
             <objects>
@@ -74,7 +139,11 @@
                     <tabBarItem key="tabBarItem" title="" id="YMS-IG-aUh" userLabel="Home"/>
                     <navigationItem key="navigationItem" id="ddR-6h-EA0">
                         <barButtonItem key="leftBarButtonItem" image="buttonhelp" id="dJ5-2D-eGz"/>
-                        <barButtonItem key="rightBarButtonItem" image="buttonsearch" id="8JO-Tu-QQk"/>
+                        <barButtonItem key="rightBarButtonItem" image="buttonsearch" id="8JO-Tu-QQk">
+                            <connections>
+                                <segue destination="lVA-zg-Aml" kind="presentation" id="C7b-4w-Ypp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="NSj-3o-fLH">
@@ -139,52 +208,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C2r-Wn-KrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3995" y="-2901"/>
-        </scene>
-        <!--SearchVC-->
-        <scene sceneID="ekH-D8-GfD">
-            <objects>
-                <viewController title="SearchVC" id="kLK-bx-wtc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="l3g-bG-PzU"/>
-                        <viewControllerLayoutGuide type="bottom" id="XJb-lj-0fv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NGO-I1-JCL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Wi-Wn-RmK">
-                                <rect key="frame" x="46" y="0.0" width="554" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kLK-bx-wtc" id="aHR-7p-ZS3"/>
-                                </connections>
-                            </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf5-no-8SY">
-                                <rect key="frame" x="0.0" y="7" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Qx2-5y-gUc"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="8cj-HB-bVo" id="5am-xZ-rFR"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5YP-nd-Xzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="8cj-HB-bVo">
-                    <connections>
-                        <outlet property="delegate" destination="kLK-bx-wtc" id="Dhs-2v-w1W"/>
-                        <outlet property="searchBar" destination="0Wi-Wn-RmK" id="wtE-9J-UvK"/>
-                        <outlet property="searchContentsController" destination="kLK-bx-wtc" id="gQ8-4G-YIy"/>
-                        <outlet property="searchResultsDataSource" destination="kLK-bx-wtc" id="5nI-ha-QHU"/>
-                        <outlet property="searchResultsDelegate" destination="kLK-bx-wtc" id="jFK-f0-Rvx"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="-3442" y="-2211"/>
         </scene>
     </scenes>
     <resources>
