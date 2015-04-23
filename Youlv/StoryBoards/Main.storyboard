@@ -20,6 +20,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="NewPubButton" destination="jWz-qK-SWc" id="hYY-tM-fjE"/>
                         <segue destination="hhL-yZ-0KF" kind="relationship" relationship="viewControllers" id="HzJ-n8-tSu"/>
                         <segue destination="RWD-Ga-AD0" kind="relationship" relationship="viewControllers" id="EhE-OD-LPy"/>
                         <segue destination="OPK-qf-Uxv" kind="relationship" relationship="viewControllers" id="VU0-cg-POt"/>
@@ -28,6 +29,16 @@
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOa-QV-UJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jWz-qK-SWc">
+                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="buttonplus">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <segue destination="mbG-lH-bgl" kind="custom" customClass="BlurryModalSegue" id="Buo-ut-Lnb"/>
+                    </connections>
+                </button>
             </objects>
             <point key="canvasLocation" x="-3441" y="-4085"/>
         </scene>
@@ -133,7 +144,7 @@
         <!--HomeNC-->
         <scene sceneID="mdM-0j-S9Y">
             <objects>
-                <navigationController title="HomeNC" id="hhL-yZ-0KF" customClass="HomeNavigationController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNC" title="HomeNC" id="hhL-yZ-0KF" customClass="HomeNavigationController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title=" " image="buttonhomepagegrey" selectedImage="buttonhomepageblue" id="p2u-2S-27D"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X3z-l2-V1o">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -144,83 +155,103 @@
             </objects>
             <point key="canvasLocation" x="-3995" y="-2901"/>
         </scene>
-        <!--NewVC-->
+        <!--FakeNewVC-->
         <scene sceneID="H4X-DM-2Pj">
             <objects>
-                <viewController storyboardIdentifier="newViewController" title="NewVC" id="OPK-qf-Uxv" customClass="NewViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="fakeNewViewController" title="FakeNewVC" id="OPK-qf-Uxv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="eOi-Nd-XhW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lp-Wi-nks" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2423" y="-4090"/>
+        </scene>
+        <!--NewVC-->
+        <scene sceneID="qOv-aU-pt0">
+            <objects>
+                <viewController storyboardIdentifier="newViewController" title="NewVC" id="mbG-lH-bgl" customClass="NewViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="acV-uK-isu"/>
-                        <viewControllerLayoutGuide type="bottom" id="lKT-mt-Ofj"/>
+                        <viewControllerLayoutGuide type="top" id="yxa-1c-N9G"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oti-sM-b0k"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uiz-JK-097">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="PuR-z8-ibX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMo-ib-266">
-                                <rect key="frame" x="370" y="255" width="60" height="89"/>
-                                <state key="normal" backgroundImage="buttonnewarticle">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KhS-AJ-gmh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuv-cZ-ywx">
                                 <rect key="frame" x="170" y="255" width="60" height="89"/>
                                 <accessibility key="accessibilityConfiguration" label=""/>
                                 <state key="normal" backgroundImage="buttonnewopportunity">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonNewOpClicked:" destination="mbG-lH-bgl" eventType="touchUpInside" id="hQg-6d-T4h"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHX-ai-X9P">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pm-zn-PLN">
                                 <rect key="frame" x="280" y="555" width="41" height="40"/>
                                 <state key="normal" backgroundImage="buttonplusafter">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="BtnCloseClicked:" destination="OPK-qf-Uxv" eventType="touchUpInside" id="iMq-6u-gUr"/>
+                                    <action selector="BtnCloseClicked:" destination="mbG-lH-bgl" eventType="touchUpInside" id="WDt-Kc-m0k"/>
+                                    <segue destination="lgx-ZG-6LU" kind="show" id="qVd-CW-Tmz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公道如此容易" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU2-xf-ETL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公道如此容易" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPv-mb-iVS">
                                 <rect key="frame" x="249" y="80" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="友律" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4J-JR-KFj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="友律" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Fk-nk-TMa">
                                 <rect key="frame" x="283" y="40" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63G-Bq-wDF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hff-Sh-wBF">
                                 <rect key="frame" x="270" y="255" width="60" height="89"/>
                                 <state key="normal" backgroundImage="buttonnewtopic">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonNewTopicClicked:" destination="mbG-lH-bgl" eventType="touchUpInside" id="QgJ-RQ-MUj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkW-aC-Pab">
+                                <rect key="frame" x="370" y="255" width="60" height="89"/>
+                                <state key="normal" backgroundImage="buttonnewarticle">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonNewArticleClicked:" destination="mbG-lH-bgl" eventType="touchUpInside" id="Hrh-z4-piX"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="iMo-ib-266" firstAttribute="leading" secondItem="63G-Bq-wDF" secondAttribute="trailing" constant="40" id="04K-IJ-hyi"/>
-                            <constraint firstAttribute="centerY" secondItem="iMo-ib-266" secondAttribute="centerY" constant="0.5" id="B3A-Wf-e5P"/>
-                            <constraint firstItem="rU2-xf-ETL" firstAttribute="top" secondItem="L4J-JR-KFj" secondAttribute="bottom" constant="19" id="E0S-3c-kcl"/>
-                            <constraint firstItem="63G-Bq-wDF" firstAttribute="leading" secondItem="KhS-AJ-gmh" secondAttribute="trailing" constant="40" id="L4B-Bg-Gyo"/>
-                            <constraint firstItem="L4J-JR-KFj" firstAttribute="top" secondItem="acV-uK-isu" secondAttribute="bottom" constant="20" id="MYg-Xc-w1E"/>
-                            <constraint firstAttribute="bottom" secondItem="vHX-ai-X9P" secondAttribute="bottom" constant="5" id="MsC-A9-m1Z"/>
-                            <constraint firstAttribute="centerX" secondItem="rU2-xf-ETL" secondAttribute="centerX" id="U2c-aq-Fbl"/>
-                            <constraint firstAttribute="centerY" secondItem="63G-Bq-wDF" secondAttribute="centerY" constant="0.5" id="cXW-Ba-QMI"/>
-                            <constraint firstAttribute="centerX" secondItem="vHX-ai-X9P" secondAttribute="centerX" id="dm8-9x-8Hn"/>
-                            <constraint firstAttribute="centerY" secondItem="KhS-AJ-gmh" secondAttribute="centerY" constant="0.5" id="izK-as-4fw"/>
-                            <constraint firstAttribute="centerX" secondItem="L4J-JR-KFj" secondAttribute="centerX" id="lId-Fi-Dwf"/>
-                            <constraint firstAttribute="centerX" secondItem="63G-Bq-wDF" secondAttribute="centerX" id="zCn-64-Vu2"/>
+                            <constraint firstItem="6Fk-nk-TMa" firstAttribute="top" secondItem="yxa-1c-N9G" secondAttribute="bottom" constant="20" id="0tS-f3-y99"/>
+                            <constraint firstAttribute="centerY" secondItem="Uuv-cZ-ywx" secondAttribute="centerY" constant="0.5" id="93F-Dq-c3Z"/>
+                            <constraint firstAttribute="centerY" secondItem="GkW-aC-Pab" secondAttribute="centerY" constant="0.5" id="Ixa-aX-jFG"/>
+                            <constraint firstAttribute="centerX" secondItem="rPv-mb-iVS" secondAttribute="centerX" id="MNo-ux-gGB"/>
+                            <constraint firstAttribute="centerX" secondItem="7pm-zn-PLN" secondAttribute="centerX" id="OEY-a0-NQG"/>
+                            <constraint firstAttribute="bottom" secondItem="7pm-zn-PLN" secondAttribute="bottom" constant="5" id="SF2-a0-zNC"/>
+                            <constraint firstItem="GkW-aC-Pab" firstAttribute="leading" secondItem="Hff-Sh-wBF" secondAttribute="trailing" constant="40" id="Uq8-It-XId"/>
+                            <constraint firstAttribute="centerX" secondItem="Hff-Sh-wBF" secondAttribute="centerX" id="dNW-7b-zu4"/>
+                            <constraint firstAttribute="centerY" secondItem="Hff-Sh-wBF" secondAttribute="centerY" constant="0.5" id="df6-PR-Llz"/>
+                            <constraint firstAttribute="centerX" secondItem="6Fk-nk-TMa" secondAttribute="centerX" id="ekK-8w-2Lz"/>
+                            <constraint firstItem="rPv-mb-iVS" firstAttribute="top" secondItem="6Fk-nk-TMa" secondAttribute="bottom" constant="19" id="gbK-nm-myj"/>
+                            <constraint firstItem="Hff-Sh-wBF" firstAttribute="leading" secondItem="Uuv-cZ-ywx" secondAttribute="trailing" constant="40" id="mIk-b8-vVd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" id="eOi-Nd-XhW"/>
+                    <tabBarItem key="tabBarItem" title="" id="iFV-9f-WUv"/>
                     <connections>
-                        <outlet property="BtnClose" destination="vHX-ai-X9P" id="nBG-L2-GU1"/>
+                        <outlet property="BtnClose" destination="7pm-zn-PLN" id="O2y-6P-6qD"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2lp-Wi-nks" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dxu-8b-gVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2423" y="-4090"/>
+            <point key="canvasLocation" x="-2631" y="-4774"/>
         </scene>
     </scenes>
     <resources>
@@ -234,6 +265,7 @@
         <image name="buttonnewarticle" width="60" height="89"/>
         <image name="buttonnewopportunity" width="60" height="89"/>
         <image name="buttonnewtopic" width="60" height="89"/>
+        <image name="buttonplus" width="40" height="40"/>
         <image name="buttonplusafter" width="41" height="40"/>
     </resources>
 </document>

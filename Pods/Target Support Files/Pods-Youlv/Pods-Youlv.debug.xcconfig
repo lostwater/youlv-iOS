@@ -1,6 +1,6 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FSMediaPicker"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/FSMediaPicker"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-Youlv-FSMediaPicker" -framework "MobileCoreServices" -framework "UIKit"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/BlurryModalSegue" "${PODS_ROOT}/Headers/Public/FSMediaPicker" "${PODS_ROOT}/Headers/Public/MZAppearance" "${PODS_ROOT}/Headers/Public/MZFormSheetController" "${PODS_ROOT}/Headers/Public/UIImage+BlurredFrame"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/BlurryModalSegue" -isystem "${PODS_ROOT}/Headers/Public/FSMediaPicker" -isystem "${PODS_ROOT}/Headers/Public/MZAppearance" -isystem "${PODS_ROOT}/Headers/Public/MZFormSheetController" -isystem "${PODS_ROOT}/Headers/Public/UIImage+BlurredFrame"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Pods-Youlv-BlurryModalSegue" -l"Pods-Youlv-FSMediaPicker" -l"Pods-Youlv-MZAppearance" -l"Pods-Youlv-MZFormSheetController" -l"Pods-Youlv-UIImage+BlurredFrame" -framework "Accelerate" -framework "MobileCoreServices" -framework "QuartzCore" -framework "UIKit"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 PODS_ROOT = ${SRCROOT}/Pods

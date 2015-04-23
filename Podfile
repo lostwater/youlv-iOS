@@ -3,9 +3,13 @@
 
 target 'Youlv' do
 pod 'FSMediaPicker'
+pod 'MZFormSheetController'
+pod 'BlurryModalSegue'
 end
 
 target 'YoulvTests' do
 pod 'FSMediaPicker'
+pod 'MZFormSheetController'
+pod 'BlurryModalSegue'
 end
 

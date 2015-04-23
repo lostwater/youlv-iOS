@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Youlv-BlurryModalSegue.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Youlv-FSMediaPicker-FSMediaPicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -14,7 +19,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Youlv-MZAppearance.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Youlv-MZFormSheetController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Youlv-UIImage+BlurredFrame.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Youlv.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-YoulvTests-BlurryModalSegue.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -29,6 +54,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-YoulvTests-MZAppearance.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-YoulvTests-MZFormSheetController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-YoulvTests-UIImage+BlurredFrame.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-YoulvTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +77,72 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>32D5EE238011C19C3F047EE0</key>
+		<key>095A3362C4745E3EA40D50A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>332BF99FB17A914174E36152</key>
+		<key>1B0E970A4FD554D287281CF0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>78F6FFE66505739D24D6A1F0</key>
+		<key>1FA2BA3BA225150CCC6BA691</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8BCD8F892B87C7B1F84BEA64</key>
+		<key>2090C98B0A5E977DF2F1A58C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C2250F63D43CADE47A35492</key>
+		<key>5A9A84E29B149D2DD35BC6B5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FA0AE2AE7B63B50C8F21390B</key>
+		<key>5ABA67BDD1554E364A3A4FF6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>63DFC66659D9D66D3F0D4027</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>98AAD586C173E9542619A305</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9A4E8EF426DD75C9B7AB7626</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B417D09720D96A2BFA5775EE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BAB375F44079904770B186F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE1D26F1B2E76B9E5BE41EE5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF1D7E61732FB622D8B27C87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1082B44D640AF0CF9123E1C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

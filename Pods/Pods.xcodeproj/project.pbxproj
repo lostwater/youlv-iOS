@@ -7,146 +7,475 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0489ED492B5B151A4A71D13B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686B84860FC2A5222C1C756F /* Foundation.framework */; };
-		16E998F8D4AC5DEE4B792088 /* Pods-YoulvTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C94C855F2F37A31D45779D /* Pods-YoulvTests-dummy.m */; };
-		2895A495C7A08CB236DDE548 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 81FB219B22DAB0F1E2CAED39 /* en.lproj */; };
-		345B613ACE89F65768F8C39B /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B738A44352DE3771C27E2299 /* zh-Hans.lproj */; };
-		356D01B4748A31DB1096EE94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686B84860FC2A5222C1C756F /* Foundation.framework */; };
-		3BE0E760EB5C1A47C3DBBDC7 /* FSMediaPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = ACB76963A3E1835FEDB7EDBE /* FSMediaPicker.h */; };
-		43374619D7E1BE269B9CB6CC /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3B172CEDFAEDAC0DBC39334A /* zh-Hant.lproj */; };
-		474C000ADA4209D79B642D24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686B84860FC2A5222C1C756F /* Foundation.framework */; };
-		52D5F4766D1D652EFCDD1623 /* FSMediaPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A044762748BA8DBB0A279F /* FSMediaPicker.m */; };
-		56F54D379D9E97181BDF3BF7 /* Pods-YoulvTests-FSMediaPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C62740D50ADD1DFE3C832B34 /* Pods-YoulvTests-FSMediaPicker-dummy.m */; };
-		596B3E309053BD6B1652BFE6 /* Pods-Youlv-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD40B8EBD2F926D8915A3081 /* Pods-Youlv-dummy.m */; };
-		5CE286785C7B02E06F86F510 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F279C1312E1A57D3EB7EEB /* MobileCoreServices.framework */; };
-		70AD424B4E84612A8B411A91 /* FSMediaPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = ACB76963A3E1835FEDB7EDBE /* FSMediaPicker.h */; };
-		718DF1770A4E196368106200 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA3489B46148A8489033D2E7 /* UIKit.framework */; };
-		89D4B69F0D081ADCBAA0C5DD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F279C1312E1A57D3EB7EEB /* MobileCoreServices.framework */; };
-		9F4EBB2034D836989876BC3D /* Pods-Youlv-FSMediaPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E4F38733236EA132A79439 /* Pods-Youlv-FSMediaPicker-dummy.m */; };
-		AC111A9CDBBD32CEF4791DE2 /* FSMediaPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A044762748BA8DBB0A279F /* FSMediaPicker.m */; };
-		AEBB2D2EE74DF81F6021B582 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 81FB219B22DAB0F1E2CAED39 /* en.lproj */; };
-		C25B6D9FBCC28242AB930A03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA3489B46148A8489033D2E7 /* UIKit.framework */; };
-		D7448375E84B23A7300F661C /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3B172CEDFAEDAC0DBC39334A /* zh-Hant.lproj */; };
-		E9C939A251350B1C34D54F6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686B84860FC2A5222C1C756F /* Foundation.framework */; };
-		F8AF5B6F8411377EA39AAE6C /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B738A44352DE3771C27E2299 /* zh-Hans.lproj */; };
+		02008B504979AD21F4905CC7 /* MZFormSheetController.h in Headers */ = {isa = PBXBuildFile; fileRef = 423D57CE8C225C8C5B130C08 /* MZFormSheetController.h */; };
+		02F23B1D425BB28F0689AD17 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07247DBD05FEABA693186303 /* MobileCoreServices.framework */; };
+		04EDB070CEA39D3EBBC12E56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		05170B8522274C489E60C21F /* Pods-YoulvTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E8F3501691F14F2211DB66 /* Pods-YoulvTests-dummy.m */; };
+		09EDCDF24332BD201BFD840E /* Pods-Youlv-UIImage+BlurredFrame-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BACABECEDC116D82C766C8 /* Pods-Youlv-UIImage+BlurredFrame-dummy.m */; };
+		0DEE5216BA453AC694E9B2BB /* MZFormSheetBackgroundWindowViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B169297C028123BA526F1CB /* MZFormSheetBackgroundWindowViewController.h */; };
+		11C9FD753060E39E6C515319 /* BlurryModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F0C2957412E497A4C21470 /* BlurryModalSegue.m */; };
+		12EEEE538BA1BD078426BA54 /* MZFormSheetPresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D860D8320C5E52551608D2F /* MZFormSheetPresentationController.h */; };
+		17420AC03E28A8270443E44B /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FDEB5A7513712E9544F8012 /* UIImage+ImageEffects.h */; };
+		178DC01AC5557B0779F9E295 /* MZFormSheetSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = D906661229B1D0DEA1F770E1 /* MZFormSheetSegue.h */; };
+		2450280C8CC1827625EB9209 /* MZFormSheetPresentationControllerSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = A81D5AA85723AA91E8059D44 /* MZFormSheetPresentationControllerSegue.h */; };
+		2A64A421410A8FFAF0B29775 /* MZFormSheetSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = D906661229B1D0DEA1F770E1 /* MZFormSheetSegue.h */; };
+		2A75E11EDD0A978B75800140 /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9FED22C403340B4E8154D0 /* MZTransition.m */; };
+		338BBBB534A6DF3EA062D55B /* BlurryModalSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 64E87FD751A044952398D285 /* BlurryModalSegue.h */; };
+		35941EFA3FEBE30F68B6DFA6 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 26D09B4438BDCB69630784F4 /* zh-Hans.lproj */; };
+		371CD92E5921A1ACC83D49C6 /* UIViewController+TargetViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FBE5D20B374E61A892A1B7F6 /* UIViewController+TargetViewController.h */; };
+		37A1AA0EA5394A05AFAE8240 /* Pods-Youlv-MZFormSheetController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4FDE0B2D26BF524870B528 /* Pods-Youlv-MZFormSheetController-dummy.m */; };
+		3A0C4756BB0E042D8C028685 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B787BF9DEF02215646E35120 /* QuartzCore.framework */; };
+		3BB803BB5015CA6F30DD24DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		3CAA95FCF54FE974F4D45582 /* MZFormSheetBackgroundWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ACD4CE08477DCED2706B16 /* MZFormSheetBackgroundWindow.h */; };
+		402AF79490677CF02DA15AAB /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F10E8C6CEAE09CC2D528D9B /* MZAppearance.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		41F330EF62BDB5F50E412DA5 /* UIImage+BlurredFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 48816F7676698500B6B6A183 /* UIImage+BlurredFrame.h */; };
+		4BEB7D8F7996F434BD547DF3 /* UIImage+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 6294C7573F18D826663881E7 /* UIImage+Additional.m */; };
+		4DA97CE122CABB516285CC23 /* UIImage+Additional.h in Headers */ = {isa = PBXBuildFile; fileRef = E5B399F09857926B042528AB /* UIImage+Additional.h */; };
+		513EF67C9431083FB7D0C3E2 /* FSMediaPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 6329D6A70C7A761A24F45DDF /* FSMediaPicker.h */; };
+		51DFA2E2D00EEF15CEF34060 /* MZAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F10E8C6CEAE09CC2D528D9B /* MZAppearance.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		52A6CB100A8321AA8B486E20 /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E6E909A51CC0535E8CAE4A /* MZFormSheetPresentationController.m */; };
+		530FD21BB719AA4BFAE5D6D8 /* MZFormSheetBackgroundWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 84ACD4CE08477DCED2706B16 /* MZFormSheetBackgroundWindow.h */; };
+		5628E4F8B4DABB926C026F66 /* FSMediaPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 6329D6A70C7A761A24F45DDF /* FSMediaPicker.h */; };
+		599E60C9BE1229B454D38AD2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		5A56AC6C1FF0E354410C9C6E /* MZFormSheetPresentationControllerAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = B6DEDBA4482CE1C59F056548 /* MZFormSheetPresentationControllerAnimator.h */; };
+		5B08E2F9E76A08D0DBB147CE /* MZFormSheetPresentationControllerAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = B6DEDBA4482CE1C59F056548 /* MZFormSheetPresentationControllerAnimator.h */; };
+		5B5EE7F93395274437A1F645 /* NSInvocation+Copy.h in Headers */ = {isa = PBXBuildFile; fileRef = BBA00BA528807C7760D028D6 /* NSInvocation+Copy.h */; };
+		5EF271D40D62FE609D70F709 /* MZMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CD92CD10A1D9038357F347C /* MZMacro.h */; };
+		671445426D2962AB55828A9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		6829D7769B6839B793E160A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B787BF9DEF02215646E35120 /* QuartzCore.framework */; };
+		6BF9808085211BF118776B99 /* MZAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = F5D653208ED78EA02B5C89F1 /* MZAppearance.h */; };
+		6FA81D504786C71748E74B44 /* MZFormSheetPresentationControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6936EDD664DB09710DC154 /* MZFormSheetPresentationControllerSegue.m */; };
+		702D3F878389150806C7A072 /* MZFormSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC55A0EFF8BC89887EBB603 /* MZFormSheetController.m */; };
+		72E5B16A792A7D1D3FEE450B /* BlurryModalSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 64E87FD751A044952398D285 /* BlurryModalSegue.h */; };
+		7B7516567197C79880D9B389 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B787BF9DEF02215646E35120 /* QuartzCore.framework */; };
+		802EE7768FAF5DB0E464732C /* UIImage+BlurredFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 48816F7676698500B6B6A183 /* UIImage+BlurredFrame.h */; };
+		806939F82828F27A34FF7412 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		84B3B9EB30D2C6BF4E7A2EDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		87136F57F8FB6F6F79B12BE3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E33810CC26041F4B521FBA1 /* UIKit.framework */; };
+		89387B5060C389A2712DB431 /* MZFormSheetBackgroundWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180A278C98D25149E51F685D /* MZFormSheetBackgroundWindowViewController.m */; };
+		897C97D8229CCC09641B5CAD /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 26D09B4438BDCB69630784F4 /* zh-Hans.lproj */; };
+		89985F8CC986144EAD9BC2F2 /* Pods-Youlv-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A97E00BA635538E555C1A8 /* Pods-Youlv-dummy.m */; };
+		8AB21DDF65DB2F0FC213180E /* UIImage+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 6294C7573F18D826663881E7 /* UIImage+Additional.m */; };
+		8C585CF8D9CC0D9A7B6FD1D4 /* MZFormSheetSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A695027B8DC0DDDE9BF282C1 /* MZFormSheetSegue.m */; };
+		9031EF15FC36DFDE8A6A1936 /* FSMediaPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE5D58E5BEE648EAC62C29D /* FSMediaPicker.m */; };
+		992203166C9B03B9B676A40D /* MZFormSheetBackgroundWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 180A278C98D25149E51F685D /* MZFormSheetBackgroundWindowViewController.m */; };
+		9C35FC97425D38305F5D6F3D /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E906390EE9791E43138458 /* UIViewController+TargetViewController.m */; };
+		9D2BA716A19616ACB8ECC923 /* MZTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 42D79F09D15E4F66EE164C28 /* MZTransition.h */; };
+		A42421B69868642B5937C782 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B787BF9DEF02215646E35120 /* QuartzCore.framework */; };
+		A6704A8D1CCB7864940E3B98 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C89EEC8BD0611BCBA6C682 /* UIImage+ImageEffects.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AA86822BF46DCCC3AF72D87A /* UIViewController+TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E906390EE9791E43138458 /* UIViewController+TargetViewController.m */; };
+		ABA1F02F3AE308130E7BBF2E /* MZFormSheetPresentationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 43313854DFE63E39CAC7E3AC /* MZFormSheetPresentationControllerAnimator.m */; };
+		AEA98057323689944F97586F /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C4DB9A37CA7D839A14A34BC2 /* en.lproj */; };
+		AF7AAD885D98D138CC40F5F2 /* MZFormSheetPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E6E909A51CC0535E8CAE4A /* MZFormSheetPresentationController.m */; };
+		B0515660FFCDC4692A8FA090 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		B085D43DAE058505647B66A8 /* MZFormSheetPresentationControllerSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = A81D5AA85723AA91E8059D44 /* MZFormSheetPresentationControllerSegue.h */; };
+		B3AC81E574694608FDFD0B8E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07247DBD05FEABA693186303 /* MobileCoreServices.framework */; };
+		B4C150D262E84288BC88D176 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		B503BD7332F24438E136784E /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B0F9A2161B9C2B7B446FCBFB /* zh-Hant.lproj */; };
+		B58905AB73715223BC3E05D6 /* Pods-Youlv-MZAppearance-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F9C11F69F12BA4D4D47448 /* Pods-Youlv-MZAppearance-dummy.m */; };
+		B5CE0318A471BAB884A1D193 /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = D90BA7C8C19506B8DBF04EC9 /* NSInvocation+Copy.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B6ABC8CE10F19F5151DB5480 /* MZFormSheetSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A695027B8DC0DDDE9BF282C1 /* MZFormSheetSegue.m */; };
+		B7CE5C8620C13C0315BDE35D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		BA4B7D0EDD5A6376F7914CF8 /* Pods-YoulvTests-MZAppearance-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9FF108300AB41A96B5BA3 /* Pods-YoulvTests-MZAppearance-dummy.m */; };
+		BE9FAF93E3316C56EEFE3BCA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2F96E7DE7EE09ADA5CB262 /* Accelerate.framework */; };
+		C1843714730939F9A4B1A60F /* UIImage+BlurredFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F6526698C44748C9DC1A01E6 /* UIImage+BlurredFrame.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C1C09E777580AC8938A09842 /* BlurryModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F0C2957412E497A4C21470 /* BlurryModalSegue.m */; };
+		C42A2DA6C79AE491DF13C830 /* MZMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CD92CD10A1D9038357F347C /* MZMacro.h */; };
+		C68A14BE83E6202E8808CFFE /* Pods-YoulvTests-MZFormSheetController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E175A8EB23692304278154 /* Pods-YoulvTests-MZFormSheetController-dummy.m */; };
+		C76B22EBA63FD49C836FC985 /* NSInvocation+Copy.h in Headers */ = {isa = PBXBuildFile; fileRef = BBA00BA528807C7760D028D6 /* NSInvocation+Copy.h */; };
+		C81D574B8B6D7FD78A839D12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		CAE73E24ECF738798AEA9862 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C89EEC8BD0611BCBA6C682 /* UIImage+ImageEffects.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CC6A3244035EB177C362553B /* NSInvocation+Copy.m in Sources */ = {isa = PBXBuildFile; fileRef = D90BA7C8C19506B8DBF04EC9 /* NSInvocation+Copy.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CCC37693861B7F780E4413C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		D05191F085848D839323A093 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2F96E7DE7EE09ADA5CB262 /* Accelerate.framework */; };
+		D5795C8EC273EDE2BA98AE42 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B787BF9DEF02215646E35120 /* QuartzCore.framework */; };
+		DA70574541E92B4C4D62765A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E33810CC26041F4B521FBA1 /* UIKit.framework */; };
+		DBAB3FEF30C93082C504BFDC /* UIViewController+TargetViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FBE5D20B374E61A892A1B7F6 /* UIViewController+TargetViewController.h */; };
+		DDCFDDC05C5A760593CE3FD6 /* UIImage+Additional.h in Headers */ = {isa = PBXBuildFile; fileRef = E5B399F09857926B042528AB /* UIImage+Additional.h */; };
+		DFD71314ABB8FB6E8A4960B7 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C4DB9A37CA7D839A14A34BC2 /* en.lproj */; };
+		E01E144BFD6E526694D89075 /* MZFormSheetBackgroundWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D21D22FB19DC3468CA5D /* MZFormSheetBackgroundWindow.m */; };
+		E46AEF94DDECDCC358169E4F /* MZAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = F5D653208ED78EA02B5C89F1 /* MZAppearance.h */; };
+		E4828483E3DD7233662B3793 /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B0F9A2161B9C2B7B446FCBFB /* zh-Hant.lproj */; };
+		E631BEED4149F959D4948564 /* Pods-Youlv-FSMediaPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 306ED985CA859D8FD78F0158 /* Pods-Youlv-FSMediaPicker-dummy.m */; };
+		E801C072BAD790DC0A26EE58 /* MZFormSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC55A0EFF8BC89887EBB603 /* MZFormSheetController.m */; };
+		E8CF510C54FAE24B861EF9E3 /* Pods-YoulvTests-UIImage+BlurredFrame-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0F745FE135B006A822D435 /* Pods-YoulvTests-UIImage+BlurredFrame-dummy.m */; };
+		EA8418D5A349E7735B1711E6 /* Pods-Youlv-BlurryModalSegue-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C76E1503E9EA7273D2B1C5C3 /* Pods-Youlv-BlurryModalSegue-dummy.m */; };
+		EC73A400A21A11C78531449B /* Pods-YoulvTests-BlurryModalSegue-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB8739CF29C4093AF46818D /* Pods-YoulvTests-BlurryModalSegue-dummy.m */; };
+		ECC63CE2BE4753D0D0F3A449 /* MZTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 42D79F09D15E4F66EE164C28 /* MZTransition.h */; };
+		ED13F5C174B1696DE166094F /* Pods-YoulvTests-FSMediaPicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 633C253DFECAB8E4E5DC844B /* Pods-YoulvTests-FSMediaPicker-dummy.m */; };
+		ED6CA0063F234C7F8CE85DAD /* MZTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9FED22C403340B4E8154D0 /* MZTransition.m */; };
+		EE557890887EE90F0A4C5CE2 /* FSMediaPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE5D58E5BEE648EAC62C29D /* FSMediaPicker.m */; };
+		F1A741CFB2BC629F290CD1D9 /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FDEB5A7513712E9544F8012 /* UIImage+ImageEffects.h */; };
+		F295A0CEC434CC8600DD5330 /* MZFormSheetPresentationControllerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 43313854DFE63E39CAC7E3AC /* MZFormSheetPresentationControllerAnimator.m */; };
+		F312F3BF8B4F27E8EAC6F0B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */; };
+		F318792A282BEC2548A0488A /* MZFormSheetController.h in Headers */ = {isa = PBXBuildFile; fileRef = 423D57CE8C225C8C5B130C08 /* MZFormSheetController.h */; };
+		F37923B6B7C4AF9B56F83D9E /* MZFormSheetBackgroundWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C49D21D22FB19DC3468CA5D /* MZFormSheetBackgroundWindow.m */; };
+		F56BBD94B69E794D60F0E2ED /* MZFormSheetBackgroundWindowViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B169297C028123BA526F1CB /* MZFormSheetBackgroundWindowViewController.h */; };
+		F874377F636DBF29D30F00D6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B787BF9DEF02215646E35120 /* QuartzCore.framework */; };
+		F8EE864CB5F659AE6AF1A4AB /* MZFormSheetPresentationControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6936EDD664DB09710DC154 /* MZFormSheetPresentationControllerSegue.m */; };
+		F9F4477FE24FC908496B254D /* MZFormSheetPresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D860D8320C5E52551608D2F /* MZFormSheetPresentationController.h */; };
+		FA709E2704B601C21F175AE2 /* UIImage+BlurredFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F6526698C44748C9DC1A01E6 /* UIImage+BlurredFrame.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0C8B5ED3322AD69405F04405 /* PBXContainerItemProxy */ = {
+		0F550025E753A40BA8854538 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 95E98365509BC53E6CC2B524 /* Project object */;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FA0AE2AE7B63B50C8F21390B;
+			remoteGlobalIDString = 095A3362C4745E3EA40D50A8;
+			remoteInfo = "Pods-YoulvTests-UIImage+BlurredFrame";
+		};
+		1DA981CFA2DC006DB4E33A01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A9A84E29B149D2DD35BC6B5;
 			remoteInfo = "Pods-Youlv-FSMediaPicker";
 		};
-		4FED589303A6F9773AA950E6 /* PBXContainerItemProxy */ = {
+		3C16481192C71B118850269D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 95E98365509BC53E6CC2B524 /* Project object */;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 332BF99FB17A914174E36152;
+			remoteGlobalIDString = 1FA2BA3BA225150CCC6BA691;
 			remoteInfo = "Pods-YoulvTests-FSMediaPicker";
 		};
-		667F23DD136AA675A4DF0500 /* PBXContainerItemProxy */ = {
+		57DD565EBB418FA235108457 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 95E98365509BC53E6CC2B524 /* Project object */;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 32D5EE238011C19C3F047EE0;
+			remoteGlobalIDString = EE1D26F1B2E76B9E5BE41EE5;
 			remoteInfo = "Pods-Youlv-FSMediaPicker-FSMediaPicker";
 		};
-		B1861275A543D0BE4BDAF5AE /* PBXContainerItemProxy */ = {
+		5A1A6005DF4865610EE719EA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 95E98365509BC53E6CC2B524 /* Project object */;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9C2250F63D43CADE47A35492;
+			remoteGlobalIDString = 095A3362C4745E3EA40D50A8;
+			remoteInfo = "Pods-YoulvTests-UIImage+BlurredFrame";
+		};
+		604362737DD3F292DC88CE1E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98AAD586C173E9542619A305;
+			remoteInfo = "Pods-YoulvTests-MZAppearance";
+		};
+		7B5021C3D0AB06A07A248E11 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF1D7E61732FB622D8B27C87;
+			remoteInfo = "Pods-Youlv-MZFormSheetController";
+		};
+		8DEEA561735BAD74B68791E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BAB375F44079904770B186F8;
+			remoteInfo = "Pods-YoulvTests-BlurryModalSegue";
+		};
+		987EBA022A039CC041384EF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B417D09720D96A2BFA5775EE;
+			remoteInfo = "Pods-Youlv-BlurryModalSegue";
+		};
+		99F79E35C13EA22E11DC9DE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A4E8EF426DD75C9B7AB7626;
+			remoteInfo = "Pods-Youlv-UIImage+BlurredFrame";
+		};
+		9C268AB382DA4DA43C7D5D78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63DFC66659D9D66D3F0D4027;
+			remoteInfo = "Pods-Youlv-MZAppearance";
+		};
+		A1945093969ED358770B45D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98AAD586C173E9542619A305;
+			remoteInfo = "Pods-YoulvTests-MZAppearance";
+		};
+		AED0A163F7ABBE273FD046BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98AAD586C173E9542619A305;
+			remoteInfo = "Pods-YoulvTests-MZAppearance";
+		};
+		B21C01D0FC42231171B27AA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A4E8EF426DD75C9B7AB7626;
+			remoteInfo = "Pods-Youlv-UIImage+BlurredFrame";
+		};
+		C18B935DC791F824BBAB756D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2090C98B0A5E977DF2F1A58C;
 			remoteInfo = "Pods-YoulvTests-FSMediaPicker-FSMediaPicker";
+		};
+		D2CC311429E82E5238133435 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1082B44D640AF0CF9123E1C;
+			remoteInfo = "Pods-YoulvTests-MZFormSheetController";
+		};
+		D3B9DAAC3EC605CC5F3C66A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63DFC66659D9D66D3F0D4027;
+			remoteInfo = "Pods-Youlv-MZAppearance";
+		};
+		E6F1F472D2D558DBC4F15D7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 110BC505E03D388690C09C1C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63DFC66659D9D66D3F0D4027;
+			remoteInfo = "Pods-Youlv-MZAppearance";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04F15D1739FFD8A64BB3F256 /* Pods-YoulvTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YoulvTests-environment.h"; sourceTree = "<group>"; };
-		0547AACBA756801B8C3FEBB7 /* libPods-Youlv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0554C171884B7445346AC96D /* Pods-Youlv-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Youlv-acknowledgements.markdown"; sourceTree = "<group>"; };
-		06B6A3BB6730C08C5E2BAFC7 /* Pods-Youlv-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Youlv-resources.sh"; sourceTree = "<group>"; };
-		0D7AF3432E09DE5785797BA5 /* Pods-YoulvTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YoulvTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1D38DC5BBA9ABFCFF42FC06E /* Pods-YoulvTests-FSMediaPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-YoulvTests-FSMediaPicker-prefix.pch"; path = "../Pods-YoulvTests-FSMediaPicker/Pods-YoulvTests-FSMediaPicker-prefix.pch"; sourceTree = "<group>"; };
-		28E4F38733236EA132A79439 /* Pods-Youlv-FSMediaPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Youlv-FSMediaPicker-dummy.m"; sourceTree = "<group>"; };
-		28F279C1312E1A57D3EB7EEB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		3B172CEDFAEDAC0DBC39334A /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hant.lproj"; path = "Pod/Assets/zh-Hant.lproj"; sourceTree = "<group>"; };
-		4503349827895789896EC189 /* Pods-YoulvTests-FSMediaPicker-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-FSMediaPicker-Private.xcconfig"; path = "../Pods-YoulvTests-FSMediaPicker/Pods-YoulvTests-FSMediaPicker-Private.xcconfig"; sourceTree = "<group>"; };
-		45FC2A9930842BE455ECF0FA /* Pods-Youlv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv.release.xcconfig"; sourceTree = "<group>"; };
-		4961AB9F7F2A8E487B10FC28 /* Pods-Youlv-FSMediaPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-FSMediaPicker.xcconfig"; sourceTree = "<group>"; };
-		504643EBA61A0E933E7A1292 /* Pods-YoulvTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YoulvTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		686B84860FC2A5222C1C756F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		77C94C855F2F37A31D45779D /* Pods-YoulvTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YoulvTests-dummy.m"; sourceTree = "<group>"; };
-		7B5D703BED83CD59E7848D9A /* Pods-Youlv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv.debug.xcconfig"; sourceTree = "<group>"; };
-		81FB219B22DAB0F1E2CAED39 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = Pod/Assets/en.lproj; sourceTree = "<group>"; };
-		83B0D8FC5C03C099DC62A684 /* Pods-YoulvTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YoulvTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		85974F7F46D04FD09902C567 /* libPods-Youlv-FSMediaPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv-FSMediaPicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		89E4E98B999AD378EEA8853E /* Pods-YoulvTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YoulvTests.release.xcconfig"; sourceTree = "<group>"; };
-		8E1B5E047993EFC695A76A23 /* Pods-Youlv-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Youlv-environment.h"; sourceTree = "<group>"; };
-		940B29BF340C8151D51CF5E2 /* FSMediaPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FSMediaPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CE2C38EE4238626BC08817A /* Pods-Youlv-FSMediaPicker-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-FSMediaPicker-Private.xcconfig"; sourceTree = "<group>"; };
-		A313CB29B182BE6080C4BB69 /* Pods-YoulvTests-FSMediaPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-FSMediaPicker.xcconfig"; path = "../Pods-YoulvTests-FSMediaPicker/Pods-YoulvTests-FSMediaPicker.xcconfig"; sourceTree = "<group>"; };
-		ACB76963A3E1835FEDB7EDBE /* FSMediaPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSMediaPicker.h; path = Pod/Classes/FSMediaPicker.h; sourceTree = "<group>"; };
-		B308F52D4B85755E63DD900F /* Pods-Youlv-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Youlv-acknowledgements.plist"; sourceTree = "<group>"; };
-		B60617188C9B6D32D9A2DA48 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B738A44352DE3771C27E2299 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "Pod/Assets/zh-Hans.lproj"; sourceTree = "<group>"; };
-		BD40B8EBD2F926D8915A3081 /* Pods-Youlv-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Youlv-dummy.m"; sourceTree = "<group>"; };
-		C02BD076C0B29F08E020F80A /* Pods-Youlv-FSMediaPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Youlv-FSMediaPicker-prefix.pch"; sourceTree = "<group>"; };
-		C62740D50ADD1DFE3C832B34 /* Pods-YoulvTests-FSMediaPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-YoulvTests-FSMediaPicker-dummy.m"; path = "../Pods-YoulvTests-FSMediaPicker/Pods-YoulvTests-FSMediaPicker-dummy.m"; sourceTree = "<group>"; };
-		CFA7BF5E2F4BE331CA56DA18 /* libPods-YoulvTests-FSMediaPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoulvTests-FSMediaPicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E11DB2E43BB970163649D796 /* Pods-YoulvTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YoulvTests-resources.sh"; sourceTree = "<group>"; };
-		E7F717BD9E6C9911EF05D8BD /* FSMediaPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FSMediaPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA3489B46148A8489033D2E7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		F119EE82F0D21FB3A6AD2378 /* libPods-YoulvTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoulvTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4A044762748BA8DBB0A279F /* FSMediaPicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSMediaPicker.m; path = Pod/Classes/FSMediaPicker.m; sourceTree = "<group>"; };
+		02E63A5BA17227300DDEA0BC /* libPods-Youlv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03CEC24B1CAC3CAD2F6A690B /* Pods-Youlv-MZAppearance-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Youlv-MZAppearance-prefix.pch"; sourceTree = "<group>"; };
+		07247DBD05FEABA693186303 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		0AE751B51FA77C2684632670 /* Pods-Youlv-MZAppearance-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-MZAppearance-Private.xcconfig"; sourceTree = "<group>"; };
+		0E33810CC26041F4B521FBA1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		0E84EBE75D12F760B9326CCE /* libPods-Youlv-MZAppearance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv-MZAppearance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EDDFC66DD29E3D3D2A7F1ED /* libPods-Youlv-UIImage+BlurredFrame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv-UIImage+BlurredFrame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		10B9736B278CAA55D08609AB /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		10FC0A8191E5E6E580C5477B /* Pods-Youlv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv.release.xcconfig"; sourceTree = "<group>"; };
+		121A25382DC07B2048DDCAF0 /* libPods-Youlv-BlurryModalSegue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv-BlurryModalSegue.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		12F9C11F69F12BA4D4D47448 /* Pods-Youlv-MZAppearance-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Youlv-MZAppearance-dummy.m"; sourceTree = "<group>"; };
+		180A278C98D25149E51F685D /* MZFormSheetBackgroundWindowViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MZFormSheetBackgroundWindowViewController.m; path = MZFormSheetController/MZFormSheetBackgroundWindowViewController.m; sourceTree = "<group>"; };
+		1C87F79C9D9EF20AA0DE3967 /* Pods-YoulvTests-MZFormSheetController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-MZFormSheetController.xcconfig"; path = "../Pods-YoulvTests-MZFormSheetController/Pods-YoulvTests-MZFormSheetController.xcconfig"; sourceTree = "<group>"; };
+		1FAD09178CA1DA6E822D5A1D /* Pods-Youlv-MZFormSheetController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-MZFormSheetController-Private.xcconfig"; sourceTree = "<group>"; };
+		227359B60CF33CB8C4B412FD /* Pods-Youlv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv.debug.xcconfig"; sourceTree = "<group>"; };
+		22A97E00BA635538E555C1A8 /* Pods-Youlv-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Youlv-dummy.m"; sourceTree = "<group>"; };
+		22C89EEC8BD0611BCBA6C682 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		26D09B4438BDCB69630784F4 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hans.lproj"; path = "Pod/Assets/zh-Hans.lproj"; sourceTree = "<group>"; };
+		2B5DCDDE77E35FEE65BCC51F /* Pods-Youlv-FSMediaPicker-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-FSMediaPicker-Private.xcconfig"; sourceTree = "<group>"; };
+		2C49D21D22FB19DC3468CA5D /* MZFormSheetBackgroundWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MZFormSheetBackgroundWindow.m; path = MZFormSheetController/MZFormSheetBackgroundWindow.m; sourceTree = "<group>"; };
+		2CD92CD10A1D9038357F347C /* MZMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZMacro.h; path = MZFormSheetController/MZMacro.h; sourceTree = "<group>"; };
+		2F6936EDD664DB09710DC154 /* MZFormSheetPresentationControllerSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MZFormSheetPresentationControllerSegue.m; path = MZFormSheetController/MZFormSheetPresentationController/MZFormSheetPresentationControllerSegue.m; sourceTree = "<group>"; };
+		306ED985CA859D8FD78F0158 /* Pods-Youlv-FSMediaPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Youlv-FSMediaPicker-dummy.m"; sourceTree = "<group>"; };
+		368272F721FFE0889E8BBC0B /* Pods-YoulvTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YoulvTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		36EAD85C0BC0873279108E3B /* Pods-YoulvTests-BlurryModalSegue-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-BlurryModalSegue-Private.xcconfig"; path = "../Pods-YoulvTests-BlurryModalSegue/Pods-YoulvTests-BlurryModalSegue-Private.xcconfig"; sourceTree = "<group>"; };
+		39E175A8EB23692304278154 /* Pods-YoulvTests-MZFormSheetController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-YoulvTests-MZFormSheetController-dummy.m"; path = "../Pods-YoulvTests-MZFormSheetController/Pods-YoulvTests-MZFormSheetController-dummy.m"; sourceTree = "<group>"; };
+		3A70ACA5F4A1BC98392C1345 /* Pods-YoulvTests-MZFormSheetController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-YoulvTests-MZFormSheetController-prefix.pch"; path = "../Pods-YoulvTests-MZFormSheetController/Pods-YoulvTests-MZFormSheetController-prefix.pch"; sourceTree = "<group>"; };
+		3CF06AC69D14469807DFC9CA /* Pods-Youlv-BlurryModalSegue-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Youlv-BlurryModalSegue-prefix.pch"; sourceTree = "<group>"; };
+		41BACABECEDC116D82C766C8 /* Pods-Youlv-UIImage+BlurredFrame-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Youlv-UIImage+BlurredFrame-dummy.m"; sourceTree = "<group>"; };
+		423D57CE8C225C8C5B130C08 /* MZFormSheetController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZFormSheetController.h; path = MZFormSheetController/MZFormSheetController.h; sourceTree = "<group>"; };
+		42D79F09D15E4F66EE164C28 /* MZTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZTransition.h; path = MZFormSheetController/MZTransition.h; sourceTree = "<group>"; };
+		43313854DFE63E39CAC7E3AC /* MZFormSheetPresentationControllerAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MZFormSheetPresentationControllerAnimator.m; path = MZFormSheetController/MZFormSheetPresentationController/MZFormSheetPresentationControllerAnimator.m; sourceTree = "<group>"; };
+		46E8F3501691F14F2211DB66 /* Pods-YoulvTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YoulvTests-dummy.m"; sourceTree = "<group>"; };
+		48816F7676698500B6B6A183 /* UIImage+BlurredFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurredFrame.h"; sourceTree = "<group>"; };
+		499202061EF4190C4C92F65D /* Pods-YoulvTests-FSMediaPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-FSMediaPicker.xcconfig"; path = "../Pods-YoulvTests-FSMediaPicker/Pods-YoulvTests-FSMediaPicker.xcconfig"; sourceTree = "<group>"; };
+		4B169297C028123BA526F1CB /* MZFormSheetBackgroundWindowViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZFormSheetBackgroundWindowViewController.h; path = MZFormSheetController/MZFormSheetBackgroundWindowViewController.h; sourceTree = "<group>"; };
+		4E76C87936CFF3D3AD933C56 /* Pods-YoulvTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YoulvTests-resources.sh"; sourceTree = "<group>"; };
+		4F3789D6A15A88EA143D9B33 /* Pods-Youlv-MZAppearance.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-MZAppearance.xcconfig"; sourceTree = "<group>"; };
+		512E86FA585B5E4847ACFDDC /* libPods-YoulvTests-MZFormSheetController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoulvTests-MZFormSheetController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		53A675D7601277619E6205D0 /* libPods-YoulvTests-MZAppearance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoulvTests-MZAppearance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C2F96E7DE7EE09ADA5CB262 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		5F10E8C6CEAE09CC2D528D9B /* MZAppearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MZAppearance.m; path = MZAppearance/MZAppearance.m; sourceTree = "<group>"; };
+		6294C7573F18D826663881E7 /* UIImage+Additional.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Additional.m"; path = "MZFormSheetController/UIImage+Additional.m"; sourceTree = "<group>"; };
+		62F7053BC9344F6C151D1110 /* Pods-YoulvTests-MZAppearance.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-MZAppearance.xcconfig"; path = "../Pods-YoulvTests-MZAppearance/Pods-YoulvTests-MZAppearance.xcconfig"; sourceTree = "<group>"; };
+		6329D6A70C7A761A24F45DDF /* FSMediaPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FSMediaPicker.h; path = Pod/Classes/FSMediaPicker.h; sourceTree = "<group>"; };
+		633C253DFECAB8E4E5DC844B /* Pods-YoulvTests-FSMediaPicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-YoulvTests-FSMediaPicker-dummy.m"; path = "../Pods-YoulvTests-FSMediaPicker/Pods-YoulvTests-FSMediaPicker-dummy.m"; sourceTree = "<group>"; };
+		64E87FD751A044952398D285 /* BlurryModalSegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BlurryModalSegue.h; path = BlurryModalSegue/BlurryModalSegue.h; sourceTree = "<group>"; };
+		6730DB1771A3ABADA5C8BD69 /* Pods-YoulvTests-UIImage+BlurredFrame-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-UIImage+BlurredFrame-Private.xcconfig"; path = "../Pods-YoulvTests-UIImage+BlurredFrame/Pods-YoulvTests-UIImage+BlurredFrame-Private.xcconfig"; sourceTree = "<group>"; };
+		6FC55A0EFF8BC89887EBB603 /* MZFormSheetController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MZFormSheetController.m; path = MZFormSheetController/MZFormSheetController.m; sourceTree = "<group>"; };
+		71B73AD33A49A42E40F551E4 /* Pods-Youlv-UIImage+BlurredFrame.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-UIImage+BlurredFrame.xcconfig"; sourceTree = "<group>"; };
+		73F6890D04227DB5A517548F /* Pods-YoulvTests-BlurryModalSegue-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-YoulvTests-BlurryModalSegue-prefix.pch"; path = "../Pods-YoulvTests-BlurryModalSegue/Pods-YoulvTests-BlurryModalSegue-prefix.pch"; sourceTree = "<group>"; };
+		75397CF4C9DBF8713C6DA901 /* Pods-Youlv-BlurryModalSegue-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-BlurryModalSegue-Private.xcconfig"; sourceTree = "<group>"; };
+		7B6A90C38B871DFECF644347 /* Pods-YoulvTests-MZAppearance-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-YoulvTests-MZAppearance-prefix.pch"; path = "../Pods-YoulvTests-MZAppearance/Pods-YoulvTests-MZAppearance-prefix.pch"; sourceTree = "<group>"; };
+		825EFBE7BB6CB6B921E7B64A /* Pods-Youlv-UIImage+BlurredFrame-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Youlv-UIImage+BlurredFrame-prefix.pch"; sourceTree = "<group>"; };
+		82A9351985C98C5AF45CEDE5 /* libPods-Youlv-FSMediaPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv-FSMediaPicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8394BABB88EA11042A2A1B88 /* Pods-YoulvTests-UIImage+BlurredFrame.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-UIImage+BlurredFrame.xcconfig"; path = "../Pods-YoulvTests-UIImage+BlurredFrame/Pods-YoulvTests-UIImage+BlurredFrame.xcconfig"; sourceTree = "<group>"; };
+		84ACD4CE08477DCED2706B16 /* MZFormSheetBackgroundWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZFormSheetBackgroundWindow.h; path = MZFormSheetController/MZFormSheetBackgroundWindow.h; sourceTree = "<group>"; };
+		88E09114BBD0D843DC5FA10F /* Pods-YoulvTests-MZFormSheetController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-MZFormSheetController-Private.xcconfig"; path = "../Pods-YoulvTests-MZFormSheetController/Pods-YoulvTests-MZFormSheetController-Private.xcconfig"; sourceTree = "<group>"; };
+		89E906390EE9791E43138458 /* UIViewController+TargetViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+TargetViewController.m"; path = "MZFormSheetController/UIViewController+TargetViewController.m"; sourceTree = "<group>"; };
+		8FDEB5A7513712E9544F8012 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		918E59B1582A44B3BDC221CE /* libPods-YoulvTests-BlurryModalSegue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoulvTests-BlurryModalSegue.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93422AB8A0521A7BBBA96709 /* Pods-Youlv-BlurryModalSegue.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-BlurryModalSegue.xcconfig"; sourceTree = "<group>"; };
+		979F956DD01770EA2DA198B5 /* Pods-YoulvTests-MZAppearance-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-MZAppearance-Private.xcconfig"; path = "../Pods-YoulvTests-MZAppearance/Pods-YoulvTests-MZAppearance-Private.xcconfig"; sourceTree = "<group>"; };
+		9952C0AF97DBB8DCA301CFF4 /* Pods-Youlv-MZFormSheetController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-MZFormSheetController.xcconfig"; sourceTree = "<group>"; };
+		9C9D7BE4EE235B1A7EF8D9E6 /* Pods-YoulvTests-FSMediaPicker-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-FSMediaPicker-Private.xcconfig"; path = "../Pods-YoulvTests-FSMediaPicker/Pods-YoulvTests-FSMediaPicker-Private.xcconfig"; sourceTree = "<group>"; };
+		9D860D8320C5E52551608D2F /* MZFormSheetPresentationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZFormSheetPresentationController.h; path = MZFormSheetController/MZFormSheetPresentationController/MZFormSheetPresentationController.h; sourceTree = "<group>"; };
+		9F54E50DD1CD687A57340D4A /* Pods-Youlv-MZFormSheetController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Youlv-MZFormSheetController-prefix.pch"; sourceTree = "<group>"; };
+		A05121B575759C83D1F5E1B8 /* Pods-Youlv-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Youlv-environment.h"; sourceTree = "<group>"; };
+		A10D64512F22486817C2BA71 /* Pods-Youlv-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Youlv-acknowledgements.plist"; sourceTree = "<group>"; };
+		A1F0C2957412E497A4C21470 /* BlurryModalSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BlurryModalSegue.m; path = BlurryModalSegue/BlurryModalSegue.m; sourceTree = "<group>"; };
+		A3CF1865C0C2426EBF91C164 /* Pods-Youlv-UIImage+BlurredFrame-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-UIImage+BlurredFrame-Private.xcconfig"; sourceTree = "<group>"; };
+		A695027B8DC0DDDE9BF282C1 /* MZFormSheetSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MZFormSheetSegue.m; path = MZFormSheetController/MZFormSheetSegue.m; sourceTree = "<group>"; };
+		A81D5AA85723AA91E8059D44 /* MZFormSheetPresentationControllerSegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZFormSheetPresentationControllerSegue.h; path = MZFormSheetController/MZFormSheetPresentationController/MZFormSheetPresentationControllerSegue.h; sourceTree = "<group>"; };
+		AB710FB5D2D1E592EE300BBD /* Pods-Youlv-FSMediaPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Youlv-FSMediaPicker-prefix.pch"; sourceTree = "<group>"; };
+		AF4955BDEACE12A63B0361DB /* Pods-YoulvTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YoulvTests.release.xcconfig"; sourceTree = "<group>"; };
+		AFA749989A9903C9495A5703 /* FSMediaPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FSMediaPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0F9A2161B9C2B7B446FCBFB /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "zh-Hant.lproj"; path = "Pod/Assets/zh-Hant.lproj"; sourceTree = "<group>"; };
+		B6DEDBA4482CE1C59F056548 /* MZFormSheetPresentationControllerAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZFormSheetPresentationControllerAnimator.h; path = MZFormSheetController/MZFormSheetPresentationController/MZFormSheetPresentationControllerAnimator.h; sourceTree = "<group>"; };
+		B787BF9DEF02215646E35120 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		B78AAA3B517E97B9252F9AA5 /* FSMediaPicker.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FSMediaPicker.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8D1AB08707909263C093AAF /* libPods-YoulvTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoulvTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAF24BA698E246337193698B /* Pods-Youlv-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Youlv-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BB0084144F7CE3779179DC61 /* Pods-YoulvTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YoulvTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		BBA00BA528807C7760D028D6 /* NSInvocation+Copy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+Copy.h"; path = "MZAppearance/NSInvocation+Copy.h"; sourceTree = "<group>"; };
+		C4DB9A37CA7D839A14A34BC2 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = Pod/Assets/en.lproj; sourceTree = "<group>"; };
+		C76E1503E9EA7273D2B1C5C3 /* Pods-Youlv-BlurryModalSegue-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Youlv-BlurryModalSegue-dummy.m"; sourceTree = "<group>"; };
+		D15D611B9BEEF2FE421F266C /* libPods-YoulvTests-UIImage+BlurredFrame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoulvTests-UIImage+BlurredFrame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4E6E909A51CC0535E8CAE4A /* MZFormSheetPresentationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MZFormSheetPresentationController.m; path = MZFormSheetController/MZFormSheetPresentationController/MZFormSheetPresentationController.m; sourceTree = "<group>"; };
+		D6C7BF9E28A1E8FA86EE41AB /* Pods-YoulvTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YoulvTests-environment.h"; sourceTree = "<group>"; };
+		D7FBA7EBBA2DFFF8ADA792B0 /* Pods-YoulvTests-BlurryModalSegue.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests-BlurryModalSegue.xcconfig"; path = "../Pods-YoulvTests-BlurryModalSegue/Pods-YoulvTests-BlurryModalSegue.xcconfig"; sourceTree = "<group>"; };
+		D906661229B1D0DEA1F770E1 /* MZFormSheetSegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZFormSheetSegue.h; path = MZFormSheetController/MZFormSheetSegue.h; sourceTree = "<group>"; };
+		D90BA7C8C19506B8DBF04EC9 /* NSInvocation+Copy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+Copy.m"; path = "MZAppearance/NSInvocation+Copy.m"; sourceTree = "<group>"; };
+		DC8235D7F6DB04207BC011BF /* Pods-YoulvTests-UIImage+BlurredFrame-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-YoulvTests-UIImage+BlurredFrame-prefix.pch"; path = "../Pods-YoulvTests-UIImage+BlurredFrame/Pods-YoulvTests-UIImage+BlurredFrame-prefix.pch"; sourceTree = "<group>"; };
+		E5B399F09857926B042528AB /* UIImage+Additional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Additional.h"; path = "MZFormSheetController/UIImage+Additional.h"; sourceTree = "<group>"; };
+		E852D2237EBD1D3D165EE0E8 /* Pods-Youlv-FSMediaPicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Youlv-FSMediaPicker.xcconfig"; sourceTree = "<group>"; };
+		EAA3F2836B76706653B84587 /* libPods-YoulvTests-FSMediaPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoulvTests-FSMediaPicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAB8739CF29C4093AF46818D /* Pods-YoulvTests-BlurryModalSegue-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-YoulvTests-BlurryModalSegue-dummy.m"; path = "../Pods-YoulvTests-BlurryModalSegue/Pods-YoulvTests-BlurryModalSegue-dummy.m"; sourceTree = "<group>"; };
+		EAC9FF108300AB41A96B5BA3 /* Pods-YoulvTests-MZAppearance-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-YoulvTests-MZAppearance-dummy.m"; path = "../Pods-YoulvTests-MZAppearance/Pods-YoulvTests-MZAppearance-dummy.m"; sourceTree = "<group>"; };
+		EB4F28B2D85B253844312230 /* Pods-YoulvTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YoulvTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF0474B947B75BD1B365D793 /* Pods-Youlv-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Youlv-resources.sh"; sourceTree = "<group>"; };
+		F13725298A34575F47FF730F /* Pods-YoulvTests-FSMediaPicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-YoulvTests-FSMediaPicker-prefix.pch"; path = "../Pods-YoulvTests-FSMediaPicker/Pods-YoulvTests-FSMediaPicker-prefix.pch"; sourceTree = "<group>"; };
+		F5D653208ED78EA02B5C89F1 /* MZAppearance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MZAppearance.h; path = MZAppearance/MZAppearance.h; sourceTree = "<group>"; };
+		F6526698C44748C9DC1A01E6 /* UIImage+BlurredFrame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFrame.m"; sourceTree = "<group>"; };
+		F7330DB9513B6A52C5F749E3 /* libPods-Youlv-MZFormSheetController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv-MZFormSheetController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA9FED22C403340B4E8154D0 /* MZTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MZTransition.m; path = MZFormSheetController/MZTransition.m; sourceTree = "<group>"; };
+		FBE5D20B374E61A892A1B7F6 /* UIViewController+TargetViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+TargetViewController.h"; path = "MZFormSheetController/UIViewController+TargetViewController.h"; sourceTree = "<group>"; };
+		FBE5D58E5BEE648EAC62C29D /* FSMediaPicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FSMediaPicker.m; path = Pod/Classes/FSMediaPicker.m; sourceTree = "<group>"; };
+		FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		FE0F745FE135B006A822D435 /* Pods-YoulvTests-UIImage+BlurredFrame-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-YoulvTests-UIImage+BlurredFrame-dummy.m"; path = "../Pods-YoulvTests-UIImage+BlurredFrame/Pods-YoulvTests-UIImage+BlurredFrame-dummy.m"; sourceTree = "<group>"; };
+		FE4FDE0B2D26BF524870B528 /* Pods-Youlv-MZFormSheetController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Youlv-MZFormSheetController-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		07A437BD782107E16864A7F7 /* Frameworks */ = {
+		0D7F11CFD00F3320CB09EBF9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0489ED492B5B151A4A71D13B /* Foundation.framework in Frameworks */,
+				B7CE5C8620C13C0315BDE35D /* Foundation.framework in Frameworks */,
+				3A0C4756BB0E042D8C028685 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4AE02375B67C1D5B19F77AA7 /* Frameworks */ = {
+		2FF46CA3E876648B32905893 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				356D01B4748A31DB1096EE94 /* Foundation.framework in Frameworks */,
-				5CE286785C7B02E06F86F510 /* MobileCoreServices.framework in Frameworks */,
-				C25B6D9FBCC28242AB930A03 /* UIKit.framework in Frameworks */,
+				806939F82828F27A34FF7412 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A676A2AD20315D3A8D8CEC5 /* Frameworks */ = {
+		50D15557425E9261F5967747 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BB803BB5015CA6F30DD24DA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5334248A18E86C07EF3228EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE9FAF93E3316C56EEFE3BCA /* Accelerate.framework in Frameworks */,
+				CCC37693861B7F780E4413C7 /* Foundation.framework in Frameworks */,
+				F874377F636DBF29D30F00D6 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FDF13BC94B881DDC156C573 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F312F3BF8B4F27E8EAC6F0B3 /* Foundation.framework in Frameworks */,
+				B3AC81E574694608FDFD0B8E /* MobileCoreServices.framework in Frameworks */,
+				DA70574541E92B4C4D62765A /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		831A43DE2DC034201D7D4530 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C81D574B8B6D7FD78A839D12 /* Foundation.framework in Frameworks */,
+				7B7516567197C79880D9B389 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96DC7807BFE0DC85C4914F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D05191F085848D839323A093 /* Accelerate.framework in Frameworks */,
+				04EDB070CEA39D3EBBC12E56 /* Foundation.framework in Frameworks */,
+				6829D7769B6839B793E160A2 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D2D8470D079153C85BEE86B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				671445426D2962AB55828A9A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB16BA95755C9EBC78487960 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4C150D262E84288BC88D176 /* Foundation.framework in Frameworks */,
+				D5795C8EC273EDE2BA98AE42 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD9A4F5967C57557F1F2172B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B3B9EB30D2C6BF4E7A2EDE /* Foundation.framework in Frameworks */,
+				A42421B69868642B5937C782 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3CFEAEA9D0F1C6B32CFD9F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				599E60C9BE1229B454D38AD2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8B66B7015C252E12B7DF02E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0515660FFCDC4692A8FA090 /* Foundation.framework in Frameworks */,
+				02F23B1D425BB28F0689AD17 /* MobileCoreServices.framework in Frameworks */,
+				87136F57F8FB6F6F79B12BE3 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D621057CB0A6544F9EB135EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6065B1DBDD466B16F8083851 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				474C000ADA4209D79B642D24 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		95D338632CBCC59B8946BF08 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E9C939A251350B1C34D54F6E /* Foundation.framework in Frameworks */,
-				89D4B69F0D081ADCBAA0C5DD /* MobileCoreServices.framework in Frameworks */,
-				718DF1770A4E196368106200 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B18FA3AB3CCE4B2F9C62F115 /* Frameworks */ = {
+		FE4BF3A16B26D36A83F8D661 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -156,230 +485,454 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		009AF4B529CD2DA2C8C14E23 = {
+		00FA483003A7A96296F4D5FC /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B60617188C9B6D32D9A2DA48 /* Podfile */,
-				0AA8711E2D7476134BC9160B /* Frameworks */,
-				82848E218ABF4BE84E7CE003 /* Pods */,
-				1887D104048ED9F405C36690 /* Products */,
-				38728027F28B50A469C9106F /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		0AA8711E2D7476134BC9160B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C8A1967D506A02A1A8D3F60E /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1887D104048ED9F405C36690 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				940B29BF340C8151D51CF5E2 /* FSMediaPicker.bundle */,
-				E7F717BD9E6C9911EF05D8BD /* FSMediaPicker.bundle */,
-				0547AACBA756801B8C3FEBB7 /* libPods-Youlv.a */,
-				85974F7F46D04FD09902C567 /* libPods-Youlv-FSMediaPicker.a */,
-				F119EE82F0D21FB3A6AD2378 /* libPods-YoulvTests.a */,
-				CFA7BF5E2F4BE331CA56DA18 /* libPods-YoulvTests-FSMediaPicker.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		20284760F919781E9B148BEF /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				81FB219B22DAB0F1E2CAED39 /* en.lproj */,
-				B738A44352DE3771C27E2299 /* zh-Hans.lproj */,
-				3B172CEDFAEDAC0DBC39334A /* zh-Hant.lproj */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		38728027F28B50A469C9106F /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				8A51F278CF2B98B8701E6D41 /* Pods-Youlv */,
-				B37AB245BFBBD09D4B0D7276 /* Pods-YoulvTests */,
+				28B881ED76F20C55A9ADD56C /* Pods-Youlv */,
+				5B445277F2CF7895AE4DE29E /* Pods-YoulvTests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		469F5B0F575A5C60E0B180D5 /* Support Files */ = {
+		28B881ED76F20C55A9ADD56C /* Pods-Youlv */ = {
 			isa = PBXGroup;
 			children = (
-				4961AB9F7F2A8E487B10FC28 /* Pods-Youlv-FSMediaPicker.xcconfig */,
-				9CE2C38EE4238626BC08817A /* Pods-Youlv-FSMediaPicker-Private.xcconfig */,
-				28E4F38733236EA132A79439 /* Pods-Youlv-FSMediaPicker-dummy.m */,
-				C02BD076C0B29F08E020F80A /* Pods-Youlv-FSMediaPicker-prefix.pch */,
-				A313CB29B182BE6080C4BB69 /* Pods-YoulvTests-FSMediaPicker.xcconfig */,
-				4503349827895789896EC189 /* Pods-YoulvTests-FSMediaPicker-Private.xcconfig */,
-				C62740D50ADD1DFE3C832B34 /* Pods-YoulvTests-FSMediaPicker-dummy.m */,
-				1D38DC5BBA9ABFCFF42FC06E /* Pods-YoulvTests-FSMediaPicker-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-Youlv-FSMediaPicker";
-			sourceTree = "<group>";
-		};
-		82848E218ABF4BE84E7CE003 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F44C968433F4080FFFA4E45F /* FSMediaPicker */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		8A51F278CF2B98B8701E6D41 /* Pods-Youlv */ = {
-			isa = PBXGroup;
-			children = (
-				0554C171884B7445346AC96D /* Pods-Youlv-acknowledgements.markdown */,
-				B308F52D4B85755E63DD900F /* Pods-Youlv-acknowledgements.plist */,
-				BD40B8EBD2F926D8915A3081 /* Pods-Youlv-dummy.m */,
-				8E1B5E047993EFC695A76A23 /* Pods-Youlv-environment.h */,
-				06B6A3BB6730C08C5E2BAFC7 /* Pods-Youlv-resources.sh */,
-				7B5D703BED83CD59E7848D9A /* Pods-Youlv.debug.xcconfig */,
-				45FC2A9930842BE455ECF0FA /* Pods-Youlv.release.xcconfig */,
+				BAF24BA698E246337193698B /* Pods-Youlv-acknowledgements.markdown */,
+				A10D64512F22486817C2BA71 /* Pods-Youlv-acknowledgements.plist */,
+				22A97E00BA635538E555C1A8 /* Pods-Youlv-dummy.m */,
+				A05121B575759C83D1F5E1B8 /* Pods-Youlv-environment.h */,
+				EF0474B947B75BD1B365D793 /* Pods-Youlv-resources.sh */,
+				227359B60CF33CB8C4B412FD /* Pods-Youlv.debug.xcconfig */,
+				10FC0A8191E5E6E580C5477B /* Pods-Youlv.release.xcconfig */,
 			);
 			name = "Pods-Youlv";
 			path = "Target Support Files/Pods-Youlv";
 			sourceTree = "<group>";
 		};
-		B37AB245BFBBD09D4B0D7276 /* Pods-YoulvTests */ = {
+		341F009EB322EB57921731AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				83B0D8FC5C03C099DC62A684 /* Pods-YoulvTests-acknowledgements.markdown */,
-				504643EBA61A0E933E7A1292 /* Pods-YoulvTests-acknowledgements.plist */,
-				77C94C855F2F37A31D45779D /* Pods-YoulvTests-dummy.m */,
-				04F15D1739FFD8A64BB3F256 /* Pods-YoulvTests-environment.h */,
-				E11DB2E43BB970163649D796 /* Pods-YoulvTests-resources.sh */,
-				0D7AF3432E09DE5785797BA5 /* Pods-YoulvTests.debug.xcconfig */,
-				89E4E98B999AD378EEA8853E /* Pods-YoulvTests.release.xcconfig */,
+				EC8B41FE68CAF99D19EB7100 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34B98528BF53B8B4F04D98A0 /* FSMediaPicker */ = {
+			isa = PBXGroup;
+			children = (
+				6329D6A70C7A761A24F45DDF /* FSMediaPicker.h */,
+				FBE5D58E5BEE648EAC62C29D /* FSMediaPicker.m */,
+				C865D2078ED591EB4132243F /* Resources */,
+				C2E470B39C6D76465BBEFD8F /* Support Files */,
+			);
+			path = FSMediaPicker;
+			sourceTree = "<group>";
+		};
+		41392D96EE96D59CB8243376 /* BlurryModalSegue */ = {
+			isa = PBXGroup;
+			children = (
+				64E87FD751A044952398D285 /* BlurryModalSegue.h */,
+				A1F0C2957412E497A4C21470 /* BlurryModalSegue.m */,
+				5F149315F0DC102A5270E851 /* Support Files */,
+			);
+			path = BlurryModalSegue;
+			sourceTree = "<group>";
+		};
+		5B445277F2CF7895AE4DE29E /* Pods-YoulvTests */ = {
+			isa = PBXGroup;
+			children = (
+				368272F721FFE0889E8BBC0B /* Pods-YoulvTests-acknowledgements.markdown */,
+				BB0084144F7CE3779179DC61 /* Pods-YoulvTests-acknowledgements.plist */,
+				46E8F3501691F14F2211DB66 /* Pods-YoulvTests-dummy.m */,
+				D6C7BF9E28A1E8FA86EE41AB /* Pods-YoulvTests-environment.h */,
+				4E76C87936CFF3D3AD933C56 /* Pods-YoulvTests-resources.sh */,
+				EB4F28B2D85B253844312230 /* Pods-YoulvTests.debug.xcconfig */,
+				AF4955BDEACE12A63B0361DB /* Pods-YoulvTests.release.xcconfig */,
 			);
 			name = "Pods-YoulvTests";
 			path = "Target Support Files/Pods-YoulvTests";
 			sourceTree = "<group>";
 		};
-		C8A1967D506A02A1A8D3F60E /* iOS */ = {
+		5F149315F0DC102A5270E851 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				686B84860FC2A5222C1C756F /* Foundation.framework */,
-				28F279C1312E1A57D3EB7EEB /* MobileCoreServices.framework */,
-				EA3489B46148A8489033D2E7 /* UIKit.framework */,
+				93422AB8A0521A7BBBA96709 /* Pods-Youlv-BlurryModalSegue.xcconfig */,
+				75397CF4C9DBF8713C6DA901 /* Pods-Youlv-BlurryModalSegue-Private.xcconfig */,
+				C76E1503E9EA7273D2B1C5C3 /* Pods-Youlv-BlurryModalSegue-dummy.m */,
+				3CF06AC69D14469807DFC9CA /* Pods-Youlv-BlurryModalSegue-prefix.pch */,
+				D7FBA7EBBA2DFFF8ADA792B0 /* Pods-YoulvTests-BlurryModalSegue.xcconfig */,
+				36EAD85C0BC0873279108E3B /* Pods-YoulvTests-BlurryModalSegue-Private.xcconfig */,
+				EAB8739CF29C4093AF46818D /* Pods-YoulvTests-BlurryModalSegue-dummy.m */,
+				73F6890D04227DB5A517548F /* Pods-YoulvTests-BlurryModalSegue-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Youlv-BlurryModalSegue";
+			sourceTree = "<group>";
+		};
+		7090BB10F07C38CA5122BD98 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				84ACD4CE08477DCED2706B16 /* MZFormSheetBackgroundWindow.h */,
+				2C49D21D22FB19DC3468CA5D /* MZFormSheetBackgroundWindow.m */,
+				4B169297C028123BA526F1CB /* MZFormSheetBackgroundWindowViewController.h */,
+				180A278C98D25149E51F685D /* MZFormSheetBackgroundWindowViewController.m */,
+				423D57CE8C225C8C5B130C08 /* MZFormSheetController.h */,
+				6FC55A0EFF8BC89887EBB603 /* MZFormSheetController.m */,
+				9D860D8320C5E52551608D2F /* MZFormSheetPresentationController.h */,
+				D4E6E909A51CC0535E8CAE4A /* MZFormSheetPresentationController.m */,
+				B6DEDBA4482CE1C59F056548 /* MZFormSheetPresentationControllerAnimator.h */,
+				43313854DFE63E39CAC7E3AC /* MZFormSheetPresentationControllerAnimator.m */,
+				A81D5AA85723AA91E8059D44 /* MZFormSheetPresentationControllerSegue.h */,
+				2F6936EDD664DB09710DC154 /* MZFormSheetPresentationControllerSegue.m */,
+				D906661229B1D0DEA1F770E1 /* MZFormSheetSegue.h */,
+				A695027B8DC0DDDE9BF282C1 /* MZFormSheetSegue.m */,
+				2CD92CD10A1D9038357F347C /* MZMacro.h */,
+				42D79F09D15E4F66EE164C28 /* MZTransition.h */,
+				FA9FED22C403340B4E8154D0 /* MZTransition.m */,
+				E5B399F09857926B042528AB /* UIImage+Additional.h */,
+				6294C7573F18D826663881E7 /* UIImage+Additional.m */,
+				FBE5D20B374E61A892A1B7F6 /* UIViewController+TargetViewController.h */,
+				89E906390EE9791E43138458 /* UIViewController+TargetViewController.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		945E64C55E53449FADE636BC /* MZAppearance */ = {
+			isa = PBXGroup;
+			children = (
+				F5D653208ED78EA02B5C89F1 /* MZAppearance.h */,
+				5F10E8C6CEAE09CC2D528D9B /* MZAppearance.m */,
+				BBA00BA528807C7760D028D6 /* NSInvocation+Copy.h */,
+				D90BA7C8C19506B8DBF04EC9 /* NSInvocation+Copy.m */,
+				FEA779CB3B13698317309AA1 /* Support Files */,
+			);
+			path = MZAppearance;
+			sourceTree = "<group>";
+		};
+		A60EC2E782087C849B9E6FB0 /* UIImage+BlurredFrame */ = {
+			isa = PBXGroup;
+			children = (
+				48816F7676698500B6B6A183 /* UIImage+BlurredFrame.h */,
+				F6526698C44748C9DC1A01E6 /* UIImage+BlurredFrame.m */,
+				8FDEB5A7513712E9544F8012 /* UIImage+ImageEffects.h */,
+				22C89EEC8BD0611BCBA6C682 /* UIImage+ImageEffects.m */,
+				D70EBCC62DE8A1FB0F19AEFA /* Support Files */,
+			);
+			path = "UIImage+BlurredFrame";
+			sourceTree = "<group>";
+		};
+		C2E470B39C6D76465BBEFD8F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E852D2237EBD1D3D165EE0E8 /* Pods-Youlv-FSMediaPicker.xcconfig */,
+				2B5DCDDE77E35FEE65BCC51F /* Pods-Youlv-FSMediaPicker-Private.xcconfig */,
+				306ED985CA859D8FD78F0158 /* Pods-Youlv-FSMediaPicker-dummy.m */,
+				AB710FB5D2D1E592EE300BBD /* Pods-Youlv-FSMediaPicker-prefix.pch */,
+				499202061EF4190C4C92F65D /* Pods-YoulvTests-FSMediaPicker.xcconfig */,
+				9C9D7BE4EE235B1A7EF8D9E6 /* Pods-YoulvTests-FSMediaPicker-Private.xcconfig */,
+				633C253DFECAB8E4E5DC844B /* Pods-YoulvTests-FSMediaPicker-dummy.m */,
+				F13725298A34575F47FF730F /* Pods-YoulvTests-FSMediaPicker-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Youlv-FSMediaPicker";
+			sourceTree = "<group>";
+		};
+		C50577191EDD53A7E2EDDA6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B78AAA3B517E97B9252F9AA5 /* FSMediaPicker.bundle */,
+				AFA749989A9903C9495A5703 /* FSMediaPicker.bundle */,
+				02E63A5BA17227300DDEA0BC /* libPods-Youlv.a */,
+				121A25382DC07B2048DDCAF0 /* libPods-Youlv-BlurryModalSegue.a */,
+				82A9351985C98C5AF45CEDE5 /* libPods-Youlv-FSMediaPicker.a */,
+				0E84EBE75D12F760B9326CCE /* libPods-Youlv-MZAppearance.a */,
+				F7330DB9513B6A52C5F749E3 /* libPods-Youlv-MZFormSheetController.a */,
+				0EDDFC66DD29E3D3D2A7F1ED /* libPods-Youlv-UIImage+BlurredFrame.a */,
+				B8D1AB08707909263C093AAF /* libPods-YoulvTests.a */,
+				918E59B1582A44B3BDC221CE /* libPods-YoulvTests-BlurryModalSegue.a */,
+				EAA3F2836B76706653B84587 /* libPods-YoulvTests-FSMediaPicker.a */,
+				53A675D7601277619E6205D0 /* libPods-YoulvTests-MZAppearance.a */,
+				512E86FA585B5E4847ACFDDC /* libPods-YoulvTests-MZFormSheetController.a */,
+				D15D611B9BEEF2FE421F266C /* libPods-YoulvTests-UIImage+BlurredFrame.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C865D2078ED591EB4132243F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C4DB9A37CA7D839A14A34BC2 /* en.lproj */,
+				26D09B4438BDCB69630784F4 /* zh-Hans.lproj */,
+				B0F9A2161B9C2B7B446FCBFB /* zh-Hant.lproj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D1EAABCAB5D478CCCC556077 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9952C0AF97DBB8DCA301CFF4 /* Pods-Youlv-MZFormSheetController.xcconfig */,
+				1FAD09178CA1DA6E822D5A1D /* Pods-Youlv-MZFormSheetController-Private.xcconfig */,
+				FE4FDE0B2D26BF524870B528 /* Pods-Youlv-MZFormSheetController-dummy.m */,
+				9F54E50DD1CD687A57340D4A /* Pods-Youlv-MZFormSheetController-prefix.pch */,
+				1C87F79C9D9EF20AA0DE3967 /* Pods-YoulvTests-MZFormSheetController.xcconfig */,
+				88E09114BBD0D843DC5FA10F /* Pods-YoulvTests-MZFormSheetController-Private.xcconfig */,
+				39E175A8EB23692304278154 /* Pods-YoulvTests-MZFormSheetController-dummy.m */,
+				3A70ACA5F4A1BC98392C1345 /* Pods-YoulvTests-MZFormSheetController-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Youlv-MZFormSheetController";
+			sourceTree = "<group>";
+		};
+		D31F4FBF5A963DF1AD59DF9D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41392D96EE96D59CB8243376 /* BlurryModalSegue */,
+				34B98528BF53B8B4F04D98A0 /* FSMediaPicker */,
+				945E64C55E53449FADE636BC /* MZAppearance */,
+				E6AEA634CEB9D3B10082FDBB /* MZFormSheetController */,
+				A60EC2E782087C849B9E6FB0 /* UIImage+BlurredFrame */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D70EBCC62DE8A1FB0F19AEFA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				71B73AD33A49A42E40F551E4 /* Pods-Youlv-UIImage+BlurredFrame.xcconfig */,
+				A3CF1865C0C2426EBF91C164 /* Pods-Youlv-UIImage+BlurredFrame-Private.xcconfig */,
+				41BACABECEDC116D82C766C8 /* Pods-Youlv-UIImage+BlurredFrame-dummy.m */,
+				825EFBE7BB6CB6B921E7B64A /* Pods-Youlv-UIImage+BlurredFrame-prefix.pch */,
+				8394BABB88EA11042A2A1B88 /* Pods-YoulvTests-UIImage+BlurredFrame.xcconfig */,
+				6730DB1771A3ABADA5C8BD69 /* Pods-YoulvTests-UIImage+BlurredFrame-Private.xcconfig */,
+				FE0F745FE135B006A822D435 /* Pods-YoulvTests-UIImage+BlurredFrame-dummy.m */,
+				DC8235D7F6DB04207BC011BF /* Pods-YoulvTests-UIImage+BlurredFrame-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Youlv-UIImage+BlurredFrame";
+			sourceTree = "<group>";
+		};
+		E6AEA634CEB9D3B10082FDBB /* MZFormSheetController */ = {
+			isa = PBXGroup;
+			children = (
+				7090BB10F07C38CA5122BD98 /* Core */,
+				D1EAABCAB5D478CCCC556077 /* Support Files */,
+			);
+			path = MZFormSheetController;
+			sourceTree = "<group>";
+		};
+		EC8B41FE68CAF99D19EB7100 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5C2F96E7DE7EE09ADA5CB262 /* Accelerate.framework */,
+				FCF45AB63E7180F8FFD8EC50 /* Foundation.framework */,
+				07247DBD05FEABA693186303 /* MobileCoreServices.framework */,
+				B787BF9DEF02215646E35120 /* QuartzCore.framework */,
+				0E33810CC26041F4B521FBA1 /* UIKit.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F44C968433F4080FFFA4E45F /* FSMediaPicker */ = {
+		FE67C421D091FD0DAA4673C0 = {
 			isa = PBXGroup;
 			children = (
-				ACB76963A3E1835FEDB7EDBE /* FSMediaPicker.h */,
-				F4A044762748BA8DBB0A279F /* FSMediaPicker.m */,
-				20284760F919781E9B148BEF /* Resources */,
-				469F5B0F575A5C60E0B180D5 /* Support Files */,
+				10B9736B278CAA55D08609AB /* Podfile */,
+				341F009EB322EB57921731AA /* Frameworks */,
+				D31F4FBF5A963DF1AD59DF9D /* Pods */,
+				C50577191EDD53A7E2EDDA6C /* Products */,
+				00FA483003A7A96296F4D5FC /* Targets Support Files */,
 			);
-			path = FSMediaPicker;
+			sourceTree = "<group>";
+		};
+		FEA779CB3B13698317309AA1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4F3789D6A15A88EA143D9B33 /* Pods-Youlv-MZAppearance.xcconfig */,
+				0AE751B51FA77C2684632670 /* Pods-Youlv-MZAppearance-Private.xcconfig */,
+				12F9C11F69F12BA4D4D47448 /* Pods-Youlv-MZAppearance-dummy.m */,
+				03CEC24B1CAC3CAD2F6A690B /* Pods-Youlv-MZAppearance-prefix.pch */,
+				62F7053BC9344F6C151D1110 /* Pods-YoulvTests-MZAppearance.xcconfig */,
+				979F956DD01770EA2DA198B5 /* Pods-YoulvTests-MZAppearance-Private.xcconfig */,
+				EAC9FF108300AB41A96B5BA3 /* Pods-YoulvTests-MZAppearance-dummy.m */,
+				7B6A90C38B871DFECF644347 /* Pods-YoulvTests-MZAppearance-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-Youlv-MZAppearance";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		408706B696A46F9A412D4C00 /* Headers */ = {
+		24B6E0991C0B9A32564E368C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70AD424B4E84612A8B411A91 /* FSMediaPicker.h in Headers */,
+				802EE7768FAF5DB0E464732C /* UIImage+BlurredFrame.h in Headers */,
+				F1A741CFB2BC629F290CD1D9 /* UIImage+ImageEffects.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E1444A5EF9527EB1F384D76B /* Headers */ = {
+		45E7B8433CD73030EC398D50 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BE0E760EB5C1A47C3DBBDC7 /* FSMediaPicker.h in Headers */,
+				338BBBB534A6DF3EA062D55B /* BlurryModalSegue.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B50FE66D6C9C2D2F7CC03A6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BF9808085211BF118776B99 /* MZAppearance.h in Headers */,
+				C76B22EBA63FD49C836FC985 /* NSInvocation+Copy.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60FDC0BDCB1AD35E0FDB615C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72E5B16A792A7D1D3FEE450B /* BlurryModalSegue.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		884F03EBE417D16A5EC54524 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				530FD21BB719AA4BFAE5D6D8 /* MZFormSheetBackgroundWindow.h in Headers */,
+				0DEE5216BA453AC694E9B2BB /* MZFormSheetBackgroundWindowViewController.h in Headers */,
+				02008B504979AD21F4905CC7 /* MZFormSheetController.h in Headers */,
+				12EEEE538BA1BD078426BA54 /* MZFormSheetPresentationController.h in Headers */,
+				5A56AC6C1FF0E354410C9C6E /* MZFormSheetPresentationControllerAnimator.h in Headers */,
+				2450280C8CC1827625EB9209 /* MZFormSheetPresentationControllerSegue.h in Headers */,
+				178DC01AC5557B0779F9E295 /* MZFormSheetSegue.h in Headers */,
+				5EF271D40D62FE609D70F709 /* MZMacro.h in Headers */,
+				9D2BA716A19616ACB8ECC923 /* MZTransition.h in Headers */,
+				DDCFDDC05C5A760593CE3FD6 /* UIImage+Additional.h in Headers */,
+				DBAB3FEF30C93082C504BFDC /* UIViewController+TargetViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3760B01E2185022CD9846C6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				513EF67C9431083FB7D0C3E2 /* FSMediaPicker.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1178E9F421612DFEC7EBA56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5628E4F8B4DABB926C026F66 /* FSMediaPicker.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7A25781B011235F7DE426D6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CAA95FCF54FE974F4D45582 /* MZFormSheetBackgroundWindow.h in Headers */,
+				F56BBD94B69E794D60F0E2ED /* MZFormSheetBackgroundWindowViewController.h in Headers */,
+				F318792A282BEC2548A0488A /* MZFormSheetController.h in Headers */,
+				F9F4477FE24FC908496B254D /* MZFormSheetPresentationController.h in Headers */,
+				5B08E2F9E76A08D0DBB147CE /* MZFormSheetPresentationControllerAnimator.h in Headers */,
+				B085D43DAE058505647B66A8 /* MZFormSheetPresentationControllerSegue.h in Headers */,
+				2A64A421410A8FFAF0B29775 /* MZFormSheetSegue.h in Headers */,
+				C42A2DA6C79AE491DF13C830 /* MZMacro.h in Headers */,
+				ECC63CE2BE4753D0D0F3A449 /* MZTransition.h in Headers */,
+				4DA97CE122CABB516285CC23 /* UIImage+Additional.h in Headers */,
+				371CD92E5921A1ACC83D49C6 /* UIViewController+TargetViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF92FE60BBE202239994DFEA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41F330EF62BDB5F50E412DA5 /* UIImage+BlurredFrame.h in Headers */,
+				17420AC03E28A8270443E44B /* UIImage+ImageEffects.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E92D27EB729E3D93FB8B1D3E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E46AEF94DDECDCC358169E4F /* MZAppearance.h in Headers */,
+				5B5EE7F93395274437A1F645 /* NSInvocation+Copy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		32D5EE238011C19C3F047EE0 /* Pods-Youlv-FSMediaPicker-FSMediaPicker */ = {
+		095A3362C4745E3EA40D50A8 /* Pods-YoulvTests-UIImage+BlurredFrame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66316268C82D928F63EDA67B /* Build configuration list for PBXNativeTarget "Pods-Youlv-FSMediaPicker-FSMediaPicker" */;
+			buildConfigurationList = 85D2B42DEF15B5F538B66FA6 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-UIImage+BlurredFrame" */;
 			buildPhases = (
-				16D72ABDCDC9C8B132FBBEF5 /* Sources */,
-				5A676A2AD20315D3A8D8CEC5 /* Frameworks */,
-				ABB20405A6D2271AA63A6A6E /* Resources */,
+				F37D73372C1D216A707EE8DC /* Sources */,
+				9D2D8470D079153C85BEE86B /* Frameworks */,
+				24B6E0991C0B9A32564E368C /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-Youlv-FSMediaPicker-FSMediaPicker";
-			productName = "Pods-Youlv-FSMediaPicker-FSMediaPicker";
-			productReference = E7F717BD9E6C9911EF05D8BD /* FSMediaPicker.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
-		332BF99FB17A914174E36152 /* Pods-YoulvTests-FSMediaPicker */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 85CB769AB375F89FD9F0628F /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-FSMediaPicker" */;
-			buildPhases = (
-				F94E83BD657626FAF8D4130A /* Sources */,
-				4AE02375B67C1D5B19F77AA7 /* Frameworks */,
-				E1444A5EF9527EB1F384D76B /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E58A590D3F02BB58C140795E /* PBXTargetDependency */,
-			);
-			name = "Pods-YoulvTests-FSMediaPicker";
-			productName = "Pods-YoulvTests-FSMediaPicker";
-			productReference = CFA7BF5E2F4BE331CA56DA18 /* libPods-YoulvTests-FSMediaPicker.a */;
+			name = "Pods-YoulvTests-UIImage+BlurredFrame";
+			productName = "Pods-YoulvTests-UIImage+BlurredFrame";
+			productReference = D15D611B9BEEF2FE421F266C /* libPods-YoulvTests-UIImage+BlurredFrame.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		78F6FFE66505739D24D6A1F0 /* Pods-Youlv */ = {
+		1B0E970A4FD554D287281CF0 /* Pods-YoulvTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1068928C8F0EBFFBF7096843 /* Build configuration list for PBXNativeTarget "Pods-Youlv" */;
+			buildConfigurationList = C91B92138B56A866131CFE3B /* Build configuration list for PBXNativeTarget "Pods-YoulvTests" */;
 			buildPhases = (
-				9134DC5B86DEA7FCE7C0F7AE /* Sources */,
-				6065B1DBDD466B16F8083851 /* Frameworks */,
+				F30AB3F375F2D41D3C301B66 /* Sources */,
+				50D15557425E9261F5967747 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3FDC2A9417FD3646008B8F9D /* PBXTargetDependency */,
-			);
-			name = "Pods-Youlv";
-			productName = "Pods-Youlv";
-			productReference = 0547AACBA756801B8C3FEBB7 /* libPods-Youlv.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		8BCD8F892B87C7B1F84BEA64 /* Pods-YoulvTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4F1BF255AA1663873288E382 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests" */;
-			buildPhases = (
-				E28C40050E66173E796A0F60 /* Sources */,
-				07A437BD782107E16864A7F7 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F5D857570B84FA6D6E56D0CF /* PBXTargetDependency */,
+				9C9CF1665E5716F565F39409 /* PBXTargetDependency */,
+				AFBBCC46B895175E134506B7 /* PBXTargetDependency */,
+				1C3F8E3FA5CC90D237FF9102 /* PBXTargetDependency */,
+				7BC88068B813A5922DBDD6D8 /* PBXTargetDependency */,
+				A4972EAC70888B6D072A726A /* PBXTargetDependency */,
 			);
 			name = "Pods-YoulvTests";
 			productName = "Pods-YoulvTests";
-			productReference = F119EE82F0D21FB3A6AD2378 /* libPods-YoulvTests.a */;
+			productReference = B8D1AB08707909263C093AAF /* libPods-YoulvTests.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		9C2250F63D43CADE47A35492 /* Pods-YoulvTests-FSMediaPicker-FSMediaPicker */ = {
+		1FA2BA3BA225150CCC6BA691 /* Pods-YoulvTests-FSMediaPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B12B6227E637FBEE90CA447F /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-FSMediaPicker-FSMediaPicker" */;
+			buildConfigurationList = E8B9DE771201A79C386F14B8 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-FSMediaPicker" */;
 			buildPhases = (
-				4420F9A5B98DAA9AFB354669 /* Sources */,
-				B18FA3AB3CCE4B2F9C62F115 /* Frameworks */,
-				786424979CF00B5B131C3DEC /* Resources */,
+				BFC33966164F58C6C06C41EC /* Sources */,
+				5FDF13BC94B881DDC156C573 /* Frameworks */,
+				C1178E9F421612DFEC7EBA56 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A12924232F1016017A6F14AE /* PBXTargetDependency */,
+			);
+			name = "Pods-YoulvTests-FSMediaPicker";
+			productName = "Pods-YoulvTests-FSMediaPicker";
+			productReference = EAA3F2836B76706653B84587 /* libPods-YoulvTests-FSMediaPicker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		2090C98B0A5E977DF2F1A58C /* Pods-YoulvTests-FSMediaPicker-FSMediaPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73C56F48A294029CBDD42E76 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-FSMediaPicker-FSMediaPicker" */;
+			buildPhases = (
+				371B6B4A345553E2F03BAA5A /* Sources */,
+				FE4BF3A16B26D36A83F8D661 /* Frameworks */,
+				291C15B0AAFCA6F387E9164F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -387,184 +940,511 @@
 			);
 			name = "Pods-YoulvTests-FSMediaPicker-FSMediaPicker";
 			productName = "Pods-YoulvTests-FSMediaPicker-FSMediaPicker";
-			productReference = 940B29BF340C8151D51CF5E2 /* FSMediaPicker.bundle */;
+			productReference = B78AAA3B517E97B9252F9AA5 /* FSMediaPicker.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		FA0AE2AE7B63B50C8F21390B /* Pods-Youlv-FSMediaPicker */ = {
+		5A9A84E29B149D2DD35BC6B5 /* Pods-Youlv-FSMediaPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 98F255CE10BD05310D0C66C1 /* Build configuration list for PBXNativeTarget "Pods-Youlv-FSMediaPicker" */;
+			buildConfigurationList = 36CEA3BFC2FC614C6CADB1B9 /* Build configuration list for PBXNativeTarget "Pods-Youlv-FSMediaPicker" */;
 			buildPhases = (
-				C590438CC0303903452426B4 /* Sources */,
-				95D338632CBCC59B8946BF08 /* Frameworks */,
-				408706B696A46F9A412D4C00 /* Headers */,
+				3A82A8A5F7D4A52EF07CA67A /* Sources */,
+				B8B66B7015C252E12B7DF02E /* Frameworks */,
+				B3760B01E2185022CD9846C6 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D6C38D9F40EDF662C536FC37 /* PBXTargetDependency */,
+				D8CE5744DD66426E26519AA9 /* PBXTargetDependency */,
 			);
 			name = "Pods-Youlv-FSMediaPicker";
 			productName = "Pods-Youlv-FSMediaPicker";
-			productReference = 85974F7F46D04FD09902C567 /* libPods-Youlv-FSMediaPicker.a */;
+			productReference = 82A9351985C98C5AF45CEDE5 /* libPods-Youlv-FSMediaPicker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5ABA67BDD1554E364A3A4FF6 /* Pods-Youlv */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29465F3FD6DFDE4B36244491 /* Build configuration list for PBXNativeTarget "Pods-Youlv" */;
+			buildPhases = (
+				9ED18C9025ED44750627551D /* Sources */,
+				B3CFEAEA9D0F1C6B32CFD9F9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84DF6021B315DEC8A323797E /* PBXTargetDependency */,
+				F0B3732E2EF9C902891BBDFE /* PBXTargetDependency */,
+				BECFC8485BAA7A942020413B /* PBXTargetDependency */,
+				E82C4FC2D06754132EAF6304 /* PBXTargetDependency */,
+				8B773227C69E5C089F3A174E /* PBXTargetDependency */,
+			);
+			name = "Pods-Youlv";
+			productName = "Pods-Youlv";
+			productReference = 02E63A5BA17227300DDEA0BC /* libPods-Youlv.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		63DFC66659D9D66D3F0D4027 /* Pods-Youlv-MZAppearance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 837316927861658C8B908D18 /* Build configuration list for PBXNativeTarget "Pods-Youlv-MZAppearance" */;
+			buildPhases = (
+				2CAA7DD96DD441E8B97FB05B /* Sources */,
+				831A43DE2DC034201D7D4530 /* Frameworks */,
+				4B50FE66D6C9C2D2F7CC03A6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Youlv-MZAppearance";
+			productName = "Pods-Youlv-MZAppearance";
+			productReference = 0E84EBE75D12F760B9326CCE /* libPods-Youlv-MZAppearance.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		98AAD586C173E9542619A305 /* Pods-YoulvTests-MZAppearance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6B8980DDCC46E7DFDBFE1E2 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-MZAppearance" */;
+			buildPhases = (
+				BAD08F1CEEE4BEC1A74F978E /* Sources */,
+				AB16BA95755C9EBC78487960 /* Frameworks */,
+				E92D27EB729E3D93FB8B1D3E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-YoulvTests-MZAppearance";
+			productName = "Pods-YoulvTests-MZAppearance";
+			productReference = 53A675D7601277619E6205D0 /* libPods-YoulvTests-MZAppearance.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9A4E8EF426DD75C9B7AB7626 /* Pods-Youlv-UIImage+BlurredFrame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3A4C4587E89B3A68B38CA51 /* Build configuration list for PBXNativeTarget "Pods-Youlv-UIImage+BlurredFrame" */;
+			buildPhases = (
+				AB0D1BEA3F8BCB5A356D5C46 /* Sources */,
+				2FF46CA3E876648B32905893 /* Frameworks */,
+				DF92FE60BBE202239994DFEA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Youlv-UIImage+BlurredFrame";
+			productName = "Pods-Youlv-UIImage+BlurredFrame";
+			productReference = 0EDDFC66DD29E3D3D2A7F1ED /* libPods-Youlv-UIImage+BlurredFrame.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B417D09720D96A2BFA5775EE /* Pods-Youlv-BlurryModalSegue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10F9389D29C4868FEB48DA04 /* Build configuration list for PBXNativeTarget "Pods-Youlv-BlurryModalSegue" */;
+			buildPhases = (
+				6CAC27309998CF006C5A4BB5 /* Sources */,
+				0D7F11CFD00F3320CB09EBF9 /* Frameworks */,
+				45E7B8433CD73030EC398D50 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A0E9A3866AE355699A72E40F /* PBXTargetDependency */,
+				E46815B9C686191A6ED1F4F7 /* PBXTargetDependency */,
+			);
+			name = "Pods-Youlv-BlurryModalSegue";
+			productName = "Pods-Youlv-BlurryModalSegue";
+			productReference = 121A25382DC07B2048DDCAF0 /* libPods-Youlv-BlurryModalSegue.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BAB375F44079904770B186F8 /* Pods-YoulvTests-BlurryModalSegue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 126A358209F2D3A2C8C45B45 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-BlurryModalSegue" */;
+			buildPhases = (
+				2CCF203756BA5BFFCFD8DE79 /* Sources */,
+				AD9A4F5967C57557F1F2172B /* Frameworks */,
+				60FDC0BDCB1AD35E0FDB615C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAF3E5D820DB8E715D4912DD /* PBXTargetDependency */,
+				8BCFDA25A0C4B1A98C9BFD76 /* PBXTargetDependency */,
+			);
+			name = "Pods-YoulvTests-BlurryModalSegue";
+			productName = "Pods-YoulvTests-BlurryModalSegue";
+			productReference = 918E59B1582A44B3BDC221CE /* libPods-YoulvTests-BlurryModalSegue.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EE1D26F1B2E76B9E5BE41EE5 /* Pods-Youlv-FSMediaPicker-FSMediaPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BBA68A3F141AA656DF29170 /* Build configuration list for PBXNativeTarget "Pods-Youlv-FSMediaPicker-FSMediaPicker" */;
+			buildPhases = (
+				C2403D724680CEF9707B605D /* Sources */,
+				D621057CB0A6544F9EB135EC /* Frameworks */,
+				9C927801A06A1C714BA535B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Youlv-FSMediaPicker-FSMediaPicker";
+			productName = "Pods-Youlv-FSMediaPicker-FSMediaPicker";
+			productReference = AFA749989A9903C9495A5703 /* FSMediaPicker.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		EF1D7E61732FB622D8B27C87 /* Pods-Youlv-MZFormSheetController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C60C8E2AB299E0A6CDF5838 /* Build configuration list for PBXNativeTarget "Pods-Youlv-MZFormSheetController" */;
+			buildPhases = (
+				6EEEECEBF2A8DA6845C85615 /* Sources */,
+				96DC7807BFE0DC85C4914F5A /* Frameworks */,
+				884F03EBE417D16A5EC54524 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61132DA5328156E920356B05 /* PBXTargetDependency */,
+			);
+			name = "Pods-Youlv-MZFormSheetController";
+			productName = "Pods-Youlv-MZFormSheetController";
+			productReference = F7330DB9513B6A52C5F749E3 /* libPods-Youlv-MZFormSheetController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F1082B44D640AF0CF9123E1C /* Pods-YoulvTests-MZFormSheetController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79058E176A6A989090D4C406 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-MZFormSheetController" */;
+			buildPhases = (
+				743C6788558E4AD45136D9E3 /* Sources */,
+				5334248A18E86C07EF3228EE /* Frameworks */,
+				C7A25781B011235F7DE426D6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14E06F8A9FAF8AAD06387F46 /* PBXTargetDependency */,
+			);
+			name = "Pods-YoulvTests-MZFormSheetController";
+			productName = "Pods-YoulvTests-MZFormSheetController";
+			productReference = 512E86FA585B5E4847ACFDDC /* libPods-YoulvTests-MZFormSheetController.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		95E98365509BC53E6CC2B524 /* Project object */ = {
+		110BC505E03D388690C09C1C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = E1CA77F8C4D2FBF25FCE3263 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 96CD8A3F01433050E7C3F5C5 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 009AF4B529CD2DA2C8C14E23;
-			productRefGroup = 1887D104048ED9F405C36690 /* Products */;
+			mainGroup = FE67C421D091FD0DAA4673C0;
+			productRefGroup = C50577191EDD53A7E2EDDA6C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				78F6FFE66505739D24D6A1F0 /* Pods-Youlv */,
-				FA0AE2AE7B63B50C8F21390B /* Pods-Youlv-FSMediaPicker */,
-				32D5EE238011C19C3F047EE0 /* Pods-Youlv-FSMediaPicker-FSMediaPicker */,
-				8BCD8F892B87C7B1F84BEA64 /* Pods-YoulvTests */,
-				332BF99FB17A914174E36152 /* Pods-YoulvTests-FSMediaPicker */,
-				9C2250F63D43CADE47A35492 /* Pods-YoulvTests-FSMediaPicker-FSMediaPicker */,
+				5ABA67BDD1554E364A3A4FF6 /* Pods-Youlv */,
+				B417D09720D96A2BFA5775EE /* Pods-Youlv-BlurryModalSegue */,
+				5A9A84E29B149D2DD35BC6B5 /* Pods-Youlv-FSMediaPicker */,
+				EE1D26F1B2E76B9E5BE41EE5 /* Pods-Youlv-FSMediaPicker-FSMediaPicker */,
+				63DFC66659D9D66D3F0D4027 /* Pods-Youlv-MZAppearance */,
+				EF1D7E61732FB622D8B27C87 /* Pods-Youlv-MZFormSheetController */,
+				9A4E8EF426DD75C9B7AB7626 /* Pods-Youlv-UIImage+BlurredFrame */,
+				1B0E970A4FD554D287281CF0 /* Pods-YoulvTests */,
+				BAB375F44079904770B186F8 /* Pods-YoulvTests-BlurryModalSegue */,
+				1FA2BA3BA225150CCC6BA691 /* Pods-YoulvTests-FSMediaPicker */,
+				2090C98B0A5E977DF2F1A58C /* Pods-YoulvTests-FSMediaPicker-FSMediaPicker */,
+				98AAD586C173E9542619A305 /* Pods-YoulvTests-MZAppearance */,
+				F1082B44D640AF0CF9123E1C /* Pods-YoulvTests-MZFormSheetController */,
+				095A3362C4745E3EA40D50A8 /* Pods-YoulvTests-UIImage+BlurredFrame */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		786424979CF00B5B131C3DEC /* Resources */ = {
+		291C15B0AAFCA6F387E9164F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEBB2D2EE74DF81F6021B582 /* en.lproj in Resources */,
-				345B613ACE89F65768F8C39B /* zh-Hans.lproj in Resources */,
-				D7448375E84B23A7300F661C /* zh-Hant.lproj in Resources */,
+				AEA98057323689944F97586F /* en.lproj in Resources */,
+				35941EFA3FEBE30F68B6DFA6 /* zh-Hans.lproj in Resources */,
+				B503BD7332F24438E136784E /* zh-Hant.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABB20405A6D2271AA63A6A6E /* Resources */ = {
+		9C927801A06A1C714BA535B8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2895A495C7A08CB236DDE548 /* en.lproj in Resources */,
-				F8AF5B6F8411377EA39AAE6C /* zh-Hans.lproj in Resources */,
-				43374619D7E1BE269B9CB6CC /* zh-Hant.lproj in Resources */,
+				DFD71314ABB8FB6E8A4960B7 /* en.lproj in Resources */,
+				897C97D8229CCC09641B5CAD /* zh-Hans.lproj in Resources */,
+				E4828483E3DD7233662B3793 /* zh-Hant.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		16D72ABDCDC9C8B132FBBEF5 /* Sources */ = {
+		2CAA7DD96DD441E8B97FB05B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				402AF79490677CF02DA15AAB /* MZAppearance.m in Sources */,
+				CC6A3244035EB177C362553B /* NSInvocation+Copy.m in Sources */,
+				B58905AB73715223BC3E05D6 /* Pods-Youlv-MZAppearance-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CCF203756BA5BFFCFD8DE79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1C09E777580AC8938A09842 /* BlurryModalSegue.m in Sources */,
+				EC73A400A21A11C78531449B /* Pods-YoulvTests-BlurryModalSegue-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		371B6B4A345553E2F03BAA5A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4420F9A5B98DAA9AFB354669 /* Sources */ = {
+		3A82A8A5F7D4A52EF07CA67A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9031EF15FC36DFDE8A6A1936 /* FSMediaPicker.m in Sources */,
+				E631BEED4149F959D4948564 /* Pods-Youlv-FSMediaPicker-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CAC27309998CF006C5A4BB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11C9FD753060E39E6C515319 /* BlurryModalSegue.m in Sources */,
+				EA8418D5A349E7735B1711E6 /* Pods-Youlv-BlurryModalSegue-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EEEECEBF2A8DA6845C85615 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F37923B6B7C4AF9B56F83D9E /* MZFormSheetBackgroundWindow.m in Sources */,
+				89387B5060C389A2712DB431 /* MZFormSheetBackgroundWindowViewController.m in Sources */,
+				E801C072BAD790DC0A26EE58 /* MZFormSheetController.m in Sources */,
+				52A6CB100A8321AA8B486E20 /* MZFormSheetPresentationController.m in Sources */,
+				F295A0CEC434CC8600DD5330 /* MZFormSheetPresentationControllerAnimator.m in Sources */,
+				F8EE864CB5F659AE6AF1A4AB /* MZFormSheetPresentationControllerSegue.m in Sources */,
+				B6ABC8CE10F19F5151DB5480 /* MZFormSheetSegue.m in Sources */,
+				2A75E11EDD0A978B75800140 /* MZTransition.m in Sources */,
+				37A1AA0EA5394A05AFAE8240 /* Pods-Youlv-MZFormSheetController-dummy.m in Sources */,
+				4BEB7D8F7996F434BD547DF3 /* UIImage+Additional.m in Sources */,
+				AA86822BF46DCCC3AF72D87A /* UIViewController+TargetViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		743C6788558E4AD45136D9E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E01E144BFD6E526694D89075 /* MZFormSheetBackgroundWindow.m in Sources */,
+				992203166C9B03B9B676A40D /* MZFormSheetBackgroundWindowViewController.m in Sources */,
+				702D3F878389150806C7A072 /* MZFormSheetController.m in Sources */,
+				AF7AAD885D98D138CC40F5F2 /* MZFormSheetPresentationController.m in Sources */,
+				ABA1F02F3AE308130E7BBF2E /* MZFormSheetPresentationControllerAnimator.m in Sources */,
+				6FA81D504786C71748E74B44 /* MZFormSheetPresentationControllerSegue.m in Sources */,
+				8C585CF8D9CC0D9A7B6FD1D4 /* MZFormSheetSegue.m in Sources */,
+				ED6CA0063F234C7F8CE85DAD /* MZTransition.m in Sources */,
+				C68A14BE83E6202E8808CFFE /* Pods-YoulvTests-MZFormSheetController-dummy.m in Sources */,
+				8AB21DDF65DB2F0FC213180E /* UIImage+Additional.m in Sources */,
+				9C35FC97425D38305F5D6F3D /* UIViewController+TargetViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9ED18C9025ED44750627551D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89985F8CC986144EAD9BC2F2 /* Pods-Youlv-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB0D1BEA3F8BCB5A356D5C46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09EDCDF24332BD201BFD840E /* Pods-Youlv-UIImage+BlurredFrame-dummy.m in Sources */,
+				FA709E2704B601C21F175AE2 /* UIImage+BlurredFrame.m in Sources */,
+				A6704A8D1CCB7864940E3B98 /* UIImage+ImageEffects.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAD08F1CEEE4BEC1A74F978E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51DFA2E2D00EEF15CEF34060 /* MZAppearance.m in Sources */,
+				B5CE0318A471BAB884A1D193 /* NSInvocation+Copy.m in Sources */,
+				BA4B7D0EDD5A6376F7914CF8 /* Pods-YoulvTests-MZAppearance-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BFC33966164F58C6C06C41EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE557890887EE90F0A4C5CE2 /* FSMediaPicker.m in Sources */,
+				ED13F5C174B1696DE166094F /* Pods-YoulvTests-FSMediaPicker-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2403D724680CEF9707B605D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9134DC5B86DEA7FCE7C0F7AE /* Sources */ = {
+		F30AB3F375F2D41D3C301B66 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				596B3E309053BD6B1652BFE6 /* Pods-Youlv-dummy.m in Sources */,
+				05170B8522274C489E60C21F /* Pods-YoulvTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C590438CC0303903452426B4 /* Sources */ = {
+		F37D73372C1D216A707EE8DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC111A9CDBBD32CEF4791DE2 /* FSMediaPicker.m in Sources */,
-				9F4EBB2034D836989876BC3D /* Pods-Youlv-FSMediaPicker-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E28C40050E66173E796A0F60 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				16E998F8D4AC5DEE4B792088 /* Pods-YoulvTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F94E83BD657626FAF8D4130A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				52D5F4766D1D652EFCDD1623 /* FSMediaPicker.m in Sources */,
-				56F54D379D9E97181BDF3BF7 /* Pods-YoulvTests-FSMediaPicker-dummy.m in Sources */,
+				E8CF510C54FAE24B861EF9E3 /* Pods-YoulvTests-UIImage+BlurredFrame-dummy.m in Sources */,
+				C1843714730939F9A4B1A60F /* UIImage+BlurredFrame.m in Sources */,
+				CAE73E24ECF738798AEA9862 /* UIImage+ImageEffects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3FDC2A9417FD3646008B8F9D /* PBXTargetDependency */ = {
+		14E06F8A9FAF8AAD06387F46 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Youlv-FSMediaPicker";
-			target = FA0AE2AE7B63B50C8F21390B /* Pods-Youlv-FSMediaPicker */;
-			targetProxy = 0C8B5ED3322AD69405F04405 /* PBXContainerItemProxy */;
+			name = "Pods-YoulvTests-MZAppearance";
+			target = 98AAD586C173E9542619A305 /* Pods-YoulvTests-MZAppearance */;
+			targetProxy = A1945093969ED358770B45D1 /* PBXContainerItemProxy */;
 		};
-		D6C38D9F40EDF662C536FC37 /* PBXTargetDependency */ = {
+		1C3F8E3FA5CC90D237FF9102 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-Youlv-FSMediaPicker-FSMediaPicker";
-			target = 32D5EE238011C19C3F047EE0 /* Pods-Youlv-FSMediaPicker-FSMediaPicker */;
-			targetProxy = 667F23DD136AA675A4DF0500 /* PBXContainerItemProxy */;
+			name = "Pods-YoulvTests-MZAppearance";
+			target = 98AAD586C173E9542619A305 /* Pods-YoulvTests-MZAppearance */;
+			targetProxy = 604362737DD3F292DC88CE1E /* PBXContainerItemProxy */;
 		};
-		E58A590D3F02BB58C140795E /* PBXTargetDependency */ = {
+		61132DA5328156E920356B05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Youlv-MZAppearance";
+			target = 63DFC66659D9D66D3F0D4027 /* Pods-Youlv-MZAppearance */;
+			targetProxy = 9C268AB382DA4DA43C7D5D78 /* PBXContainerItemProxy */;
+		};
+		7BC88068B813A5922DBDD6D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-YoulvTests-MZFormSheetController";
+			target = F1082B44D640AF0CF9123E1C /* Pods-YoulvTests-MZFormSheetController */;
+			targetProxy = D2CC311429E82E5238133435 /* PBXContainerItemProxy */;
+		};
+		84DF6021B315DEC8A323797E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Youlv-BlurryModalSegue";
+			target = B417D09720D96A2BFA5775EE /* Pods-Youlv-BlurryModalSegue */;
+			targetProxy = 987EBA022A039CC041384EF0 /* PBXContainerItemProxy */;
+		};
+		8B773227C69E5C089F3A174E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Youlv-UIImage+BlurredFrame";
+			target = 9A4E8EF426DD75C9B7AB7626 /* Pods-Youlv-UIImage+BlurredFrame */;
+			targetProxy = B21C01D0FC42231171B27AA8 /* PBXContainerItemProxy */;
+		};
+		8BCFDA25A0C4B1A98C9BFD76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-YoulvTests-UIImage+BlurredFrame";
+			target = 095A3362C4745E3EA40D50A8 /* Pods-YoulvTests-UIImage+BlurredFrame */;
+			targetProxy = 5A1A6005DF4865610EE719EA /* PBXContainerItemProxy */;
+		};
+		9C9CF1665E5716F565F39409 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-YoulvTests-BlurryModalSegue";
+			target = BAB375F44079904770B186F8 /* Pods-YoulvTests-BlurryModalSegue */;
+			targetProxy = 8DEEA561735BAD74B68791E8 /* PBXContainerItemProxy */;
+		};
+		A0E9A3866AE355699A72E40F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Youlv-MZAppearance";
+			target = 63DFC66659D9D66D3F0D4027 /* Pods-Youlv-MZAppearance */;
+			targetProxy = E6F1F472D2D558DBC4F15D7F /* PBXContainerItemProxy */;
+		};
+		A12924232F1016017A6F14AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-YoulvTests-FSMediaPicker-FSMediaPicker";
-			target = 9C2250F63D43CADE47A35492 /* Pods-YoulvTests-FSMediaPicker-FSMediaPicker */;
-			targetProxy = B1861275A543D0BE4BDAF5AE /* PBXContainerItemProxy */;
+			target = 2090C98B0A5E977DF2F1A58C /* Pods-YoulvTests-FSMediaPicker-FSMediaPicker */;
+			targetProxy = C18B935DC791F824BBAB756D /* PBXContainerItemProxy */;
 		};
-		F5D857570B84FA6D6E56D0CF /* PBXTargetDependency */ = {
+		A4972EAC70888B6D072A726A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-YoulvTests-UIImage+BlurredFrame";
+			target = 095A3362C4745E3EA40D50A8 /* Pods-YoulvTests-UIImage+BlurredFrame */;
+			targetProxy = 0F550025E753A40BA8854538 /* PBXContainerItemProxy */;
+		};
+		AFBBCC46B895175E134506B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-YoulvTests-FSMediaPicker";
-			target = 332BF99FB17A914174E36152 /* Pods-YoulvTests-FSMediaPicker */;
-			targetProxy = 4FED589303A6F9773AA950E6 /* PBXContainerItemProxy */;
+			target = 1FA2BA3BA225150CCC6BA691 /* Pods-YoulvTests-FSMediaPicker */;
+			targetProxy = 3C16481192C71B118850269D /* PBXContainerItemProxy */;
+		};
+		BECFC8485BAA7A942020413B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Youlv-MZAppearance";
+			target = 63DFC66659D9D66D3F0D4027 /* Pods-Youlv-MZAppearance */;
+			targetProxy = D3B9DAAC3EC605CC5F3C66A3 /* PBXContainerItemProxy */;
+		};
+		D8CE5744DD66426E26519AA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Youlv-FSMediaPicker-FSMediaPicker";
+			target = EE1D26F1B2E76B9E5BE41EE5 /* Pods-Youlv-FSMediaPicker-FSMediaPicker */;
+			targetProxy = 57DD565EBB418FA235108457 /* PBXContainerItemProxy */;
+		};
+		DAF3E5D820DB8E715D4912DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-YoulvTests-MZAppearance";
+			target = 98AAD586C173E9542619A305 /* Pods-YoulvTests-MZAppearance */;
+			targetProxy = AED0A163F7ABBE273FD046BD /* PBXContainerItemProxy */;
+		};
+		E46815B9C686191A6ED1F4F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Youlv-UIImage+BlurredFrame";
+			target = 9A4E8EF426DD75C9B7AB7626 /* Pods-Youlv-UIImage+BlurredFrame */;
+			targetProxy = 99F79E35C13EA22E11DC9DE0 /* PBXContainerItemProxy */;
+		};
+		E82C4FC2D06754132EAF6304 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Youlv-MZFormSheetController";
+			target = EF1D7E61732FB622D8B27C87 /* Pods-Youlv-MZFormSheetController */;
+			targetProxy = 7B5021C3D0AB06A07A248E11 /* PBXContainerItemProxy */;
+		};
+		F0B3732E2EF9C902891BBDFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Youlv-FSMediaPicker";
+			target = 5A9A84E29B149D2DD35BC6B5 /* Pods-Youlv-FSMediaPicker */;
+			targetProxy = 1DA981CFA2DC006DB4E33A01 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		026A27D0ECC1B43C573AFDC4 /* Release */ = {
+		12284CF067B626C435E59EC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = FSMediaPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		32D5BBCC5F3368B208402E1F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = FSMediaPicker;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		367389E2F30C02D10F8E4EDE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B5D703BED83CD59E7848D9A /* Pods-Youlv.debug.xcconfig */;
+			baseConfigurationReference = EB4F28B2D85B253844312230 /* Pods-YoulvTests.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -578,13 +1458,79 @@
 			};
 			name = Debug;
 		};
-		5D7BBF15894FD193AD0B29AB /* Release */ = {
+		132D64CF1941271D04FBAB9B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89E4E98B999AD378EEA8853E /* Pods-YoulvTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		20455D76EDD90478232B9AD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88E09114BBD0D843DC5FA10F /* Pods-YoulvTests-MZFormSheetController-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-YoulvTests-MZFormSheetController/Pods-YoulvTests-MZFormSheetController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3400AFBA9285007247B76308 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88E09114BBD0D843DC5FA10F /* Pods-YoulvTests-MZFormSheetController-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-YoulvTests-MZFormSheetController/Pods-YoulvTests-MZFormSheetController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3F2232C0783E6AE95439708C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 227359B60CF33CB8C4B412FD /* Pods-Youlv.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -592,11 +1538,27 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
+			name = Debug;
+		};
+		4C50585627022D5EE900A69A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3CF1865C0C2426EBF91C164 /* Pods-Youlv-UIImage+BlurredFrame-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Youlv-UIImage+BlurredFrame/Pods-Youlv-UIImage+BlurredFrame-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
 			name = Release;
 		};
-		84099B4BF78163310FDE6657 /* Debug */ = {
+		4E98F4961D8D62AA286D7D88 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CE2C38EE4238626BC08817A /* Pods-Youlv-FSMediaPicker-Private.xcconfig */;
+			baseConfigurationReference = 2B5DCDDE77E35FEE65BCC51F /* Pods-Youlv-FSMediaPicker-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Youlv-FSMediaPicker/Pods-Youlv-FSMediaPicker-prefix.pch";
@@ -610,12 +1572,39 @@
 			};
 			name = Debug;
 		};
-		87FC0FA6E69F07166D4DD209 /* Debug */ = {
+		4F734BBC3F9D21C6C3248082 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4503349827895789896EC189 /* Pods-YoulvTests-FSMediaPicker-Private.xcconfig */;
+			baseConfigurationReference = 75397CF4C9DBF8713C6DA901 /* Pods-Youlv-BlurryModalSegue-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-YoulvTests-FSMediaPicker/Pods-YoulvTests-FSMediaPicker-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Youlv-BlurryModalSegue/Pods-Youlv-BlurryModalSegue-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		50DEFEE18998DBEF0247C7FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = FSMediaPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		5BDBE48AFC528F013936FDDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 979F956DD01770EA2DA198B5 /* Pods-YoulvTests-MZAppearance-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-YoulvTests-MZAppearance/Pods-YoulvTests-MZAppearance-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -626,9 +1615,111 @@
 			};
 			name = Debug;
 		};
-		A09AA0309B2D5E222448C60C /* Release */ = {
+		6453A1AC8CF7F300B14D5D92 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4503349827895789896EC189 /* Pods-YoulvTests-FSMediaPicker-Private.xcconfig */;
+			baseConfigurationReference = 6730DB1771A3ABADA5C8BD69 /* Pods-YoulvTests-UIImage+BlurredFrame-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-YoulvTests-UIImage+BlurredFrame/Pods-YoulvTests-UIImage+BlurredFrame-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		64BA3BB857D5314161453A37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF4955BDEACE12A63B0361DB /* Pods-YoulvTests.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		65A61DEAF73BB7E2A72465DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FAD09178CA1DA6E822D5A1D /* Pods-Youlv-MZFormSheetController-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Youlv-MZFormSheetController/Pods-Youlv-MZFormSheetController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		672B64E12DBAF5B372350DE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = FSMediaPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		68EAFA8456FB757DBFF6049B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AE751B51FA77C2684632670 /* Pods-Youlv-MZAppearance-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Youlv-MZAppearance/Pods-Youlv-MZAppearance-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		74F23797A99CB03F85CED41A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FAD09178CA1DA6E822D5A1D /* Pods-Youlv-MZFormSheetController-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Youlv-MZFormSheetController/Pods-Youlv-MZFormSheetController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7726EB735434B92475BC4801 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = FSMediaPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		776BB5616CDFCEAE436A3CA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C9D7BE4EE235B1A7EF8D9E6 /* Pods-YoulvTests-FSMediaPicker-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-YoulvTests-FSMediaPicker/Pods-YoulvTests-FSMediaPicker-prefix.pch";
@@ -642,18 +1733,23 @@
 			};
 			name = Release;
 		};
-		B1D01CF6DB0D7F422B23374A /* Debug */ = {
+		7A9B35ADA176093279FBC2D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3CF1865C0C2426EBF91C164 /* Pods-Youlv-UIImage+BlurredFrame-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = FSMediaPicker;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Youlv-UIImage+BlurredFrame/Pods-Youlv-UIImage+BlurredFrame-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
-		B28F3C24A8BF628F605A8385 /* Debug */ = {
+		B0E86E0CC3BC6C57DAF8B4F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -692,54 +1788,57 @@
 			};
 			name = Debug;
 		};
-		C1266050585C4F2AB802581F /* Debug */ = {
+		BDDEE344B8BEA0A04052B1EC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6730DB1771A3ABADA5C8BD69 /* Pods-YoulvTests-UIImage+BlurredFrame-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = FSMediaPicker;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-YoulvTests-UIImage+BlurredFrame/Pods-YoulvTests-UIImage+BlurredFrame-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
-		C410DE926D6E2491513FBF24 /* Release */ = {
+		C0246D628243EA9429E7AA8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36EAD85C0BC0873279108E3B /* Pods-YoulvTests-BlurryModalSegue-Private.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-YoulvTests-BlurryModalSegue/Pods-YoulvTests-BlurryModalSegue-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		DB4464C12D5C00C5DD6DCEC0 /* Release */ = {
+		C602A2B7190DCC4B9F18CB92 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CE2C38EE4238626BC08817A /* Pods-Youlv-FSMediaPicker-Private.xcconfig */;
+			baseConfigurationReference = 75397CF4C9DBF8713C6DA901 /* Pods-Youlv-BlurryModalSegue-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Youlv-BlurryModalSegue/Pods-Youlv-BlurryModalSegue-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C976DD5254EE455EC83AC055 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B5DCDDE77E35FEE65BCC51F /* Pods-Youlv-FSMediaPicker-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Pods-Youlv-FSMediaPicker/Pods-Youlv-FSMediaPicker-prefix.pch";
@@ -753,25 +1852,68 @@
 			};
 			name = Release;
 		};
-		F9828BF61CA824C6A95EEC68 /* Debug */ = {
+		D262B6483ECB3BBA64EFE5FC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D7AF3432E09DE5785797BA5 /* Pods-YoulvTests.debug.xcconfig */;
+			baseConfigurationReference = 36EAD85C0BC0873279108E3B /* Pods-YoulvTests-BlurryModalSegue-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-YoulvTests-BlurryModalSegue/Pods-YoulvTests-BlurryModalSegue-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		FBC2B423C7EEA71296017A1B /* Release */ = {
+		D84778C4FCDF0F8F6139F51A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45FC2A9930842BE455ECF0FA /* Pods-Youlv.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = FSMediaPicker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		D9F21DF45CD999E677FEDFEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C9D7BE4EE235B1A7EF8D9E6 /* Pods-YoulvTests-FSMediaPicker-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-YoulvTests-FSMediaPicker/Pods-YoulvTests-FSMediaPicker-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DBFAE503812B4D989656BBDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AE751B51FA77C2684632670 /* Pods-Youlv-MZAppearance-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-Youlv-MZAppearance/Pods-Youlv-MZAppearance-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E04475D4B903E5AB4EE44747 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10FC0A8191E5E6E580C5477B /* Pods-Youlv.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -785,73 +1927,161 @@
 			};
 			name = Release;
 		};
+		E417CFA5B6D0FCFA457DAF92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 979F956DD01770EA2DA198B5 /* Pods-YoulvTests-MZAppearance-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-YoulvTests-MZAppearance/Pods-YoulvTests-MZAppearance-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1068928C8F0EBFFBF7096843 /* Build configuration list for PBXNativeTarget "Pods-Youlv" */ = {
+		0C60C8E2AB299E0A6CDF5838 /* Build configuration list for PBXNativeTarget "Pods-Youlv-MZFormSheetController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				367389E2F30C02D10F8E4EDE /* Debug */,
-				FBC2B423C7EEA71296017A1B /* Release */,
+				74F23797A99CB03F85CED41A /* Debug */,
+				65A61DEAF73BB7E2A72465DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4F1BF255AA1663873288E382 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests" */ = {
+		10F9389D29C4868FEB48DA04 /* Build configuration list for PBXNativeTarget "Pods-Youlv-BlurryModalSegue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F9828BF61CA824C6A95EEC68 /* Debug */,
-				5D7BBF15894FD193AD0B29AB /* Release */,
+				C602A2B7190DCC4B9F18CB92 /* Debug */,
+				4F734BBC3F9D21C6C3248082 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66316268C82D928F63EDA67B /* Build configuration list for PBXNativeTarget "Pods-Youlv-FSMediaPicker-FSMediaPicker" */ = {
+		126A358209F2D3A2C8C45B45 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-BlurryModalSegue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C1266050585C4F2AB802581F /* Debug */,
-				32D5BBCC5F3368B208402E1F /* Release */,
+				D262B6483ECB3BBA64EFE5FC /* Debug */,
+				C0246D628243EA9429E7AA8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		85CB769AB375F89FD9F0628F /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-FSMediaPicker" */ = {
+		29465F3FD6DFDE4B36244491 /* Build configuration list for PBXNativeTarget "Pods-Youlv" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				87FC0FA6E69F07166D4DD209 /* Debug */,
-				A09AA0309B2D5E222448C60C /* Release */,
+				3F2232C0783E6AE95439708C /* Debug */,
+				E04475D4B903E5AB4EE44747 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		98F255CE10BD05310D0C66C1 /* Build configuration list for PBXNativeTarget "Pods-Youlv-FSMediaPicker" */ = {
+		36CEA3BFC2FC614C6CADB1B9 /* Build configuration list for PBXNativeTarget "Pods-Youlv-FSMediaPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84099B4BF78163310FDE6657 /* Debug */,
-				DB4464C12D5C00C5DD6DCEC0 /* Release */,
+				4E98F4961D8D62AA286D7D88 /* Debug */,
+				C976DD5254EE455EC83AC055 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B12B6227E637FBEE90CA447F /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-FSMediaPicker-FSMediaPicker" */ = {
+		3BBA68A3F141AA656DF29170 /* Build configuration list for PBXNativeTarget "Pods-Youlv-FSMediaPicker-FSMediaPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B1D01CF6DB0D7F422B23374A /* Debug */,
-				026A27D0ECC1B43C573AFDC4 /* Release */,
+				50DEFEE18998DBEF0247C7FC /* Debug */,
+				672B64E12DBAF5B372350DE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E1CA77F8C4D2FBF25FCE3263 /* Build configuration list for PBXProject "Pods" */ = {
+		73C56F48A294029CBDD42E76 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-FSMediaPicker-FSMediaPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B28F3C24A8BF628F605A8385 /* Debug */,
-				C410DE926D6E2491513FBF24 /* Release */,
+				7726EB735434B92475BC4801 /* Debug */,
+				D84778C4FCDF0F8F6139F51A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79058E176A6A989090D4C406 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-MZFormSheetController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3400AFBA9285007247B76308 /* Debug */,
+				20455D76EDD90478232B9AD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		837316927861658C8B908D18 /* Build configuration list for PBXNativeTarget "Pods-Youlv-MZAppearance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68EAFA8456FB757DBFF6049B /* Debug */,
+				DBFAE503812B4D989656BBDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85D2B42DEF15B5F538B66FA6 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-UIImage+BlurredFrame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDDEE344B8BEA0A04052B1EC /* Debug */,
+				6453A1AC8CF7F300B14D5D92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96CD8A3F01433050E7C3F5C5 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0E86E0CC3BC6C57DAF8B4F9 /* Debug */,
+				132D64CF1941271D04FBAB9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C91B92138B56A866131CFE3B /* Build configuration list for PBXNativeTarget "Pods-YoulvTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12284CF067B626C435E59EC2 /* Debug */,
+				64BA3BB857D5314161453A37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8B9DE771201A79C386F14B8 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-FSMediaPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9F21DF45CD999E677FEDFEB /* Debug */,
+				776BB5616CDFCEAE436A3CA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3A4C4587E89B3A68B38CA51 /* Build configuration list for PBXNativeTarget "Pods-Youlv-UIImage+BlurredFrame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A9B35ADA176093279FBC2D7 /* Debug */,
+				4C50585627022D5EE900A69A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6B8980DDCC46E7DFDBFE1E2 /* Build configuration list for PBXNativeTarget "Pods-YoulvTests-MZAppearance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BDBE48AFC528F013936FDDB /* Debug */,
+				E417CFA5B6D0FCFA457DAF92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 95E98365509BC53E6CC2B524 /* Project object */;
+	rootObject = 110BC505E03D388690C09C1C /* Project object */;
 }

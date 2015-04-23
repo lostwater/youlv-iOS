@@ -6,6 +6,7 @@
 #import "DropDownListView.h"
 #import "DropDownChooseProtocol.h"
 #import "FSMediaPicker.h"
+#import "BlurryModalSegue.h"
 
 
 //

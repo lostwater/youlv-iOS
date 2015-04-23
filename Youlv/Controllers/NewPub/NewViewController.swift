@@ -10,6 +10,16 @@ import UIKit
 
 class NewViewController: UIViewController {
 
+
+    @IBAction func buttonNewOpClicked(sender: AnyObject) {
+        gotoVC("NewOpNC")
+    }
+    @IBAction func buttonNewTopicClicked(sender: AnyObject) {
+        gotoVC("NewTopicNC")
+    }
+    @IBAction func buttonNewArticleClicked(sender: AnyObject) {
+        gotoVC("NewArticleNC")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,11 +33,18 @@ class NewViewController: UIViewController {
     @IBOutlet weak var BtnClose: UIButton!
     
     @IBAction func BtnCloseClicked(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false,completion:nil);
+        //self.dismissViewControllerAnimated(false,completion:nil);
     }
     
     override func prefersStatusBarHidden() -> Bool {
         return true;
+    }
+    
+    func gotoVC(name: String)
+    {
+        let storyboard = UIStoryboard(name: "NewPublish", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier(name) as! UIViewController
+        self.presentViewController(vc, animated: true, completion: nil)
     }
 
 

@@ -10,6 +10,8 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
+    
+    @IBOutlet var NewPubButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         addCenterButton();
@@ -25,11 +27,12 @@ class MainTabBarController: UITabBarController {
     
     func setTabBarItems()
     {
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        
         var homeStoryBoard = UIStoryboard(name:"Home",bundle:nil)
         var vc = homeStoryBoard.instantiateInitialViewController() as! UIViewController
         self.viewControllers?[0]=homeStoryBoard.instantiateInitialViewController() as! UIViewController;
         self.viewControllers?[4]=UIStoryboard(name:"User",bundle:nil).instantiateInitialViewController() as! UIViewController
-
         var messssageStoryBorad = UIStoryboard(name:"Messages",bundle:nil)
         self.viewControllers?[1] = messssageStoryBorad.instantiateInitialViewController() as! UIViewController
         
@@ -61,19 +64,20 @@ class MainTabBarController: UITabBarController {
     
     func addCenterButton()
     {
-        let buttonimage = UIImage(named: "buttonplus") as UIImage?
-        var centerButton = UIButton();
-        let x = self.view.frame.width/2 - 25
-        centerButton.frame = CGRectMake(x,0,50,50);
-        centerButton.setImage(buttonimage, forState:UIControlState.Normal);
+        //let buttonimage = UIImage(named: "buttonplus") as UIImage?
+        let centerButton = NewPubButton
+        //var centerButton = UIButton();
+        let x = self.view.frame.width/2 - 20
+        centerButton.frame = CGRectMake(x,0,40,40);
+        //centerButton.setImage(buttonimage, forState:UIControlState.Normal);
         //centerButton.center = self.tabBar.center;
-        centerButton.addTarget(self,action:Selector("buttonTapped"),forControlEvents: UIControlEvents.TouchUpInside)
+        //centerButton.addTarget(self,action:Selector("buttonTapped"),forControlEvents: UIControlEvents.TouchUpInside)
         //	self.view.addSubview(centerButton);
         
         self.tabBar.addSubview(centerButton)
-        tabBar.frame = CGRectMake(tabBar.frame.origin.x,tabBar.frame.origin.y+0,tabBar.frame.width,tabBar.frame.height)
+        tabBar.frame = CGRectMake(tabBar.frame.origin.x,tabBar.frame.origin.y+5,tabBar.frame.width,tabBar.frame.height)
     }
-    
+   
     func buttonTapped()
     {
         presentNewVC()
@@ -81,9 +85,30 @@ class MainTabBarController: UITabBarController {
     
     func presentNewVC()
     {
+        
         var storyBoard = UIStoryboard(name:"NewPublish",bundle:nil)
-        var viewController = storyBoard.instantiateInitialViewController() as! UIViewController
-        self.presentViewController(viewController,animated:true,completion:nil)
+        var newVC = storyBoard.instantiateInitialViewController() as! NewViewController
+        
+        //newVC.backGroundImageView.image = captureScreen()
+        //let root = self.view.window!.rootViewController
+        //root!.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        //root!.presentViewController(viewController, animated: true, completion: nil)
+        //viewController.view.addSubview(<#view: UIView#>)
+        
+        self.presentViewController(newVC,animated:true,completion:nil)
+    }
+    
+    func captureScreen()->UIImage
+    {
+        let window = UIApplication.sharedApplication().keyWindow
+        let rect = window!.bounds
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        window?.layer.renderInContext(context)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img
+    
     }
     
 

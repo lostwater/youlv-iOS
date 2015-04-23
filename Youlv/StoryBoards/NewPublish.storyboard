@@ -9,7 +9,7 @@
         <!--NewOpVC-->
         <scene sceneID="KX1-aW-ifT">
             <objects>
-                <tableViewController title="NewOpVC" id="hZq-dm-4HD" sceneMemberID="viewController">
+                <tableViewController title="NewOpVC" id="hZq-dm-4HD" customClass="NewOpTableViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fWw-dR-mJi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -248,7 +248,7 @@
         <!--NewTopicNC-->
         <scene sceneID="keg-CZ-i87">
             <objects>
-                <navigationController title="NewTopicNC" id="Yre-li-IDj" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewTopicNC" title="NewTopicNC" id="Yre-li-IDj" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XFT-09-CfO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -566,10 +566,10 @@
             </objects>
             <point key="canvasLocation" x="-797" y="-2768"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--NewArticleNC-->
         <scene sceneID="CbZ-h0-jYU">
             <objects>
-                <navigationController id="Bkc-h9-vh6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewArticleNC" title="NewArticleNC" id="Bkc-h9-vh6" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X7C-sK-ODb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -585,7 +585,8 @@
         <!--NewOpNC-->
         <scene sceneID="B1t-Re-0Bd">
             <objects>
-                <navigationController title="NewOpNC" id="CfD-Wm-xfL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewOpNC" title="NewOpNC" id="CfD-Wm-xfL" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="EGO-Yt-OeK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HEb-Me-EfT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -626,7 +627,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CfD-Wm-xfL" kind="show" id="G66-21-RAP"/>
+                                    <segue destination="CfD-Wm-xfL" kind="presentation" id="G66-21-RAP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aS-dU-hgC">
@@ -660,7 +661,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="efb-Sp-0Ut" secondAttribute="centerX" id="0AH-ud-xA5"/>
                             <constraint firstItem="efb-Sp-0Ut" firstAttribute="leading" secondItem="mIa-4A-zG4" secondAttribute="trailing" constant="40" id="3V3-Bz-N3g"/>

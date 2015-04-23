@@ -28,6 +28,7 @@
 		0B5FDF051AD6A2EF00773360 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B5FDF041AD6A2EF00773360 /* Images.xcassets */; };
 		0B5FDF081AD6A2EF00773360 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B5FDF061AD6A2EF00773360 /* LaunchScreen.xib */; };
 		0B5FDF141AD6A2EF00773360 /* YoulvTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FDF131AD6A2EF00773360 /* YoulvTests.swift */; };
+		0B6191F51AE924A700A8258A /* NewOpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6191F41AE924A700A8258A /* NewOpTableViewController.swift */; };
 		0B93C9FB1ADC0936003117BE /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */; };
 		0B93C9FD1ADC26D7003117BE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */; };
 		0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */; };
@@ -55,7 +56,6 @@
 		0BCECFF91ADAE2A1006BE53A /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */; };
 		0BCECFFB1ADAE2D0006BE53A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */; };
 		0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */; };
-		0BEED3E31ADE90590093E06B /* PubNewOpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED3E21ADE90590093E06B /* PubNewOpViewController.swift */; };
 		0D4EF4C570043DD060CA4710 /* libPods-YoulvTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DF49B96C5C3ABABDB9AD47 /* libPods-YoulvTests.a */; };
 		5CA628DE0C8F043BE5B3A326 /* libPods-Youlv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3559EBB7821ADCB4534DDA87 /* libPods-Youlv.a */; };
 /* End PBXBuildFile section */
@@ -98,6 +98,7 @@
 		0B5FDF0D1AD6A2EF00773360 /* YoulvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoulvTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5FDF121AD6A2EF00773360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B5FDF131AD6A2EF00773360 /* YoulvTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoulvTests.swift; sourceTree = "<group>"; };
+		0B6191F41AE924A700A8258A /* NewOpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewOpTableViewController.swift; sourceTree = "<group>"; };
 		0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNavigationController.swift; sourceTree = "<group>"; };
 		0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommenedViewController.swift; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
 		0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslucentNavBarController.swift; sourceTree = "<group>"; };
-		0BEED3E21ADE90590093E06B /* PubNewOpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubNewOpViewController.swift; sourceTree = "<group>"; };
 		3559EBB7821ADCB4534DDA87 /* libPods-Youlv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC61B62063B859E8AC526E62 /* Pods-Youlv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youlv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Youlv/Pods-Youlv.debug.xcconfig"; sourceTree = "<group>"; };
 		BC08593F6B57076AEFC6518F /* Pods-Youlv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youlv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Youlv/Pods-Youlv.release.xcconfig"; sourceTree = "<group>"; };
@@ -263,6 +263,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0B6191F61AE924C700A8258A /* NewPub */ = {
+			isa = PBXGroup;
+			children = (
+				0B6191F41AE924A700A8258A /* NewOpTableViewController.swift */,
+				0BCECFF01ADABFBE006BE53A /* NewViewController.swift */,
+			);
+			path = NewPub;
+			sourceTree = "<group>";
+		};
 		0BBE37411AE1060500FA0018 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,12 +311,11 @@
 		0BCECFEB1ADAAD76006BE53A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0B6191F61AE924C700A8258A /* NewPub */,
 				0B2AF2C61AE6A61700F7A5F9 /* MyOpportunitiesTableViewController.swift */,
-				0BEED3E21ADE90590093E06B /* PubNewOpViewController.swift */,
 				0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */,
 				0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */,
 				0BCECFEC1ADAAD95006BE53A /* LoginViewController.swift */,
-				0BCECFF01ADABFBE006BE53A /* NewViewController.swift */,
 				0B10C9F21ADB090800695853 /* HomeTabBarController.swift */,
 				0BCECFBF1AD99B8E006BE53A /* HomeNavigationController.swift */,
 				0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */,
@@ -521,9 +529,9 @@
 				0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */,
 				0BBE37451AE1067400FA0018 /* JoinGroupsCellView.swift in Sources */,
 				0BBE374D1AE15DC700FA0018 /* StartGroupChat1ViewController.swift in Sources */,
+				0B6191F51AE924A700A8258A /* NewOpTableViewController.swift in Sources */,
 				0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */,
 				0B2AF2CF1AE7D27400F7A5F9 /* SettingsTableViewController.swift in Sources */,
-				0BEED3E31ADE90590093E06B /* PubNewOpViewController.swift in Sources */,
 				0B2AF2D11AE7E55700F7A5F9 /* TopicsTableViewController.swift in Sources */,
 				0B5FDEFE1AD6A2EF00773360 /* AppDelegate.swift in Sources */,
 				0BBE37431AE1064000FA0018 /* FriendHomeMessageCellView.swift in Sources */,
