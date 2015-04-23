@@ -22,6 +22,7 @@ class NewViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -44,7 +45,15 @@ class NewViewController: UIViewController {
     {
         let storyboard = UIStoryboard(name: "NewPublish", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier(name) as! UIViewController
-        self.presentViewController(vc, animated: true, completion: nil)
+        //self.presentViewController(vc, animated: true, completion:nil)
+        self.presentViewController(vc, animated: true, completion:nil)
+
+    }
+    
+    func selfDismiss()
+    {
+        self.dismissViewControllerAnimated(false,completion:nil)
+
     }
 
 

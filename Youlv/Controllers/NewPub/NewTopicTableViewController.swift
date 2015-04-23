@@ -1,5 +1,5 @@
 //
-//  NewOpTableViewController.swift
+//  NewTopicTableViewController.swift
 //  Youlv
 //
 //  Created by Lost on 23/04/2015.
@@ -8,14 +8,12 @@
 
 import UIKit
 
-class NewOpTableViewController: UITableViewController {
+class NewTopicTableViewController: UITableViewController {
 
-    @IBAction func buttonPubClicked(sender: AnyObject) {
-    }
     @IBAction func buttonCancelClicked(sender: AnyObject) {
-        let newVC: AnyObject! = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewVC")
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        self.dismissViewControllerAnimated(true, completion:nil)
+        self.dismissViewControllerAnimated(true,completion:nil);
+    }
+    @IBAction func buttonPubClicked(sender: AnyObject) {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +45,6 @@ class NewOpTableViewController: UITableViewController {
         return 0
     }
     */
-
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell

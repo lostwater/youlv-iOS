@@ -27,14 +27,12 @@ class MainTabBarController: UITabBarController {
     
     func setTabBarItems()
     {
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        
-        var homeStoryBoard = UIStoryboard(name:"Home",bundle:nil)
-        var vc = homeStoryBoard.instantiateInitialViewController() as! UIViewController
-        self.viewControllers?[0]=homeStoryBoard.instantiateInitialViewController() as! UIViewController;
+
+        self.viewControllers?[0]=UIStoryboard(name:"Home",bundle:nil).instantiateInitialViewController() as! UIViewController;
+        self.viewControllers?[1] = UIStoryboard(name:"Messages",bundle:nil).instantiateInitialViewController() as! UIViewController
+        self.viewControllers?[3] = UIStoryboard(name:"Discovery",bundle:nil).instantiateInitialViewController() as! UIViewController
         self.viewControllers?[4]=UIStoryboard(name:"User",bundle:nil).instantiateInitialViewController() as! UIViewController
-        var messssageStoryBorad = UIStoryboard(name:"Messages",bundle:nil)
-        self.viewControllers?[1] = messssageStoryBorad.instantiateInitialViewController() as! UIViewController
+        
         
         let normalimage1 = UIImage(named: "buttonhomepagegrey") as UIImage?
         let selectedimage1 = UIImage(named: "buttonhomepageblue") as UIImage?

@@ -36,11 +36,11 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <segue destination="mbG-lH-bgl" kind="custom" customClass="BlurryModalSegue" id="Buo-ut-Lnb"/>
+                        <segue destination="mbG-lH-bgl" kind="custom" customClass="BlurryModalSegue" id="vmh-UP-veK"/>
                     </connections>
                 </button>
             </objects>
-            <point key="canvasLocation" x="-3441" y="-4085"/>
+            <point key="canvasLocation" x="-3333" y="-4069"/>
         </scene>
         <!--MessagesRootVC-->
         <scene sceneID="9S9-BV-ui8">
@@ -69,19 +69,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20J-Fh-mRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3239" y="-2242"/>
-        </scene>
-        <!--MainNC-->
-        <scene sceneID="rze-b0-Qju">
-            <objects>
-                <navigationController title="MainNC" id="92T-bq-DdM" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="36J-qf-XjH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="86q-vL-4p6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4698" y="-4090"/>
         </scene>
         <!--DiscoveryRootVC-->
         <scene sceneID="vOm-N2-8PV">
@@ -168,7 +155,7 @@
         <!--NewVC-->
         <scene sceneID="qOv-aU-pt0">
             <objects>
-                <viewController storyboardIdentifier="newViewController" title="NewVC" id="mbG-lH-bgl" customClass="NewViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewVC" title="NewVC" id="mbG-lH-bgl" customClass="NewViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yxa-1c-N9G"/>
                         <viewControllerLayoutGuide type="bottom" id="Oti-sM-b0k"/>
@@ -194,7 +181,7 @@
                                 </state>
                                 <connections>
                                     <action selector="BtnCloseClicked:" destination="mbG-lH-bgl" eventType="touchUpInside" id="WDt-Kc-m0k"/>
-                                    <segue destination="lgx-ZG-6LU" kind="show" id="qVd-CW-Tmz"/>
+                                    <segue destination="lgx-ZG-6LU" kind="show" identifier="closeNewVC" id="qVd-CW-Tmz"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公道如此容易" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPv-mb-iVS">
@@ -244,14 +231,18 @@
                             <constraint firstItem="Hff-Sh-wBF" firstAttribute="leading" secondItem="Uuv-cZ-ywx" secondAttribute="trailing" constant="40" id="mIk-b8-vVd"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="" id="iFV-9f-WUv"/>
+                    <navigationItem key="navigationItem" id="l0b-eK-eF5"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="BtnClose" destination="7pm-zn-PLN" id="O2y-6P-6qD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dxu-8b-gVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2631" y="-4774"/>
+            <point key="canvasLocation" x="-3203" y="-4806"/>
         </scene>
     </scenes>
     <resources>
