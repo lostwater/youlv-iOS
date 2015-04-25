@@ -15,8 +15,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addCenterButton();
-
-                setTabBarItems();
+        setTabBarItems();
         // Do any additional setup after loading the view.
     }
 
@@ -25,10 +24,11 @@ class MainTabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     func setTabBarItems()
     {
 
-        self.viewControllers?[0]=UIStoryboard(name:"Home",bundle:nil).instantiateInitialViewController() as! UIViewController;
+        self.viewControllers?[0] = UIStoryboard(name:"Home",bundle:nil).instantiateInitialViewController() as! UIViewController;
         self.viewControllers?[1] = UIStoryboard(name:"Messages",bundle:nil).instantiateInitialViewController() as! UIViewController
         self.viewControllers?[3] = UIStoryboard(name:"Discovery",bundle:nil).instantiateInitialViewController() as! UIViewController
         self.viewControllers?[4]=UIStoryboard(name:"User",bundle:nil).instantiateInitialViewController() as! UIViewController

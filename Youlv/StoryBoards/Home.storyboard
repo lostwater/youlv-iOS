@@ -5,54 +5,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--OpportunitiesVC-->
-        <scene sceneID="ebG-tI-bhR">
-            <objects>
-                <viewController title="OpportunitiesVC" id="LAF-OQ-JQA" customClass="HomeBizVC" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="u8A-Rf-fnN"/>
-                        <viewControllerLayoutGuide type="bottom" id="G16-IT-5Td"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="phW-ky-le0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="buttondiscussblue" translatesAutoresizingMaskIntoConstraints="NO" id="B2l-Ii-LFq">
-                                <rect key="frame" x="217" y="235" width="60" height="32"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Opportunities" id="tTA-Fs-0XG"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sHg-OV-B2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4893" y="-1319"/>
-        </scene>
         <!--HomeSearchVC-->
         <scene sceneID="7hj-p0-MRz">
             <objects>
-                <tableViewController title="HomeSearchVC" hidesBottomBarWhenPushed="YES" id="lVA-zg-Aml" sceneMemberID="viewController">
+                <tableViewController title="HomeSearchVC" hidesBottomBarWhenPushed="YES" id="lVA-zg-Aml" customClass="HomeSearchTableViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5wW-aL-WhC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Xj9-5j-93Z">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Xj9-5j-93Z" customClass="DWTagList">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="318"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M5z-TL-waq">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <scopeButtonTitles>
-                                        <string>Title</string>
-                                        <string>Title</string>
-                                    </scopeButtonTitles>
-                                    <connections>
-                                        <outlet property="delegate" destination="lVA-zg-Aml" id="yo5-nF-OlY"/>
-                                    </connections>
-                                </searchBar>
-                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
@@ -69,19 +32,34 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="Gae-xT-Fvg">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="epn-OR-puD">
+                            <connections>
+                                <segue destination="H6O-mk-hHm" kind="show" id="sl6-8C-FEE"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="buttonsearch" id="Ghd-eC-5MS"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="SearchBar" destination="M5z-TL-waq" id="hdr-C8-UCI"/>
                         <outlet property="searchDisplayController" destination="8jq-57-Kdz" id="Adm-Zy-5e4"/>
+                        <outlet property="tableVIew" destination="5wW-aL-WhC" id="xto-UU-6ZA"/>
+                        <outlet property="tagsView" destination="Xj9-5j-93Z" id="rYO-aM-iMW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUz-vF-vK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="7l8-We-Slp">
+                <searchBar contentMode="redraw" restorationIdentifier="SearchBar" backgroundImage="alpha0" id="M5z-TL-waq">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <scopeButtonTitles>
+                        <string>Title</string>
+                        <string>Title</string>
+                    </scopeButtonTitles>
                     <connections>
-                        <outlet property="delegate" destination="lVA-zg-Aml" id="lvY-An-2CY"/>
-                        <outlet property="searchContentsController" destination="lVA-zg-Aml" id="ab2-ko-maG"/>
-                        <outlet property="searchResultsDataSource" destination="lVA-zg-Aml" id="Pj6-rX-ffe"/>
-                        <outlet property="searchResultsDelegate" destination="lVA-zg-Aml" id="pJd-59-lpK"/>
+                        <outlet property="delegate" destination="lVA-zg-Aml" id="yo5-nF-OlY"/>
                     </connections>
-                </searchDisplayController>
+                </searchBar>
                 <searchDisplayController id="8jq-57-Kdz">
                     <connections>
                         <outlet property="delegate" destination="lVA-zg-Aml" id="4TR-b9-Jxa"/>
@@ -92,7 +70,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-3348" y="-2234"/>
+            <point key="canvasLocation" x="-3710" y="-2217"/>
         </scene>
         <!--EventsVC-->
         <scene sceneID="G88-VE-TwK">
@@ -111,7 +89,97 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCR-gy-ZV9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3369" y="-1373"/>
+            <point key="canvasLocation" x="-3221" y="-1373"/>
+        </scene>
+        <!--Oppurtunities-->
+        <scene sceneID="l70-zh-QkM">
+            <objects>
+                <tableViewController id="sq4-ml-ijd" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iiB-YC-Xez">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="cpF-c8-EKt">
+                            <rect key="frame" x="0.0" y="64" width="600" height="172"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgnavigationtitle" translatesAutoresizingMaskIntoConstraints="NO" id="Ewh-Fy-grb">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="172"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brC-7J-lHv">
+                                    <rect key="frame" x="270" y="46" width="60" height="30"/>
+                                    <state key="normal" title="案源流转">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGA-lu-BhP">
+                                    <rect key="frame" x="270" y="84" width="60" height="30"/>
+                                    <state key="normal" title="协作外包">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u02-sc-O4a">
+                                    <rect key="frame" x="270" y="122" width="60" height="30"/>
+                                    <state key="normal" title="商业信息">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAo-SG-ZOc">
+                                    <rect key="frame" x="285" y="8" width="30" height="30"/>
+                                    <state key="normal" title="全部">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Ewh-Fy-grb" secondAttribute="bottom" id="806-P3-GpC"/>
+                                <constraint firstItem="YGA-lu-BhP" firstAttribute="top" secondItem="brC-7J-lHv" secondAttribute="bottom" constant="8" id="BdV-hK-aSE"/>
+                                <constraint firstAttribute="centerX" secondItem="YGA-lu-BhP" secondAttribute="centerX" id="JPO-LB-QEj"/>
+                                <constraint firstAttribute="trailing" secondItem="Ewh-Fy-grb" secondAttribute="trailing" id="T5W-3Y-0vP"/>
+                                <constraint firstItem="u02-sc-O4a" firstAttribute="leading" secondItem="YGA-lu-BhP" secondAttribute="trailing" constant="-46" id="bGc-8H-2FA"/>
+                                <constraint firstItem="Ewh-Fy-grb" firstAttribute="leading" secondItem="cpF-c8-EKt" secondAttribute="leading" id="bWO-ai-qtF"/>
+                                <constraint firstAttribute="centerX" secondItem="u02-sc-O4a" secondAttribute="centerX" id="dhT-Tm-kUn"/>
+                                <constraint firstItem="u02-sc-O4a" firstAttribute="top" secondItem="YGA-lu-BhP" secondAttribute="bottom" constant="8" id="fXh-fo-g9i"/>
+                                <constraint firstItem="Ewh-Fy-grb" firstAttribute="top" secondItem="cpF-c8-EKt" secondAttribute="top" id="ghb-UM-D2z"/>
+                                <constraint firstItem="sAo-SG-ZOc" firstAttribute="top" secondItem="cpF-c8-EKt" secondAttribute="top" constant="8" id="k7Z-8t-oHg"/>
+                                <constraint firstAttribute="bottom" secondItem="u02-sc-O4a" secondAttribute="bottom" constant="416" id="kby-AL-8ru"/>
+                                <constraint firstAttribute="centerX" secondItem="brC-7J-lHv" secondAttribute="centerX" id="mzk-E8-cYq"/>
+                                <constraint firstItem="brC-7J-lHv" firstAttribute="top" secondItem="sAo-SG-ZOc" secondAttribute="bottom" constant="8" id="vA4-87-7Qc"/>
+                                <constraint firstAttribute="centerX" secondItem="sAo-SG-ZOc" secondAttribute="centerX" id="xAp-xF-mKY"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="bGc-8H-2FA"/>
+                                    <exclude reference="kby-AL-8ru"/>
+                                </mask>
+                            </variation>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rBp-a6-lpr">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rBp-a6-lpr" id="f8G-qd-NFZ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sq4-ml-ijd" id="raB-GG-Q1w"/>
+                            <outlet property="delegate" destination="sq4-ml-ijd" id="udr-50-hri"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Oppurtunities" id="pSA-Zv-M1h"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zP9-8z-tbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gEO-oi-hfg">
+                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </objects>
+            <point key="canvasLocation" x="-5154" y="-2164"/>
         </scene>
         <!--DiscussVC-->
         <scene sceneID="Q2y-FH-rvL">
@@ -141,7 +209,7 @@
                         <barButtonItem key="leftBarButtonItem" image="buttonhelp" id="dJ5-2D-eGz"/>
                         <barButtonItem key="rightBarButtonItem" image="buttonsearch" id="8JO-Tu-QQk">
                             <connections>
-                                <segue destination="lVA-zg-Aml" kind="presentation" id="C7b-4w-Ypp"/>
+                                <segue destination="lVA-zg-Aml" kind="show" id="C7b-4w-Ypp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -151,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
                     <connections>
-                        <segue destination="LAF-OQ-JQA" kind="relationship" relationship="viewControllers" id="Mhy-aE-bzN"/>
+                        <segue destination="sq4-ml-ijd" kind="relationship" relationship="viewControllers" id="FCZ-PH-gKq"/>
                         <segue destination="WNe-fQ-dko" kind="relationship" relationship="viewControllers" id="Ldy-jo-xRb"/>
                         <segue destination="wLw-WX-gfs" kind="relationship" relationship="viewControllers" id="dUX-uQ-Xeg"/>
                         <segue destination="sjs-Xt-dbb" kind="relationship" relationship="viewControllers" id="0x3-5d-kRZ"/>
@@ -159,7 +227,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqh-5u-6wj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4561" y="-2269"/>
+            <point key="canvasLocation" x="-4506" y="-2026"/>
         </scene>
         <!--ReadingVC-->
         <scene sceneID="X1z-8P-mfE">
@@ -199,8 +267,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="buttondiscussblue" width="60" height="32"/>
+        <image name="alpha0" width="1" height="1"/>
+        <image name="bgnavigationtitle" width="30" height="30"/>
         <image name="buttonhelp" width="18" height="18"/>
         <image name="buttonsearch" width="17" height="17"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="yJP-Rt-x9k"/>
+    </inferredMetricsTieBreakers>
 </document>

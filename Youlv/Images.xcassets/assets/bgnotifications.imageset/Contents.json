@@ -1,19 +1,61 @@
 {
   "images" : [
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "fill",
+          "width" : 1,
+          "height" : 1
+        },
+        "capInsets" : {
+          "bottom" : 10,
+          "top" : 10,
+          "right" : 10,
+          "left" : 10
+        }
+      },
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "bgnotifications.png"
+      "filename" : "bgnotifications.png",
+      "scale" : "1x"
     },
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "fill",
+          "width" : 1,
+          "height" : 1
+        },
+        "capInsets" : {
+          "bottom" : 20,
+          "top" : 20,
+          "right" : 20,
+          "left" : 20
+        }
+      },
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "bgnotifications@2x.png"
+      "filename" : "bgnotifications@2x.png",
+      "scale" : "2x"
     },
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "fill",
+          "width" : 1,
+          "height" : 1
+        },
+        "capInsets" : {
+          "bottom" : 29,
+          "top" : 29,
+          "right" : 29,
+          "left" : 29
+        }
+      },
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "bgnotifications@3x.png"
+      "filename" : "bgnotifications@3x.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

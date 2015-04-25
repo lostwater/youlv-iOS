@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B10C9E71ADAEE7C00695853 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9E61ADAEE7C00695853 /* Home.storyboard */; };
 		0B10C9EA1ADB054D00695853 /* NewPublish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9E91ADB054D00695853 /* NewPublish.storyboard */; };
-		0B10C9EC1ADB06E600695853 /* Discorvery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */; };
+		0B10C9EC1ADB06E600695853 /* Discovery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9EB1ADB06E600695853 /* Discovery.storyboard */; };
 		0B10C9EF1ADB070300695853 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9EE1ADB070300695853 /* Messages.storyboard */; };
 		0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B10C9F21ADB090800695853 /* HomeTabBarController.swift */; };
 		0B2AF2C11AE6493300F7A5F9 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B2AF2C01AE6493300F7A5F9 /* User.storyboard */; };
@@ -42,6 +42,8 @@
 		0B93C9FB1ADC0936003117BE /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */; };
 		0B93C9FD1ADC26D7003117BE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */; };
 		0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */; };
+		0BB7F7661AEB6CA200F72D80 /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB7F7651AEB6CA200F72D80 /* DWTagList.m */; };
+		0BB7F7691AEB6F0E00F72D80 /* HomeSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB7F7681AEB6F0E00F72D80 /* HomeSearchTableViewController.swift */; };
 		0BBE373C1AE103E700FA0018 /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BBE373B1AE103E700FA0018 /* Friend.storyboard */; };
 		0BBE373E1AE105B900FA0018 /* FriendCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE373D1AE105B900FA0018 /* FriendCellView.swift */; };
 		0BBE37401AE105FC00FA0018 /* MessagesHomeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE373F1AE105FC00FA0018 /* MessagesHomeCellView.swift */; };
@@ -85,9 +87,9 @@
 		02DEE20A9728714FF4EF1428 /* Pods-YoulvTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YoulvTests/Pods-YoulvTests.release.xcconfig"; sourceTree = "<group>"; };
 		0B10C9E61ADAEE7C00695853 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0B10C9E91ADB054D00695853 /* NewPublish.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewPublish.storyboard; sourceTree = "<group>"; };
-		0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discorvery.storyboard; sourceTree = "<group>"; };
+		0B10C9EB1ADB06E600695853 /* Discovery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discovery.storyboard; sourceTree = "<group>"; };
 		0B10C9EE1ADB070300695853 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
-		0B10C9F21ADB090800695853 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		0B10C9F21ADB090800695853 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeTabBarController.swift; path = Youlv/Controllers/HomeTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		0B2AF2C01AE6493300F7A5F9 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		0B2AF2C21AE6A2EB00F7A5F9 /* MyProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileTableViewController.swift; sourceTree = "<group>"; };
 		0B2AF2C41AE6A32200F7A5F9 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,9 @@
 		0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginNavigationController.swift; path = Youlv/Controllers/Login/LoginNavigationController.swift; sourceTree = SOURCE_ROOT; };
 		0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecommenedViewController.swift; path = ../RecommenedViewController.swift; sourceTree = "<group>"; };
+		0BB7F7641AEB6CA200F72D80 /* DWTagList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTagList.h; sourceTree = "<group>"; };
+		0BB7F7651AEB6CA200F72D80 /* DWTagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTagList.m; sourceTree = "<group>"; };
+		0BB7F7681AEB6F0E00F72D80 /* HomeSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchTableViewController.swift; sourceTree = "<group>"; };
 		0BBE373B1AE103E700FA0018 /* Friend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friend.storyboard; sourceTree = "<group>"; };
 		0BBE373D1AE105B900FA0018 /* FriendCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCellView.swift; sourceTree = "<group>"; };
 		0BBE373F1AE105FC00FA0018 /* MessagesHomeCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesHomeCellView.swift; sourceTree = "<group>"; };
@@ -134,7 +139,7 @@
 		0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabBarController.swift; sourceTree = "<group>"; };
 		0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Youlv-Bridging-Header.h"; sourceTree = "<group>"; };
-		0BCECFBF1AD99B8E006BE53A /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
+		0BCECFBF1AD99B8E006BE53A /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeNavigationController.swift; path = Youlv/Controllers/HomeNavigationController.swift; sourceTree = SOURCE_ROOT; };
 		0BCECFC21AD99EE6006BE53A /* down_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down_dark.png; sourceTree = "<group>"; };
 		0BCECFC31AD99EE6006BE53A /* DropDownChooseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownChooseProtocol.h; sourceTree = "<group>"; };
 		0BCECFC41AD99EE6006BE53A /* DropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownListView.h; sourceTree = "<group>"; };
@@ -203,7 +208,7 @@
 				0BCECFF41ADAC238006BE53A /* Main.storyboard */,
 				0BCECFEE1ADABD0D006BE53A /* Others.storyboard */,
 				0B10C9E91ADB054D00695853 /* NewPublish.storyboard */,
-				0B10C9EB1ADB06E600695853 /* Discorvery.storyboard */,
+				0B10C9EB1ADB06E600695853 /* Discovery.storyboard */,
 				0B10C9EE1ADB070300695853 /* Messages.storyboard */,
 				0BBE373B1AE103E700FA0018 /* Friend.storyboard */,
 				0B2AF2C01AE6493300F7A5F9 /* User.storyboard */,
@@ -253,12 +258,12 @@
 		0B5FDEFA1AD6A2EF00773360 /* Youlv */ = {
 			isa = PBXGroup;
 			children = (
+				0BB7F7631AEB6C5800F72D80 /* Classes */,
 				0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */,
 				0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */,
 				0B2AF2D21AE7EBFF00F7A5F9 /* Models */,
 				0BBE37411AE1060500FA0018 /* Views */,
 				0BCECFEB1ADAAD76006BE53A /* Controllers */,
-				0BCECFBA1AD99A0F006BE53A /* CustomControllers */,
 				0B10C9E81ADAEE8E00695853 /* StoryBoards */,
 				0B5FDF041AD6A2EF00773360 /* Images.xcassets */,
 				0B5FDF061AD6A2EF00773360 /* LaunchScreen.xib */,
@@ -322,6 +327,33 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		0BB7F7631AEB6C5800F72D80 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0BB7F7641AEB6CA200F72D80 /* DWTagList.h */,
+				0BB7F7651AEB6CA200F72D80 /* DWTagList.m */,
+				0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */,
+				0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */,
+				0BCECFE71ADA3481006BE53A /* HomeBizVC.swift */,
+				0BBE374A1AE10CA200FA0018 /* DropDownNavTitleViewController.swift */,
+				0BCECFC21AD99EE6006BE53A /* down_dark.png */,
+				0BCECFC31AD99EE6006BE53A /* DropDownChooseProtocol.h */,
+				0BCECFC41AD99EE6006BE53A /* DropDownListView.h */,
+				0BCECFC51AD99EE6006BE53A /* DropDownListView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0BB7F7671AEB6EC300F72D80 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0BB7F7681AEB6F0E00F72D80 /* HomeSearchTableViewController.swift */,
+				0B10C9F21ADB090800695853 /* HomeTabBarController.swift */,
+				0BCECFBF1AD99B8E006BE53A /* HomeNavigationController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		0BBE37411AE1060500FA0018 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,37 +367,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		0BCECFBA1AD99A0F006BE53A /* CustomControllers */ = {
-			isa = PBXGroup;
-			children = (
-				0BCECFC11AD99EE5006BE53A /* dropDownList */,
-				0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */,
-				0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */,
-				0BCECFE71ADA3481006BE53A /* HomeBizVC.swift */,
-				0BBE374A1AE10CA200FA0018 /* DropDownNavTitleViewController.swift */,
-			);
-			path = CustomControllers;
-			sourceTree = "<group>";
-		};
-		0BCECFC11AD99EE5006BE53A /* dropDownList */ = {
-			isa = PBXGroup;
-			children = (
-				0BCECFC21AD99EE6006BE53A /* down_dark.png */,
-				0BCECFC31AD99EE6006BE53A /* DropDownChooseProtocol.h */,
-				0BCECFC41AD99EE6006BE53A /* DropDownListView.h */,
-				0BCECFC51AD99EE6006BE53A /* DropDownListView.m */,
-			);
-			path = dropDownList;
-			sourceTree = "<group>";
-		};
 		0BCECFEB1ADAAD76006BE53A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0BB7F7671AEB6EC300F72D80 /* Home */,
 				0B6191FA1AE949B000A8258A /* Login */,
 				0B6191F91AE948BF00A8258A /* User */,
 				0B6191F61AE924C700A8258A /* NewPub */,
-				0B10C9F21ADB090800695853 /* HomeTabBarController.swift */,
-				0BCECFBF1AD99B8E006BE53A /* HomeNavigationController.swift */,
 				0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */,
 				0BCECFF61ADAE23F006BE53A /* MessagesViewController.swift */,
 				0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */,
@@ -471,7 +479,7 @@
 				0BCECFEF1ADABD0D006BE53A /* Others.storyboard in Resources */,
 				0B5FDF051AD6A2EF00773360 /* Images.xcassets in Resources */,
 				0B2AF2C11AE6493300F7A5F9 /* User.storyboard in Resources */,
-				0B10C9EC1ADB06E600695853 /* Discorvery.storyboard in Resources */,
+				0B10C9EC1ADB06E600695853 /* Discovery.storyboard in Resources */,
 				0B2AF2CB1AE79DB400F7A5F9 /* Contacts.storyboard in Resources */,
 				0BBE373C1AE103E700FA0018 /* Friend.storyboard in Resources */,
 				0B10C9EA1ADB054D00695853 /* NewPublish.storyboard in Resources */,
@@ -577,6 +585,7 @@
 				0B2AF2CD1AE7C4CA00F7A5F9 /* AvatarButton.swift in Sources */,
 				0BCECFC01AD99B8E006BE53A /* HomeNavigationController.swift in Sources */,
 				0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */,
+				0BB7F7661AEB6CA200F72D80 /* DWTagList.m in Sources */,
 				0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */,
 				0BBE37451AE1067400FA0018 /* JoinGroupsCellView.swift in Sources */,
 				0BBE374D1AE15DC700FA0018 /* StartGroupChat1ViewController.swift in Sources */,
@@ -602,6 +611,7 @@
 				0BCAEE241AD82ACB00421B7A /* MainTabBarController.swift in Sources */,
 				0BCECFF11ADABFBE006BE53A /* NewViewController.swift in Sources */,
 				0BBE37491AE10A3000FA0018 /* MyFriendsViewController.swift in Sources */,
+				0BB7F7691AEB6F0E00F72D80 /* HomeSearchTableViewController.swift in Sources */,
 				0B2AF2C91AE7965300F7A5F9 /* ContactTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
