@@ -257,6 +257,58 @@
             </objects>
             <point key="canvasLocation" x="-234" y="-4065"/>
         </scene>
+        <!--TopicSelectorVC-->
+        <scene sceneID="Dpm-wO-Xtg">
+            <objects>
+                <tableViewController title="TopicSelectorVC" id="03X-ZD-1Oq" customClass="TopicsTableViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ksd-5I-I1C">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iYI-yr-3Gf">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iYI-yr-3Gf" id="mJC-6m-aJM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="03X-ZD-1Oq" id="5wG-rc-Md6"/>
+                            <outlet property="delegate" destination="03X-ZD-1Oq" id="fYP-pg-g55"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="SxN-0f-0AK">
+                        <barButtonItem key="backBarButtonItem" title="取消" id="TWR-SS-m35"/>
+                        <barButtonItem key="rightBarButtonItem" image="buttonsearch" id="g9b-JC-l79"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="AZQ-C6-CHL" id="u1i-78-qzW"/>
+                        <outlet property="searchDisplayController" destination="X8p-nK-Ipc" id="57E-Wc-DGb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1qW-yq-FKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchBar contentMode="redraw" backgroundImage="alpha0" id="AZQ-C6-CHL">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="03X-ZD-1Oq" id="Ctf-m2-ZVE"/>
+                    </connections>
+                </searchBar>
+                <searchDisplayController id="X8p-nK-Ipc">
+                    <connections>
+                        <outlet property="delegate" destination="03X-ZD-1Oq" id="EZg-Aa-rZY"/>
+                        <outlet property="searchBar" destination="AZQ-C6-CHL" id="hkF-2Q-aiT"/>
+                        <outlet property="searchContentsController" destination="03X-ZD-1Oq" id="AUx-lq-Nvc"/>
+                        <outlet property="searchResultsDataSource" destination="03X-ZD-1Oq" id="smZ-R9-PTV"/>
+                        <outlet property="searchResultsDelegate" destination="03X-ZD-1Oq" id="ccM-eq-H5I"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-299" y="-3492"/>
+        </scene>
         <!--NewTopicNC-->
         <scene sceneID="keg-CZ-i87">
             <objects>
@@ -311,6 +363,9 @@
                                                 <constraint firstItem="Bql-Ym-Kg4" firstAttribute="leading" secondItem="fXw-92-U0K" secondAttribute="trailing" id="zBT-Wt-IR2"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="03X-ZD-1Oq" kind="show" id="ujI-gj-oaq"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5o6-vd-VH5">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -355,64 +410,10 @@
             </objects>
             <point key="canvasLocation" x="-985" y="-3868"/>
         </scene>
-        <!--NewTopicSelectorVC-->
-        <scene sceneID="bwr-jz-mQb">
-            <objects>
-                <viewController title="NewTopicSelectorVC" id="bUw-bU-S51" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aFu-HG-Mul"/>
-                        <viewControllerLayoutGuide type="bottom" id="WbN-n1-LQi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="96K-Ke-Ip9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="o3d-BK-Gb4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="44"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="bUw-bU-S51" id="kuA-wM-Ci0"/>
-                                </connections>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="o3d-BK-Gb4"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="o3d-BK-Gb4"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="dSx-WI-Ysx" id="4xa-Am-mo0"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wUS-9d-2Gm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="dSx-WI-Ysx">
-                    <connections>
-                        <outlet property="delegate" destination="bUw-bU-S51" id="qfk-3a-M9t"/>
-                        <outlet property="searchBar" destination="o3d-BK-Gb4" id="Svw-a4-Re3"/>
-                        <outlet property="searchContentsController" destination="bUw-bU-S51" id="RbM-zX-oDo"/>
-                        <outlet property="searchResultsDataSource" destination="bUw-bU-S51" id="WqL-a2-lOV"/>
-                        <outlet property="searchResultsDelegate" destination="bUw-bU-S51" id="r76-CH-8ao"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="-269" y="-3515"/>
-        </scene>
         <!--NewArticleVC-->
         <scene sceneID="3yK-ra-b7E">
             <objects>
-                <tableViewController title="NewArticleVC" id="XBX-6p-hrp" sceneMemberID="viewController">
+                <tableViewController title="NewArticleVC" id="XBX-6p-hrp" customClass="NewArticleTableViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vt4-eG-O6x">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -448,7 +449,12 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="新文章" id="MMs-ec-TZm">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="LHW-so-tSZ"/>
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="PZz-po-wgC">
+                            <connections>
+                                <action selector="buttonCancelClicked:" destination="XBX-6p-hrp" id="cfa-je-z2G"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="发布" id="LHW-so-tSZ"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -578,10 +584,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="alpha0" width="1" height="1"/>
         <image name="buttonnewarticle" width="60" height="89"/>
         <image name="buttonnewopportunity" width="60" height="89"/>
         <image name="buttonnewtopic" width="60" height="89"/>
         <image name="buttonplusafter" width="41" height="40"/>
+        <image name="buttonsearch" width="17" height="17"/>
         <image name="iconopportunitysmall" width="20" height="20"/>
         <image name="icontopicsmall" width="20" height="20"/>
     </resources>

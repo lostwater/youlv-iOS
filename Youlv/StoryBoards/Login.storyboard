@@ -76,21 +76,6 @@
                                     <segue destination="n1s-Aj-FxQ" kind="show" id="wDt-lU-MPh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdL-Bj-rgM">
-                                <rect key="frame" x="227" y="506" width="55" height="74"/>
-                                <state key="normal" backgroundImage="buttonweibologin">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9B5-21-7Mb">
-                                <rect key="frame" x="321" y="506" width="55" height="74"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="cTn-2X-feD"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="buttonwechatlogin">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTd-XZ-8ES">
                                 <rect key="frame" x="356" y="91" width="74" height="45"/>
                                 <state key="normal" backgroundImage="buttonsendcode">
@@ -109,15 +94,12 @@
                         <constraints>
                             <constraint firstItem="NTd-XZ-8ES" firstAttribute="top" secondItem="TAo-Hj-fu6" secondAttribute="top" id="09T-jE-xqL"/>
                             <constraint firstAttribute="centerX" secondItem="T0p-sn-5Op" secondAttribute="centerX" constant="95" id="5f6-ln-P5D"/>
+                            <constraint firstItem="kmP-xp-fGF" firstAttribute="top" secondItem="1dD-B6-ePj" secondAttribute="bottom" constant="77" id="7pB-YN-e1z"/>
                             <constraint firstItem="TAo-Hj-fu6" firstAttribute="top" secondItem="w6O-0h-zXk" secondAttribute="bottom" constant="27" id="94w-AS-sLa"/>
                             <constraint firstItem="gv4-OF-Tr2" firstAttribute="leading" secondItem="GOS-k8-I58" secondAttribute="leading" id="EWg-Ed-EeG"/>
-                            <constraint firstItem="9B5-21-7Mb" firstAttribute="top" secondItem="kmP-xp-fGF" secondAttribute="bottom" constant="74" id="Enc-jP-9We"/>
-                            <constraint firstAttribute="bottom" secondItem="9B5-21-7Mb" secondAttribute="bottom" constant="20" symbolic="YES" id="FXY-mv-zEb"/>
                             <constraint firstItem="VO1-Q6-FMA" firstAttribute="leading" secondItem="GOS-k8-I58" secondAttribute="trailing" constant="-74" id="Hdh-GC-rvZ"/>
                             <constraint firstItem="TAo-Hj-fu6" firstAttribute="leading" secondItem="cyp-Zw-E6I" secondAttribute="trailing" constant="-52" id="Jef-iQ-Wpt"/>
                             <constraint firstItem="gv4-OF-Tr2" firstAttribute="centerY" secondItem="1dD-B6-ePj" secondAttribute="centerY" id="KWa-3H-U0P"/>
-                            <constraint firstAttribute="centerX" secondItem="9B5-21-7Mb" secondAttribute="centerX" constant="-48.5" id="KsK-by-SuQ"/>
-                            <constraint firstAttribute="centerX" secondItem="xdL-Bj-rgM" secondAttribute="centerX" constant="45.5" id="OTK-ph-qZl"/>
                             <constraint firstItem="NTd-XZ-8ES" firstAttribute="leading" secondItem="TAo-Hj-fu6" secondAttribute="trailing" constant="8" id="OfK-C1-vEd"/>
                             <constraint firstItem="Vpr-Jm-Z92" firstAttribute="leading" secondItem="T0p-sn-5Op" secondAttribute="trailing" constant="-52" id="PeS-cv-O6F"/>
                             <constraint firstItem="1dD-B6-ePj" firstAttribute="leading" secondItem="gv4-OF-Tr2" secondAttribute="trailing" constant="-52" id="WiV-uH-hXE"/>
@@ -127,10 +109,8 @@
                             <constraint firstItem="1dD-B6-ePj" firstAttribute="top" secondItem="Vpr-Jm-Z92" secondAttribute="bottom" constant="15" id="dHh-i5-qTQ"/>
                             <constraint firstItem="GOS-k8-I58" firstAttribute="centerY" secondItem="VO1-Q6-FMA" secondAttribute="centerY" id="hQe-lz-bNH"/>
                             <constraint firstAttribute="centerX" secondItem="1dD-B6-ePj" secondAttribute="centerX" id="hqK-Kx-m2g"/>
-                            <constraint firstItem="9B5-21-7Mb" firstAttribute="top" secondItem="xdL-Bj-rgM" secondAttribute="top" id="m9c-pT-kHB"/>
                             <constraint firstItem="cyp-Zw-E6I" firstAttribute="centerY" secondItem="TAo-Hj-fu6" secondAttribute="centerY" id="oRw-Wc-daJ"/>
                             <constraint firstItem="Vpr-Jm-Z92" firstAttribute="centerY" secondItem="T0p-sn-5Op" secondAttribute="centerY" id="rnp-lf-uNW"/>
-                            <constraint firstItem="9B5-21-7Mb" firstAttribute="leading" secondItem="xdL-Bj-rgM" secondAttribute="trailing" constant="39" id="y3s-Z0-2jQ"/>
                             <constraint firstItem="Vpr-Jm-Z92" firstAttribute="top" secondItem="7bR-kg-zVK" secondAttribute="top" constant="205" id="z5L-U0-jeK"/>
                             <constraint firstAttribute="centerX" secondItem="TAo-Hj-fu6" secondAttribute="centerX" constant="41" id="zfZ-TV-fbm"/>
                         </constraints>
@@ -236,8 +216,23 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wm9-QA-MvQ" kind="show" id="h0u-Lk-Pme"/>
+                                    <action selector="buttonOtherLoginClicked:" destination="PFB-GV-1QB" eventType="touchUpInside" id="L2e-If-Wcq"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKX-CB-5W9">
+                                <rect key="frame" x="230" y="518" width="52" height="74"/>
+                                <state key="normal" backgroundImage="buttonweibologin">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-1G-Jxq">
+                                <rect key="frame" x="321" y="518" width="55" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="Lo2-pt-1pU"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="buttonwechatlogin">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.69411764705882351" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
@@ -253,10 +248,15 @@
                             <constraint firstAttribute="centerX" secondItem="rvh-Kr-40h" secondAttribute="centerX" id="8TI-8N-OEH"/>
                             <constraint firstAttribute="centerY" secondItem="rvh-Kr-40h" secondAttribute="centerY" id="9eP-Rb-kLz"/>
                             <constraint firstItem="rvh-Kr-40h" firstAttribute="top" secondItem="gzg-CH-eRa" secondAttribute="bottom" constant="25" id="DNW-mJ-aWc"/>
+                            <constraint firstItem="Oob-1G-Jxq" firstAttribute="top" secondItem="yKX-CB-5W9" secondAttribute="top" id="EKp-P4-3ag"/>
+                            <constraint firstItem="Oob-1G-Jxq" firstAttribute="centerY" secondItem="y5L-DS-d4D" secondAttribute="centerY" constant="5" id="HoZ-H1-BNm"/>
                             <constraint firstItem="ELQ-HS-42y" firstAttribute="leading" secondItem="lQR-8p-re2" secondAttribute="trailing" constant="8" id="IZl-cj-Z3b"/>
                             <constraint firstItem="eKB-Fm-amR" firstAttribute="top" secondItem="4Cg-O8-2K2" secondAttribute="bottom" id="J7X-2m-UfC"/>
                             <constraint firstItem="iFP-00-TCu" firstAttribute="centerY" secondItem="rvh-Kr-40h" secondAttribute="centerY" constant="-0.5" id="L7R-lQ-PLv"/>
                             <constraint firstItem="KEa-ak-IgA" firstAttribute="centerY" secondItem="gzg-CH-eRa" secondAttribute="centerY" constant="0.5" id="NAz-eo-Vzv"/>
+                            <constraint firstItem="y5L-DS-d4D" firstAttribute="leading" secondItem="yKX-CB-5W9" secondAttribute="trailing" constant="-26" id="Okp-rH-vPU"/>
+                            <constraint firstItem="Oob-1G-Jxq" firstAttribute="leading" secondItem="yKX-CB-5W9" secondAttribute="trailing" constant="39" id="T0k-Zn-7Kt"/>
+                            <constraint firstItem="y5L-DS-d4D" firstAttribute="centerY" secondItem="yKX-CB-5W9" secondAttribute="centerY" constant="-5" id="Tlj-mi-gZ3"/>
                             <constraint firstItem="KEa-ak-IgA" firstAttribute="leading" secondItem="ue5-bq-fEF" secondAttribute="trailing" constant="8" id="WTC-hO-97m"/>
                             <constraint firstItem="gzg-CH-eRa" firstAttribute="centerY" secondItem="ue5-bq-fEF" secondAttribute="centerY" constant="-0.5" id="YEE-ML-HHp"/>
                             <constraint firstAttribute="centerX" secondItem="Yvk-f8-79O" secondAttribute="centerX" id="bCp-2f-6sY"/>
@@ -268,6 +268,7 @@
                             <constraint firstItem="GgC-07-bsa" firstAttribute="top" secondItem="Yvk-f8-79O" secondAttribute="bottom" constant="77" id="oAD-VG-MX2"/>
                             <constraint firstAttribute="centerY" secondItem="ELQ-HS-42y" secondAttribute="centerY" id="trE-q8-iPj"/>
                             <constraint firstAttribute="centerY" secondItem="rvh-Kr-40h" secondAttribute="centerY" id="uTp-OB-5GD"/>
+                            <constraint firstItem="Oob-1G-Jxq" firstAttribute="leading" secondItem="y5L-DS-d4D" secondAttribute="trailing" constant="-25" id="vIs-GV-eui"/>
                             <constraint firstAttribute="centerX" secondItem="y5L-DS-d4D" secondAttribute="centerX" constant="-0.5" id="w4a-J4-lCa"/>
                             <constraint firstItem="KEa-ak-IgA" firstAttribute="width" secondItem="gzg-CH-eRa" secondAttribute="width" id="yb3-bJ-U1o"/>
                         </constraints>
@@ -296,6 +297,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="BtnLogin" destination="Yvk-f8-79O" id="Ydx-Ee-scj"/>
+                        <outlet property="buttonOtherLogin" destination="y5L-DS-d4D" id="vlj-CE-eJL"/>
+                        <outlet property="buttonWeibo" destination="yKX-CB-5W9" id="7Vd-5p-QY5"/>
+                        <outlet property="buttonWeixin" destination="Oob-1G-Jxq" id="4X0-yT-Gol"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7L-dv-Wpl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -572,6 +576,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Xuh-yA-qQ5"/>
-        <segue reference="OWG-FI-QZg"/>
     </inferredMetricsTieBreakers>
 </document>

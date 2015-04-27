@@ -326,11 +326,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/HomeNavigationController.swift"
-            timestampString = "450557866.184452"
+            timestampString = "451835840.416162"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -342,11 +342,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/HomeTabBarController.swift"
-            timestampString = "450550486.067302"
+            timestampString = "451846472.077405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "setTabItems()"
             landmarkType = "5">
          </BreakpointContent>
@@ -516,11 +516,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/HomeTabBarController.swift"
-            timestampString = "450709524.902002"
+            timestampString = "451846472.077405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "HomeTabBarController"
             landmarkType = "3">
          </BreakpointContent>
@@ -548,11 +548,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/AppDelegate.swift"
-            timestampString = "450792947.564597"
+            timestampString = "451845692.947445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "setNavBar()"
             landmarkType = "5">
          </BreakpointContent>

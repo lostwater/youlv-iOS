@@ -10,9 +10,13 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var buttonOtherLogin: UIButton!
+    @IBOutlet weak var buttonWeixin: UIButton!
+    @IBOutlet weak var buttonWeibo: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
          self.navigationController?.navigationBar.backItem?.title = "";
+        hideWeixinWeibo()
         //self.view.backgroundColor = UIColorFromRGB(0x00b1f1);
 
         //self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -30,6 +34,24 @@ class LoginViewController: UIViewController {
         var mainStoryBoard = UIStoryboard(name:"Main",bundle:nil)
         var mainViewController = mainStoryBoard.instantiateInitialViewController() as! UIViewController
         self.presentViewController(mainViewController,animated:true,completion:nil)
+    }
+    
+    @IBAction func buttonOtherLoginClicked(sender: AnyObject) {
+        showWeixinWeibo()
+    }
+    
+    func hideWeixinWeibo()
+    {
+        buttonOtherLogin.hidden = false
+        buttonWeixin.hidden = true
+        buttonWeibo.hidden = true
+    }
+    
+    func showWeixinWeibo()
+    {
+        buttonOtherLogin.hidden = true
+        buttonWeixin.hidden = false
+        buttonWeibo.hidden = false
     }
     
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {

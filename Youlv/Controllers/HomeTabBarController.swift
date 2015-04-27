@@ -13,6 +13,39 @@ import UIKit
 class HomeTabBarController: TopTabBarController
 {
 
+    var naviMenuView : UIView?
+
+    
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!)
+    {
+        let i = item.tag
+        setNaviMenu(viewControllers![i] as! NaviBarMenu)
+    }
+    
+    func setNaviMenu(naviBarMenu : NaviBarMenu)
+    {
+        if((naviBarMenu.naviMenuView) != nil)
+        {
+            self.naviMenuView  = naviBarMenu.naviMenuView
+            if(appNaviMenuView != nil)
+            {
+                appNaviMenuView?.removeFromSuperview()
+            }
+            appNaviMenuView = naviMenuView
+            self.view.addSubview(appNaviMenuView!)
+            self.navigationItem.titleView = naviBarMenu.titleButton
+            naviBarMenu.titleButton!.setTitle(naviBarMenu.selectedTitle!, forState: UIControlState.Normal)
+            setButtonIconToRight(naviBarMenu.titleButton!)
+        }
+    }
+    
+    func setButtonIconToRight(button : UIButton)
+    {
+        button.titleEdgeInsets = UIEdgeInsetsMake(0, -button.imageView!.frame.size.width,0,button.imageView!.frame.size.width)
+        button.imageEdgeInsets = UIEdgeInsetsMake(0,button.titleLabel!.frame.size.width,0,-button.titleLabel!.frame.size.width)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTabItems();
@@ -24,8 +57,11 @@ class HomeTabBarController: TopTabBarController
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     func setTabItems()
     {
+        
         let normalimages = [
             UIImage(named: "buttonopportunityblack") as UIImage?,
             UIImage(named: "buttondiscussblack") as UIImage?,

@@ -12,16 +12,12 @@ class HomeNavigationController: TranslucentNavController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addDropDown();
         // Do any additional setup after loading the view.
         var homeStoryBoard = UIStoryboard(name:"Home",bundle:nil)
         var vc = homeStoryBoard.instantiateInitialViewController() as! UIViewController
         
     }
     
-    
-
-
 
     
     func addDropDown()
