@@ -49,7 +49,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUz-vF-vK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchBar contentMode="redraw" restorationIdentifier="SearchBar" backgroundImage="alpha0" id="M5z-TL-waq">
+                <searchBar contentMode="redraw" restorationIdentifier="SearchBar" placeholder="大家都在搜" backgroundImage="alpha0" id="M5z-TL-waq">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <textInputTraits key="textInputTraits"/>
@@ -470,7 +470,7 @@
                                 <action selector="menuButtonClicked:" destination="dhc-KX-u1F" eventType="touchUpInside" id="quz-R2-IKE"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFl-rO-W3E">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFl-rO-W3E">
                             <rect key="frame" x="277" y="160" width="46" height="30"/>
                             <state key="normal" title="最热榜">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -495,9 +495,11 @@
                         <constraint firstItem="tpb-Oi-OWi" firstAttribute="leading" secondItem="pGh-7c-qfI" secondAttribute="leading" id="Wmn-Hi-WCA"/>
                         <constraint firstAttribute="centerX" secondItem="RSy-M5-pEr" secondAttribute="centerX" id="Wtx-bd-BrJ"/>
                         <constraint firstItem="iOE-Ha-8Fx" firstAttribute="width" secondItem="tpb-Oi-OWi" secondAttribute="width" id="biB-pH-gm5"/>
+                        <constraint firstAttribute="centerX" secondItem="wFl-rO-W3E" secondAttribute="centerX" id="cIo-9k-WLb"/>
                         <constraint firstAttribute="bottom" secondItem="RSy-M5-pEr" secondAttribute="bottom" constant="416" id="fku-uh-NPc"/>
                         <constraint firstAttribute="centerX" secondItem="kbx-Iy-xry" secondAttribute="centerX" id="l26-De-trq"/>
                         <constraint firstAttribute="centerX" secondItem="vDq-My-rIz" secondAttribute="centerX" id="lHM-Iw-CmU"/>
+                        <constraint firstItem="wFl-rO-W3E" firstAttribute="top" secondItem="RSy-M5-pEr" secondAttribute="bottom" constant="8" id="mLw-Ef-3eZ"/>
                         <constraint firstItem="vDq-My-rIz" firstAttribute="top" secondItem="kbx-Iy-xry" secondAttribute="bottom" constant="8" id="mPr-t2-u9x"/>
                         <constraint firstItem="RSy-M5-pEr" firstAttribute="top" secondItem="mP2-4W-fCh" secondAttribute="bottom" constant="8" id="mgX-5M-Pha"/>
                         <constraint firstItem="mP2-4W-fCh" firstAttribute="top" secondItem="vDq-My-rIz" secondAttribute="bottom" constant="8" id="zFS-VJ-5vw"/>
@@ -664,6 +666,6 @@
         <image name="linecommentdotted" width="320" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yJP-Rt-x9k"/>
+        <segue reference="sl6-8C-FEE"/>
     </inferredMetricsTieBreakers>
 </document>

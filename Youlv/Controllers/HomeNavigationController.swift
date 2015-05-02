@@ -20,27 +20,7 @@ class HomeNavigationController: TranslucentNavController {
     
 
     
-    func addDropDown()
-    {
-        var dropDown = DropDownListView();
 
-        var dropDownButton = UIButton();
-        dropDownButton.frame = CGRectMake(0,0,50,50);
-        dropDownButton.backgroundColor = UIColor.blackColor();
-        dropDownButton.setTitle("Add", forState: UIControlState.Normal);
-
-        dropDown.center = navigationBar.center;
-        dropDownButton.center = navigationBar.center;
-        //self.navigationBar.addSubview(dropDown);
-        //self.navigationBar.addSubview(dropDownButton);
-        //self.view.addSubview(dropDown);
-        //self.view.addSubview(dropDownButton);
-        
-        self.navigationItem.titleView = dropDown;
-
-        //self.navigationItem.titleView = dropDownButton;
-
-    }
     
 
     /*

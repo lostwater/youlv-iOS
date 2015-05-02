@@ -9,8 +9,6 @@
 import UIKit
 
 class AvatarButton: UIButton {
-    
-    
     func goToUserProfile()
     {
         

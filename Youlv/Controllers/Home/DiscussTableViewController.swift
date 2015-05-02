@@ -30,7 +30,7 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNaviMenu()
-        AddNaviMenuToHome()
+        AddNaviMenuToHome(naviMenuView!, titleButton!, self)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -43,15 +43,9 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
     }
     
     @IBAction func titleButtonClicked(sender: AnyObject) {
-        showMenu()
+        showMenu(_naviMenuView)
     }
     
-    
-    func setButtonIconToRight(button : UIButton)
-    {
-        button.titleEdgeInsets = UIEdgeInsetsMake(0, -button.imageView!.frame.size.width,0,button.imageView!.frame.size.width)
-        button.imageEdgeInsets = UIEdgeInsetsMake(0,button.titleLabel!.frame.size.width,0,-button.titleLabel!.frame.size.width)
-    }
     
     func setMenuTextAndHide(selectedButton : UIButton)
     {
@@ -68,22 +62,10 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
     }
     
     
-    func setMenuLoc()
-    {
-        _naviMenuView.frame = CGRectMake((view.frame.size.width - menuWidth)/2, 0, menuWidth, menuHeight)
-        _naviMenuView.hidden = true
-        _naviMenuView.layer.zPosition = CGFloat.max
-    }
-    
-    
-    func showMenu()
-    {
-        _naviMenuView.hidden = false
-    }
-    
     func setNaviMenu()
     {
-        setMenuLoc()
+        setMenuLoc(_naviMenuView, view, menuWidth, menuHeight)
+        
         naviMenuView = _naviMenuView
         selectedTitle = menuButton0.titleForState(UIControlState.Normal)
         setMenuTextAndHide(menuButton0)
@@ -91,20 +73,10 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
         titleButton = _titleButton
         setButtonIconToRight(titleButton!)
         titleButton?.setTitle(selectedTitle , forState: UIControlState.Normal)
-
+        
     }
     
-    func AddNaviMenuToHome()
-    {
-        if(appNaviMenuView != nil)
-        {
-            appNaviMenuView?.removeFromSuperview()
-        }
-        appNaviMenuView = naviMenuView
-        
-        self.tabBarController?.navigationItem.titleView = titleButton
-        self.tabBarController?.view.addSubview(appNaviMenuView!)
-    }
+
     
     
 }

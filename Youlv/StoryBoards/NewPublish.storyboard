@@ -61,18 +61,27 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qgl-0y-S4s">
-                                                    <rect key="frame" x="72" y="8" width="26" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qgl-0y-S4s">
+                                                    <rect key="frame" x="72" y="15" width="520" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qgl-0y-S4s" secondAttribute="trailing" id="7E3-uU-fmQ"/>
                                                 <constraint firstAttribute="centerY" secondItem="80C-MS-ZX5" secondAttribute="centerY" id="Jd6-en-GXg"/>
                                                 <constraint firstAttribute="centerY" secondItem="qgl-0y-S4s" secondAttribute="centerY" constant="-1.5" id="Rg6-m7-Lfc"/>
+                                                <constraint firstItem="qgl-0y-S4s" firstAttribute="top" secondItem="mGX-3y-w2Y" secondAttribute="topMargin" id="WFZ-AV-Mnx"/>
                                                 <constraint firstItem="qgl-0y-S4s" firstAttribute="leading" secondItem="80C-MS-ZX5" secondAttribute="trailing" constant="20" id="vYf-3Y-qgI"/>
                                                 <constraint firstItem="80C-MS-ZX5" firstAttribute="leading" secondItem="mGX-3y-w2Y" secondAttribute="leadingMargin" constant="10" id="wS7-GE-urB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qgl-0y-S4s" secondAttribute="bottom" id="zQq-Up-Xey"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="WFZ-AV-Mnx"/>
+                                                    <exclude reference="zQq-Up-Xey"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="HFl-Be-P8r">
@@ -87,18 +96,25 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zlu-bZ-S0F">
-                                                    <rect key="frame" x="72" y="8" width="26" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zlu-bZ-S0F">
+                                                    <rect key="frame" x="72" y="15" width="520" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="zlu-bZ-S0F" firstAttribute="leading" secondItem="c6c-ga-mqD" secondAttribute="leadingMargin" constant="64" id="9k8-d5-Zae"/>
                                                 <constraint firstItem="zlu-bZ-S0F" firstAttribute="leading" secondItem="L3t-S0-aw1" secondAttribute="trailing" constant="20" id="MCH-S6-y4u"/>
                                                 <constraint firstAttribute="centerY" secondItem="zlu-bZ-S0F" secondAttribute="centerY" constant="-1.5" id="Unk-JO-jps"/>
                                                 <constraint firstAttribute="centerY" secondItem="L3t-S0-aw1" secondAttribute="centerY" id="a6o-mT-tU4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zlu-bZ-S0F" secondAttribute="trailing" id="sox-aQ-cuo"/>
                                                 <constraint firstItem="L3t-S0-aw1" firstAttribute="leading" secondItem="c6c-ga-mqD" secondAttribute="leadingMargin" constant="10" id="tbt-9H-WNh"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="9k8-d5-Zae"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Drv-Jm-IQa">
@@ -133,14 +149,15 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ec-QN-SJn">
-                                                    <rect key="frame" x="72" y="8" width="26" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ec-QN-SJn">
+                                                    <rect key="frame" x="72" y="15" width="520" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="3ec-QN-SJn" firstAttribute="leading" secondItem="tIF-U6-FXG" secondAttribute="trailing" constant="20" id="Gf5-Li-gLd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3ec-QN-SJn" secondAttribute="trailing" id="RqG-nS-uyA"/>
                                                 <constraint firstItem="tIF-U6-FXG" firstAttribute="leading" secondItem="kqK-Xp-NuZ" secondAttribute="leadingMargin" constant="10" id="jGk-7K-yqE"/>
                                                 <constraint firstAttribute="centerY" secondItem="3ec-QN-SJn" secondAttribute="centerY" constant="-1.5" id="jH3-CR-ybJ"/>
                                                 <constraint firstAttribute="centerY" secondItem="tIF-U6-FXG" secondAttribute="centerY" id="wZx-uc-X3N"/>

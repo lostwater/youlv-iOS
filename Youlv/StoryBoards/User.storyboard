@@ -78,7 +78,7 @@
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
-                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="iconprofileloacl" translatesAutoresizingMaskIntoConstraints="NO" id="lTD-lp-38R">
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconprofileloacl" translatesAutoresizingMaskIntoConstraints="NO" id="lTD-lp-38R">
                                     <rect key="frame" x="270" y="99" width="10" height="13"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="黑山" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF8-Gc-I3b">
@@ -271,10 +271,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconreading" translatesAutoresizingMaskIntoConstraints="NO" id="foB-0f-IdF">
-                                                    <rect key="frame" x="8" y="-1" width="47" height="46"/>
+                                                    <rect key="frame" x="8" y="2" width="40" height="40"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的文章" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmE-dL-bVx">
-                                                    <rect key="frame" x="63" y="11" width="68" height="21"/>
+                                                    <rect key="frame" x="56" y="11" width="68" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1060,7 +1060,7 @@
         <image name="iconopportunity" width="40" height="40"/>
         <image name="iconprofile" width="40" height="40"/>
         <image name="iconprofileloacl" width="10" height="13"/>
-        <image name="iconreading" width="47" height="45"/>
+        <image name="iconreading" width="40" height="40"/>
         <image name="iconrespond" width="40" height="40"/>
         <image name="iconsetting" width="40" height="40"/>
         <image name="iconuserpoints" width="40" height="40"/>
