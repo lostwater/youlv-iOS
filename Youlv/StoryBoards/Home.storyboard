@@ -279,6 +279,16 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linecommentdotted" translatesAutoresizingMaskIntoConstraints="NO" id="GW5-Jj-zPt">
                                             <rect key="frame" x="8" y="0.0" width="584" height="1"/>
                                         </imageView>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OXR-vM-f5X" customClass="RSTapRateView">
+                                            <rect key="frame" x="138" y="11" width="300" height="22"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="buttonheart" translatesAutoresizingMaskIntoConstraints="NO" id="zHF-Zd-XRr">
+                                            <rect key="frame" x="575" y="13" width="17" height="17"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="GW5-Jj-zPt" firstAttribute="leading" secondItem="Osf-F7-YFt" secondAttribute="leadingMargin" id="5a5-Do-icb"/>
@@ -383,7 +393,7 @@
                     </variation>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-5154" y="-2164"/>
+            <point key="canvasLocation" x="-5242" y="-2123"/>
         </scene>
         <!--DiscussVC-->
         <scene sceneID="kca-EP-nQr">
@@ -410,11 +420,11 @@
                     <connections>
                         <outlet property="_naviMenuView" destination="pGh-7c-qfI" id="5sf-eF-sbQ"/>
                         <outlet property="_titleButton" destination="Cgs-y5-ilM" id="cuJ-TB-HZv"/>
-                        <outlet property="menuButton0" destination="kbx-Iy-xry" id="AfR-jO-cPB"/>
-                        <outlet property="menuButton1" destination="vDq-My-rIz" id="KvF-SA-w8Q"/>
-                        <outlet property="menuButton2" destination="mP2-4W-fCh" id="h9H-Nc-0OB"/>
-                        <outlet property="menuButton3" destination="RSy-M5-pEr" id="ssW-Ux-M8g"/>
-                        <outlet property="menuButton4" destination="wFl-rO-W3E" id="mSg-na-zdB"/>
+                        <outlet property="menuButton0" destination="vDq-My-rIz" id="klY-ek-0ah"/>
+                        <outlet property="menuButton1" destination="mP2-4W-fCh" id="oQD-4u-LkZ"/>
+                        <outlet property="menuButton2" destination="RSy-M5-pEr" id="iNR-BI-VOb"/>
+                        <outlet property="menuButton3" destination="wFl-rO-W3E" id="Fa6-Aw-nUP"/>
+                        <outlet property="menuButtonUserHome" destination="kbx-Iy-xry" id="rrT-Hj-pXc"/>
                     </connections>
                 </tableViewController>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cgs-y5-ilM">
@@ -437,10 +447,11 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbx-Iy-xry">
                             <rect key="frame" x="270" y="8" width="60" height="30"/>
                             <state key="normal" title="个人主页">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="menuButtonClicked:" destination="dhc-KX-u1F" eventType="touchUpInside" id="XGk-kd-fyy"/>
+                                <action selector="menuButtonUserHomeClicked:" destination="dhc-KX-u1F" eventType="touchUpInside" id="Ipx-ub-fMO"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDq-My-rIz">
@@ -659,6 +670,7 @@
     <resources>
         <image name="alpha0" width="1" height="1"/>
         <image name="bgnavigationtitle" width="21" height="22"/>
+        <image name="buttonheart" width="17" height="17"/>
         <image name="buttonhelp" width="18" height="18"/>
         <image name="buttonsearch" width="17" height="17"/>
         <image name="buttontitledown" width="10" height="10"/>

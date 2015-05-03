@@ -8,6 +8,7 @@
 
 let appBlueColor = UIColorFromRGB(0x00B1F1)
 var appNaviMenuView : UIView?
+var isCancellingNew = false
 
 func UIColorFromRGB(rgbValue: UInt) -> UIColor {
     return UIColor(

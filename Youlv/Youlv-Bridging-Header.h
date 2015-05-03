@@ -7,6 +7,7 @@
 #import "FSMediaPicker.h"
 #import "BlurryModalSegue.h"
 #import "DWTagList.h"
+#import "RSTapRateView.h"
 
 
 //

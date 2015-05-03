@@ -15,7 +15,8 @@ class NewOpTableViewController: UITableViewController {
     @IBAction func buttonCancelClicked(sender: AnyObject) {
         let newVC: AnyObject! = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewVC")
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        self.dismissViewControllerAnimated(true, completion:nil)
+        isCancellingNew = true
+        self.dismissViewControllerAnimated(false, completion:nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class NewOpTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

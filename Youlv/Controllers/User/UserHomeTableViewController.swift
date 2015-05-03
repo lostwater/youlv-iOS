@@ -1,24 +1,23 @@
 //
-//  NewTopicTableViewController.swift
+//  UserHomeTableViewController.swift
 //  Youlv
 //
-//  Created by Lost on 23/04/2015.
+//  Created by Lost on 03/05/2015.
 //  Copyright (c) 2015 Ramy. All rights reserved.
 //
 
 import UIKit
 
-class NewTopicTableViewController: UITableViewController {
+class UserHomeTableViewController: UITableViewController {
 
-    @IBAction func buttonCancelClicked(sender: AnyObject) {
-        isCancellingNew = true
-        self.dismissViewControllerAnimated(false,completion:nil);
-    }
-    @IBAction func buttonPubClicked(sender: AnyObject) {
-    }
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userIntroTextView: UITextView!
+    @IBOutlet weak var buttonFellows: UIButton!
+    @IBOutlet weak var buttonFans: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,10 +30,11 @@ class NewTopicTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
     // MARK: - Table view data source
 
-    /*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
@@ -46,7 +46,53 @@ class NewTopicTableViewController: UITableViewController {
         // Return the number of rows in the section.
         return 0
     }
-    */
+    
+    override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if(self.tableView.contentOffset.y > 0)
+        {
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.shortHeader()
+            })
+        }
+        else
+        {
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.fullHeader()
+            })
+        }
+        
+    }
+    
+    func fullHeader()
+    {
+        headerView.frame = CGRectMake(headerView.frame.origin.x,
+            headerView.frame.origin.y,
+            headerView.frame.size.width,
+            385
+        )
+        
+        buttonFellows.hidden = false
+        buttonFans.hidden = false
+        userIntroTextView.frame.size = CGSize(width: userIntroTextView.frame.size.width, height: 0)
+        userIntroTextView.hidden = false
+        userImageView.frame.size = CGSize(width: 80, height: 80)
+    }
+    
+    func shortHeader()
+    {
+        headerView.frame = CGRectMake(headerView.frame.origin.x,
+            headerView.frame.origin.y,
+            headerView.frame.size.width,
+            180
+        )
+        buttonFellows.hidden = true
+        buttonFans.hidden = true
+        userIntroTextView.frame.size = CGSize(width: userIntroTextView.frame.size.width, height: 95)
+        userIntroTextView.hidden = true
+        userImageView.frame.size = CGSize(width: 50, height: 50)
+
+    }
+
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell

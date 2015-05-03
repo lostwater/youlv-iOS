@@ -26,6 +26,14 @@ class NewViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        if(isCancellingNew)
+        {
+            isCancellingNew = false
+            self.dismissViewControllerAnimated(false, completion: nil)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,12 +49,14 @@ class NewViewController: UIViewController {
         return true;
     }
     
+
+    
     func gotoVC(name: String)
     {
         let storyboard = UIStoryboard(name: "NewPublish", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier(name) as! UIViewController
-        //self.presentViewController(vc, animated: true, completion:nil)
         self.presentViewController(vc, animated: true, completion:nil)
+        //self.presentViewController(vc, animated: true, completion:nil)
 
     }
     

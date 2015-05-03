@@ -21,11 +21,11 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
     var selectedTitle : String?
     var titleButton : UIButton?
 
+    @IBOutlet weak var menuButtonUserHome: UIButton!
     @IBOutlet weak var menuButton0: UIButton!
     @IBOutlet weak var menuButton1: UIButton!
     @IBOutlet weak var menuButton2: UIButton!
     @IBOutlet weak var menuButton3: UIButton!
-    @IBOutlet weak var menuButton4: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,12 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    @IBAction func menuButtonUserHomeClicked(sender: AnyObject) {
+        _naviMenuView.hidden = true
+
+        let userHomeVC = UIStoryboard(name: "User", bundle: nil).instantiateViewControllerWithIdentifier("UserHomeVC") as! UIViewController
+        navigationController?.pushViewController(userHomeVC, animated: true)
     }
     
     @IBAction func menuButtonClicked(sender: AnyObject) {
@@ -53,7 +59,6 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
         menuButton1.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         menuButton2.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         menuButton3.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        menuButton4.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         selectedButton.setTitleColor(appBlueColor, forState: UIControlState.Normal)
         selectedTitle = selectedButton.titleForState(UIControlState.Normal)
         _titleButton.setTitle(selectedTitle, forState: UIControlState.Normal)

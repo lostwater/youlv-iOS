@@ -9,7 +9,7 @@
         <!--NewOpVC-->
         <scene sceneID="KX1-aW-ifT">
             <objects>
-                <tableViewController title="NewOpVC" id="hZq-dm-4HD" customClass="NewOpTableViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NewOpVC" title="NewOpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hZq-dm-4HD" customClass="NewOpTableViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fWw-dR-mJi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,6 +129,7 @@
                                                         <segment title="协作外包"/>
                                                         <segment title="商业信息"/>
                                                     </segments>
+                                                    <color key="tintColor" red="0.0" green="0.69411764710000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -345,7 +346,7 @@
         <!--NewTopicVC-->
         <scene sceneID="f7U-Cf-hNv">
             <objects>
-                <tableViewController title="NewTopicVC" id="b8w-gU-6Ae" customClass="NewTopicTableViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NewTopicVC" title="NewTopicVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b8w-gU-6Ae" customClass="NewTopicTableViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TRE-iV-ybh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
