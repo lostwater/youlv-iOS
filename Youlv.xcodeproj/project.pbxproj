@@ -56,6 +56,7 @@
 		0BA683031AF6872400780FFD /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA683011AF6872400780FFD /* EventTableViewCell.xib */; };
 		0BA683061AF6876500780FFD /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA683041AF6876500780FFD /* ArticleTableViewCell.swift */; };
 		0BA683071AF6876500780FFD /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA683051AF6876500780FFD /* ArticleTableViewCell.xib */; };
+		0BA683091AF942B800780FFD /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA683081AF942B800780FFD /* HomeItem.swift */; };
 		0BB7F7661AEB6CA200F72D80 /* DWTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB7F7651AEB6CA200F72D80 /* DWTagList.m */; };
 		0BB7F7691AEB6F0E00F72D80 /* HomeSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB7F7681AEB6F0E00F72D80 /* HomeSearchTableViewController.swift */; };
 		0BBE373C1AE103E700FA0018 /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BBE373B1AE103E700FA0018 /* Friend.storyboard */; };
@@ -86,6 +87,8 @@
 		0BCECFF91ADAE2A1006BE53A /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */; };
 		0BCECFFB1ADAE2D0006BE53A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */; };
 		0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */; };
+		0BEF298B1AFBB1F1001C7D43 /* DataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEF298A1AFBB1F1001C7D43 /* DataClient.swift */; };
+		0BEF298D1AFBC870001C7D43 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEF298C1AFBC870001C7D43 /* DataManager.swift */; };
 		0D4EF4C570043DD060CA4710 /* libPods-YoulvTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DF49B96C5C3ABABDB9AD47 /* libPods-YoulvTests.a */; };
 		5CA628DE0C8F043BE5B3A326 /* libPods-Youlv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3559EBB7821ADCB4534DDA87 /* libPods-Youlv.a */; };
 /* End PBXBuildFile section */
@@ -163,6 +166,7 @@
 		0BA683011AF6872400780FFD /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		0BA683041AF6876500780FFD /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		0BA683051AF6876500780FFD /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
+		0BA683081AF942B800780FFD /* HomeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
 		0BB7F7641AEB6CA200F72D80 /* DWTagList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTagList.h; sourceTree = "<group>"; };
 		0BB7F7651AEB6CA200F72D80 /* DWTagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTagList.m; sourceTree = "<group>"; };
 		0BB7F7681AEB6F0E00F72D80 /* HomeSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchTableViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 		0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
 		0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslucentNavBarController.swift; sourceTree = "<group>"; };
+		0BEF298A1AFBB1F1001C7D43 /* DataClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataClient.swift; sourceTree = "<group>"; };
+		0BEF298C1AFBC870001C7D43 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		3559EBB7821ADCB4534DDA87 /* libPods-Youlv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC61B62063B859E8AC526E62 /* Pods-Youlv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youlv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Youlv/Pods-Youlv.debug.xcconfig"; sourceTree = "<group>"; };
 		BC08593F6B57076AEFC6518F /* Pods-Youlv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youlv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Youlv/Pods-Youlv.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +282,7 @@
 				0B6192071AE94AB000A8258A /* Discuss.swift */,
 				0B6192091AE94AC200A8258A /* Event.swift */,
 				0B61920B1AE94AE300A8258A /* Comment.swift */,
+				0BA683081AF942B800780FFD /* HomeItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -306,6 +313,8 @@
 				0BB7F7631AEB6C5800F72D80 /* Classes */,
 				0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */,
 				0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */,
+				0BEF298C1AFBC870001C7D43 /* DataManager.swift */,
+				0BEF298A1AFBB1F1001C7D43 /* DataClient.swift */,
 				0B2AF2D21AE7EBFF00F7A5F9 /* Models */,
 				0BBE37411AE1060500FA0018 /* Views */,
 				0BCECFEB1ADAAD76006BE53A /* Controllers */,
@@ -653,15 +662,18 @@
 				0B2AF2C51AE6A32200F7A5F9 /* UserTableViewController.swift in Sources */,
 				0BBE37471AE1069B00FA0018 /* MyGroupsCellView.swift in Sources */,
 				0BCECFF71ADAE23F006BE53A /* MessagesViewController.swift in Sources */,
+				0BEF298B1AFBB1F1001C7D43 /* DataClient.swift in Sources */,
 				0B6192001AE94A6200A8258A /* Job.swift in Sources */,
 				0BC050C91AEE76F4003360CE /* EventsTableViewController.swift in Sources */,
 				0B6192061AE94A9D00A8258A /* Order.swift in Sources */,
 				0B93C9FB1ADC0936003117BE /* LoginNavigationController.swift in Sources */,
 				0B2AF2D41AE7ECDB00F7A5F9 /* Contact.swift in Sources */,
 				0BBE373E1AE105B900FA0018 /* FriendCellView.swift in Sources */,
+				0BEF298D1AFBC870001C7D43 /* DataManager.swift in Sources */,
 				0BCECFFB1ADAE2D0006BE53A /* UserViewController.swift in Sources */,
 				0BA682DD1AF533A100780FFD /* RecommendedUsersViewController.swift in Sources */,
 				0BCECFED1ADAAD95006BE53A /* LoginViewController.swift in Sources */,
+				0BA683091AF942B800780FFD /* HomeItem.swift in Sources */,
 				0BA682DB1AF5335C00780FFD /* RecommendedTopicsViewController.swift in Sources */,
 				0B61920A1AE94AC200A8258A /* Event.swift in Sources */,
 				0BC050C51AEE6F9B003360CE /* NaviBarMenuProtocol.swift in Sources */,

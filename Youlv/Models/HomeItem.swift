@@ -1,17 +1,16 @@
 //
-//  Order.swift
+//  HomeItem.swift
 //  Youlv
 //
-//  Created by Lost on 23/04/2015.
+//  Created by Lost on 06/05/2015.
 //  Copyright (c) 2015 Ramy. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class Order: NSObject {
-
-    
-    
+class HomeItem
+{
+//{
 //    "order_id":2,
 //    "order_type":2,
 //    "order_title":"一个关于北京的房产官司",
@@ -22,5 +21,4 @@ class Order: NSObject {
 //    "order_price":0,
 //    "order_interestCount": 8,
 //    "order_isInterest":1
-   
 }
