@@ -120,7 +120,10 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
         cell.opportunityLikedButton.titleLabel?.text = String(content.objectForKey("order_interestCount") as! Int)
         cell.opportunityTextView.frame.size = CGSize(width:cell.opportunityTextView.frame.size.width, height:cell.opportunityTextView.contentSize.height)
         cell.frame.size = CGSize(width:cell.frame.size.width, height:cell.contentHeight)
-        
+        cell.userCreditRate = RSTapRateView(frame: cell.userCreditRate.frame)
+        cell.userCreditRate.rating = 1
+        cell.userCreditRate.layoutSubviews()
+        //cell.addSubview(cell.userCreditRate)
         return cell
     }
     
