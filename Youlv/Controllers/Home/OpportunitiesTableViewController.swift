@@ -35,17 +35,56 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
     var selectedTitle : String?
     var titleButton : UIButton?
     
+    var ordersArray = NSArray()
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //tableView.registerNib(UINib(nibName:"OpportunityTableViewCell", bundle: nil), forCellReuseIdentifier: "XibOpportunityTableViewCell")
+        
         setNaviMenu()
         AddNaviMenuToHome(naviMenuView!, titleButton!, self)
+        getOrderList(1, pageSize: 10)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    
+    
+    
+    let client = DataClient()
+    func getOrderList(currentPage: Int, pageSize:Int)
+    {
+        client.getOrderList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
+            self.getOrderListCompleted(data, error: error)
+        })
+    }
+    
+    func getOrderListCompleted(data:NSData?,error:NSError?)
+    {
+        if error != nil
+        {
+            return
+        }
+        
+        let errorPointer = NSErrorPointer()
+        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
+        
+        let dictData = dict.objectForKey("data") as! NSDictionary
+        ordersArray = (dictData.objectForKey("orderList") as? NSArray)!
+        tableView.reloadData()
+        
+    }
+
+    
+
+    @IBOutlet var tableCell: OpportunityTableViewCell!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,15 +98,42 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+ 
+            return ordersArray.count
     }
     
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityTableViewCell", forIndexPath: indexPath) as! OpportunityTableViewCell
+        let content = ordersArray.objectAtIndex(indexPath.row) as! NSDictionary
+        let type = content.objectForKey("order_type") as! Int
+        cell.setOpportunityType(OpportunityType(rawValue: type)!)
+        cell.opportunityTitleLable.text = content.objectForKey("order_title") as? String
+        cell.opportunityTextView.text = content.objectForKey("order_content") as! String
+        cell.opportunityLocalButton.titleLabel?.text = content.objectForKey("order_cityName") as? String
+        cell.opportunityValidUntilLable.text = content.objectForKey("order_deadDate") as? String
+        cell.opportunityLikedButton.titleLabel?.text = String(content.objectForKey("order_interestCount") as! Int)
+        cell.opportunityTextView.frame.size = CGSize(width:cell.opportunityTextView.frame.size.width, height:cell.opportunityTextView.contentSize.height)
+        cell.frame.size = CGSize(width:cell.frame.size.width, height:cell.contentHeight)
+        
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let content = ordersArray.objectAtIndex(indexPath.row) as! NSDictionary
+        let contentText = content.objectForKey("order_content") as! NSString
+        let size = CGSizeMake(self.view.frame.size.width - 20, CGFloat.max)
+        
+        let attributes : Dictionary = [NSFontAttributeName:UIFont(name: "HelveticaNeue", size: 14)]
+        let textSize = contentText.sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(14)])
+        
+        return textSize.height+160
+    }
     
     func setMenuTextAndHide(selectedButton : UIButton)
     {

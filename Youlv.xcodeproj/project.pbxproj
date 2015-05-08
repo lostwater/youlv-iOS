@@ -49,9 +49,7 @@
 		0BA682F21AF6276900780FFD /* UserHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA682F11AF6276900780FFD /* UserHomeTableViewController.swift */; };
 		0BA682F51AF63AD200780FFD /* CPTextViewPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA682F41AF63AD200780FFD /* CPTextViewPlaceholder.m */; };
 		0BA682FA1AF67D2F00780FFD /* OpportunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA682F81AF67D2F00780FFD /* OpportunityTableViewCell.swift */; };
-		0BA682FB1AF67D2F00780FFD /* OpportunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA682F91AF67D2F00780FFD /* OpportunityTableViewCell.xib */; };
 		0BA682FE1AF6870300780FFD /* DiscussTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA682FC1AF6870300780FFD /* DiscussTableViewCell.swift */; };
-		0BA682FF1AF6870300780FFD /* DiscussTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA682FD1AF6870300780FFD /* DiscussTableViewCell.xib */; };
 		0BA683021AF6872400780FFD /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA683001AF6872400780FFD /* EventTableViewCell.swift */; };
 		0BA683031AF6872400780FFD /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA683011AF6872400780FFD /* EventTableViewCell.xib */; };
 		0BA683061AF6876500780FFD /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA683041AF6876500780FFD /* ArticleTableViewCell.swift */; };
@@ -89,6 +87,7 @@
 		0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */; };
 		0BEF298B1AFBB1F1001C7D43 /* DataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEF298A1AFBB1F1001C7D43 /* DataClient.swift */; };
 		0BEF298D1AFBC870001C7D43 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEF298C1AFBC870001C7D43 /* DataManager.swift */; };
+		0BEF298F1AFD2CC2001C7D43 /* OpportunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEF298E1AFD2CC2001C7D43 /* OpportunityDetailViewController.swift */; };
 		0D4EF4C570043DD060CA4710 /* libPods-YoulvTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DF49B96C5C3ABABDB9AD47 /* libPods-YoulvTests.a */; };
 		5CA628DE0C8F043BE5B3A326 /* libPods-Youlv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3559EBB7821ADCB4534DDA87 /* libPods-Youlv.a */; };
 /* End PBXBuildFile section */
@@ -159,9 +158,7 @@
 		0BA682F31AF63AD200780FFD /* CPTextViewPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPTextViewPlaceholder.h; path = ../../../../../Downloads/CPTextViewPlaceholder/CPTextViewPlaceholder/CPTextViewPlaceholder.h; sourceTree = "<group>"; };
 		0BA682F41AF63AD200780FFD /* CPTextViewPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPTextViewPlaceholder.m; path = ../../../../../Downloads/CPTextViewPlaceholder/CPTextViewPlaceholder/CPTextViewPlaceholder.m; sourceTree = "<group>"; };
 		0BA682F81AF67D2F00780FFD /* OpportunityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityTableViewCell.swift; sourceTree = "<group>"; };
-		0BA682F91AF67D2F00780FFD /* OpportunityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpportunityTableViewCell.xib; sourceTree = "<group>"; };
 		0BA682FC1AF6870300780FFD /* DiscussTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussTableViewCell.swift; sourceTree = "<group>"; };
-		0BA682FD1AF6870300780FFD /* DiscussTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscussTableViewCell.xib; sourceTree = "<group>"; };
 		0BA683001AF6872400780FFD /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		0BA683011AF6872400780FFD /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		0BA683041AF6876500780FFD /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
@@ -201,6 +198,7 @@
 		0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslucentNavBarController.swift; sourceTree = "<group>"; };
 		0BEF298A1AFBB1F1001C7D43 /* DataClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataClient.swift; sourceTree = "<group>"; };
 		0BEF298C1AFBC870001C7D43 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		0BEF298E1AFD2CC2001C7D43 /* OpportunityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityDetailViewController.swift; sourceTree = "<group>"; };
 		3559EBB7821ADCB4534DDA87 /* libPods-Youlv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Youlv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC61B62063B859E8AC526E62 /* Pods-Youlv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youlv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Youlv/Pods-Youlv.debug.xcconfig"; sourceTree = "<group>"; };
 		BC08593F6B57076AEFC6518F /* Pods-Youlv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youlv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Youlv/Pods-Youlv.release.xcconfig"; sourceTree = "<group>"; };
@@ -417,6 +415,7 @@
 				0BC050C61AEE76CD003360CE /* DiscussTableViewController.swift */,
 				0BC050C81AEE76F4003360CE /* EventsTableViewController.swift */,
 				0BC050CA1AEE7712003360CE /* ReadingsTableViewController.swift */,
+				0BEF298E1AFD2CC2001C7D43 /* OpportunityDetailViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -431,9 +430,7 @@
 				0BBE37461AE1069B00FA0018 /* MyGroupsCellView.swift */,
 				0B2AF2C81AE7965200F7A5F9 /* ContactTableViewCell.swift */,
 				0BA682F81AF67D2F00780FFD /* OpportunityTableViewCell.swift */,
-				0BA682F91AF67D2F00780FFD /* OpportunityTableViewCell.xib */,
 				0BA682FC1AF6870300780FFD /* DiscussTableViewCell.swift */,
-				0BA682FD1AF6870300780FFD /* DiscussTableViewCell.xib */,
 				0BA683001AF6872400780FFD /* EventTableViewCell.swift */,
 				0BA683011AF6872400780FFD /* EventTableViewCell.xib */,
 				0BA683041AF6876500780FFD /* ArticleTableViewCell.swift */,
@@ -564,8 +561,6 @@
 			files = (
 				0BA683071AF6876500780FFD /* ArticleTableViewCell.xib in Resources */,
 				0BA683031AF6872400780FFD /* EventTableViewCell.xib in Resources */,
-				0BA682FF1AF6870300780FFD /* DiscussTableViewCell.xib in Resources */,
-				0BA682FB1AF67D2F00780FFD /* OpportunityTableViewCell.xib in Resources */,
 				0BCECFF51ADAC238006BE53A /* Main.storyboard in Resources */,
 				0B5FDF081AD6A2EF00773360 /* LaunchScreen.xib in Resources */,
 				0BCECFEF1ADABD0D006BE53A /* Others.storyboard in Resources */,
@@ -691,6 +686,7 @@
 				0B6191FC1AE94A3400A8258A /* Topic.swift in Sources */,
 				0B6191F51AE924A700A8258A /* NewOpTableViewController.swift in Sources */,
 				0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */,
+				0BEF298F1AFD2CC2001C7D43 /* OpportunityDetailViewController.swift in Sources */,
 				0B61920C1AE94AE300A8258A /* Comment.swift in Sources */,
 				0B2AF2CF1AE7D27400F7A5F9 /* SettingsTableViewController.swift in Sources */,
 				0B2AF2D11AE7E55700F7A5F9 /* TopicsTableViewController.swift in Sources */,
