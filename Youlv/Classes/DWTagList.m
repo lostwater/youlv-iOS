@@ -8,17 +8,19 @@
 #import "DWTagList.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define MY_APP_BLUE_COLOR [UIColor colorWithRed:0.0 green:177/255.0f blue:241/255.0f alpha:1.0]
+//#define MY_APP_BLUE_COLOR  [UIColor cyanColor]
 #define CORNER_RADIUS 10.0f
 #define LABEL_MARGIN 5.0f
 #define BOTTOM_MARGIN 5.0f
 #define FONT_SIZE 13.0f
 #define HORIZONTAL_PADDING 7.0f
 #define VERTICAL_PADDING 3.0f
-#define BACKGROUND_COLOR [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00]
-#define TEXT_COLOR [UIColor blackColor]
+#define BACKGROUND_COLOR [UIColor clearColor]
+#define TEXT_COLOR MY_APP_BLUE_COLOR
 #define TEXT_SHADOW_COLOR [UIColor whiteColor]
 #define TEXT_SHADOW_OFFSET CGSizeMake(0.0f, 1.0f)
-#define BORDER_COLOR [UIColor lightGrayColor].CGColor
+#define BORDER_COLOR MY_APP_BLUE_COLOR.CGColor
 #define BORDER_WIDTH 1.0f
 
 @implementation DWTagList
@@ -27,6 +29,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+
     self = [super initWithFrame:frame];
     if (self) {
         [self addSubview:view];

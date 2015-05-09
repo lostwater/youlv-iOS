@@ -78,14 +78,22 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
         
         let dictData = dict.objectForKey("data") as! NSDictionary
         ordersArray = (dictData.objectForKey("orderList") as? NSArray)!
-        tableView.reloadData()
+        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                    self.tableView.reloadData()
+        })
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "pushToOpportunityDetail"
+        {
+            let opportunityDetail = segue.destinationViewController as! OpportunityDetailViewController
+            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            opportunityDetail.dataDict = ordersArray.objectAtIndex(selectedIndex!) as! NSDictionary
+        }
         
     }
 
-    
-
-    @IBOutlet var tableCell: OpportunityTableViewCell!
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -111,19 +119,7 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityTableViewCell", forIndexPath: indexPath) as! OpportunityTableViewCell
         let content = ordersArray.objectAtIndex(indexPath.row) as! NSDictionary
-        let type = content.objectForKey("order_type") as! Int
-        cell.setOpportunityType(OpportunityType(rawValue: type)!)
-        cell.opportunityTitleLable.text = content.objectForKey("order_title") as? String
-        cell.opportunityTextView.text = content.objectForKey("order_content") as! String
-        cell.opportunityLocalButton.titleLabel?.text = content.objectForKey("order_cityName") as? String
-        cell.opportunityValidUntilLable.text = content.objectForKey("order_deadDate") as? String
-        cell.opportunityLikedButton.titleLabel?.text = String(content.objectForKey("order_interestCount") as! Int)
-        cell.opportunityTextView.frame.size = CGSize(width:cell.opportunityTextView.frame.size.width, height:cell.opportunityTextView.contentSize.height)
-        cell.frame.size = CGSize(width:cell.frame.size.width, height:cell.contentHeight)
-        cell.userCreditRate = RSTapRateView(frame: cell.userCreditRate.frame)
-        cell.userCreditRate.rating = 1
-        cell.userCreditRate.layoutSubviews()
-        //cell.addSubview(cell.userCreditRate)
+        cell.setData(content)
         return cell
     }
     

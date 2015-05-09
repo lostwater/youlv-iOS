@@ -17,6 +17,7 @@ enum OpportunityType: Int
 class OpportunityTableViewCell: UITableViewCell {
 
     var opportunityType : OpportunityType?
+    var dataDict : NSDictionary?
     
     var contentHeight : CGFloat {
         get
@@ -31,7 +32,6 @@ class OpportunityTableViewCell: UITableViewCell {
     @IBOutlet weak var opportunityLocalButton: UIButton!
     @IBOutlet weak var opportunityTextView: UITextView!
     @IBOutlet weak var opportunityTagsList: DWTagList!
-    //@IBOutlet weak var itemUserCreditRate: UIView!
     @IBOutlet weak var opportunityLikedButton: UIButton!
     @IBOutlet var userCreditRate: RSTapRateView!
     
@@ -41,11 +41,30 @@ class OpportunityTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    func setData(_dataDict : NSDictionary)
+    {
+        self.dataDict = _dataDict
+        let type = dataDict!.objectForKey("order_type") as! Int
+        setOpportunityType(OpportunityType(rawValue: type)!)
+        opportunityTitleLable.text = dataDict!.objectForKey("order_title") as? String
+        opportunityTextView.text = dataDict!.objectForKey("order_content") as! String
+        opportunityLocalButton.setTitle(dataDict!.objectForKey("order_cityName") as? String, forState: UIControlState.Normal)
+        opportunityValidUntilLable.text = dataDict!.objectForKey("order_deadDate") as? String
+        opportunityLikedButton.titleLabel?.text = String(dataDict!.objectForKey("order_interestCount") as! Int)
+        opportunityTextView.frame.size = CGSize(width:opportunityTextView.frame.size.width, height:opportunityTextView.contentSize.height)
+        opportunityTagsList.setTags(NSArray(object: dataDict!.objectForKey("order_keyWords")!) as [AnyObject])
+
+        
+     
+        opportunityTagsList.display()
+        frame.size = CGSize(width:frame.size.width, height:contentHeight)
+
+    }
+    
     func resetTextViewSize() -> CGFloat
     {
         let size = CGSizeMake(self.frame.size.width - 20, CGFloat.max)
         
-        let attributes : Dictionary = [NSFontAttributeName:UIFont(name: "HelveticaNeue", size: 14)]
         let textSize = opportunityTextView.text.sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(14)])
         opportunityTextView.frame.size = textSize
         return textSize.height
@@ -62,6 +81,7 @@ class OpportunityTableViewCell: UITableViewCell {
                 opportunityTagsList.hidden = true
                 userPubulishedLable.hidden = true
                 opportunityIconImageView.image = UIImage(named: "iconcase")
+                
             case OpportunityType.Outsourcing:
                 opportunityTagsList.hidden = false
                 userPubulishedLable.hidden = true
