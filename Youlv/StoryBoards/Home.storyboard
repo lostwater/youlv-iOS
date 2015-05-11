@@ -78,15 +78,27 @@
         <scene sceneID="KOd-SJ-hAy">
             <objects>
                 <tableViewController title="EventsVC" id="70F-ke-4xu" customClass="EventsTableViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2TD-Ei-v7H">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="227" sectionHeaderHeight="22" sectionFooterHeight="22" id="2TD-Ei-v7H">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" id="N7h-lp-6Ml">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="227" id="N7h-lp-6Ml">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N7h-lp-6Ml" id="gr9-BM-TKR">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63u-Bg-VBq">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="226"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="63u-Bg-VBq" firstAttribute="top" secondItem="gr9-BM-TKR" secondAttribute="topMargin" constant="-8" id="5qJ-TT-9tM"/>
+                                        <constraint firstItem="63u-Bg-VBq" firstAttribute="leading" secondItem="gr9-BM-TKR" secondAttribute="leadingMargin" constant="-8" id="H4E-bG-Z5j"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="63u-Bg-VBq" secondAttribute="bottom" constant="-8" id="Q9Q-T0-0y4"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="63u-Bg-VBq" secondAttribute="trailing" constant="-8" id="SAu-LB-TRi"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>

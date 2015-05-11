@@ -46,7 +46,57 @@ class DataClient
         task.resume()
         
     }
-
     
+    func getVoteList(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "vote/getVoteList?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+        
+    }
+    
+    func getEventList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "active/getActiveList?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+        
+    }
+
+    func getArticleList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "article/articleList?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+    
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+        
+    }
+
     
 }
