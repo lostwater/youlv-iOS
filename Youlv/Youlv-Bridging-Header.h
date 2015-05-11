@@ -8,6 +8,6 @@
 #import "BlurryModalSegue.h"
 #import "DWTagList.h"
 #import "RSTapRateView.h"
-
+#import "SDWebImage/UIImageView+WebCache.h"
 
 //

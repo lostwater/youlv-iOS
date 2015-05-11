@@ -22,19 +22,31 @@
 #define COCOAPODS_POD_AVAILABLE_MZAppearance
 #define COCOAPODS_VERSION_MAJOR_MZAppearance 1
 #define COCOAPODS_VERSION_MINOR_MZAppearance 1
-#define COCOAPODS_VERSION_PATCH_MZAppearance 3
+#define COCOAPODS_VERSION_PATCH_MZAppearance 4
 
 // MZFormSheetController
 #define COCOAPODS_POD_AVAILABLE_MZFormSheetController
 #define COCOAPODS_VERSION_MAJOR_MZFormSheetController 3
 #define COCOAPODS_VERSION_MINOR_MZFormSheetController 0
-#define COCOAPODS_VERSION_PATCH_MZFormSheetController 2
+#define COCOAPODS_VERSION_PATCH_MZFormSheetController 3
 
 // MZFormSheetController/Core
 #define COCOAPODS_POD_AVAILABLE_MZFormSheetController_Core
 #define COCOAPODS_VERSION_MAJOR_MZFormSheetController_Core 3
 #define COCOAPODS_VERSION_MINOR_MZFormSheetController_Core 0
-#define COCOAPODS_VERSION_PATCH_MZFormSheetController_Core 2
+#define COCOAPODS_VERSION_PATCH_MZFormSheetController_Core 3
+
+// SDWebImage
+#define COCOAPODS_POD_AVAILABLE_SDWebImage
+#define COCOAPODS_VERSION_MAJOR_SDWebImage 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage 2
+
+// SDWebImage/Core
+#define COCOAPODS_POD_AVAILABLE_SDWebImage_Core
+#define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage_Core 2
 
 // UIImage+BlurredFrame
 #define COCOAPODS_POD_AVAILABLE_UIImage_BlurredFrame

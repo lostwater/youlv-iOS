@@ -84,12 +84,44 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
         
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Potentially incomplete method implementation.
+        // Return the number of sections.
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete method implementation.
+        // Return the number of rows in the section.
+        
+        return ordersArray.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityTableViewCell", forIndexPath: indexPath) as! OpportunityTableViewCell
+        let content = ordersArray.objectAtIndex(indexPath.row) as! NSDictionary
+        cell.setData(content)
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let content = ordersArray.objectAtIndex(indexPath.row) as! NSDictionary
+        let contentText = content.objectForKey("order_content") as! NSString
+        //let size = CGSizeMake(self.view.frame.size.width - 20, CGFloat.max)
+        
+        let attributes : Dictionary = [NSFontAttributeName:UIFont(name: "HelveticaNeue", size: 14)]
+        let textSize = contentText.sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(14)])
+        
+        return textSize.height+160
+    }
+
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "pushToOpportunityDetail"
         {
             let opportunityDetail = segue.destinationViewController as! OpportunityDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            opportunityDetail.dataDict = ordersArray.objectAtIndex(selectedIndex!) as! NSDictionary
+            opportunityDetail.dataDict = ordersArray.objectAtIndex(selectedIndex!) as? NSDictionary
         }
         
     }
@@ -103,36 +135,6 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
- 
-            return ordersArray.count
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityTableViewCell", forIndexPath: indexPath) as! OpportunityTableViewCell
-        let content = ordersArray.objectAtIndex(indexPath.row) as! NSDictionary
-        cell.setData(content)
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let content = ordersArray.objectAtIndex(indexPath.row) as! NSDictionary
-        let contentText = content.objectForKey("order_content") as! NSString
-        let size = CGSizeMake(self.view.frame.size.width - 20, CGFloat.max)
-        
-        let attributes : Dictionary = [NSFontAttributeName:UIFont(name: "HelveticaNeue", size: 14)]
-        let textSize = contentText.sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(14)])
-        
-        return textSize.height+160
-    }
     
     func setMenuTextAndHide(selectedButton : UIButton)
     {

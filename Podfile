@@ -5,11 +5,13 @@ target 'Youlv' do
 pod 'FSMediaPicker'
 pod 'MZFormSheetController'
 pod 'BlurryModalSegue'
+pod 'SDWebImage'
 end
 
 target 'YoulvTests' do
 pod 'FSMediaPicker'
 pod 'MZFormSheetController'
 pod 'BlurryModalSegue'
+pod 'SDWebImage'
 end
 

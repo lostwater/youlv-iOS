@@ -24,6 +24,7 @@
 		0B2AF2D41AE7ECDB00F7A5F9 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF2D31AE7ECDB00F7A5F9 /* Contact.swift */; };
 		0B2AF2D61AE7ED0200F7A5F9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF2D51AE7ED0200F7A5F9 /* User.swift */; };
 		0B2AF2D81AE7EFE400F7A5F9 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF2D71AE7EFE400F7A5F9 /* ContactsTableViewController.swift */; };
+		0B3C725D1B00B2E200D264E2 /* DiscussTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C725C1B00B2E200D264E2 /* DiscussTableViewCell.swift */; };
 		0B5FDEFE1AD6A2EF00773360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */; };
 		0B5FDF051AD6A2EF00773360 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B5FDF041AD6A2EF00773360 /* Images.xcassets */; };
 		0B5FDF081AD6A2EF00773360 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B5FDF061AD6A2EF00773360 /* LaunchScreen.xib */; };
@@ -49,7 +50,6 @@
 		0BA682F21AF6276900780FFD /* UserHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA682F11AF6276900780FFD /* UserHomeTableViewController.swift */; };
 		0BA682F51AF63AD200780FFD /* CPTextViewPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BA682F41AF63AD200780FFD /* CPTextViewPlaceholder.m */; };
 		0BA682FA1AF67D2F00780FFD /* OpportunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA682F81AF67D2F00780FFD /* OpportunityTableViewCell.swift */; };
-		0BA682FE1AF6870300780FFD /* DiscussTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA682FC1AF6870300780FFD /* DiscussTableViewCell.swift */; };
 		0BA683021AF6872400780FFD /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA683001AF6872400780FFD /* EventTableViewCell.swift */; };
 		0BA683031AF6872400780FFD /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BA683011AF6872400780FFD /* EventTableViewCell.xib */; };
 		0BA683061AF6876500780FFD /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA683041AF6876500780FFD /* ArticleTableViewCell.swift */; };
@@ -122,6 +122,7 @@
 		0B2AF2D31AE7ECDB00F7A5F9 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		0B2AF2D51AE7ED0200F7A5F9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0B2AF2D71AE7EFE400F7A5F9 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		0B3C725C1B00B2E200D264E2 /* DiscussTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussTableViewCell.swift; sourceTree = "<group>"; };
 		0B5FDEF81AD6A2EF00773360 /* Youlv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Youlv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5FDEFC1AD6A2EF00773360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,7 +159,6 @@
 		0BA682F31AF63AD200780FFD /* CPTextViewPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPTextViewPlaceholder.h; path = ../../../../../Downloads/CPTextViewPlaceholder/CPTextViewPlaceholder/CPTextViewPlaceholder.h; sourceTree = "<group>"; };
 		0BA682F41AF63AD200780FFD /* CPTextViewPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPTextViewPlaceholder.m; path = ../../../../../Downloads/CPTextViewPlaceholder/CPTextViewPlaceholder/CPTextViewPlaceholder.m; sourceTree = "<group>"; };
 		0BA682F81AF67D2F00780FFD /* OpportunityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpportunityTableViewCell.swift; sourceTree = "<group>"; };
-		0BA682FC1AF6870300780FFD /* DiscussTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussTableViewCell.swift; sourceTree = "<group>"; };
 		0BA683001AF6872400780FFD /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		0BA683011AF6872400780FFD /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		0BA683041AF6876500780FFD /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
@@ -423,6 +423,7 @@
 		0BBE37411AE1060500FA0018 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B3C725C1B00B2E200D264E2 /* DiscussTableViewCell.swift */,
 				0BBE373D1AE105B900FA0018 /* FriendCellView.swift */,
 				0BBE373F1AE105FC00FA0018 /* MessagesHomeCellView.swift */,
 				0BBE37421AE1064000FA0018 /* FriendHomeMessageCellView.swift */,
@@ -430,7 +431,6 @@
 				0BBE37461AE1069B00FA0018 /* MyGroupsCellView.swift */,
 				0B2AF2C81AE7965200F7A5F9 /* ContactTableViewCell.swift */,
 				0BA682F81AF67D2F00780FFD /* OpportunityTableViewCell.swift */,
-				0BA682FC1AF6870300780FFD /* DiscussTableViewCell.swift */,
 				0BA683001AF6872400780FFD /* EventTableViewCell.swift */,
 				0BA683011AF6872400780FFD /* EventTableViewCell.xib */,
 				0BA683041AF6876500780FFD /* ArticleTableViewCell.swift */,
@@ -659,6 +659,7 @@
 				0BCECFF71ADAE23F006BE53A /* MessagesViewController.swift in Sources */,
 				0BEF298B1AFBB1F1001C7D43 /* DataClient.swift in Sources */,
 				0B6192001AE94A6200A8258A /* Job.swift in Sources */,
+				0B3C725D1B00B2E200D264E2 /* DiscussTableViewCell.swift in Sources */,
 				0BC050C91AEE76F4003360CE /* EventsTableViewController.swift in Sources */,
 				0B6192061AE94A9D00A8258A /* Order.swift in Sources */,
 				0B93C9FB1ADC0936003117BE /* LoginNavigationController.swift in Sources */,
@@ -682,7 +683,6 @@
 				0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */,
 				0BBE37451AE1067400FA0018 /* JoinGroupsCellView.swift in Sources */,
 				0BBE374D1AE15DC700FA0018 /* StartGroupChat1ViewController.swift in Sources */,
-				0BA682FE1AF6870300780FFD /* DiscussTableViewCell.swift in Sources */,
 				0B6191FC1AE94A3400A8258A /* Topic.swift in Sources */,
 				0B6191F51AE924A700A8258A /* NewOpTableViewController.swift in Sources */,
 				0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */,
