@@ -50,7 +50,10 @@ class OpportunityTableViewCell: UITableViewCell {
         opportunityTextView.text = dataDict!.objectForKey("order_content") as! String
         opportunityLocalButton.setTitle(dataDict!.objectForKey("order_cityName") as? String, forState: UIControlState.Normal)
         opportunityValidUntilLable.text = dataDict!.objectForKey("order_deadDate") as? String
-        opportunityLikedButton.titleLabel?.text = String(dataDict!.objectForKey("order_interestCount") as! Int)
+
+        opportunityLikedButton.setTitle( String(dataDict!.objectForKey("order_interestCount") as! Int), forState: UIControlState.Normal)
+        opportunityLikedButton.setTitle( String(dataDict!.objectForKey("order_interestCount") as! Int), forState: UIControlState.Selected)
+        
         opportunityTextView.frame.size = CGSize(width:opportunityTextView.frame.size.width, height:opportunityTextView.contentSize.height)
         opportunityTagsList.setTags(NSArray(object: dataDict!.objectForKey("order_keyWords")!) as [AnyObject])
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yhm-0x-i7E">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -230,13 +229,13 @@
                                     <rect key="frame" x="345" y="64" width="110" height="110"/>
                                 </variation>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-CH-eRa">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-CH-eRa">
                                 <rect key="frame" x="170" y="208" width="260" height="45"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconusername" translatesAutoresizingMaskIntoConstraints="NO" id="ue5-bq-fEF">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="iconusername" translatesAutoresizingMaskIntoConstraints="NO" id="ue5-bq-fEF">
                                 <rect key="frame" x="188" y="216" width="30" height="30"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KEa-ak-IgA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KEa-ak-IgA">
                                 <rect key="frame" x="226" y="216" width="186" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="186" id="A5S-y7-HWS"/>

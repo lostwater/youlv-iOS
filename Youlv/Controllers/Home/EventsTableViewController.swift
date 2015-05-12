@@ -35,16 +35,46 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
     var selectedTitle : String?
     var titleButton : UIButton?
     
+    var eventsArray = NSArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNaviMenu()
         AddNaviMenuToHome(naviMenuView!, titleButton!, self)
+        getEventList(1, pageSize: 10)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    
+    
+    let client = DataClient()
+    func getEventList(currentPage: Int, pageSize:Int)
+    {
+        client.getEventList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
+            self.getEventListCompleted(data, error: error)
+        })
+    }
+    
+    func getEventListCompleted(data:NSData?,error:NSError?)
+    {
+        if error != nil
+        {
+            return
+        }
+        
+        let errorPointer = NSErrorPointer()
+        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
+        
+        let dictData = dict.objectForKey("data") as! NSDictionary
+        eventsArray = (dictData.objectForKey("activeList") as? NSArray)!
+        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,15 +89,20 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+
+        return eventsArray.count
     }
     
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventTableViewCell
+        cell.setData(eventsArray.objectAtIndex(indexPath.item) as! NSDictionary)
+        return cell
+
+    }
     
     
     

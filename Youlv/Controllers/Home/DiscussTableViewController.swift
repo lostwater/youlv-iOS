@@ -68,6 +68,15 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goToDiscussDetail"
+        {
+            let discussDetail = segue.destinationViewController as! DiscussDetailViewController
+            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            discussDetail.setData((discussArray.objectAtIndex(selectedIndex!) as? NSDictionary)!)
+        }
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.

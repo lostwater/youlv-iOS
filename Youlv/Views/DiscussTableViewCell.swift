@@ -43,15 +43,15 @@ class DiscussTableViewCell: UITableViewCell
         discussOperateType = DiscussOperateType(rawValue: dataDict.objectForKey("operate_type") as! Int)
         let topic_photoUrl = dataDict.objectForKey("topic_photoUrl") as! String
         let operate_photoUrl = dataDict.objectForKey("operate_photoUrl") as! String
-       // topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl))
-        //operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl))
+        topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl))
+        operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl))
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
         operatorName?.text = dataDict.objectForKey("operate__lawyerName") as? String
         operatorTime.text = dataDict.objectForKey("operate_createDate") as? String
         bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
 , forState: UIControlState.Normal)
         bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
-            , forState: UIControlState.Normal)
+            , forState: UIControlState.Selected)
         bookMarkedButton.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
         bookMarkedButton.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
         let isMarked = dataDict.objectForKey("topic_isPraise") as! Bool
