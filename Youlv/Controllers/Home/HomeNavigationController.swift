@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeNavigationController: TranslucentNavController {
+class HomeNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

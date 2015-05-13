@@ -14,7 +14,7 @@ class HomeTabBarController: TopTabBarController
 {
 
     var naviMenuView : UIView?
-
+    var isTabsSet = false
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!)
     {
@@ -45,10 +45,17 @@ class HomeTabBarController: TopTabBarController
         button.imageEdgeInsets = UIEdgeInsetsMake(0,button.titleLabel!.frame.size.width,0,-button.titleLabel!.frame.size.width)
     }
     
+    override func awakeFromNib() {
+        if !isTabsSet
+        {
+            setTabItems();
+            isTabsSet = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTabItems();
+        
         // Do any additional setup after loading the view.
     }
 

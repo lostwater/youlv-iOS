@@ -77,6 +77,15 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
         
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goEventDetail"
+        {
+            let eventDetail = segue.destinationViewController as! EventDetailViewController
+            //eventDetail.eventId = eventsArray.objectsAtIndexes(tableView.indexPathForSelectedRow()?.item).objectForKey
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

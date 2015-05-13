@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().setBackgroundImage(UIImage(named: "alpha0"), forBarMetrics: UIBarMetrics.Default)
         UINavigationBar.appearance().shadowImage = UIImage(named: "alpha0");
+        //UINavigationBar.appearance().backgroundColor = UIColor.blackColor()
         //navigationBar.shadowImage = UIImage()
         //navigationBar.translucent = true
         UINavigationBar.appearance().translucent = false;
@@ -75,11 +76,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 24)!,
                 NSForegroundColorAttributeName:UIColor.whiteColor()
         ];
-        UINavigationBar.appearance().barTintColor = UIColorFromRGB(0x00B1F1)
+        UINavigationBar.appearance().barTintColor = appBlueColor
         UIBarButtonItem.appearance().setBackButtonBackgroundImage(UIImage(named: "buttonarrowleftwhite"), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -500, vertical: 0), forBarMetrics: UIBarMetrics.Default)
-    
-
         
     }
     
@@ -89,14 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setNavBar()
     }
     
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
+
 
 
 

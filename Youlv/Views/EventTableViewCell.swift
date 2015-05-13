@@ -29,12 +29,12 @@ class EventTableViewCell: UITableViewCell {
     {
         self.dataDict = dataDict
         eventImageView.sd_setImageWithURL(NSURL(string: self.dataDict!.objectForKey("photoUrl") as! String))
-        eventName.text = String(self.dataDict!.objectForKey("title") as! Int)
+        eventName.text = self.dataDict!.objectForKey("title") as? String
         eventValid.text = self.dataDict!.objectForKey("activeTime") as? String
         eventLikedButton.setTitle(String(self.dataDict!.objectForKey("praiseCount") as! Int), forState: UIControlState.Normal)
         eventLikedButton.setTitle(String(self.dataDict!.objectForKey("praiseCount") as! Int), forState: UIControlState.Selected)
         
-        let isMarked = false
+        let isMarked = self.dataDict!.objectForKey("isCollect") as! Int
         if Bool(isMarked)
         {
             eventLikedButton.selected = true

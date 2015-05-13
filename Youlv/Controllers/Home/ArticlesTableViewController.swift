@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class ReadingsTableViewController: UITableViewController,NaviBarMenu {
+class ArticlesViewController: UITableViewController,NaviBarMenu {
     let menuWidth : CGFloat = 180
     let menuHeight : CGFloat = 134
     

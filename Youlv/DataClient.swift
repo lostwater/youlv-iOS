@@ -97,6 +97,25 @@ class DataClient
         task.resume()
         
     }
+    
+    func getEventDetail(eventId : Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "active/getActiveDetail?"
+        path = path + "activeId=" + String(eventId)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+        
+    }
+    
+
+    
 
     func getArticleList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
     {
@@ -114,6 +133,25 @@ class DataClient
         task.resume()
         
     }
+    
+    func getInterviewList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "microview/getViewList?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+        
+    }
+    
+    
 
     
 }

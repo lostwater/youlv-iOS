@@ -8,13 +8,14 @@
 
 import UIKit
 
-class LoginNavigationController: TranslucentNavController {
+class LoginNavigationController: UINavigationController {
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let bar = self.navigationBar
+        bar.backgroundColor = UIColor.blackColor()
 
         // Do any additional setup after loading the view.
     }
