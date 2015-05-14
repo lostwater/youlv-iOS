@@ -17,6 +17,13 @@
 		0B2A9CF11B03A7E9007FF789 /* ArticleCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2A9CF01B03A7E9007FF789 /* ArticleCommentTableViewCell.swift */; };
 		0B2A9CF31B03B443007FF789 /* InterviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2A9CF21B03B443007FF789 /* InterviewTableViewController.swift */; };
 		0B2A9CF51B03B458007FF789 /* InterviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2A9CF41B03B458007FF789 /* InterviewTableViewCell.swift */; };
+		0B2A9CF71B04BC85007FF789 /* InterviewDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2A9CF61B04BC85007FF789 /* InterviewDetailTableViewController.swift */; };
+		0B2A9CF91B04DA4A007FF789 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2A9CF81B04DA49007FF789 /* JobTableViewCell.swift */; };
+		0B2A9CFB1B04DA7C007FF789 /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2A9CFA1B04DA7C007FF789 /* JobsTableViewController.swift */; };
+		0B2A9CFD1B04DA94007FF789 /* JobsBookmarkedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2A9CFC1B04DA94007FF789 /* JobsBookmarkedTableViewController.swift */; };
+		0B2A9CFF1B04DAA9007FF789 /* ResearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2A9CFE1B04DAA9007FF789 /* ResearchTableViewController.swift */; };
+		0B2A9D031B04DAE9007FF789 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2A9D021B04DAE9007FF789 /* JobDetailViewController.swift */; };
+		0B2A9D051B04DB1B007FF789 /* GroupTopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2A9D041B04DB1B007FF789 /* GroupTopicsTableViewController.swift */; };
 		0B2AF2C11AE6493300F7A5F9 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B2AF2C01AE6493300F7A5F9 /* User.storyboard */; };
 		0B2AF2C31AE6A2EB00F7A5F9 /* MyProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF2C21AE6A2EB00F7A5F9 /* MyProfileTableViewController.swift */; };
 		0B2AF2C51AE6A32200F7A5F9 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF2C41AE6A32200F7A5F9 /* UserTableViewController.swift */; };
@@ -122,6 +129,13 @@
 		0B2A9CF01B03A7E9007FF789 /* ArticleCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCommentTableViewCell.swift; sourceTree = "<group>"; };
 		0B2A9CF21B03B443007FF789 /* InterviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewTableViewController.swift; sourceTree = "<group>"; };
 		0B2A9CF41B03B458007FF789 /* InterviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewTableViewCell.swift; sourceTree = "<group>"; };
+		0B2A9CF61B04BC85007FF789 /* InterviewDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewDetailTableViewController.swift; sourceTree = "<group>"; };
+		0B2A9CF81B04DA49007FF789 /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
+		0B2A9CFA1B04DA7C007FF789 /* JobsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
+		0B2A9CFC1B04DA94007FF789 /* JobsBookmarkedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsBookmarkedTableViewController.swift; sourceTree = "<group>"; };
+		0B2A9CFE1B04DAA9007FF789 /* ResearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchTableViewController.swift; sourceTree = "<group>"; };
+		0B2A9D021B04DAE9007FF789 /* JobDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
+		0B2A9D041B04DB1B007FF789 /* GroupTopicsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTopicsTableViewController.swift; sourceTree = "<group>"; };
 		0B2AF2C01AE6493300F7A5F9 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		0B2AF2C21AE6A2EB00F7A5F9 /* MyProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileTableViewController.swift; sourceTree = "<group>"; };
 		0B2AF2C41AE6A32200F7A5F9 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTableViewController.swift; path = Youlv/Controllers/User/UserTableViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -457,6 +471,7 @@
 				0B2A9CEC1B038710007FF789 /* ImageListView.swift */,
 				0B2A9CF01B03A7E9007FF789 /* ArticleCommentTableViewCell.swift */,
 				0B2A9CF41B03B458007FF789 /* InterviewTableViewCell.swift */,
+				0B2A9CF81B04DA49007FF789 /* JobTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -475,6 +490,12 @@
 			children = (
 				0BCECFF81ADAE2A1006BE53A /* DiscoveryViewController.swift */,
 				0B2A9CF21B03B443007FF789 /* InterviewTableViewController.swift */,
+				0B2A9CF61B04BC85007FF789 /* InterviewDetailTableViewController.swift */,
+				0B2A9CFA1B04DA7C007FF789 /* JobsTableViewController.swift */,
+				0B2A9CFC1B04DA94007FF789 /* JobsBookmarkedTableViewController.swift */,
+				0B2A9CFE1B04DAA9007FF789 /* ResearchTableViewController.swift */,
+				0B2A9D021B04DAE9007FF789 /* JobDetailViewController.swift */,
+				0B2A9D041B04DB1B007FF789 /* GroupTopicsTableViewController.swift */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -672,6 +693,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B2A9CFF1B04DAA9007FF789 /* ResearchTableViewController.swift in Sources */,
 				0B2AF2C31AE6A2EB00F7A5F9 /* MyProfileTableViewController.swift in Sources */,
 				0BA1EC311B023A8F004F3546 /* DiscussCommentTableViewCell.swift in Sources */,
 				0B2AF2C51AE6A32200F7A5F9 /* UserTableViewController.swift in Sources */,
@@ -716,6 +738,7 @@
 				0B2AF2D11AE7E55700F7A5F9 /* TopicsTableViewController.swift in Sources */,
 				0BC050C31AEE4443003360CE /* OpportunitiesTableViewController.swift in Sources */,
 				0BC050CB1AEE7712003360CE /* ArticlesTableViewController.swift in Sources */,
+				0B2A9D051B04DB1B007FF789 /* GroupTopicsTableViewController.swift in Sources */,
 				0BA682F51AF63AD200780FFD /* CPTextViewPlaceholder.m in Sources */,
 				0BC050CD1AEE9629003360CE /* Helper.swift in Sources */,
 				0BA682F21AF6276900780FFD /* UserHomeTableViewController.swift in Sources */,
@@ -724,6 +747,7 @@
 				0BBE37401AE105FC00FA0018 /* MessagesHomeCellView.swift in Sources */,
 				0B2AF2D61AE7ED0200F7A5F9 /* User.swift in Sources */,
 				0BA683021AF6872400780FFD /* EventTableViewCell.swift in Sources */,
+				0B2A9CFD1B04DA94007FF789 /* JobsBookmarkedTableViewController.swift in Sources */,
 				0BCECFF91ADAE2A1006BE53A /* DiscoveryViewController.swift in Sources */,
 				0BA683061AF6876500780FFD /* ArticleTableViewCell.swift in Sources */,
 				0BA682E51AF5436E00780FFD /* RSTapRateView.m in Sources */,
@@ -731,6 +755,8 @@
 				0B93C9FD1ADC26D7003117BE /* SignupViewController.swift in Sources */,
 				0B2AF2D81AE7EFE400F7A5F9 /* ContactsTableViewController.swift in Sources */,
 				0B6191F81AE9295200A8258A /* NewTopicTableViewController.swift in Sources */,
+				0B2A9CFB1B04DA7C007FF789 /* JobsTableViewController.swift in Sources */,
+				0B2A9CF91B04DA4A007FF789 /* JobTableViewCell.swift in Sources */,
 				0B6192081AE94AB000A8258A /* Discuss.swift in Sources */,
 				0BCAEE221AD7CC6300421B7A /* TopTabBarController.swift in Sources */,
 				0BA682E81AF5437600780FFD /* UIImageView+Reflected.m in Sources */,
@@ -740,12 +766,14 @@
 				0BCAEE241AD82ACB00421B7A /* MainTabBarController.swift in Sources */,
 				0BCECFF11ADABFBE006BE53A /* NewViewController.swift in Sources */,
 				0BC050C71AEE76CD003360CE /* DiscussTableViewController.swift in Sources */,
+				0B2A9D031B04DAE9007FF789 /* JobDetailViewController.swift in Sources */,
 				0B2A9CF51B03B458007FF789 /* InterviewTableViewCell.swift in Sources */,
 				0BBE37491AE10A3000FA0018 /* MyFriendsViewController.swift in Sources */,
 				0B2A9CED1B038710007FF789 /* ImageListView.swift in Sources */,
 				0B2A9CF11B03A7E9007FF789 /* ArticleCommentTableViewCell.swift in Sources */,
 				0BB7F7691AEB6F0E00F72D80 /* HomeSearchTableViewController.swift in Sources */,
 				0B2AF2C91AE7965300F7A5F9 /* ContactTableViewCell.swift in Sources */,
+				0B2A9CF71B04BC85007FF789 /* InterviewDetailTableViewController.swift in Sources */,
 				0BC050CF1AEEAF70003360CE /* NewArticleTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
