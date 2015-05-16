@@ -28,6 +28,10 @@ class ArticleTableViewCell: UITableViewCell {
         commentButton.setImage(UIImage(named:"buttoncomment"), forState: UIControlState.Selected)
         likedButton.setImage(UIImage(named:"buttonlikeoutline"), forState: UIControlState.Normal)
         likedButton.setImage(UIImage(named:"buttonlike"), forState: UIControlState.Selected)
+        commentButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+        commentButton.setTitleColor(appBlueColor, forState: UIControlState.Selected)
+        likedButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+        likedButton.setTitleColor(appBlueColor, forState: UIControlState.Selected)
         // Initialization code
     }
 
@@ -36,5 +40,31 @@ class ArticleTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    func displayData(dataDict : NSDictionary)
+    {
+        
+        //userImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String))
+        //userName.text = dataDict.objectForKey("lawyerName") as? String
+        articleTextView.text =  dataDict.objectForKey("acro") as? String
+        //CommentContent.text = dataDict.objectForKey("content") as? String
+        //CommentTime.text = dataDict.objectForKey("operate_createDate") as? String
+        likedButton.setTitle(dataDict.objectForKey("praiseCount") as? String, forState: UIControlState.Normal)
+        likedButton.setTitle(dataDict.objectForKey("praiseCount") as? String, forState: UIControlState.Selected)
+        commentButton.setTitle(dataDict.objectForKey("commentCount") as? String, forState: UIControlState.Normal)
+        commentButton.setTitle(dataDict.objectForKey("commentCount") as? String, forState: UIControlState.Selected)
+        let isLiked = (dataDict.objectForKey("isPraise") as! String).toInt()
+        if Bool(isLiked!)
+        {
+            likedButton.selected = true
+        }
+        else
+        {
+            likedButton.selected = false
+        }
+        
+    }
+
     
 }

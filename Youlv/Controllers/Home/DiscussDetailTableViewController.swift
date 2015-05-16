@@ -12,7 +12,8 @@ class DiscussDetailTableViewController: UITableViewController {
     
     var topicId : Int?
     var commentsArray = NSArray()
-
+    var currentPage = 1
+    
     func reloadTableView()
     {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -22,7 +23,7 @@ class DiscussDetailTableViewController: UITableViewController {
     
     func getDiscussDetail()
     {
-        DataClient().getTopicDetail(topicId!, currentPage: 10, pageSize: 10) { (data, error) -> () in
+        DataClient().getTopicDetail(topicId!, currentPage: currentPage, pageSize: 10) { (data, error) -> () in
             self.getDiscussDetailCompleted(data,error: error)
         }
     }

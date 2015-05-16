@@ -152,6 +152,140 @@ class DataClient
     }
     
     
+    func getInterviewDetail(interviewId : Int, currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "microview/viewDetail?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        path = path + "&microViewId=" + String(interviewId)
+        
+ 
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+    
+    func getJobList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "position/getPositionList?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+        
+    }
+    
+    func getMarkedJobList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "position/getStoreList?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+
+    
+    func getJobDetail(jobId : Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "position/positionDetail?"
+        path = path + "&sessionId=" + String(sessionId)
+        path = path + "&positionId=" + String(jobId)
+        
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+    
+    func postMarkJob(jobId : Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "position/positionStore"
+        var params = "positionId=" + String(jobId)
+        params = params + "&sessionId=" + String(sessionId)
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPBody = (params as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+        request.HTTPMethod = "POST"
+        let task = session.dataTaskWithRequest(request) { ( data, responese, error ) -> Void in
+            completion(data, error)
+        }
+        task.resume()
+
+    }
+    
+    func getResearchList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "vote/getVoteList?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+    
+    func getResearchDetail(voteId : Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "vote/voteDetail?"
+        path = path + "&sessionId=" + String(sessionId)
+        path = path + "&voteId=" + String(voteId)
+    
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in completion(data, error)
+        })
+        task.resume()
+    }
+    
+    func postVote(voteId : Int, optionId: Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "vote/voteChoise"
+        var params = "voteId=" + String(voteId)
+        params = params + "&optionId=" + String(optionId)
+        params = params + "&sessionId=" + String(sessionId)
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPBody = (params as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+        request.HTTPMethod = "POST"
+        let task = session.dataTaskWithRequest(request) { ( data, responese, error ) -> Void in
+            completion(data, error)
+        }
+        task.resume()
+        
+    }
+
+    
+    
 
     
 }

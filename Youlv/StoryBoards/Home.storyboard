@@ -1495,6 +1495,7 @@
                                     <outlet property="topicTextView" destination="kML-Wp-OXJ" id="zgF-ol-Krc"/>
                                     <outlet property="topicUserImageViewer" destination="Abb-zL-c1a" id="7de-CW-qyB"/>
                                     <outlet property="topicUserName" destination="Jh7-yi-Lt9" id="F2f-Bu-G8d"/>
+                                    <segue destination="RuM-FZ-4Cy" kind="show" id="4Zi-TX-kI9"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscussRepliedCell" id="qIH-Qi-WIA" customClass="DiscussTableViewCell" customModule="Youlv" customModuleProvider="target">
@@ -1997,7 +1998,7 @@
         <!--ArticleDetailVC-->
         <scene sceneID="VUQ-b6-3yl">
             <objects>
-                <viewController title="ArticleDetailVC" hidesBottomBarWhenPushed="YES" id="bPU-4g-XDQ" sceneMemberID="viewController">
+                <viewController title="ArticleDetailVC" hidesBottomBarWhenPushed="YES" id="bPU-4g-XDQ" customClass="ArticleDetailViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qsx-u0-l9z"/>
                         <viewControllerLayoutGuide type="bottom" id="eX7-Tr-NWZ"/>
@@ -2386,7 +2387,7 @@
         <!--ArticlesVC-->
         <scene sceneID="brS-ty-rcl">
             <objects>
-                <tableViewController title="ArticlesVC" id="T8H-Ba-Usr" customClass="ArticlesViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="ArticlesVC" id="T8H-Ba-Usr" customClass="ArticlesTableViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="305" sectionHeaderHeight="22" sectionFooterHeight="22" id="M0H-xl-BHa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2835,5 +2836,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yJP-Rt-x9k"/>
+        <segue reference="iPN-fR-8xT"/>
     </inferredMetricsTieBreakers>
 </document>

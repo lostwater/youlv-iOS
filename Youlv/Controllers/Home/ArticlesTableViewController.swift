@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class ArticlesViewController: UITableViewController,NaviBarMenu {
+class ArticlesTableViewController: UITableViewController,NaviBarMenu {
     let menuWidth : CGFloat = 180
     let menuHeight : CGFloat = 134
     
@@ -32,16 +32,45 @@ class ArticlesViewController: UITableViewController,NaviBarMenu {
     var selectedTitle : String?
     var titleButton : UIButton?
     
+    var articlesArray : NSArray?
+    let client = DataClient()
+    func getArticleList(currentPage: Int, pageSize:Int)
+    {
+        client.getArticleList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
+            self.getArticleListCompleted(data, error: error)
+        })
+    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setNaviMenu()
-        AddNaviMenuToHome(naviMenuView!, titleButton!, self)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+    func getArticleListCompleted(data:NSData?,error:NSError?)
+    {
+        if error != nil
+        {
+            return
+        }
+        let errorPointer = NSErrorPointer()
+        let ds = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
+        //print(NSJSONSerialization.isValidJSONObject(data!))
+        NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
+        print(errorPointer.debugDescription)
+        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let dictData = dict.objectForKey("data") as! NSDictionary
+        articlesArray = (dictData.objectForKey("articleList") as? NSArray)!
+        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
+        
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goArticleDetail"
+        {
+            let vc = segue.destinationViewController as! ArticleDetailViewController
+            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            var selectedData = articlesArray!.objectAtIndex(selectedIndex!) as! NSDictionary
+            vc.articleId = articlesArray!.objectAtIndex(selectedIndex!).objectForKey("articleId") as? Int
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,15 +85,33 @@ class ArticlesViewController: UITableViewController,NaviBarMenu {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        
+        return articlesArray?.count ?? 0
     }
     
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ArticleCell", forIndexPath: indexPath) as! ArticleTableViewCell
+        cell.displayData(articlesArray!.objectAtIndex(indexPath.item) as! NSDictionary)
+        return cell
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setNaviMenu()
+        AddNaviMenuToHome(naviMenuView!, titleButton!, self)
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+
     
     
     

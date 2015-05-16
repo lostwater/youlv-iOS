@@ -19,24 +19,24 @@ class DiscussCommentTableViewCell: UITableViewCell {
     @IBOutlet var CommentTime: UILabel!
     @IBOutlet var LikedButton: UIButton!
     
-    var dataDict : NSDictionary?
+
     
     override func awakeFromNib() {
         LikedButton.setImage(UIImage(named:"buttonlikecommentgrey"), forState: UIControlState.Normal)
         LikedButton.setImage(UIImage(named:"buttonlikecommentblue"), forState: UIControlState.Selected)
     }
     
-    func setData(dataDict : NSDictionary)
+    func displayData(dataDict : NSDictionary)
     {
-        self.dataDict = dataDict
-        UserImageView.sd_setImageWithURL(NSURL(string: self.dataDict!.objectForKey("photoUrl") as! String))
-        UserName.text = self.dataDict!.objectForKey("lawyerName") as? String
-        CommentContent.text = self.dataDict!.objectForKey("content") as? String
-        CommentTime.text = self.dataDict!.objectForKey("operate_createDate") as? String
+
+        UserImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String))
+        UserName.text = dataDict.objectForKey("lawyerName") as? String
+        CommentContent.text = dataDict.objectForKey("content") as? String
+        CommentTime.text = dataDict.objectForKey("operate_createDate") as? String
         LikedButton.setTitle(nil, forState: UIControlState.Normal)
-        LikedButton.setTitle(self.dataDict!.objectForKey("praiseCount") as? String, forState: UIControlState.Selected)
+        LikedButton.setTitle(dataDict.objectForKey("praiseCount") as? String, forState: UIControlState.Selected)
     
-        let isMarked = (self.dataDict!.objectForKey("isPraise") as! String).toInt()
+        let isMarked = (dataDict.objectForKey("isPraise") as! String).toInt()
         if Bool(isMarked!)
         {
             LikedButton.selected = true

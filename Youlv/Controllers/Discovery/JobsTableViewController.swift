@@ -9,15 +9,42 @@
 import UIKit
 
 class JobsTableViewController: UITableViewController {
+    
+    var currentPage = 1
+    var jobsArray : NSArray?
+    
+    let client = DataClient()
+    func getJobList(currentPage: Int, pageSize:Int)
+    {
+        client.getJobList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
+            self.getJobListCompleted(data, error: error)
+        })
+    }
+    
+    func getJobListCompleted(data:NSData?,error:NSError?)
+    {
+        if error != nil
+        {
+            return
+        }
+        
+        let errorPointer = NSErrorPointer()
+        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
+        
+        let dictData = dict.objectForKey("data") as! NSDictionary
+        jobsArray = (dictData.objectForKey("positionList") as? NSArray)!
+        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
+        
+    }
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        getJobList(1,pageSize: 10)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,70 +55,30 @@ class JobsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        return jobsArray?.count ?? 0
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("JobCell", forIndexPath: indexPath) as! JobTableViewCell
+        cell.displayData(jobsArray?.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "goJobDetail"
+        {
+            let vc = segue.destinationViewController as! JobDetailViewController
+            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            var selectedData = jobsArray?.objectAtIndex(selectedIndex!) as! NSDictionary
+            vc.jobId = selectedData.objectForKey("position_id") as? Int
+            vc.companyImageUrl = selectedData.objectForKey("position_officePhoto") as? String
+        }
     }
-    */
+
+    
 
 }

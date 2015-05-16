@@ -9,5 +9,6 @@
 #import "DWTagList.h"
 #import "RSTapRateView.h"
 #import "SDWebImage/UIImageView+WebCache.h"
+#import "PCPieChart.h"
 
 //

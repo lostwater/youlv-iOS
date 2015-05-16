@@ -16,25 +16,112 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
     @IBOutlet var guestFansCount: UILabel!
     @IBOutlet var fellowGuestButton: UIButton!
     
+    @IBAction func fellowGuestButtonClicked(sender: AnyObject) {
+    }
+    
+    
     @IBOutlet var guestTextView: UITextView!
     @IBOutlet var guestTextViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var guestExpandButton: UIButton!
+    @IBAction func guestExpandButtonClicked(sender: AnyObject) {
+        guestExpandButton.selected = !guestExpandButton.selected
+        displayExpandableViews()
+    }
+
 
     @IBOutlet var interviewTextView: UITextView!
     @IBOutlet var interviewTextViewHeightContraint: UITextView!
     @IBOutlet var interviewExpandButton: UIButton!
+    @IBAction func interviewExpandButtonClicked(sender: AnyObject) {
+        interviewExpandButton.selected = !interviewExpandButton.selected
+        displayExpandableViews()
+    }
     
+    @IBOutlet var tableView: UITableView!
     
+    var interviewId : Int?
+    var qAndAArray : NSArray?
+    var currentPage = 1
+    var dataDict : NSDictionary?
+    var dataDictFromList : NSDictionary?
+    
+
+    func getInterviewDetail()
+    {
+        DataClient().getInterviewDetail(interviewId!, currentPage: currentPage, pageSize: 10) { (data, error) -> () in
+            self.getInterviewDetailCompleted(data,error: error)
+        }
+    }
+    
+    func getInterviewDetailCompleted(data:NSData?,error:NSError?)
+    {
+        if error != nil
+        {
+            return
+        }
+        let errorPointer = NSErrorPointer()
+        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
+        
+        dataDict = dict.objectForKey("data") as? NSDictionary
+        qAndAArray = (dataDict!.objectForKey("viewDiscusses") as? NSArray)!
+        
+        dataDict = dataDict!.objectForKey("viewDetail") as? NSDictionary
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+          self.displayData()
+        })
+    }
+    
+    func displayData()
+    {
+        //interviewImageView.sd_setImageWithURL(NSURL(string: dataDict?.objectForKey("photoUrl") as! String))
+        guestImageView.sd_setImageWithURL(NSURL(string: dataDictFromList?.objectForKey("view_lawyerPhotoUrl") as! String))
+        guestName.text = dataDictFromList?.objectForKey("view_lawyerName") as? String
+        guestFansCount.text = String(dataDict?.objectForKey("lawyer_fansCount") as! Int)
+        guestTextView.text = dataDict?.objectForKey("lawyer_introduction") as! String
+        interviewTextView.text = dataDictFromList?.objectForKey("view_content") as! String
+        displayExpandableViews()
+        tableView.reloadData()
+    }
+    
+    func displayExpandableViews()
+    {
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(0.3)
+        if guestExpandButton.selected
+        {
+            resizeTextView(guestTextView)
+        }
+        else
+        {
+            collapseView(guestTextView)
+        }
+        if interviewExpandButton.selected
+        {
+            resizeTextView(interviewTextView)
+        }
+        else
+        {
+            collapseView(interviewTextView)
+        }
+         UIView.commitAnimations()
+
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guestExpandButton.setImage(UIImage(named:"buttonarrowdown"), forState: UIControlState.Normal)
+        guestExpandButton.setImage(UIImage(named:"buttonarrowup"), forState: UIControlState.Selected)
+        interviewExpandButton.setImage(UIImage(named:"buttonarrowdown"), forState: UIControlState.Normal)
+        interviewExpandButton.setImage(UIImage(named:"buttonarrowup"), forState: UIControlState.Selected)
+        
+        
+        getInterviewDetail()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,70 +131,44 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
     // MARK: - Table view data source
 
      func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+        return 1
     }
 
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        return qAndAArray?.count ?? 0
     }
 
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("InterviewContactCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("InterviewContactCell", forIndexPath: indexPath) as! InterviewQATableViewCell
 
-        // Configure the cell...
+        cell.displayData(qAndAArray?.objectAtIndex(indexPath.item) as! NSDictionary)
 
         return cell
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let basicHeight : CGFloat = 99
+        let text = (qAndAArray?.objectAtIndex(indexPath.item) as! NSDictionary).objectForKey("discuss_content") as! String
+        let textHeight = calTextSizeWithDefualtFont(text, self.view.frame.width - 32).height
+        return textHeight + basicHeight
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.navigationBar.barTintColor = UIColor.clearColor()
+        self.navigationController?.navigationBar.translucent = true
+        
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.barTintColor = appBlueColor
+        self.navigationController?.navigationBar.translucent = false
+        
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

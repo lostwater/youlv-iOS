@@ -40,3 +40,65 @@ func AddNaviMenuToHome(naviMenuView : UIView, titleButton : UIButton, tabBarChil
     tabBarChildViewController.tabBarController?.navigationItem.titleView = titleButton
     tabBarChildViewController.tabBarController?.view.addSubview(appNaviMenuView!)
 }
+
+func calTextSizeWithDefualtFont(text : String, width : CGFloat) ->CGSize
+{
+        let textsize = text.boundingRectWithSize(CGSizeMake(width, CGFloat.max),
+            options:NSStringDrawingOptions.UsesLineFragmentOrigin,
+            attributes:[NSFontAttributeName:UIFont.systemFontOfSize(14)],
+            context:nil)
+    return CGSizeMake(width,textsize.height)
+}
+
+func calTextSizeWithDefualtFont(text : String, fontSize : CGFloat, width : CGFloat) ->CGSize
+{
+    let textsize = text.boundingRectWithSize(CGSizeMake(width, CGFloat.max),
+        options:NSStringDrawingOptions.UsesLineFragmentOrigin,
+        attributes:[NSFontAttributeName:UIFont.systemFontOfSize(fontSize)],
+        context:nil)
+    return CGSizeMake(width,textsize.height)
+}
+
+
+func resizeTextView(textView : UITextView)
+{
+    let textsize = textView.sizeThatFits(textView.frame.size)
+    //textView.size
+    
+    textView.frame.size = textsize
+    let cs = textView.constraints()
+    cs.filter{
+        let c = $0 as! NSLayoutConstraint
+        if c.firstAttribute == NSLayoutAttribute.Height
+        {
+            return true
+        }
+        return false
+    }
+    if(cs.first != nil)
+    {
+        let constrainth = cs.first as! NSLayoutConstraint
+        constrainth.constant = textsize.height + 16
+    }
+}
+
+func collapseView(view: UIView)
+{
+    let cs = view.constraints()
+    cs.filter{
+        let c = $0 as! NSLayoutConstraint
+        if c.firstAttribute == NSLayoutAttribute.Height
+        {
+            return true
+        }
+        return false
+    }
+    if(cs.first != nil)
+    {
+        let constrainth = cs.first as! NSLayoutConstraint
+        constrainth.constant = 0
+    }
+}
+
+
+

@@ -41,7 +41,7 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
         super.viewDidLoad()
         setNaviMenu()
         AddNaviMenuToHome(naviMenuView!, titleButton!, self)
-        getEventList(1, pageSize: 10)
+        getEventList(10, pageSize: 1)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -65,10 +65,13 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
         {
             return
         }
-        
         let errorPointer = NSErrorPointer()
+        let ds = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
+        //print(NSJSONSerialization.isValidJSONObject(data!))
+        NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
+        print(errorPointer.debugDescription)
         let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
+
         let dictData = dict.objectForKey("data") as! NSDictionary
         eventsArray = (dictData.objectForKey("activeList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
@@ -82,7 +85,9 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
         if segue.identifier == "goEventDetail"
         {
             let eventDetail = segue.destinationViewController as! EventDetailViewController
-            //eventDetail.eventId = eventsArray.objectsAtIndexes(tableView.indexPathForSelectedRow()?.item).objectForKey
+            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            var selectedData = eventsArray.objectAtIndex(selectedIndex!) as! NSDictionary
+            eventDetail.eventId = eventsArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? Int
         }
     }
     

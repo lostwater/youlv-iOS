@@ -19,6 +19,8 @@ class InterviewTableViewCell: UITableViewCell {
     @IBOutlet var fellowButton: UIButton!
     @IBOutlet var isLiveImageView: UIImageView!
     
+    @IBOutlet var textViewHeightConstraint: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         fellowButton.setImage(UIImage(named:"iconfavoriteoutline"), forState: UIControlState.Normal)
@@ -37,11 +39,11 @@ class InterviewTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
     
-    
-    func setData(dataDict : NSDictionary)
+    func displayData(dataDict : NSDictionary)
     {
-        var isLive = true
+        var isLive = dataDict.objectForKey("view_isLive") as! Bool
         if isLive
         {
             isLiveImageView.image = UIImage(named:"icononlive")
@@ -50,16 +52,15 @@ class InterviewTableViewCell: UITableViewCell {
         {
             isLiveImageView.image = UIImage(named:"iconover")
         }
-        
+        //interviewImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("view_imgUrl") as! String)!)
+        interviewName.text = dataDict.objectForKey("view_title") as? String
+        guestImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("view_lawyerPhotoUrl") as! String)!)
+        guestName.text = "做客嘉宾: " + (dataDict.objectForKey("view_lawyerName") as? String!)!
+        interviewTextView.text = dataDict.objectForKey("view_content") as? String
+        interviewTime.text = (dataDict.objectForKey("view_viewTime") as? String)! + " - " + (dataDict.objectForKey("view_endTime") as? String)!
+        fellowButton.selected = dataDict.objectForKey("view_isAtten") as! Bool
+
+        resizeTextView(interviewTextView)
     }
     
-    func resizeTextView()
-    {
-        let size = CGSizeMake(self.frame.size.width - 20, CGFloat.max)
-        
-        let textSize = interviewTextView.text.sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(14)])
-        interviewTextView.frame.size = textSize
-        
-    }
-
 }

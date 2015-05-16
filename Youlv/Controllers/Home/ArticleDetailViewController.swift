@@ -10,4 +10,6 @@ import UIKit
 
 class ArticleDetailViewController: UIViewController {
 
+    var articleId : Int?
+    
 }
