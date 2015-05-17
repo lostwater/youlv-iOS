@@ -1495,7 +1495,7 @@
                                     <outlet property="topicTextView" destination="kML-Wp-OXJ" id="zgF-ol-Krc"/>
                                     <outlet property="topicUserImageViewer" destination="Abb-zL-c1a" id="7de-CW-qyB"/>
                                     <outlet property="topicUserName" destination="Jh7-yi-Lt9" id="F2f-Bu-G8d"/>
-                                    <segue destination="RuM-FZ-4Cy" kind="show" id="4Zi-TX-kI9"/>
+                                    <segue destination="RuM-FZ-4Cy" kind="show" identifier="goPostedDiscussDetail" id="4Zi-TX-kI9"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscussRepliedCell" id="qIH-Qi-WIA" customClass="DiscussTableViewCell" customModule="Youlv" customModuleProvider="target">
@@ -1639,7 +1639,7 @@
                                     <outlet property="operatorTime" destination="ETi-26-c5E" id="gH7-A3-8DD"/>
                                     <outlet property="topicTextHeightConstraint" destination="b5g-Fb-PlA" id="x28-ae-2rt"/>
                                     <outlet property="topicTextView" destination="f08-xt-iUN" id="HEn-Ca-DUB"/>
-                                    <segue destination="RuM-FZ-4Cy" kind="show" identifier="goToDiscussDetail" id="iPN-fR-8xT"/>
+                                    <segue destination="RuM-FZ-4Cy" kind="show" identifier="goRepliedDiscussDetail" id="iPN-fR-8xT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2836,6 +2836,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yJP-Rt-x9k"/>
-        <segue reference="iPN-fR-8xT"/>
+        <segue reference="4Zi-TX-kI9"/>
     </inferredMetricsTieBreakers>
 </document>

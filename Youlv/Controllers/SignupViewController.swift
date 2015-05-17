@@ -10,6 +10,20 @@ import UIKit
 
 class SignupViewController: UIViewController {
 
+    @IBOutlet var mobile: UITextField!
+    @IBOutlet var validCode: UITextField!
+    @IBOutlet var password: UITextField!
+    
+    @IBOutlet var userName: UITextField!
+    
+    
+    @IBOutlet var signupButton: UIButton!
+    
+    @IBAction func signupButtonClicked(sender: AnyObject) {
+    }
+    @IBOutlet var sendButton: UIButton!
+    
+    @IBOutlet var sendButtonClicked: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 

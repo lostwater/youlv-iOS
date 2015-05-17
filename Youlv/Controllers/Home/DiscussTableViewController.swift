@@ -69,7 +69,7 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goToDiscussDetail"
+        if segue.identifier == "goRepliedDiscussDetail" || segue.identifier == "goPostedDiscussDetail"
         {
             let discussDetail = segue.destinationViewController as! DiscussDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item

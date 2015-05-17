@@ -73,6 +73,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="signupButtonClicked:" destination="wm9-QA-MvQ" eventType="touchDragInside" id="cWC-lB-tjt"/>
                                     <segue destination="n1s-Aj-FxQ" kind="show" id="kBo-2W-PDr"/>
                                 </connections>
                             </button>
@@ -106,15 +107,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t56-83-aCq">
-                                <rect key="frame" x="252" y="225" width="150" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="V4w-ah-EOG"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kvQ-sp-IuH">
                                 <rect key="frame" x="252" y="285" width="150" height="17"/>
                                 <constraints>
@@ -123,6 +115,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t56-83-aCq">
+                                <rect key="frame" x="252" y="225" width="150" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="V4w-ah-EOG"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -178,6 +179,15 @@
                     <navigationItem key="navigationItem" title="注册" id="oip-bu-vlN">
                         <barButtonItem key="backBarButtonItem" title=" " id="2ll-9g-lfg"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mobile" destination="90Q-m4-aAw" id="Gls-pa-YEO"/>
+                        <outlet property="password" destination="t56-83-aCq" id="Ps3-RB-TPa"/>
+                        <outlet property="sendButton" destination="NTd-XZ-8ES" id="9Ki-hw-Kdi"/>
+                        <outlet property="sendButtonClicked" destination="NTd-XZ-8ES" id="btQ-yT-Squ"/>
+                        <outlet property="signupButton" destination="kmP-xp-fGF" id="N2i-a9-UL1"/>
+                        <outlet property="userName" destination="kvQ-sp-IuH" id="cHk-bf-KAJ"/>
+                        <outlet property="validCode" destination="XG5-HP-WvW" id="dI3-1S-tQG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SY4-0j-qD1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -264,10 +274,10 @@
                                 </state>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ELQ-HS-42y">
-                                <rect key="frame" x="226" y="292" width="32" height="17"/>
+                                <rect key="frame" x="226" y="292" width="188" height="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5L-DS-d4D">
                                 <rect key="frame" x="256" y="535" width="90" height="30"/>
@@ -328,6 +338,7 @@
                             <constraint firstItem="GgC-07-bsa" firstAttribute="top" secondItem="Yvk-f8-79O" secondAttribute="bottom" constant="77" id="oAD-VG-MX2"/>
                             <constraint firstAttribute="centerY" secondItem="ELQ-HS-42y" secondAttribute="centerY" id="trE-q8-iPj"/>
                             <constraint firstAttribute="centerY" secondItem="rvh-Kr-40h" secondAttribute="centerY" id="uTp-OB-5GD"/>
+                            <constraint firstItem="ELQ-HS-42y" firstAttribute="trailing" secondItem="rvh-Kr-40h" secondAttribute="trailing" constant="-16" id="v1U-w5-9xm"/>
                             <constraint firstItem="Oob-1G-Jxq" firstAttribute="leading" secondItem="y5L-DS-d4D" secondAttribute="trailing" constant="-25" id="vIs-GV-eui"/>
                             <constraint firstAttribute="centerX" secondItem="y5L-DS-d4D" secondAttribute="centerX" constant="-0.5" id="w4a-J4-lCa"/>
                             <constraint firstItem="KEa-ak-IgA" firstAttribute="width" secondItem="gzg-CH-eRa" secondAttribute="width" id="yb3-bJ-U1o"/>
@@ -360,6 +371,8 @@
                         <outlet property="buttonOtherLogin" destination="y5L-DS-d4D" id="vlj-CE-eJL"/>
                         <outlet property="buttonWeibo" destination="yKX-CB-5W9" id="7Vd-5p-QY5"/>
                         <outlet property="buttonWeixin" destination="Oob-1G-Jxq" id="4X0-yT-Gol"/>
+                        <outlet property="passowrd" destination="ELQ-HS-42y" id="1bw-OB-sQ2"/>
+                        <outlet property="userAccount" destination="KEa-ak-IgA" id="QTu-VS-drJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7L-dv-Wpl" userLabel="First Responder" sceneMemberID="firstResponder"/>

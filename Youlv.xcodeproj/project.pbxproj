@@ -35,6 +35,8 @@
 		0B2AF2D41AE7ECDB00F7A5F9 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF2D31AE7ECDB00F7A5F9 /* Contact.swift */; };
 		0B2AF2D61AE7ED0200F7A5F9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF2D51AE7ED0200F7A5F9 /* User.swift */; };
 		0B2AF2D81AE7EFE400F7A5F9 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AF2D71AE7EFE400F7A5F9 /* ContactsTableViewController.swift */; };
+		0B2F31201B088C950019DFAB /* NewOpportunityOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2F311F1B088C950019DFAB /* NewOpportunityOptionsViewController.swift */; };
+		0B2F31221B089E810019DFAB /* OCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2F31211B089E810019DFAB /* OCHelper.m */; };
 		0B3C725D1B00B2E200D264E2 /* DiscussTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C725C1B00B2E200D264E2 /* DiscussTableViewCell.swift */; };
 		0B5FDEFE1AD6A2EF00773360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */; };
 		0B5FDF051AD6A2EF00773360 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B5FDF041AD6A2EF00773360 /* Images.xcassets */; };
@@ -51,6 +53,8 @@
 		0B6192081AE94AB000A8258A /* Discuss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6192071AE94AB000A8258A /* Discuss.swift */; };
 		0B61920A1AE94AC200A8258A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6192091AE94AC200A8258A /* Event.swift */; };
 		0B61920C1AE94AE300A8258A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B61920B1AE94AE300A8258A /* Comment.swift */; };
+		0B71BD4B1B09022300257C17 /* EaseMobHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B71BD4A1B09022300257C17 /* EaseMobHelper.swift */; };
+		0B71BD4E1B0906C700257C17 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B71BD4D1B0906C700257C17 /* KeychainItemWrapper.m */; };
 		0B8BB8E21B0614290034B006 /* InterviewQATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8BB8E11B0614280034B006 /* InterviewQATableViewCell.swift */; };
 		0B8BB8E41B06697A0034B006 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8BB8E31B06697A0034B006 /* JobTableViewCell.swift */; };
 		0B8BB8E61B0777380034B006 /* ResearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8BB8E51B0777380034B006 /* ResearchTableViewCell.swift */; };
@@ -151,6 +155,8 @@
 		0B2AF2D31AE7ECDB00F7A5F9 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		0B2AF2D51AE7ED0200F7A5F9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0B2AF2D71AE7EFE400F7A5F9 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		0B2F311F1B088C950019DFAB /* NewOpportunityOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewOpportunityOptionsViewController.swift; sourceTree = "<group>"; };
+		0B2F31211B089E810019DFAB /* OCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCHelper.m; sourceTree = "<group>"; };
 		0B3C725C1B00B2E200D264E2 /* DiscussTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussTableViewCell.swift; sourceTree = "<group>"; };
 		0B5FDEF81AD6A2EF00773360 /* Youlv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Youlv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B5FDEFC1AD6A2EF00773360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +177,9 @@
 		0B6192071AE94AB000A8258A /* Discuss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discuss.swift; sourceTree = "<group>"; };
 		0B6192091AE94AC200A8258A /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0B61920B1AE94AE300A8258A /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		0B71BD4A1B09022300257C17 /* EaseMobHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseMobHelper.swift; sourceTree = "<group>"; };
+		0B71BD4C1B0906C700257C17 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		0B71BD4D1B0906C700257C17 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		0B8BB8E11B0614280034B006 /* InterviewQATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewQATableViewCell.swift; sourceTree = "<group>"; };
 		0B8BB8E31B06697A0034B006 /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		0B8BB8E51B0777380034B006 /* ResearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -389,6 +398,7 @@
 		0B6191F61AE924C700A8258A /* NewPub */ = {
 			isa = PBXGroup;
 			children = (
+				0B2F311F1B088C950019DFAB /* NewOpportunityOptionsViewController.swift */,
 				0B6191F71AE9295200A8258A /* NewTopicTableViewController.swift */,
 				0B6191F41AE924A700A8258A /* NewOpTableViewController.swift */,
 				0BCECFF01ADABFBE006BE53A /* NewViewController.swift */,
@@ -427,6 +437,8 @@
 		0BB7F7631AEB6C5800F72D80 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0B71BD4C1B0906C700257C17 /* KeychainItemWrapper.h */,
+				0B71BD4D1B0906C700257C17 /* KeychainItemWrapper.m */,
 				0BB2C1E51B07A4F700F1812A /* PCPieChart.h */,
 				0BB2C1E61B07A4F700F1812A /* PCPieChart.m */,
 				0BA682F31AF63AD200780FFD /* CPTextViewPlaceholder.h */,
@@ -441,6 +453,8 @@
 				0BCAEE211AD7CC6300421B7A /* TopTabBarController.swift */,
 				0BC050C41AEE6F9B003360CE /* NaviBarMenuProtocol.swift */,
 				0BC050CC1AEE9629003360CE /* Helper.swift */,
+				0B2F31211B089E810019DFAB /* OCHelper.m */,
+				0B71BD4A1B09022300257C17 /* EaseMobHelper.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -714,6 +728,8 @@
 				0BBE37471AE1069B00FA0018 /* MyGroupsCellView.swift in Sources */,
 				0BCECFF71ADAE23F006BE53A /* MessagesViewController.swift in Sources */,
 				0BB2C1EB1B07C53F00F1812A /* ArticleCommentsTableViewController.swift in Sources */,
+				0B2F31221B089E810019DFAB /* OCHelper.m in Sources */,
+				0B71BD4E1B0906C700257C17 /* KeychainItemWrapper.m in Sources */,
 				0BEF298B1AFBB1F1001C7D43 /* DataClient.swift in Sources */,
 				0B6192001AE94A6200A8258A /* Job.swift in Sources */,
 				0BA1EC351B0243F9004F3546 /* DiscussDetailViewController.swift in Sources */,
@@ -744,6 +760,7 @@
 				0B8BB8E21B0614290034B006 /* InterviewQATableViewCell.swift in Sources */,
 				0BB7F7661AEB6CA200F72D80 /* DWTagList.m in Sources */,
 				0BB2C1E71B07A4F700F1812A /* PCPieChart.m in Sources */,
+				0B2F31201B088C950019DFAB /* NewOpportunityOptionsViewController.swift in Sources */,
 				0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */,
 				0BBE37451AE1067400FA0018 /* JoinGroupsCellView.swift in Sources */,
 				0BBE374D1AE15DC700FA0018 /* StartGroupChat1ViewController.swift in Sources */,
@@ -788,6 +805,7 @@
 				0B2A9CF51B03B458007FF789 /* InterviewTableViewCell.swift in Sources */,
 				0BBE37491AE10A3000FA0018 /* MyFriendsViewController.swift in Sources */,
 				0B2A9CED1B038710007FF789 /* ImageListView.swift in Sources */,
+				0B71BD4B1B09022300257C17 /* EaseMobHelper.swift in Sources */,
 				0B2A9CF11B03A7E9007FF789 /* ArticleCommentTableViewCell.swift in Sources */,
 				0BB7F7691AEB6F0E00F72D80 /* HomeSearchTableViewController.swift in Sources */,
 				0B2AF2C91AE7965300F7A5F9 /* ContactTableViewCell.swift in Sources */,

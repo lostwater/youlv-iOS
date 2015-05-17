@@ -109,7 +109,7 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DiscussCommentCell", forIndexPath: indexPath) as! DiscussCommentTableViewCell
-        cell.setData(commentsArray.objectAtIndex(indexPath.item) as! NSDictionary)
+        cell.displayData(commentsArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
     }
     

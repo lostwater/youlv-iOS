@@ -13,6 +13,27 @@ class DataClient
 
     let serverUrl = "http://123.57.252.2/"
     var sessionId = "76153026bac352110d4cd6a4dbb295d6"
+    
+   
+    
+    func getCityList(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "lawyer/getCityList?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+        
+    }
+
+    
     func getOrderList(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
     {
         var path = serverUrl + "order/getOrderList?"
@@ -28,7 +49,7 @@ class DataClient
         
         task.resume()
         
-        }
+    }
     
     func getDiscussList(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
     {
@@ -232,6 +253,8 @@ class DataClient
         request.HTTPMethod = "POST"
         let task = session.dataTaskWithRequest(request) { ( data, responese, error ) -> Void in
             completion(data, error)
+            let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            print(dataString)
         }
         task.resume()
 
@@ -283,9 +306,91 @@ class DataClient
         task.resume()
         
     }
+    
+    func getMyProfile(completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "lawyer/getMaterialt?"
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in completion(data, error)
+        })
+        task.resume()
+    }
+    
+    func postOrder(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "order/reportOrder"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+    }
+    
+    func postLogin(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "user/login"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+    }
+    
+    
+    func serialzeJsonRequest(pathString : String, parameters : NSDictionary) -> NSMutableURLRequest
+    {
+        let errorPointer = NSErrorPointer()
+        let manager = AFHTTPRequestOperationManager()
+        return  AFHTTPRequestSerializer().requestWithMethod("POST", URLString: pathString, parameters: parameters, error: errorPointer)
+    }
+    
+    
+    
+    func jsonPost(pathString : String, parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var manager = AFHTTPRequestOperationManager()
+        manager.responseSerializer = AFJSONResponseSerializer()
+        manager.requestSerializer = AFJSONRequestSerializer()
+        manager.POST(pathString, parameters: parameters, success: { (requestOperation, data) -> Void in
+            completion(data as? NSDictionary, nil)
+        })
+            { (requestOperation, error) -> Void in
+                completion(nil, error as NSError)
+                
+        }
+    }
+    
+    func httpPostUsingAF(pathString : String, parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var manager = AFHTTPRequestOperationManager()
+        manager.requestSerializer = AFHTTPRequestSerializer()
+        manager.responseSerializer = AFJSONResponseSerializer()
+        manager.POST(pathString, parameters: parameters, success: { (requestOperation, data) -> Void in
+        
+            completion(data as? NSDictionary, nil)
+            })
+            { (requestOperation, error) -> Void in
+                completion(nil, error as NSError)
+        }
+    }
+    
+    
+    func nativePost(pathString : String, parameters : NSDictionary, completion: (NSDictionary?, NSError?)->())
+    {
+        var session = NSURLSession.sharedSession()
+        let request = serialzeJsonRequest(pathString,parameters: parameters)
+        print(NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding))
+        let task = session.dataTaskWithRequest(request) { ( data, responese, error ) -> Void in
+            let ds = NSString(data: data, encoding: NSUTF8StringEncoding)
+            print(ds)
+            let errorPointer = NSErrorPointer()
+            let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
+            completion(dict, error)
+        }
+        task.resume()
+        
+    }
 
-    
-    
+
 
     
 }

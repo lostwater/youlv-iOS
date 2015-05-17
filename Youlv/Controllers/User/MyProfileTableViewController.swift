@@ -12,8 +12,53 @@ class MyProfileTableViewController: UITableViewController {
 
     @IBOutlet weak var tableViewCellIntro: UITableViewCell!
     @IBOutlet weak var textViewIntro: UITextView!
+    
+    @IBOutlet var userImageView: UIImageView!
+    @IBOutlet var userName: UITextField!
+    @IBOutlet var userIntroTextView: UITextView!
+    @IBOutlet var orgName: UITextField!
+    @IBOutlet var location: UITextField!
+    
+
+    var dataDict : NSDictionary?
+    
+    func getMyProfile()
+    {
+        DataClient().getMyProfile({ (data, error) -> () in
+            self.getMyProfileCompleted(data,error: error)
+        })
+    }
+    
+    func getMyProfileCompleted(data:NSData?,error:NSError?)
+    {
+        if error != nil
+        {
+            return
+        }
+        let errorPointer = NSErrorPointer()
+        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
+        
+        self.dataDict = dict.objectForKey("data") as? NSDictionary
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.displayData()
+        })
+        
+    }
+    
+    func displayData()
+    {
+        userImageView.sd_setImageWithURL(NSURL(string: dataDict!.objectForKey("lawyer_photoUrl") as! String))
+        userName.text = dataDict!.objectForKey("lawyer_name") as? String
+        userIntroTextView.text = dataDict!.objectForKey("lawyer_introduction") as? String
+        orgName.text = dataDict!.objectForKey("lawyer_lawOffice") as? String
+        location.text = dataDict!.objectForKey("lawyer_cityName") as? String
+        
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        getMyProfile()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,17 +74,6 @@ class MyProfileTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

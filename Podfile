@@ -6,6 +6,10 @@ pod 'FSMediaPicker'
 pod 'MZFormSheetController'
 pod 'BlurryModalSegue'
 pod 'SDWebImage'
+pod 'KNSemiModalViewController'
+pod 'THCalendarDatePicker'
+pod 'EaseMobSDKFull'
+pod 'AFNetworking'
 end
 
 target 'YoulvTests' do
@@ -13,5 +17,9 @@ pod 'FSMediaPicker'
 pod 'MZFormSheetController'
 pod 'BlurryModalSegue'
 pod 'SDWebImage'
+pod 'KNSemiModalViewController'
+pod 'THCalendarDatePicker'
+pod 'EaseMobSDKFull'
+pod 'AFNetworking'
 end
 

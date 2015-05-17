@@ -11,16 +11,71 @@ import UIKit
 class NewOpTableViewController: UITableViewController {
 
     @IBAction func buttonPubClicked(sender: AnyObject) {
+        thetitle = titleTextField.text
+        content = contentContainer.text
+         postDict = NSDictionary(objects: [thetitle, content, type, tagList, blackList, whiteList,cityId, cityName,curDate, sessionId], forKeys: ["tile","content","type","keyWords","blackList","whiteList","cityId","cityName","deaddate","sessionId"])
+        DataClient().postOrder(postDict!, completion: { (data, error) -> () in
+            
+        })
     }
+    
     @IBAction func buttonCancelClicked(sender: AnyObject) {
         let newVC: AnyObject! = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewVC")
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
         isCancellingNew = true
         self.dismissViewControllerAnimated(false, completion:nil)
     }
+    
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var typeSegment: UISegmentedControl!
+    @IBOutlet var contentContainer: UITextField!
+
+    @IBAction func typeSegmentChanged(sender: AnyObject) {
+        type = typeSegment.selectedSegmentIndex
+    }
+    
+    @IBAction func contentEnd(sender: AnyObject) {
+        contentContainer.resignFirstResponder()
+    }
+    
+    @IBAction func titleEnded(sender: AnyObject) {
+        titleTextField.resignFirstResponder()
+
+    }
+    
+    var thetitle = ""
+    var content = ""
+    var type = 0
+    
+    var tagList = NSArray()
+    var blackList = NSArray()
+    var whiteList = NSArray()
+    var curDate = NSDate()
+    var formatter = NSDateFormatter()
+    
+    var cityList : NSArray?
+    var cityId = 1
+    var cityName = "北京市"
+    var postDict : NSDictionary?
+    
+  
+    
+    func postOrderCompleted(data:NSData?, error:NSError?)
+    {
+        if data != nil
+        {
+            let newVC: AnyObject! = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewVC")
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            isCancellingNew = true
+            self.dismissViewControllerAnimated(false, completion:nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        typeSegment.selectedSegmentIndex = type
+        titleTextField.text = thetitle
+        contentContainer.text = content
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,76 +88,17 @@ class NewOpTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    /*
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
-    */
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "goOpSettings"
+        {
+            let vc = segue.destinationViewController as! NewOpportunityOptionsViewController
+            vc.thetitle = thetitle
+            vc.content = content
+            vc.type = type
+        }
     }
-    */
+
+
 
 }

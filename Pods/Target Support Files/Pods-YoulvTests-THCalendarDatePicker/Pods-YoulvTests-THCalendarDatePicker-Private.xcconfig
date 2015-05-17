@@ -1,0 +1,6 @@
+#include "Pods-YoulvTests-THCalendarDatePicker.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/THCalendarDatePicker" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/BlurryModalSegue" "${PODS_ROOT}/Headers/Public/EaseMobSDKFull" "${PODS_ROOT}/Headers/Public/FSMediaPicker" "${PODS_ROOT}/Headers/Public/KNSemiModalViewController" "${PODS_ROOT}/Headers/Public/MZAppearance" "${PODS_ROOT}/Headers/Public/MZFormSheetController" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/THCalendarDatePicker" "${PODS_ROOT}/Headers/Public/UIImage+BlurredFrame"
+OTHER_LDFLAGS = ${PODS_YOULVTESTS_THCALENDARDATEPICKER_OTHER_LDFLAGS} -ObjC
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES
