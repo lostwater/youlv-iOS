@@ -35,18 +35,17 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
     var selectedTitle : String?
     var titleButton : UIButton?
     
-    var eventsArray = NSArray()
+    var eventsArray : NSArray?
+    
+    var currentPage = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNaviMenu()
-        AddNaviMenuToHome(naviMenuView!, titleButton!, self)
-        getEventList(10, pageSize: 1)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tabBarController?.navigationItem.title = "活动"
+        //setNaviMenu()
+        //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
+        getEventList(currentPage, pageSize: 10)
+
     }
     
     
@@ -86,8 +85,8 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
         {
             let eventDetail = segue.destinationViewController as! EventDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            var selectedData = eventsArray.objectAtIndex(selectedIndex!) as! NSDictionary
-            eventDetail.eventId = eventsArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? Int
+            var selectedData = eventsArray!.objectAtIndex(selectedIndex!) as! NSDictionary
+            eventDetail.eventId = (eventsArray!.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)?.toInt()
         }
     }
     
@@ -108,12 +107,12 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return eventsArray.count
+        return eventsArray?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventTableViewCell
-        cell.setData(eventsArray.objectAtIndex(indexPath.item) as! NSDictionary)
+        cell.displayData(eventsArray!.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
 
     }

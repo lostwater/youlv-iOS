@@ -17,7 +17,6 @@ enum DiscussOperateType: Int
 class DiscussTableViewCell: UITableViewCell
 {
     var discussOperateType : DiscussOperateType?
-    var dataDict : NSDictionary?
 
     @IBOutlet var topicUserImageViewer: UIImageView?
     @IBOutlet var operatorImageView: UIImageView?
@@ -37,9 +36,8 @@ class DiscussTableViewCell: UITableViewCell
         // Initialization code
     }
     
-    func setData(dataDict : NSDictionary)
+    func displayData(dataDict : NSDictionary)
     {
-        self.dataDict = dataDict
         discussOperateType = DiscussOperateType(rawValue: dataDict.objectForKey("operate_type") as! Int)
         let topic_photoUrl = dataDict.objectForKey("topic_photoUrl") as! String
         let operate_photoUrl = dataDict.objectForKey("operate_photoUrl") as! String
@@ -65,31 +63,116 @@ class DiscussTableViewCell: UITableViewCell
         }
         topicTextView.text = dataDict.objectForKey("topic_content") as? String
         operatorTextView?.text = dataDict.objectForKey("operate_content") as? String
-        resetTextViewSize()
+        resizeTextView(topicTextView)
+        
+        if operatorTextView != nil
+        {
+            resizeTextView(operatorTextView!)
+        }
 
+    }
+    
+    
+    func displayMyPost(dataDict : NSDictionary)
+    {
+        discussOperateType = DiscussOperateType.Post
+        let topic_photoUrl = dataDict.objectForKey("topic_lawyerPhotoUrl") as! String
 
+        topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl))
+        operatorTime.text = dataDict.objectForKey("topic_createDate") as? String
+        topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
+
+        bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+            , forState: UIControlState.Normal)
+        bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+            , forState: UIControlState.Selected)
+        bookMarkedButton.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
+        bookMarkedButton.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
+        let isMarked = dataDict.objectForKey("topic_isPraise") as! Bool
+        if isMarked
+        {
+            bookMarkedButton.selected = true
+        }
+        else
+        {
+            bookMarkedButton.selected = false
+        }
+        bookMarkedButton.hidden = true
+        topicTextView.text = dataDict.objectForKey("topic_content") as? String
+
+        resizeTextView(topicTextView)
+        
+        if operatorTextView != nil
+        {
+            resizeTextView(operatorTextView!)
+        }
+        
+    }
+    
+    
+    func displayMyMarked(dataDict : NSDictionary)
+    {
+        discussOperateType = DiscussOperateType.Post
+        let topic_photoUrl = dataDict.objectForKey("topic_lawyerPhotoUrl") as! String
+           operatorTime.text = dataDict.objectForKey("topic_createDate") as? String
+        topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl))
+
+        topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
+
+        bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+            , forState: UIControlState.Normal)
+        bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+            , forState: UIControlState.Selected)
+        bookMarkedButton.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
+        bookMarkedButton.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
+        let isMarked = dataDict.objectForKey("topic_isPraise") as! Bool
+        if isMarked
+        {
+            bookMarkedButton.selected = true
+        }
+        else
+        {
+            bookMarkedButton.selected = false
+        }
+        topicTextView.text = dataDict.objectForKey("topic_content") as? String
+
+        resizeTextView(topicTextView)
+        
+        if operatorTextView != nil
+        {
+            resizeTextView(operatorTextView!)
+        }
+        
+    }
+    
+    func displayMyReplied(dataDict : NSDictionary)
+    {
+        discussOperateType = DiscussOperateType.Post
+        let operate_photoUrl = dataDict.objectForKey("reply_lawyerPhotoUrl") as! String
+        operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl))
+        operatorName?.text = dataDict.objectForKey("reply_lawyerName") as? String
+        operatorTime.text = dataDict.objectForKey("reply_createDate") as? String
+        bookMarkedButton.hidden = true
+
+        topicTextView.text = dataDict.objectForKey("topic_content") as? String
+        operatorTextView?.text = dataDict.objectForKey("reply_content") as? String
+        resizeTextView(topicTextView)
+        
+        if operatorTextView != nil
+        {
+            resizeTextView(operatorTextView!)
+        }
+        
     }
     
     func resetTextViewSize()
     {
-
-            let topicContentText = dataDict!.objectForKey("topic_content") as! NSString
-            let topicSize = CGSizeMake(topicTextView.frame.size.width, CGFloat.max)
-            let topicTextSize = topicContentText.sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(14)])
-            topicTextHeightConstraint.constant = topicTextSize.height+8
-            //topicTextView.frame.size = topicTextSize
-                //CGSizeMake(topicTextView.frame.size.width, topicTextSize.height)
-
-
+        resizeTextView(topicTextView)
+        
         if operatorTextView != nil
         {
-            let operatorContentText = dataDict!.objectForKey("operate_content") as! NSString
-            let operatorSize = CGSizeMake(operatorTextView!.frame.size.width, CGFloat.max)
-            let operatorTextSize = topicContentText.sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(14)])
-            operatorTextHeightConstraint?.constant=operatorTextSize.height+8
-            //operatorTextView?.frame.size = operatorTextSize
-            //CGSizeMake(operatorTextView!.frame.size.width, operatorTextSize.height)
+            resizeTextView(operatorTextView!)
         }
-        
+
     }
 }

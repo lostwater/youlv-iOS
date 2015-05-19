@@ -14,8 +14,7 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet var eventName: UILabel!
     @IBOutlet var eventValid: UILabel!
     @IBOutlet var eventLikedButton: UIButton!
-    
-     var dataDict : NSDictionary?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -25,16 +24,15 @@ class EventTableViewCell: UITableViewCell {
     }
     
    
-    func setData(dataDict : NSDictionary)
+    func displayData(dataDict : NSDictionary)
     {
-        self.dataDict = dataDict
-        eventImageView.sd_setImageWithURL(NSURL(string: self.dataDict!.objectForKey("photoUrl") as! String))
-        eventName.text = self.dataDict!.objectForKey("title") as? String
-        eventValid.text = self.dataDict!.objectForKey("activeTime") as? String
-        eventLikedButton.setTitle(String(self.dataDict!.objectForKey("praiseCount") as! Int), forState: UIControlState.Normal)
-        eventLikedButton.setTitle(String(self.dataDict!.objectForKey("praiseCount") as! Int), forState: UIControlState.Selected)
+        eventImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String))
+        eventName.text = dataDict.objectForKey("title") as? String
+        eventValid.text = dataDict.objectForKey("activeTime") as? String
+        eventLikedButton.setTitle(String(dataDict.objectForKey("praiseCount") as! Int), forState: UIControlState.Normal)
+        eventLikedButton.setTitle(String(dataDict.objectForKey("praiseCount") as! Int), forState: UIControlState.Selected)
         
-        let isMarked = self.dataDict!.objectForKey("isCollect") as! Int
+        let isMarked = dataDict.objectForKey("isCollect") as! Int
         if Bool(isMarked)
         {
             eventLikedButton.selected = true

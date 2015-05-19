@@ -35,6 +35,7 @@ PODS:
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
+  - TAPageControl (0.2.0)
   - THCalendarDatePicker (1.0.0):
     - KNSemiModalViewController (~> 0.3)
   - UIImage+BlurredFrame (0.0.4)
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - KNSemiModalViewController
   - MZFormSheetController
   - SDWebImage
+  - TAPageControl
   - THCalendarDatePicker
 
 SPEC CHECKSUMS:
@@ -58,6 +60,7 @@ SPEC CHECKSUMS:
   MZAppearance: 417ac97a5dd739329545e44372e06f715b7e5c15
   MZFormSheetController: 36771856696eeef2eaec9b18c75791d3c95cb661
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  TAPageControl: fd11d779bbb5c2464ca2f55dde9e288213ea8a9b
   THCalendarDatePicker: c93061e53a95196f8c54a5fc83f386f3fa6fb78d
   UIImage+BlurredFrame: ad2f7195c6947ea3117c7d202f75a51958d5061a
 

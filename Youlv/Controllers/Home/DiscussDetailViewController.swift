@@ -23,19 +23,28 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
 
     var dataDict : NSDictionary?
     var topicId : Int?
+    var isFromMyTopic = false
     
     override func viewDidLoad() {
         ResponeButton.setImage(UIImage(named:"buttonrespondlargeoutline"), forState: UIControlState.Normal)
         ResponeButton.setImage(UIImage(named:"buttonrespondlarge"), forState: UIControlState.Selected)
         FellowButton.setImage(UIImage(named:"buttonfollowlargeoutline"), forState:UIControlState.Normal)
         FellowButton.setImage(UIImage(named:"buttonfollowlarge"), forState:UIControlState.Selected)
-        displayData()   
+        if isFromMyTopic
+        {
+            displayDataFromMyTopics()
+        }
+        else
+        {
+        
+            displayData()
+        }
         
     }
     
     func displayData()
     {
-        UserImageView.sd_setImageWithURL(NSURL(string:self.dataDict!.objectForKey("topic_photoUrl") as! String))
+    UserImageView.sd_setImageWithURL(NSURL(string:self.dataDict!.objectForKey("topic_photoUrl") as! String))
         DiscussTitle.text = self.dataDict!.objectForKey("topic_title") as? String
         DiscussTime.text = self.dataDict!.objectForKey("operate_createDate") as? String
         DiscussTextView.text = self.dataDict!.objectForKey("topic_content") as? String
@@ -54,15 +63,26 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
 
     }
     
-    
-    
-    
-    func setData(dataDict : NSDictionary)
+    func displayDataFromMyTopics()
     {
-        self.dataDict = dataDict
-        self.topicId = self.dataDict!.objectForKey("topic_id") as? Int
-     
+        UserImageView.sd_setImageWithURL(NSURL(string:self.dataDict!.objectForKey("topic_createDate") as! String))
+        DiscussTitle.text = self.dataDict!.objectForKey("topic_lawyerName") as? String
+        DiscussTime.text = self.dataDict!.objectForKey("operate_createDate") as? String
+        DiscussTextView.text = self.dataDict!.objectForKey("topic_content") as? String
+        resizeTextView()
+        getDiscussDetail()
+        
+        let isMarked = self.dataDict!.objectForKey("topic_isPraise") as! Bool
+        if isMarked
+        {
+            FellowButton.selected = true
+        }
+        else
+        {
+            FellowButton.selected = false
+        }
     }
+    
     
     
     var commentsArray = NSArray()

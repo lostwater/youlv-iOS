@@ -255,6 +255,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="accountTextFieldEnd:" destination="PFB-GV-1QB" eventType="editingDidEndOnExit" id="0fn-vj-YAy"/>
+                                    <action selector="accountTextFieldEnd:" destination="PFB-GV-1QB" eventType="editingDidEnd" id="q6d-qP-vam"/>
+                                </connections>
                             </textField>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="rvh-Kr-40h">
                                 <rect key="frame" x="170" y="278" width="260" height="45"/>
@@ -278,6 +282,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="passwordTextFieldEnd:" destination="PFB-GV-1QB" eventType="editingDidEndOnExit" id="7e1-bz-EZL"/>
+                                    <action selector="passwordTextFieldEnd:" destination="PFB-GV-1QB" eventType="editingDidEnd" id="KoW-93-Sjc"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5L-DS-d4D">
                                 <rect key="frame" x="256" y="535" width="90" height="30"/>

@@ -10,6 +10,7 @@ pod 'KNSemiModalViewController'
 pod 'THCalendarDatePicker'
 pod 'EaseMobSDKFull'
 pod 'AFNetworking'
+pod 'TAPageControl'
 end
 
 target 'YoulvTests' do
@@ -21,5 +22,6 @@ pod 'KNSemiModalViewController'
 pod 'THCalendarDatePicker'
 pod 'EaseMobSDKFull'
 pod 'AFNetworking'
+pod 'TAPageControl'
 end
 

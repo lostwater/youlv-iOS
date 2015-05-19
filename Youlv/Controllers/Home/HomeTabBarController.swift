@@ -70,17 +70,17 @@ class HomeTabBarController: TopTabBarController
     {
         
         let normalimages = [
-            UIImage(named: "buttonopportunityblack") as UIImage?,
             UIImage(named: "buttondiscussblack") as UIImage?,
-            UIImage(named: "buttoneventblack") as UIImage?,
             UIImage(named: "buttonreadblack") as UIImage?,
+            UIImage(named: "buttoneventblack") as UIImage?,
+            UIImage(named: "buttonopportunityblack") as UIImage?,
         
         ]
         let selectedimages = [
-            UIImage(named: "buttonopportunityblue") as UIImage?,
             UIImage(named: "buttondiscussblue") as UIImage?,
+            UIImage(named: "buttonreadblue") as UIImage?,
             UIImage(named: "buttoneventblue") as UIImage?,
-            UIImage(named: "buttonreadblue") as UIImage?
+            UIImage(named: "buttonopportunityblue") as UIImage?,
         ]
         for var i = 0; i < viewControllers!.count; ++i
         {

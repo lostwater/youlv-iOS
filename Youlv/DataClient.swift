@@ -319,6 +319,25 @@ class DataClient
         task.resume()
     }
     
+    func getUserProfileWithTopicList(userId: Int, currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+
+    {
+        var path = serverUrl + "lawyer/getLawyerInfo?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&lawyerId=" + String(userId)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+        
+    }
+    
     func postOrder(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "order/reportOrder"
@@ -334,6 +353,134 @@ class DataClient
             completion(data, error)
         })
     }
+    
+    func getGroupList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "topic/getGroupList?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+    
+    func getMyPostOpportunities(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "lawyer/getOrderList?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+    
+    func getMyPostTopics(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "lawyer/getReportTopics?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+
+    func getMyMarkedTopics(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "lawyer/getAttetionTopics?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+    
+    func getMyRepliedTopics(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "lawyer/getReplyTopics?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+    
+    func getMyEventsList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "lawyer/getStoreActives?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+    
+    func getHotTopicGroup(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "topic/findHotTopicGroup?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+    
+    func getAds(completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "topic/findAdColumn?"
+
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+
     
     
     func serialzeJsonRequest(pathString : String, parameters : NSDictionary) -> NSMutableURLRequest

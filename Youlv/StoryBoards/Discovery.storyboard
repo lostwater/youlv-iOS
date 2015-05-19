@@ -26,8 +26,8 @@
         <!--DiscoveryVC-->
         <scene sceneID="PG0-DB-f5C">
             <objects>
-                <tableViewController title="DiscoveryVC" id="Mxt-Pf-QrZ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ouG-ak-pcA">
+                <tableViewController title="DiscoveryVC" id="Mxt-Pf-QrZ" customClass="DiscoveryTableViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ouG-ak-pcA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,56 +35,64 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="QII-ax-F8r">
+                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="X9B-wT-0Sn">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </scrollView>
+                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="QII-ax-F8r">
+                                    <rect key="frame" x="281" y="170" width="39" height="30"/>
                                     <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="Js2-EF-za3"/>
                                         <constraint firstAttribute="height" constant="200" id="mCL-0A-CcG"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="mCL-0A-CcG"/>
+                                        </mask>
+                                    </variation>
                                 </pageControl>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wK1-sN-uNc">
                                     <rect key="frame" x="0.0" y="200" width="600" height="100"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8k-cq-Bk1">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8k-cq-Bk1">
                                             <rect key="frame" x="0.0" y="10" width="301" height="30"/>
                                             <state key="normal" title="topic1">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <segue destination="Lgq-Dn-vAo" kind="show" id="Iob-x3-5uL"/>
+                                                <segue destination="Lgq-Dn-vAo" kind="show" identifier="goTopic1" id="Iob-x3-5uL"/>
                                             </connections>
                                         </button>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="line48px" translatesAutoresizingMaskIntoConstraints="NO" id="Zgf-40-ylj">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="line48px" translatesAutoresizingMaskIntoConstraints="NO" id="Zgf-40-ylj">
                                             <rect key="frame" x="300" y="13" width="1" height="24"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxu-BQ-Ptj">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxu-BQ-Ptj">
                                             <rect key="frame" x="300" y="10" width="300" height="30"/>
                                             <state key="normal" title="topic2">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <segue destination="Lgq-Dn-vAo" kind="show" id="0Ff-pC-eD6"/>
+                                                <segue destination="Lgq-Dn-vAo" kind="show" identifier="goTopic2" id="0Ff-pC-eD6"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajo-fw-Nxi">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajo-fw-Nxi">
                                             <rect key="frame" x="0.0" y="60" width="301" height="30"/>
                                             <state key="normal" title="topic3">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <segue destination="Lgq-Dn-vAo" kind="show" id="ruJ-xB-Ta3"/>
+                                                <segue destination="Lgq-Dn-vAo" kind="show" identifier="goTopic3" id="ruJ-xB-Ta3"/>
                                             </connections>
                                         </button>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="line48px" translatesAutoresizingMaskIntoConstraints="NO" id="56f-XI-PD6">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="line48px" translatesAutoresizingMaskIntoConstraints="NO" id="56f-XI-PD6">
                                             <rect key="frame" x="300" y="63" width="1" height="24"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8F-Rk-X4P">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8F-Rk-X4P">
                                             <rect key="frame" x="300" y="60" width="300" height="30"/>
                                             <state key="normal" title="topic4">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <segue destination="Lgq-Dn-vAo" kind="show" id="4LU-62-387"/>
+                                                <segue destination="Lgq-Dn-vAo" kind="show" identifier="goTopic4" id="4LU-62-387"/>
                                             </connections>
                                         </button>
                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="linecommentdotted" translatesAutoresizingMaskIntoConstraints="NO" id="lAK-K5-6Da">
@@ -110,6 +118,7 @@
                                         <constraint firstAttribute="centerY" secondItem="56f-XI-PD6" secondAttribute="centerY" constant="-25" id="TYZ-16-Gld"/>
                                         <constraint firstItem="Zgf-40-ylj" firstAttribute="leading" secondItem="r8k-cq-Bk1" secondAttribute="trailing" constant="-1" id="bHJ-Lb-DNm"/>
                                         <constraint firstItem="56f-XI-PD6" firstAttribute="leading" secondItem="Ajo-fw-Nxi" secondAttribute="trailing" constant="-1" id="bKz-Mu-8yl"/>
+                                        <constraint firstItem="Zgf-40-ylj" firstAttribute="top" secondItem="wK1-sN-uNc" secondAttribute="top" constant="13" id="fYo-mZ-07E"/>
                                         <constraint firstItem="kxu-BQ-Ptj" firstAttribute="leading" secondItem="Zgf-40-ylj" secondAttribute="trailing" constant="-1" id="iB3-md-tzy"/>
                                         <constraint firstAttribute="trailing" secondItem="x8F-Rk-X4P" secondAttribute="trailing" id="n4Q-uD-VES"/>
                                         <constraint firstItem="56f-XI-PD6" firstAttribute="centerY" secondItem="x8F-Rk-X4P" secondAttribute="centerY" id="t5v-l3-tFN"/>
@@ -117,6 +126,7 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="LZO-Uw-2rR"/>
                                             <exclude reference="iB3-md-tzy"/>
                                         </mask>
                                     </variation>
@@ -124,19 +134,28 @@
                             </subviews>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstItem="QII-ax-F8r" firstAttribute="leading" secondItem="Pqg-Wv-Oip" secondAttribute="leading" id="6Ac-6P-36J"/>
-                                <constraint firstItem="wK1-sN-uNc" firstAttribute="top" secondItem="QII-ax-F8r" secondAttribute="bottom" id="BUG-bh-BRV"/>
-                                <constraint firstItem="wK1-sN-uNc" firstAttribute="leading" secondItem="QII-ax-F8r" secondAttribute="trailing" constant="-577" id="MNb-XR-VL7"/>
-                                <constraint firstItem="QII-ax-F8r" firstAttribute="width" secondItem="wK1-sN-uNc" secondAttribute="width" id="RPw-pE-VcB"/>
-                                <constraint firstAttribute="trailing" secondItem="QII-ax-F8r" secondAttribute="trailing" id="e54-Af-9wJ"/>
+                                <constraint firstItem="X9B-wT-0Sn" firstAttribute="leading" secondItem="Pqg-Wv-Oip" secondAttribute="leading" id="5kd-8t-K0e"/>
+                                <constraint firstAttribute="trailing" secondItem="X9B-wT-0Sn" secondAttribute="trailing" id="JcC-oW-BbV"/>
+                                <constraint firstItem="X9B-wT-0Sn" firstAttribute="top" secondItem="Pqg-Wv-Oip" secondAttribute="top" id="Jjo-wF-qu8"/>
+                                <constraint firstItem="wK1-sN-uNc" firstAttribute="top" secondItem="X9B-wT-0Sn" secondAttribute="bottom" id="VfE-9K-I3y"/>
+                                <constraint firstItem="X9B-wT-0Sn" firstAttribute="centerY" secondItem="QII-ax-F8r" secondAttribute="centerY" constant="-50" id="bbk-Kb-goI"/>
                                 <constraint firstAttribute="trailing" secondItem="wK1-sN-uNc" secondAttribute="trailing" id="eq3-2T-vvd"/>
-                                <constraint firstItem="QII-ax-F8r" firstAttribute="top" secondItem="Pqg-Wv-Oip" secondAttribute="top" id="mXN-8j-fFL"/>
+                                <constraint firstItem="X9B-wT-0Sn" firstAttribute="bottom" secondItem="QII-ax-F8r" secondAttribute="bottom" id="fkp-80-D2h"/>
+                                <constraint firstItem="X9B-wT-0Sn" firstAttribute="leading" secondItem="Pqg-Wv-Oip" secondAttribute="leading" id="hfa-4k-lrt"/>
+                                <constraint firstItem="X9B-wT-0Sn" firstAttribute="top" secondItem="Pqg-Wv-Oip" secondAttribute="top" id="jVK-2p-uQ7"/>
+                                <constraint firstItem="X9B-wT-0Sn" firstAttribute="centerX" secondItem="QII-ax-F8r" secondAttribute="centerX" id="kph-h5-WgB"/>
+                                <constraint firstAttribute="bottom" secondItem="wK1-sN-uNc" secondAttribute="bottom" id="nAr-88-EWQ"/>
+                                <constraint firstAttribute="trailing" secondItem="X9B-wT-0Sn" secondAttribute="trailing" id="p8W-Tu-856"/>
+                                <constraint firstItem="wK1-sN-uNc" firstAttribute="top" secondItem="X9B-wT-0Sn" secondAttribute="bottom" id="yZU-RA-NMH"/>
                                 <constraint firstItem="wK1-sN-uNc" firstAttribute="leading" secondItem="Pqg-Wv-Oip" secondAttribute="leading" id="zOK-6E-4ZY"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="RPw-pE-VcB"/>
-                                    <exclude reference="MNb-XR-VL7"/>
+                                    <exclude reference="JcC-oW-BbV"/>
+                                    <exclude reference="Jjo-wF-qu8"/>
+                                    <exclude reference="bbk-Kb-goI"/>
+                                    <exclude reference="hfa-4k-lrt"/>
+                                    <exclude reference="yZU-RA-NMH"/>
                                 </mask>
                             </variation>
                         </view>
@@ -234,6 +253,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="发现" id="HSH-Vy-agb"/>
+                    <connections>
+                        <outlet property="adScroll" destination="X9B-wT-0Sn" id="tDX-lc-bRF"/>
+                        <outlet property="adsPageControl" destination="QII-ax-F8r" id="UBh-ly-hCg"/>
+                        <outlet property="topicButton1" destination="r8k-cq-Bk1" id="4xp-9U-4H6"/>
+                        <outlet property="topicButton2" destination="kxu-BQ-Ptj" id="xGf-lO-ah9"/>
+                        <outlet property="topicButton3" destination="Ajo-fw-Nxi" id="s4I-7V-smU"/>
+                        <outlet property="topicButton4" destination="x8F-Rk-X4P" id="uWF-83-haf"/>
+                        <outletCollection property="topicButtons" destination="r8k-cq-Bk1" collectionClass="NSMutableArray" id="BZe-fc-iKk"/>
+                        <outletCollection property="topicButtons" destination="kxu-BQ-Ptj" collectionClass="NSMutableArray" id="vXE-0Q-dvv"/>
+                        <outletCollection property="topicButtons" destination="Ajo-fw-Nxi" collectionClass="NSMutableArray" id="yDW-g8-asg"/>
+                        <outletCollection property="topicButtons" destination="x8F-Rk-X4P" collectionClass="NSMutableArray" id="m0a-NY-FZp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bC-pW-CtD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -888,7 +919,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InterviewCell" rowHeight="281" id="iME-eL-qHC" customClass="InterviewTableViewCell" customModule="Youlv" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1279,7 +1310,7 @@
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YH3-Qg-PVg">
                                 <rect key="frame" x="0.0" y="281" width="600" height="15"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="4sD-bK-NDG"/>
                                 </constraints>
@@ -1719,7 +1750,7 @@
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyK-gE-EPg">
                                             <rect key="frame" x="-12" y="194" width="624" height="15"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="wfI-gG-29e"/>
                                             </constraints>
@@ -1822,7 +1853,7 @@
         <image name="linecommentdotted" width="320" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ruJ-xB-Ta3"/>
+        <segue reference="4LU-62-387"/>
         <segue reference="woE-hP-Teg"/>
     </inferredMetricsTieBreakers>
 </document>

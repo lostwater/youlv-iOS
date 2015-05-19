@@ -44,7 +44,7 @@ class JobsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getJobList(1,pageSize: 10)
+        getJobList(currentPage,pageSize: 10)
     }
 
     override func didReceiveMemoryWarning() {

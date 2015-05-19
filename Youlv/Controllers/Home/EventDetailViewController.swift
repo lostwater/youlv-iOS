@@ -68,6 +68,7 @@ class EventDetailViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        getEventDetail()
         
     }
     

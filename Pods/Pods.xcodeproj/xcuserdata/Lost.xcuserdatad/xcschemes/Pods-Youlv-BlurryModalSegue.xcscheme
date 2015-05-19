@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BEACFD6E5FE0E2705F361BA9"
+               BlueprintIdentifier = "CE9D88F5826D3FE89ED93788"
                BuildableName = "libPods-Youlv-BlurryModalSegue.a"
                BlueprintName = "Pods-Youlv-BlurryModalSegue"
                ReferencedContainer = "container:Pods.xcodeproj">

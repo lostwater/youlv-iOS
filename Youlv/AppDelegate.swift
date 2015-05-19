@@ -20,6 +20,7 @@ func UIColorFromRGB(rgbValue: UInt) -> UIColor {
 }
 
 var sessionId = "76153026bac352110d4cd6a4dbb295d6"
+var myLawyerId = 0
 
 import UIKit
 

@@ -14,5 +14,5 @@
 #import "AFNetworking.h"
 #import "EMSDKFullHeaders.h"
 #import "KeychainItemWrapper.h"
-
+#import "TAPageControl.h"
 //

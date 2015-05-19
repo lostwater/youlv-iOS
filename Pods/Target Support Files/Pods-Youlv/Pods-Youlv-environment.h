@@ -102,6 +102,12 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 2
 
+// TAPageControl
+#define COCOAPODS_POD_AVAILABLE_TAPageControl
+#define COCOAPODS_VERSION_MAJOR_TAPageControl 0
+#define COCOAPODS_VERSION_MINOR_TAPageControl 2
+#define COCOAPODS_VERSION_PATCH_TAPageControl 0
+
 // THCalendarDatePicker
 #define COCOAPODS_POD_AVAILABLE_THCalendarDatePicker
 #define COCOAPODS_VERSION_MAJOR_THCalendarDatePicker 1

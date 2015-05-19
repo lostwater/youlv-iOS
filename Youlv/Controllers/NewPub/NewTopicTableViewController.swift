@@ -16,6 +16,11 @@ class NewTopicTableViewController: UITableViewController {
     }
     @IBAction func buttonPubClicked(sender: AnyObject) {
     }
+    
+    var topicGroupId : Int?
+    var topicGroupName : String?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     

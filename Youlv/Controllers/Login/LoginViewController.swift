@@ -15,14 +15,24 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var buttonWeibo: UIButton!
     
     var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: ".com.Ramy.Youlv")
-     var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: ".com.Ramy.Youlv")
+    var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: ".com.Ramy.Youlv")
     
+    @IBAction func passwordTextFieldEnd(sender: AnyObject) {
+        passowrd.resignFirstResponder()
+        login()
+    }
+    @IBAction func accountTextFieldEnd(sender: AnyObject) {
+        userAccount.resignFirstResponder()
+        passowrd.becomeFirstResponder()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
          self.navigationController?.navigationBar.backItem?.title = "";
         hideWeixinWeibo()
         var storedPassword = passwordKeyWrapper.objectForKey(kSecAttrService) as? String
         var storedAccount = accountKeyWrapper.objectForKey(kSecAttrService) as? String
+        //storedPassword = "123456"
+        //storedAccount = "18518757071"
         userAccount.text = storedAccount
         passowrd.text = storedPassword
         if userAccount.text == nil || passowrd.text == nil ||  userAccount.text=="" ||   passowrd.text == ""{
@@ -67,16 +77,47 @@ class LoginViewController: UIViewController {
     
     func loginCompleted(data:NSDictionary?,error:NSError?)
     {
-        accountKeyWrapper.setObject(userAccount.text, forKey: kSecAttrService)
-        passwordKeyWrapper.setObject(passowrd.text, forKey: kSecAttrService)
+        getMyId()
+
         if data!.objectForKey("errcode") as! Int == 0
         {
             sessionId = data!.objectForKey("sessionId") as! String
+            saveAccountAndPassword()
         }
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.goMainVC()
         })
         
+    }
+    
+    func getMyId()
+    {
+        DataClient().getMyProfile { (data, error) -> () in
+            self.getMyIdCompleted(data,error: error)
+        }
+    }
+    
+    func getMyIdCompleted(data:NSData?,error:NSError?)
+    {
+        if error != nil
+        {
+            return
+        }
+        
+        let errorPointer = NSErrorPointer()
+        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
+        if dict == nil{
+            return
+        }
+        let dictData = dict!.objectForKey("data") as! NSDictionary
+        myLawyerId = dictData.objectForKey("lawyer_id") as! Int
+    }
+    
+    func saveAccountAndPassword()
+    {
+        accountKeyWrapper.setObject(userAccount.text, forKey: kSecAttrService)
+        passwordKeyWrapper.setObject(passowrd.text, forKey: kSecAttrService)
+
     }
     
     func goMainVC()
