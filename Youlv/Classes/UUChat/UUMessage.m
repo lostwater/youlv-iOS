@@ -11,7 +11,7 @@
 
 @implementation UUMessage
 - (void)setWithDict:(NSDictionary *)dict{
-    
+   
     self.strIcon = dict[@"strIcon"];
     self.strName = dict[@"strName"];
     self.strId = dict[@"strId"];
@@ -29,7 +29,7 @@
             self.type = UUMessageTypePicture;
             self.picture = dict[@"picture"];
             break;
-        
+            
         case 2:
             self.type = UUMessageTypeVoice;
             self.voice = dict[@"voice"];

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "369FAD22F089DF0BF253577D"
+               BlueprintIdentifier = "F5C189890E667D2AF0396A1C"
                BuildableName = "libPods-Youlv-MZFormSheetController.a"
                BlueprintName = "Pods-Youlv-MZFormSheetController"
                ReferencedContainer = "container:Pods.xcodeproj">

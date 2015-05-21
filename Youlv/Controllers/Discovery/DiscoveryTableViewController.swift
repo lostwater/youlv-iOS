@@ -43,7 +43,7 @@ class DiscoveryTableViewController: UITableViewController {
         let dictData = dict.objectForKey("data") as! NSDictionary
         topicsArray = (dictData.objectForKey("hotTopicGroups") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-           
+            self.displayTopics()
         })
     
     }
@@ -79,12 +79,12 @@ class DiscoveryTableViewController: UITableViewController {
         getTopics(1,pageSize: 10)
     }
     
-    func displayData()
+    func displayTopics()
     {
         for var i = 0;i<topicButtons.count && i<topicsArray!.count;i++
         {
             let b = topicButtons[i]
-            let g = adsArray!.objectAtIndex(i) as! NSDictionary
+            let g = topicsArray!.objectAtIndex(i) as! NSDictionary
             b.setTitle(g.objectForKey("title") as? String, forState: UIControlState.Normal)
         }
     }
@@ -103,21 +103,26 @@ class DiscoveryTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        
         if segue.identifier == "goTopic1"
         {
-            
+            let vc = segue.destinationViewController as! GroupTopicsTableViewController
+            vc.groupId = (topicsArray!.objectAtIndex(0) as! NSDictionary).objectForKey("groupId") as! Int
         }
         if segue.identifier == "goTopic2"
         {
-            
+            let vc = segue.destinationViewController as! GroupTopicsTableViewController
+            vc.groupId = (topicsArray!.objectAtIndex(1) as! NSDictionary).objectForKey("groupId") as! Int
         }
         if segue.identifier == "goTopic3"
         {
-            
+            let vc = segue.destinationViewController as! GroupTopicsTableViewController
+            vc.groupId = (topicsArray!.objectAtIndex(2) as! NSDictionary).objectForKey("groupId") as! Int
         }
         if segue.identifier == "goTopic4"
         {
-            
+            let vc = segue.destinationViewController as! GroupTopicsTableViewController
+            vc.groupId = (topicsArray!.objectAtIndex(3) as! NSDictionary).objectForKey("groupId") as! Int
         }
         
     }

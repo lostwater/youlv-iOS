@@ -12,7 +12,7 @@ class OpportunityDetailViewController: UIViewController {
     
     var dataDict : NSDictionary?
     var opportunityType : OpportunityType?
-
+    var opportunityId = 0
     
     @IBOutlet var naviItem: UINavigationItem!
     @IBOutlet var naviEditButton: UIBarButtonItem!
@@ -36,11 +36,95 @@ class OpportunityDetailViewController: UIViewController {
     @IBOutlet var publisherPublicationsCount: UILabel!
     @IBOutlet var publisherInterestsCount: UILabel!
     
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
+    @IBAction func sendAndUnwindFromComment(segue: UIStoryboardSegue)
+    {
+        //performSegueWithIdentifier("UnwindToGroupTopics", sender: self)
+    }
+    @IBAction func likeButtonClicked(sender: AnyObject) {
+        likeOpportunity()
+
+
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // Initialization code
     }
+    
+    func likeOpportunity()
+    {
+        var parameters : NSDictionary = ["orderId":opportunityId, "sessionId":sessionId]
+        DataClient().postLikeOpportunity(parameters) { (data, error) -> () in
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.likeOpportunityCompleted(data,error: error)
+                
+            })
+        }
+    }
+    
+    func likeOpportunityCompleted(data:NSDictionary?,error:NSError?)
+    {
+        UIAlertView(title: data?.objectForKey("errmessage") as? String, message: nil, delegate: nil, cancelButtonTitle: "ok").show()
+        if data?.objectForKey("errcode") as? Int == 0
+        {
+            likeButton.hidden = true
+            commentButton.hidden = false
+        }
+        
+    }
+    
+    /*
+    "lawyerRelate":{
+    "lawyer_id":1,
+    "lawyer_name":"zhangsan",
+    "lawyer_photoUrl":"111111",
+    "fansCount":3,
+    "issueCount":2,
+    "interestCountMy":5
+    */
+    func getPubishUser()
+    {
+        DataClient().getOrderDetail(opportunityId, completion: { (data, error) -> () in
+            self.getPubishUserCompleted(data,error: error)
+        })
+    }
+    
+    func getPubishUserCompleted(data:NSData?,error:NSError?)
+    {
+        if error != nil
+        {
+            return
+        }
+        let errorPointer = NSErrorPointer()
+        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
+        if dict == nil
+        {
+           return
+        }
+        if dict?.objectForKey("errcode") as? Int == 1
+        {
+            return
+        }
+        
+        let userData = (dict!.objectForKey("data") as! NSDictionary).objectForKey("lawyerRelate") as! NSDictionary
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.displayData(userData)
+        })
+        
+    }
+    
+    func displayData(dataDict : NSDictionary)
+    {
+        publisherCreditView.rating = 5
+        publisherImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("lawyer_photoUrl") as! String))
+        publisherFansCount.text = String(dataDict.objectForKey("fansCount") as! Int)
+        publisherPublicationsCount.text = String(dataDict.objectForKey("issueCount") as! Int)
+        publisherInterestsCount.text = String(dataDict.objectForKey("interestCountMy") as! Int)
+    }
+    
     
     
     override func viewDidLoad() {
@@ -58,8 +142,31 @@ class OpportunityDetailViewController: UIViewController {
             //opportunityLikedButton.titleLabel?.text = String(dataDict!.objectForKey("order_interestCount") as! Int)
             textViewHeightConstraint.constant = resetTextViewSize()
             setOpportunityType(OpportunityType(rawValue: type)!)
+            
+            
+            if (dataDict!.objectForKey("order_isInterest") as! Bool)
+            {
+                likeButton.hidden = true
+                commentButton.hidden = false
+            }
+            else
+            {
+                likeButton.hidden = false
+                commentButton.hidden = true
+            }
+            
+            getPubishUser()
         }
         
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goOpportunityComment"
+        {
+            let vc = segue.destinationViewController as! OpportunityCommentViewController
+            vc.opportunityId = opportunityId
+        }
     }
 
     

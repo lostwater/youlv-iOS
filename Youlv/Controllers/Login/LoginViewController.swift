@@ -14,8 +14,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var buttonWeixin: UIButton!
     @IBOutlet weak var buttonWeibo: UIButton!
     
-    var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: ".com.Ramy.Youlv")
-    var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: ".com.Ramy.Youlv")
     
     @IBAction func passwordTextFieldEnd(sender: AnyObject) {
         passowrd.resignFirstResponder()
@@ -25,26 +23,7 @@ class LoginViewController: UIViewController {
         userAccount.resignFirstResponder()
         passowrd.becomeFirstResponder()
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-         self.navigationController?.navigationBar.backItem?.title = "";
-        hideWeixinWeibo()
-        var storedPassword = passwordKeyWrapper.objectForKey(kSecAttrService) as? String
-        var storedAccount = accountKeyWrapper.objectForKey(kSecAttrService) as? String
-        //storedPassword = "123456"
-        //storedAccount = "18518757071"
-        userAccount.text = storedAccount
-        passowrd.text = storedPassword
-        if userAccount.text == nil || passowrd.text == nil ||  userAccount.text=="" ||   passowrd.text == ""{
-            return
-        }
-        login()
-        //self.view.backgroundColor = UIColorFromRGB(0x00b1f1);
-
-        //self.navigationController?.setNavigationBarHidden(true, animated: false)
-        // Do any additional setup after loading the view.
-    }
-
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,6 +41,29 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var passowrd: UITextField!
     @IBOutlet var userAccount: UITextField!
+
+    
+    var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: ".com.Ramy.Youlv")
+    var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: ".com.Ramy.Youlv")
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.backItem?.title = "";
+        hideWeixinWeibo()
+        var storedPassword = passwordKeyWrapper.objectForKey(kSecAttrService) as? String
+        var storedAccount = accountKeyWrapper.objectForKey(kSecAttrService) as? String
+        //storedPassword = "123456"
+        //storedAccount = "18518757071"
+        userAccount.text = storedAccount
+        passowrd.text = storedPassword
+        if userAccount.text == nil || passowrd.text == nil ||  userAccount.text=="" ||   passowrd.text == ""{
+            return
+        }
+        login()
+    }
+    
+    
+    
     func login()
     {
         if userAccount.text == nil || passowrd.text == nil ||  userAccount.text=="" ||   passowrd.text == ""
@@ -78,7 +80,7 @@ class LoginViewController: UIViewController {
     func loginCompleted(data:NSDictionary?,error:NSError?)
     {
         getMyId()
-
+        easeMobLogin()
         if data!.objectForKey("errcode") as! Int == 0
         {
             sessionId = data!.objectForKey("sessionId") as! String
@@ -89,6 +91,18 @@ class LoginViewController: UIViewController {
         })
         
     }
+    
+    func easeMobLogin()
+    {
+        EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userAccount.text, password: passowrd.text, completion: { (loginInfo, error) -> Void in
+            if error == nil && loginInfo != nil
+            {
+                NSLog("登陆成功")
+            }
+        }, onQueue: nil)
+    }
+    
+    
     
     func getMyId()
     {

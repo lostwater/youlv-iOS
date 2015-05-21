@@ -10,10 +10,14 @@ import UIKit
 
 class TopTabBarController: UITabBarController {
 
+    var topTabBar : UITabBar?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         reLocTabBar();
+       //topTabBar = UITabBar()
         setTabBar();
+        
         // Do any additional setup after loading the view.
     }
 
@@ -36,16 +40,22 @@ class TopTabBarController: UITabBarController {
     func setTabBar()
     {
         tabBar.backgroundImage = UIImage()
+ 
         //var bg = UIToolbar(frame: CGRectMake(tabBar.frame.origin.x, tabBar.frame.origin.y, tabBar.frame.size.width, 86))
         //bg.setBackgroundImage(UIImage(named: "bgtabbar86px"), forToolbarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         //self.view.addSubview(bg);
         
-        var bgframe = CGRectMake(0, 0, tabBar.frame.size.width, 35);
+        var bgframe = CGRectMake(-25, 0, tabBar.frame.size.width + 50, 35)
         var bgImage = UIImage(named: "bgtabbar86px")
-        var bgIV = UIImageView(frame: bgframe);
-        bgIV.image = bgImage;
-        bgIV.contentMode = UIViewContentMode.ScaleToFill;
-        view.addSubview(bgIV);
+        var bgIV = UIImageView(frame: bgframe)
+        bgIV.image = bgImage
+        bgIV.contentMode = UIViewContentMode.ScaleToFill
+        var blurView = DRNRealTimeBlurView(frame: bgframe)
+        view.addSubview(blurView)
+        tabBar.frame.origin = CGPointMake(25,0)
+        blurView.addSubview(tabBar)
+        
+        //view.addSubview(bgIV)
     }
 
 

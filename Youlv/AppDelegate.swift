@@ -35,7 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //DataManager().getOrderList(1, pageSize: 10)
         setAppearance()
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
-        		
+        
+        EaseMob.sharedInstance().registerSDKWithAppKey("yoolegal#yoolegal", apnsCertName: "")
+        EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        
         return true
     }
 

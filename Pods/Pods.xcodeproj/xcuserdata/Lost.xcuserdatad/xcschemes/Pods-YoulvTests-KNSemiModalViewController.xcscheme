@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9C36570C4F0FADC0C2055B20"
+               BlueprintIdentifier = "3D63226B747064F88520CEB3"
                BuildableName = "libPods-YoulvTests-KNSemiModalViewController.a"
                BlueprintName = "Pods-YoulvTests-KNSemiModalViewController"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -20,10 +20,24 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet var DiscussTextViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet var tableView: UITableView!
-
+    
+    @IBAction func sendAndUnwindFromReply(segue: UIStoryboardSegue)
+    {
+        getDiscussDetail()
+    }
+    
+    @IBAction func followButtonClicked(sender: AnyObject) {
+        if !FellowButton.selected
+        {
+            markTopic()
+        }
+    }
+    
+    
     var dataDict : NSDictionary?
     var topicId : Int?
     var isFromMyTopic = false
+    var currentPage = 1
     
     override func viewDidLoad() {
         ResponeButton.setImage(UIImage(named:"buttonrespondlargeoutline"), forState: UIControlState.Normal)
@@ -39,12 +53,35 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
         
             displayData()
         }
-        
+        getDiscussDetail()
+
     }
+    
+    
+   
+    func markTopic()
+    {
+        var parameters : NSDictionary = ["topicId":topicId!, "sessionId":sessionId]
+        DataClient().postMarkTopic(parameters) { (data, error) -> () in
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.markTopicCompleted(data,error: error)
+            })
+        }
+    }
+    
+    func markTopicCompleted(data:NSDictionary?,error:NSError?)
+    {
+        UIAlertView(title: data?.objectForKey("errmessage") as? String, message: nil, delegate: nil, cancelButtonTitle: "ok").show()
+        if data!.objectForKey("errcode") as! Int == 0
+        {
+            FellowButton.selected = true
+        }
+    }
+
     
     func displayData()
     {
-    UserImageView.sd_setImageWithURL(NSURL(string:self.dataDict!.objectForKey("topic_photoUrl") as! String))
+        UserImageView.sd_setImageWithURL(NSURL(string:self.dataDict!.objectForKey("topic_photoUrl") as! String))
         DiscussTitle.text = self.dataDict!.objectForKey("topic_title") as? String
         DiscussTime.text = self.dataDict!.objectForKey("operate_createDate") as? String
         DiscussTextView.text = self.dataDict!.objectForKey("topic_content") as? String
@@ -65,14 +102,36 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     func displayDataFromMyTopics()
     {
-        UserImageView.sd_setImageWithURL(NSURL(string:self.dataDict!.objectForKey("topic_createDate") as! String))
+        var photoUrl = ""
+        if self.dataDict!.objectForKey("reply_lawyerPhotoUrl") != nil
+        {
+            photoUrl = dataDict!.objectForKey("reply_lawyerPhotoUrl") as! String
+        }
+        if self.dataDict!.objectForKey("topic_lawyerPhotoUrl") != nil
+        {
+            photoUrl = dataDict!.objectForKey("topic_lawyerPhotoUrl") as! String
+
+        }
+        UserImageView.sd_setImageWithURL(NSURL(string: photoUrl))
         DiscussTitle.text = self.dataDict!.objectForKey("topic_lawyerName") as? String
-        DiscussTime.text = self.dataDict!.objectForKey("operate_createDate") as? String
+        var date = ""
+        if self.dataDict!.objectForKey("topic_createDate") != nil
+        {
+            date = dataDict!.objectForKey("topic_createDate") as! String
+        }
+        if self.dataDict!.objectForKey("reply_createDate") != nil
+        {
+            date = dataDict!.objectForKey("reply_createDate") as! String
+            
+        }
+        
+        DiscussTime.text = date
         DiscussTextView.text = self.dataDict!.objectForKey("topic_content") as? String
         resizeTextView()
         getDiscussDetail()
         
-        let isMarked = self.dataDict!.objectForKey("topic_isPraise") as! Bool
+        let isMarked = true
+        //let isMarked = self.dataDict!.objectForKey("topic_isPraise") as! Bool
         if isMarked
         {
             FellowButton.selected = true
@@ -83,12 +142,20 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goDiscussReply"
+        {
+            let vc = segue.destinationViewController as! DiscussReplyViewController
+            vc.topicId = self.topicId!
+        }
+    }
+    
     
     
     var commentsArray = NSArray()
     func getDiscussDetail()
     {
-        DataClient().getTopicDetail(topicId!, currentPage: 10, pageSize: 10) { (data, error) -> () in
+        DataClient().getTopicDetail(topicId!, currentPage: currentPage, pageSize: 10) { (data, error) -> () in
             self.getDiscussDetailCompleted(data,error: error)
         }
     }

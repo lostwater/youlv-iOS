@@ -26,6 +26,8 @@ class DiscussTableViewCell: UITableViewCell
     @IBOutlet var bookMarkedButton: UIButton!
     @IBOutlet var topicTextView: UITextView!
     @IBOutlet var operatorTextView: UITextView?
+    @IBOutlet weak var topicTitle: UILabel?
+    @IBOutlet weak var operateType: UILabel?
     
     @IBOutlet var topicTextHeightConstraint: NSLayoutConstraint!
     @IBOutlet var operatorTextHeightConstraint: NSLayoutConstraint?
@@ -39,11 +41,20 @@ class DiscussTableViewCell: UITableViewCell
     func displayData(dataDict : NSDictionary)
     {
         discussOperateType = DiscussOperateType(rawValue: dataDict.objectForKey("operate_type") as! Int)
+        if discussOperateType == DiscussOperateType.Bookmark
+        {
+            operateType?.text = "收藏了话题"
+        }
+        if discussOperateType == DiscussOperateType.Reply
+        {
+            operateType?.text = "回应了话题"
+        }
         let topic_photoUrl = dataDict.objectForKey("topic_photoUrl") as! String
         let operate_photoUrl = dataDict.objectForKey("operate_photoUrl") as! String
         topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl))
         operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl))
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
+        topicTitle?.text = dataDict.objectForKey("topic_title") as? String
         operatorName?.text = dataDict.objectForKey("operate__lawyerName") as? String
         operatorTime.text = dataDict.objectForKey("operate_createDate") as? String
         bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
@@ -68,6 +79,10 @@ class DiscussTableViewCell: UITableViewCell
         if operatorTextView != nil
         {
             resizeTextView(operatorTextView!)
+            //if operatorTextView!.text == ""
+            //{
+            //    collapseView(operatorTextView!)
+            //}
         }
 
     }
@@ -114,7 +129,7 @@ class DiscussTableViewCell: UITableViewCell
     {
         discussOperateType = DiscussOperateType.Post
         let topic_photoUrl = dataDict.objectForKey("topic_lawyerPhotoUrl") as! String
-           operatorTime.text = dataDict.objectForKey("topic_createDate") as? String
+        operatorTime.text = dataDict.objectForKey("topic_createDate") as? String
         topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl))
 
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String

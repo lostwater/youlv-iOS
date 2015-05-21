@@ -7,7 +7,7 @@
 //  Copyright (c) 2015年 uyiuyao. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "ChatViewController.h"
 #import "UUInputFunctionView.h"
 #import "MJRefresh.h"
 #import "UUMessageCell.h"
@@ -15,23 +15,28 @@
 #import "UUMessageFrame.h"
 #import "UUMessage.h"
 
-@interface RootViewController ()<UUInputFunctionViewDelegate,UUMessageCellDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface ChatViewController ()<UUInputFunctionViewDelegate,UUMessageCellDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (strong, nonatomic) MJRefreshHeaderView *head;
 @property (strong, nonatomic) ChatModel *chatModel;
 
-@property (weak, nonatomic) IBOutlet UITableView *chatTableView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
+@property (strong, nonatomic) IBOutlet UITableView *chatTableView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @end
 
-@implementation RootViewController{
+@implementation ChatViewController{
     UUInputFunctionView *IFView;
+}
+
+- (void)loadView
+{
+    [[NSBundle mainBundle] loadNibNamed:@"ChatViewController" owner:self options:nil];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title = self.chattitle;
     [self initBar];
     [self addRefreshViews];
     [self loadBaseViewsAndData];
@@ -58,11 +63,11 @@
     UISegmentedControl *segment = [[UISegmentedControl alloc]initWithItems:@[@" private ",@" group "]];
     [segment addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
     segment.selectedSegmentIndex = 0;
-    self.navigationItem.titleView = segment;
+    //self.navigationItem.titleView = segment;
     
-    self.navigationController.navigationBar.tintColor = [UIColor grayColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:nil action:nil];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:nil];
+    //self.navigationController.navigationBar.tintColor = [UIColor grayColor];
+    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:nil action:nil];
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:nil];
 }
 - (void)segmentChanged:(UISegmentedControl *)segment
 {
@@ -137,7 +142,7 @@
     
     //adjust UUInputFunctionView's originPoint
     CGRect newFrame = IFView.frame;
-    newFrame.origin.y = keyboardEndFrame.origin.y - newFrame.size.height;
+    newFrame.origin.y = keyboardEndFrame.origin.y - newFrame.size.height -64;
     IFView.frame = newFrame;
     
     [UIView commitAnimations];

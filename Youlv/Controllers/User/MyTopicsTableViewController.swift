@@ -186,7 +186,7 @@ class MyTopicsTableViewController: UITableViewController {
         }
         else
         {
-            let baseHeight :CGFloat = 115.0+37.0
+            let baseHeight :CGFloat = 115.0+90.0
             let topicContentText = dataDict.objectForKey("topic_content") as! String
             let operatorContentText = dataDict.objectForKey("reply_content") as! String
             var textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height

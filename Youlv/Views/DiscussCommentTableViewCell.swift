@@ -19,6 +19,12 @@ class DiscussCommentTableViewCell: UITableViewCell {
     @IBOutlet var CommentTime: UILabel!
     @IBOutlet var LikedButton: UIButton!
     
+    @IBAction func likedButtonClicked(sender: AnyObject) {
+        if !LikedButton.selected
+        {
+            likeReply()
+        }
+    }
 
     
     override func awakeFromNib() {
@@ -28,7 +34,7 @@ class DiscussCommentTableViewCell: UITableViewCell {
     
     func displayData(dataDict : NSDictionary)
     {
-
+        self.tag = dataDict.objectForKey("id") as! Int
         UserImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String))
         UserName.text = dataDict.objectForKey("lawyerName") as? String
         CommentContent.text = dataDict.objectForKey("content") as? String
@@ -47,4 +53,28 @@ class DiscussCommentTableViewCell: UITableViewCell {
         }
         
     }
+    
+    func likeReply()
+    {
+        var parameters : NSDictionary = ["replyId":self.tag,"sessionId":sessionId]
+        DataClient().postLikeTopicReply(parameters) { (data, error) -> () in
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.likeReplyCompleted(data,error: error)
+                
+            })
+        }
+    }
+    
+    func likeReplyCompleted(data:NSDictionary?,error:NSError?)
+    {
+        if data?.objectForKey("errcode") as? Int == 0
+        {
+            let count = LikedButton.titleLabel!.text!.toInt()! + 1
+            LikedButton.setTitle(String(count), forState: UIControlState.Selected)
+            LikedButton.selected = true
+        }
+        
+        
+    }
+
 }

@@ -51,6 +51,22 @@ class DataClient
         
     }
     
+    
+    func getOrderDetail(orderId : Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "topic/getTopicDetail?"
+        path = path + "&sessionId=" + String(sessionId)
+        path = path + "&orderId=" + String(orderId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+    
     func getDiscussList(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
     {
         var path = serverUrl + "discuss/getDiscussList?"
@@ -155,6 +171,26 @@ class DataClient
         
     }
     
+    func getArticleCommentsList(articleId:Int, currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "article/articleDetail?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        path = path + "&articleId=" + String(articleId)
+
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+        
+    }
+    
+    
+    
     func getInterviewList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
     {
         var path = serverUrl + "microview/getViewList?"
@@ -190,6 +226,28 @@ class DataClient
         
         task.resume()
     }
+    
+    
+    func getTopicGroupDetail(groupId : Int, currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "topic/getGroupDetail?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        path = path + "&groupId=" + String(groupId)
+        
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+    }
+
+   
+    
     
     func getJobList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
     {
@@ -259,6 +317,7 @@ class DataClient
         task.resume()
 
     }
+    
     
     func getResearchList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
     {
@@ -353,6 +412,32 @@ class DataClient
             completion(data, error)
         })
     }
+    
+    func postSignup(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "user/reg"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+    }
+    
+    func postTopicReply(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "topic/reportTopic"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+    }
+    
+    func postDiscussReply(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "topic/topicReply"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+    }
+    
+
     
     func getGroupList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
     {
@@ -469,9 +554,22 @@ class DataClient
     func getAds(completion: (NSData?, NSError?)->())
     {
         var path = serverUrl + "topic/findAdColumn?"
-
         path = path + "&sessionId=" + String(sessionId)
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
         
+        task.resume()
+    }
+    
+    func getMyFollowedUsers(completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "lawyer/getAttetionList?"
+        path = path + "currentPage=1"
+        path = path + "&sessionId=" + String(sessionId)
+        path = path + "&pageSize=1000"
         var session = NSURLSession.sharedSession()
         let url = NSURL(string: path)
         let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
@@ -481,7 +579,91 @@ class DataClient
         task.resume()
     }
 
+    func postFollowUser(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "atten/makeatten"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+    }
     
+    /*
+    groupName
+    sessionId
+    desc
+    isPublic
+    isApproval
+    password
+    maxUsers
+    */
+    func postCreateGroup(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "group/creategroup"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+        
+    }
+    
+    func postOpportunityComment(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "order/orderComment"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+        
+    }
+    
+    func postLikeOpportunity(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "order/orderInterest"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+        
+    }
+    
+    
+    func postMarkTopic(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "topic/attentionTopic"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+        
+    }
+    
+    func postLikeArticle(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "article/articlePraise"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+        
+    }
+    
+    
+    func postMarkArticle(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "article/articleStore"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+        
+    }
+
+   
+
+    func postLikeTopicReply(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "topic/topicReplyPraise"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+        
+    }
+
+   
     
     func serialzeJsonRequest(pathString : String, parameters : NSDictionary) -> NSMutableURLRequest
     {

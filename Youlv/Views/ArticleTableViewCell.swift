@@ -10,10 +10,8 @@ import UIKit
 
 class ArticleTableViewCell: UITableViewCell {
 
-    @IBOutlet var userImageView: UIImageView!
     @IBOutlet var userName: UILabel!
     @IBOutlet var articleTime: UILabel!
-    @IBOutlet var userTextView: UITextView!
     @IBOutlet var articleImageView: UIImageView!
     @IBOutlet var articleTitle: UILabel!
     @IBOutlet var articleTextView: UITextView!
@@ -26,8 +24,8 @@ class ArticleTableViewCell: UITableViewCell {
         super.awakeFromNib()
         commentButton.setImage(UIImage(named:"buttoncommentoutline"), forState: UIControlState.Normal)
         commentButton.setImage(UIImage(named:"buttoncomment"), forState: UIControlState.Selected)
-        likedButton.setImage(UIImage(named:"buttonlikeoutline"), forState: UIControlState.Normal)
-        likedButton.setImage(UIImage(named:"buttonlike"), forState: UIControlState.Selected)
+        likedButton.setImage(UIImage(named:"buttonheartoutline"), forState: UIControlState.Normal)
+        likedButton.setImage(UIImage(named:"buttonheart"), forState: UIControlState.Selected)
         commentButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
         commentButton.setTitleColor(appBlueColor, forState: UIControlState.Selected)
         likedButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
@@ -44,18 +42,18 @@ class ArticleTableViewCell: UITableViewCell {
     
     func displayData(dataDict : NSDictionary)
     {
-        
-        //userImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String))
-        //userName.text = dataDict.objectForKey("lawyerName") as? String
+        self.tag = (dataDict.objectForKey("articleId") as? Int)!
+        articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("url") as! String))
+        articleTitle.text = dataDict.objectForKey("title") as? String
         articleTextView.text =  dataDict.objectForKey("acro") as? String
-        //CommentContent.text = dataDict.objectForKey("content") as? String
-        //CommentTime.text = dataDict.objectForKey("operate_createDate") as? String
-        likedButton.setTitle(dataDict.objectForKey("praiseCount") as? String, forState: UIControlState.Normal)
-        likedButton.setTitle(dataDict.objectForKey("praiseCount") as? String, forState: UIControlState.Selected)
-        commentButton.setTitle(dataDict.objectForKey("commentCount") as? String, forState: UIControlState.Normal)
-        commentButton.setTitle(dataDict.objectForKey("commentCount") as? String, forState: UIControlState.Selected)
-        let isLiked = (dataDict.objectForKey("isPraise") as! String).toInt()
-        if Bool(isLiked!)
+        userName.text = dataDict.objectForKey("lawyerName") as? String
+        articleTime.text = dataDict.objectForKey("createDate") as? String
+        commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Normal)
+        commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Selected)
+        likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Normal)
+        likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Selected)
+        let isLiked = dataDict.objectForKey("isStore") as! Bool
+        if isLiked
         {
             likedButton.selected = true
         }

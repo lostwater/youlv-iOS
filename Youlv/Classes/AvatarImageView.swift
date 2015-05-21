@@ -6,8 +6,40 @@
 //  Copyright (c) 2015 Ramy. All rights reserved.
 //
 
-import Cocoa
 
 class AvatarImageView: UIImageView {
+    
+    var userId = 0
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.userInteractionEnabled = true
+        let singleTap = UITapGestureRecognizer(target: self, action:Selector("tapped"))
+        self.addGestureRecognizer(singleTap)
+    }
+    
+    func tapped()
+    {
+        if viewController() != nil
+        {
+            let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("userVC") as! UIViewController
+            viewController()?.navigationController?.pushViewController(vc, animated:true)
+        }
+    }
+    
+    func viewController() -> UIViewController?
+    {
+        for var next = self.superview; next != nil ; next = next?.superview
+        {
+            var nextResponder = next?.nextResponder()
+            if nextResponder!.isKindOfClass(UIViewController.classForCoder())
+            {
+                return nextResponder as? UIViewController
+            }
+        }
+        return nil
+    }
+    
+    
 
 }

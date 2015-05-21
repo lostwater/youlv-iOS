@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "890356DD3F77745C81D746B2"
+               BlueprintIdentifier = "BF6C9D9F5AA527A0AD322CB2"
                BuildableName = "FSMediaPicker.bundle"
                BlueprintName = "Pods-YoulvTests-FSMediaPicker-FSMediaPicker"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -37,7 +37,7 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
     
     var ordersArray = NSArray()
 
-    
+    var currentPage = 1
     
     
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
         tabBarController?.navigationItem.title = "商机"
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
-        getOrderList(1, pageSize: 10)
+        getOrderList(currentPage, pageSize: 10)
        
     }
     
@@ -113,13 +113,13 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "pushToOpportunityDetail"
+        if segue.identifier == "goOpportunityDetail"
         {
-            let opportunityDetail = segue.destinationViewController as! OpportunityDetailViewController
+            let vc = segue.destinationViewController as! OpportunityDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            opportunityDetail.dataDict = ordersArray.objectAtIndex(selectedIndex!) as? NSDictionary
+            vc.dataDict = ordersArray.objectAtIndex(selectedIndex!) as? NSDictionary
+            vc.opportunityId = (ordersArray.objectAtIndex(selectedIndex!) as! NSDictionary).objectForKey("order_id") as! Int
         }
-        
     }
 
     override func didReceiveMemoryWarning() {

@@ -32,14 +32,16 @@ class ArticlesTableViewController: UITableViewController,NaviBarMenu {
         print(ds)
         NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
         print(errorPointer.debugDescription)
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
+        if dict == nil
+        {
+            return
+        }
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         articlesArray = (dictData.objectForKey("articleList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()
         })
-        
     }
     
     override func viewDidLoad() {
@@ -59,7 +61,7 @@ class ArticlesTableViewController: UITableViewController,NaviBarMenu {
             let vc = segue.destinationViewController as! ArticleDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item
             var selectedData = articlesArray!.objectAtIndex(selectedIndex!) as! NSDictionary
-            vc.articleId = articlesArray!.objectAtIndex(selectedIndex!).objectForKey("articleId") as? Int
+            vc.dataDict = articlesArray!.objectAtIndex(selectedIndex!) as? NSDictionary
         }
     }
     

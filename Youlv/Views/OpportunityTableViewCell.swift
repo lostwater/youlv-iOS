@@ -56,7 +56,7 @@ class OpportunityTableViewCell: UITableViewCell {
         opportunityTagsList.setTags(NSArray(object: dataDict.objectForKey("order_keyWords")!) as [AnyObject])
 
         
-     
+        userCreditRate.rating = 5
         opportunityTagsList.display()
         frame.size = CGSize(width:frame.size.width, height:contentHeight)
 
