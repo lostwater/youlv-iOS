@@ -1,4 +1,4 @@
-	//
+				//
 //  LoginViewController.swift
 //  Youlv
 //
@@ -95,6 +95,7 @@ class LoginViewController: UIViewController {
             })
 
         }
+        self.goMainVC()
         
     }
     

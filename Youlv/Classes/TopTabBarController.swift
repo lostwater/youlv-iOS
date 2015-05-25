@@ -40,19 +40,20 @@ class TopTabBarController: UITabBarController {
     func setTabBar()
     {
         tabBar.backgroundImage = UIImage()
- 
+        tabBar.shadowImage = UIImage()
+        tabBar.barTintColor = UIColor.clearColor()
         //var bg = UIToolbar(frame: CGRectMake(tabBar.frame.origin.x, tabBar.frame.origin.y, tabBar.frame.size.width, 86))
         //bg.setBackgroundImage(UIImage(named: "bgtabbar86px"), forToolbarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         //self.view.addSubview(bg);
         
-        var bgframe = CGRectMake(-25, 0, tabBar.frame.size.width + 50, 35)
-        var bgImage = UIImage(named: "bgtabbar86px")
-        var bgIV = UIImageView(frame: bgframe)
-        bgIV.image = bgImage
-        bgIV.contentMode = UIViewContentMode.ScaleToFill
+        var bgframe = CGRectMake(-25, 0, tabBar.frame.size.width + 50, 44)
+        //var bgImage = UIImage(named: "bgtabbar86px")
+        //var bgIV = UIImageView(frame: bgframe)
+        //bgIV.image = bgImage
+        //bgIV.contentMode = UIViewContentMode.ScaleToFill
         var blurView = DRNRealTimeBlurView(frame: bgframe)
         view.addSubview(blurView)
-        tabBar.frame.origin = CGPointMake(25,0)
+        tabBar.frame.origin = CGPointMake(25,9)
         blurView.addSubview(tabBar)
         
         //view.addSubview(bgIV)

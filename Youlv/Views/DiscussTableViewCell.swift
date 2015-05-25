@@ -32,9 +32,11 @@ class DiscussTableViewCell: UITableViewCell
     @IBOutlet var topicTextHeightConstraint: NSLayoutConstraint!
     @IBOutlet var operatorTextHeightConstraint: NSLayoutConstraint?
     
+    var dateFormatter = NSDateFormatter()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        dateFormatter.dateFormat="yyyy.MM.dd HH:mm"
         // Initialization code
     }
     
@@ -56,7 +58,8 @@ class DiscussTableViewCell: UITableViewCell
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
         topicTitle?.text = dataDict.objectForKey("topic_title") as? String
         operatorName?.text = dataDict.objectForKey("operate__lawyerName") as? String
-        operatorTime.text = dataDict.objectForKey("operate_createDate") as? String
+        let time = NSDate(fromString:dataDict.objectForKey("operate_createDate") as! String)
+        operatorTime.text = dateFormatter.stringFromDate(time!)
         bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
 , forState: UIControlState.Normal)
         bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)

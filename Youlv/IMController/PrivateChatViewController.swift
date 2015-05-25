@@ -24,8 +24,7 @@ class PrivateChatViewController: ChatViewController {
         conversation = EaseMob.sharedInstance().chatManager.conversationForChatter!(userId,isGroup: false)
     }
     
-    override func UUInputFunctionView(funcView: UUInputFunctionView!, sendMessage messag: String!) {
-    }
+
     
 
 }

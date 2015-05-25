@@ -14,11 +14,19 @@ class MainTabBarController: UITabBarController {
     @IBOutlet var NewPubButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        addCenterButton();
-        setTabBarItems();
+         setTabBar()
+        //setTabBar()
+        
         // Do any additional setup after loading the view.
     }
 
+    override func awakeFromNib() {
+        setTabBarItems();
+       
+        addCenterButton();
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,10 +63,29 @@ class MainTabBarController: UITabBarController {
             vc.tabBarItem?.setTitlePositionAdjustment(UIOffset(horizontal: 0,vertical: 20))
         }
         viewControllers?[2].tabBarItem?.enabled = false;
+        
   
-
     }
     
+    func setTabBar()
+    {
+        tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = UIImage()
+        tabBar.barTintColor = UIColor.clearColor()
+        
+        var bgframe = CGRectMake(-25, self.view.frame.height-60, tabBar.frame.size.width + 50, 60)
+        var bgView = UIView(frame: bgframe)
+        bgView.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        //var blurView = DRNRealTimeBlurView(frame: bgframe)
+        //view.addSubview(blurView)
+        tabBar.frame.origin = CGPointMake(25,5)
+        bgView.addSubview(tabBar)
+        view.addSubview(bgView)
+        //blurView.addSubview(tabBar)
+        
+        //view.addSubview(bgIV)
+    }
+
     
     func addCenterButton()
     {
