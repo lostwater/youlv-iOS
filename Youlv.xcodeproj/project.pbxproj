@@ -152,6 +152,7 @@
 		0BCECFF51ADAC238006BE53A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BCECFF41ADAC238006BE53A /* Main.storyboard */; };
 		0BCECFF71ADAE23F006BE53A /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFF61ADAE23F006BE53A /* MessagesViewController.swift */; };
 		0BCECFFB1ADAE2D0006BE53A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */; };
+		0BE123C41B12224A00C9D321 /* GoViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE123C31B12224A00C9D321 /* GoViewControllers.swift */; };
 		0BEED3E11ADD68DE0093E06B /* TranslucentNavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */; };
 		0BEF298B1AFBB1F1001C7D43 /* DataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEF298A1AFBB1F1001C7D43 /* DataClient.swift */; };
 		0BEF298D1AFBC870001C7D43 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEF298C1AFBC870001C7D43 /* DataManager.swift */; };
@@ -355,6 +356,7 @@
 		0BCECFF41ADAC238006BE53A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0BCECFF61ADAE23F006BE53A /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		0BCECFFA1ADAE2D0006BE53A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewController.swift; path = Youlv/Controllers/User/UserViewController.swift; sourceTree = SOURCE_ROOT; };
+		0BE123C31B12224A00C9D321 /* GoViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoViewControllers.swift; sourceTree = "<group>"; };
 		0BEED3E01ADD68DE0093E06B /* TranslucentNavBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslucentNavBarController.swift; sourceTree = "<group>"; };
 		0BEF298A1AFBB1F1001C7D43 /* DataClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataClient.swift; sourceTree = "<group>"; };
 		0BEF298C1AFBC870001C7D43 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -774,6 +776,7 @@
 				0B6191F61AE924C700A8258A /* NewPub */,
 				0BCAEE231AD82ACB00421B7A /* MainTabBarController.swift */,
 				0BB5B5921B0D10E8008A2A85 /* AvatarImageView.swift */,
+				0BE123C31B12224A00C9D321 /* GoViewControllers.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -977,6 +980,7 @@
 			files = (
 				0B2A9CFF1B04DAA9007FF789 /* ResearchTableViewController.swift in Sources */,
 				0B2AF2C31AE6A2EB00F7A5F9 /* MyProfileTableViewController.swift in Sources */,
+				0BE123C41B12224A00C9D321 /* GoViewControllers.swift in Sources */,
 				0BA1EC311B023A8F004F3546 /* DiscussCommentTableViewCell.swift in Sources */,
 				0B2AF2C51AE6A32200F7A5F9 /* UserTableViewController.swift in Sources */,
 				0BB5B56C1B0CFF8E008A2A85 /* NSDate+Utils.m in Sources */,

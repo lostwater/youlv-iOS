@@ -43,6 +43,11 @@ class LoginViewController: UIViewController {
     @IBOutlet var userAccount: UITextField!
 
     
+    
+    
+    
+    
+    
     var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: ".com.Ramy.Youlv")
     var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: ".com.Ramy.Youlv")
 
@@ -81,14 +86,15 @@ class LoginViewController: UIViewController {
     {
         getMyId()
         easeMobLogin()
-        if data!.objectForKey("errcode") as! Int == 0
+        if data?.objectForKey("errcode") as? Int == 0
         {
             sessionId = data!.objectForKey("sessionId") as! String
             saveAccountAndPassword()
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.goMainVC()
+            })
+
         }
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.goMainVC()
-        })
         
     }
     
@@ -133,14 +139,7 @@ class LoginViewController: UIViewController {
         passwordKeyWrapper.setObject(passowrd.text, forKey: kSecAttrService)
 
     }
-    
-    func goMainVC()
-    {
-        var mainStoryBoard = UIStoryboard(name:"Main",bundle:nil)
-        var mainViewController = mainStoryBoard.instantiateInitialViewController() as! UIViewController
-        self.presentViewController(mainViewController,animated:true,completion:nil)
 
-    }
     
     func showEmptyAlert()
     {

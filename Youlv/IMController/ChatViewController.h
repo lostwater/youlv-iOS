@@ -21,5 +21,8 @@
 @property (nonatomic) BOOL isGroup;
 
 -(void)headImageDidClick:(UUMessageCell *)cell userId:(NSString *)userId;
+- (void)UUInputFunctionView:(UUInputFunctionView *)funcView sendMessage:(NSString *)messag;
+- (void)UUInputFunctionView:(UUInputFunctionView *)funcView sendPicture:(UIImage *)image;
+- (void)UUInputFunctionView:(UUInputFunctionView *)funcView sendVoice:(NSData *)voice time:(NSInteger)second;
 
 @end

@@ -17,11 +17,24 @@ class SignupViewController: UIViewController {
     @IBOutlet var signupButton: UIButton!
     
     @IBAction func signupButtonClicked(sender: AnyObject) {
+         signup()
     }
     
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var sendButtonClicked: UIButton!
     
+    @IBAction func mobileEnd(sender: AnyObject) {
+        mobile.resignFirstResponder()
+    }
+    @IBAction func codeEnd(sender: AnyObject) {
+        validCode.resignFirstResponder()
+    }
+    @IBAction func passwordEnd(sender: AnyObject) {
+        password.resignFirstResponder()
+    }
+    @IBAction func usernameEnd(sender: AnyObject) {
+        userName.resignFirstResponder()
+    }
     
     var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: ".com.Ramy.Youlv")
     var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: ".com.Ramy.Youlv")
@@ -64,8 +77,14 @@ class SignupViewController: UIViewController {
         
         if data!.objectForKey("errcode") as! Int == 0
         {
+            easeMobSignup()
             saveAccountAndPassword()
             login()
+        }
+        else
+        {
+            let av = UIAlertView(title:"注册失败", message: data!.objectForKey("errmessage") as? String, delegate: nil, cancelButtonTitle: "确定")
+            av.show()
         }
         
     }
@@ -82,12 +101,12 @@ class SignupViewController: UIViewController {
     {
         getMyId()
         easeMobLogin()
-        if data!.objectForKey("errcode") as! Int == 0
+        if data?.objectForKey("errcode") as? Int == 0
         {
             sessionId = data!.objectForKey("sessionId") as! String
         }
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.goMainVC()
+            self.goRecommendTopics()
         })
 
     }
@@ -152,13 +171,7 @@ class SignupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func goMainVC()
-    {
-        var mainStoryBoard = UIStoryboard(name:"Main",bundle:nil)
-        var mainViewController = mainStoryBoard.instantiateInitialViewController() as! UIViewController
-        self.presentViewController(mainViewController,animated:true,completion:nil)
-        
-    }
+ 
 
     /*
     // MARK: - Navigation

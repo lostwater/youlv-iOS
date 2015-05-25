@@ -14,7 +14,43 @@ class DataClient
     let serverUrl = "http://123.57.252.2/"
     var sessionId = "76153026bac352110d4cd6a4dbb295d6"
     
-   
+    
+    func getRecommendedTopics(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "topic/findHotTopics?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+        
+    }
+    
+    
+    func getRecommendedUsers(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    {
+        var path = serverUrl + "lawyer/findHotLawyers?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        var session = NSURLSession.sharedSession()
+        let url = NSURL(string: path)
+        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
+            completion(data, error)
+        })
+        
+        task.resume()
+        
+    }
+
+    
     
     func getCityList(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
     {
@@ -712,7 +748,7 @@ class DataClient
             let ds = NSString(data: data, encoding: NSUTF8StringEncoding)
             print(ds)
             let errorPointer = NSErrorPointer()
-            let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
+            let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
             completion(dict, error)
         }
         task.resume()
