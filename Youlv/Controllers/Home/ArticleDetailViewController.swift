@@ -36,8 +36,8 @@ class ArticleDetailViewController: UIViewController {
         {
             displayData(dataDict!)
         }
-        likedButton.setImage(UIImage(named:"buttonheartoutline"), forState: UIControlState.Normal)
-        likedButton.setImage(UIImage(named:"buttonheart"), forState: UIControlState.Selected)
+        likedButton.setImage(UIImage(named:"buttoninterestlargeoutline"), forState: UIControlState.Normal)
+        likedButton.setImage(UIImage(named:"buttoninterestlarge"), forState: UIControlState.Selected)
     }
     
     func displayData(dataDict : NSDictionary)

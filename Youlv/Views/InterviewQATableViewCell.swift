@@ -35,7 +35,7 @@ class InterviewQATableViewCell: UITableViewCell {
     
     func displayData(dataDict : NSDictionary)
     {
-        userImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("discuss_lawyerPhotoUrl") as! String)!)
+        userImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("discuss_lawyerPhotoUrl") as! String)!, placeholderImage: headImage)
         
         userName.text = dataDict.objectForKey("discuss_lawyerName") as? String
         likedButton.setTitle(String(dataDict.objectForKey("discuss_praiseCount") as! Int), forState: UIControlState.Selected)

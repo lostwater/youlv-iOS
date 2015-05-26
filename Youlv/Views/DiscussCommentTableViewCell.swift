@@ -35,13 +35,16 @@ class DiscussCommentTableViewCell: UITableViewCell {
     func displayData(dataDict : NSDictionary)
     {
         self.tag = dataDict.objectForKey("id") as! Int
-        UserImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String))
+        UserImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String), placeholderImage: UIImage(named:"pichead"))
+ 
         UserName.text = dataDict.objectForKey("lawyerName") as? String
         CommentContent.text = dataDict.objectForKey("content") as? String
-        CommentTime.text = dataDict.objectForKey("operate_createDate") as? String
-        LikedButton.setTitle(nil, forState: UIControlState.Normal)
+        CommentTime.text = dateToText(NSDate(fromString: dataDict.objectForKey("createDate") as! String))
+        LikedButton.setTitle(dataDict.objectForKey("praiseCount") as? String, forState: UIControlState.Normal)
         LikedButton.setTitle(dataDict.objectForKey("praiseCount") as? String, forState: UIControlState.Selected)
-    
+        LikedButton.setTitleColor(appBlueColor, forState: UIControlState.Selected)
+        LikedButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+
         let isMarked = (dataDict.objectForKey("isPraise") as! String).toInt()
         if Bool(isMarked!)
         {

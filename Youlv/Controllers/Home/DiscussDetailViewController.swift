@@ -81,14 +81,14 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     func displayData()
     {
-        UserImageView.sd_setImageWithURL(NSURL(string:self.dataDict!.objectForKey("topic_photoUrl") as! String))
-        DiscussTitle.text = self.dataDict!.objectForKey("topic_title") as? String
-        DiscussTime.text = self.dataDict!.objectForKey("operate_createDate") as? String
-        DiscussTextView.text = self.dataDict!.objectForKey("topic_content") as? String
+        UserImageView.sd_setImageWithURL(NSURL(string:dataDict!.objectForKey("topic_photoUrl") as! String),placeholderImage:headImage)
+        DiscussTitle.text = dataDict!.objectForKey("topic_title") as? String
+        DiscussTime.text = defaultDateFormatter.stringFromDate(NSDate(fromString: dataDict!.objectForKey("operate_createDate") as! String))
+        DiscussTextView.text = dataDict!.objectForKey("topic_content") as? String
         resizeTextView()
         getDiscussDetail()
         
-        let isMarked = self.dataDict!.objectForKey("topic_isPraise") as! Bool
+        let isMarked = dataDict!.objectForKey("topic_isPraise") as! Bool
         if isMarked
         {
             FellowButton.selected = true

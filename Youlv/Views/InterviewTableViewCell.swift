@@ -54,7 +54,7 @@ class InterviewTableViewCell: UITableViewCell {
         }
         //interviewImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("view_imgUrl") as! String)!)
         interviewName.text = dataDict.objectForKey("view_title") as? String
-        guestImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("view_lawyerPhotoUrl") as! String)!)
+        guestImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("view_lawyerPhotoUrl") as! String)!, placeholderImage: headImage)
         guestName.text = "做客嘉宾: " + (dataDict.objectForKey("view_lawyerName") as? String!)!
         interviewTextView.text = dataDict.objectForKey("view_content") as? String
         interviewTime.text = (dataDict.objectForKey("view_viewTime") as? String)! + " - " + (dataDict.objectForKey("view_endTime") as? String)!

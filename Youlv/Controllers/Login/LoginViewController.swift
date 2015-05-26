@@ -42,11 +42,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var passowrd: UITextField!
     @IBOutlet var userAccount: UITextField!
 
-    
-    
-    
-    
-    
+ 
     
     var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: ".com.Ramy.Youlv")
     var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: ".com.Ramy.Youlv")
@@ -95,7 +91,7 @@ class LoginViewController: UIViewController {
             })
 
         }
-        self.goMainVC()
+        //self.goMainVC()
         
     }
     

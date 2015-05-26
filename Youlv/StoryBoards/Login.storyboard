@@ -137,7 +137,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="signupButtonClicked:" destination="wm9-QA-MvQ" eventType="touchDragInside" id="cWC-lB-tjt"/>
+                                    <action selector="signupButtonClicked:" destination="wm9-QA-MvQ" eventType="touchUpInside" id="G13-c5-a0Z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -246,7 +246,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="BtnLoginClicked:" destination="PFB-GV-1QB" eventType="touchDragInside" id="3Il-DJ-USA"/>
+                                    <action selector="BtnLoginClicked:" destination="PFB-GV-1QB" eventType="touchUpInside" id="mY0-CU-2xg"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconlogo" translatesAutoresizingMaskIntoConstraints="NO" id="eKB-Fm-amR">
@@ -725,33 +725,33 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="dDs-vZ-sul"/>
-                                <exclude reference="mcZ-x8-Z8a"/>
-                                <exclude reference="iiY-GW-vuM"/>
                                 <exclude reference="Pw8-KJ-vGv"/>
-                                <exclude reference="RVw-LN-Lmn"/>
-                                <exclude reference="q6h-bn-WJE"/>
+                                <exclude reference="dDs-vZ-sul"/>
+                                <exclude reference="iiY-GW-vuM"/>
+                                <exclude reference="mcZ-x8-Z8a"/>
                                 <exclude reference="BQf-k9-z33"/>
                                 <exclude reference="LCU-eB-Way"/>
+                                <exclude reference="RVw-LN-Lmn"/>
+                                <exclude reference="q6h-bn-WJE"/>
                                 <exclude reference="Act-Xa-bYf"/>
-                                <exclude reference="E97-qD-yrQ"/>
                                 <exclude reference="1st-ch-llF"/>
-                                <exclude reference="qzD-mt-wHr"/>
+                                <exclude reference="E97-qD-yrQ"/>
                                 <exclude reference="XVn-T9-RMA"/>
+                                <exclude reference="qzD-mt-wHr"/>
                                 <exclude reference="COT-ou-Yhw"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="constraints">
                                 <include reference="dDs-vZ-sul"/>
-                                <include reference="RVw-LN-Lmn"/>
-                                <include reference="q6h-bn-WJE"/>
                                 <include reference="BQf-k9-z33"/>
                                 <include reference="LCU-eB-Way"/>
-                                <include reference="E97-qD-yrQ"/>
+                                <include reference="RVw-LN-Lmn"/>
+                                <include reference="q6h-bn-WJE"/>
                                 <include reference="1st-ch-llF"/>
-                                <include reference="qzD-mt-wHr"/>
+                                <include reference="E97-qD-yrQ"/>
                                 <include reference="XVn-T9-RMA"/>
+                                <include reference="qzD-mt-wHr"/>
                                 <include reference="COT-ou-Yhw"/>
                             </mask>
                         </variation>

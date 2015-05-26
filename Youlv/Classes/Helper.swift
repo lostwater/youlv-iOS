@@ -101,4 +101,31 @@ func collapseView(view: UIView)
 }
 
 
+func dateToText(date : NSDate) -> String
+{
+
+    let now = NSDate()
+    let difDays = now.day() - date.day()
+    let difHours = now.hour() - date.hour()
+    let difMinutes = now.minute() - date.minute()
+   
+    
+    let totalDifMins = (difDays * 24 * 60) + (difHours * 60) + difMinutes
+    let totalDifHours : Int = totalDifMins / 60
+    let totalDifDays : Int = totalDifHours / 24
+    
+    
+    if totalDifDays > 0
+    {
+        return defaultDateFormatter.stringFromDate(date)
+    }
+    if totalDifHours > 0
+
+    {
+        return String(totalDifHours) + "小时以前"
+    }
+    
+    return "1小时内";
+}
+
 

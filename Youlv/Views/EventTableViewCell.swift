@@ -28,7 +28,8 @@ class EventTableViewCell: UITableViewCell {
     {
         eventImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String))
         eventName.text = dataDict.objectForKey("title") as? String
-        eventValid.text = dataDict.objectForKey("activeTime") as? String
+        eventValid.text = "截止到 " + defaultDateFormatter.stringFromDate(NSDate(fromString: dataDict.objectForKey("activeTime") as! String))
+
         eventLikedButton.setTitle(String(dataDict.objectForKey("praiseCount") as! Int), forState: UIControlState.Normal)
         eventLikedButton.setTitle(String(dataDict.objectForKey("praiseCount") as! Int), forState: UIControlState.Selected)
         

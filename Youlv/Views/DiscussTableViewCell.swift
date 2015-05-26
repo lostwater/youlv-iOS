@@ -18,8 +18,8 @@ class DiscussTableViewCell: UITableViewCell
 {
     var discussOperateType : DiscussOperateType?
 
-    @IBOutlet var topicUserImageViewer: UIImageView?
-    @IBOutlet var operatorImageView: UIImageView?
+    @IBOutlet var topicUserImageViewer: AvatarImageView?
+    @IBOutlet var operatorImageView: AvatarImageView?
     @IBOutlet var topicUserName: UILabel?
     @IBOutlet var operatorName: UILabel?
     @IBOutlet var operatorTime: UILabel!
@@ -53,8 +53,11 @@ class DiscussTableViewCell: UITableViewCell
         }
         let topic_photoUrl = dataDict.objectForKey("topic_photoUrl") as! String
         let operate_photoUrl = dataDict.objectForKey("operate_photoUrl") as! String
-        topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl))
-        operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl))
+        topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl), placeholderImage: headImage)
+        operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl), placeholderImage: headImage)
+        topicUserImageViewer?.userId = dataDict.objectForKey("topic_lawyerId") as! Int
+        let opId = dataDict.objectForKey("operate_lawyerId") as! Int
+        operatorImageView?.userId = opId
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
         topicTitle?.text = dataDict.objectForKey("topic_title") as? String
         operatorName?.text = dataDict.objectForKey("operate__lawyerName") as? String

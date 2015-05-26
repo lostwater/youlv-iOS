@@ -73,14 +73,16 @@ class MainTabBarController: UITabBarController {
         tabBar.shadowImage = UIImage()
         tabBar.barTintColor = UIColor.clearColor()
         
-        var bgframe = CGRectMake(-25, self.view.frame.height-60, tabBar.frame.size.width + 50, 60)
+        var bgframe = CGRectMake(0, -10, tabBar.frame.size.width, 60)
         var bgView = UIView(frame: bgframe)
         bgView.backgroundColor = UIColor.groupTableViewBackgroundColor()
         //var blurView = DRNRealTimeBlurView(frame: bgframe)
         //view.addSubview(blurView)
-        tabBar.frame.origin = CGPointMake(25,5)
-        bgView.addSubview(tabBar)
-        view.addSubview(bgView)
+        //tabBar.frame.origin = CGPointMake(25,5)
+        tabBar.addSubview(bgView)
+        
+        //bgView.addSubview(tabBar)
+        //view.addSubview(bgView)
         //blurView.addSubview(tabBar)
         
         //view.addSubview(bgIV)

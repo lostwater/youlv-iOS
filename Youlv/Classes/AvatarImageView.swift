@@ -20,10 +20,12 @@ class AvatarImageView: UIImageView {
     
     func tapped()
     {
-        if viewController() != nil
+        let sourceVC = viewController()
+        if sourceVC != nil
         {
-            let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("userVC") as! UIViewController
-            viewController()?.navigationController?.pushViewController(vc, animated:true)
+            let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("userVC") as! UserViewController
+            vc.userId = userId
+            sourceVC!.navigationController?.pushViewController(vc, animated:true)
         }
     }
     

@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 Ramy. All rights reserved.
 //
 
+import UIKit
+
 let appBlueColor = UIColorFromRGB(0x00B1F1)
 var appNaviMenuView : UIView?
 var isCancellingNew = false
-
+var headImage = UIImage(named:"pichead")
 func UIColorFromRGB(rgbValue: UInt) -> UIColor {
     return UIColor(
         red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
@@ -21,8 +23,8 @@ func UIColorFromRGB(rgbValue: UInt) -> UIColor {
 
 var sessionId = "76153026bac352110d4cd6a4dbb295d6"
 var myLawyerId = 0
+var defaultDateFormatter = NSDateFormatter()
 
-import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         //DataManager().getOrderList(1, pageSize: 10)
+        defaultDateFormatter.dateFormat="yyyy.MM.dd HH:mm"
         setAppearance()
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         

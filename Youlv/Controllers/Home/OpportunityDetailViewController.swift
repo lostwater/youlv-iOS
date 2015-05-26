@@ -119,7 +119,7 @@ class OpportunityDetailViewController: UIViewController {
     func displayData(dataDict : NSDictionary)
     {
         publisherCreditView.rating = 5
-        publisherImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("lawyer_photoUrl") as! String))
+        publisherImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("lawyer_photoUrl") as! String), placeholderImage: headImage)
         publisherFansCount.text = String(dataDict.objectForKey("fansCount") as! Int)
         publisherPublicationsCount.text = String(dataDict.objectForKey("issueCount") as! Int)
         publisherInterestsCount.text = String(dataDict.objectForKey("interestCountMy") as! Int)
@@ -135,7 +135,8 @@ class OpportunityDetailViewController: UIViewController {
             opportunityTitle.text = dataDict!.objectForKey("order_title") as?	 String
             opportunityTextView.text = dataDict!.objectForKey("order_content") as! String
             opportunityCityButton.setTitle(dataDict!.objectForKey("order_cityName") as? String, forState: UIControlState.Normal)
-            opportunityValidUntil.text = dataDict!.objectForKey("order_deadDate") as? String
+            opportunityValidUntil.text = "截止到: " + defaultDateFormatter.stringFromDate(NSDate(fromString: dataDict!.objectForKey("order_deadDate") as! String))
+
             opportunityPayment.text = "协作佣金: " + String(dataDict!.objectForKey("order_price") as! Int)
              opportunityTags.setTags(NSArray(object: dataDict!.objectForKey("order_keyWords")!) as [AnyObject])
             opportunityTags.display()

@@ -90,7 +90,7 @@ class DataClient
     
     func getOrderDetail(orderId : Int, completion: (NSData?, NSError?)->())
     {
-        var path = serverUrl + "topic/getTopicDetail?"
+        var path = serverUrl + "order/orderDetail?"
         path = path + "&sessionId=" + String(sessionId)
         path = path + "&orderId=" + String(orderId)
         
@@ -687,6 +687,17 @@ class DataClient
         })
         
     }
+    
+    func postMarkEvent(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "active/activeStore"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+        
+    }
+    
+
 
    
 
@@ -698,10 +709,16 @@ class DataClient
         })
         
     }
-
-   
     
-    func serialzeJsonRequest(pathString : String, parameters : NSDictionary) -> NSMutableURLRequest
+    func serializeHTTPRequest(pathString : String, parameters : NSDictionary) -> NSMutableURLRequest
+    {
+        let errorPointer = NSErrorPointer()
+        let manager = AFHTTPRequestOperationManager()
+        return  AFHTTPRequestSerializer().requestWithMethod("POST", URLString: pathString, parameters: parameters, error: errorPointer)
+    }
+    
+    
+    func serializeJsonRequest(pathString : String, parameters : NSDictionary) -> NSMutableURLRequest
     {
         let errorPointer = NSErrorPointer()
         let manager = AFHTTPRequestOperationManager()
@@ -742,7 +759,8 @@ class DataClient
     func nativePost(pathString : String, parameters : NSDictionary, completion: (NSDictionary?, NSError?)->())
     {
         var session = NSURLSession.sharedSession()
-        let request = serialzeJsonRequest(pathString,parameters: parameters)
+        let request = serializeHTTPRequest(pathString,parameters: parameters)
+    
         print(NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding))
         let task = session.dataTaskWithRequest(request) { ( data, responese, error ) -> Void in
             let ds = NSString(data: data, encoding: NSUTF8StringEncoding)
