@@ -53,10 +53,12 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
         
             displayData()
         }
-        getDiscussDetail()
-
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        getDiscussDetail()
+    }
     
    
     func markTopic()

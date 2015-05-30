@@ -14,12 +14,16 @@ class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, U
     @IBOutlet weak var selectAllText: UIBarButtonItem!
     @IBOutlet weak var selectAllIcon: UIBarButtonItem!
     @IBAction func selectAllClicked(sender: AnyObject) {
+        tableView.selectAll(self)
     }
     @IBOutlet weak var tableView: UITableView!
     
     var currentPage = 1
     var topicsArray : NSArray?
     let client = DataClient()
+    
+    var postFinished = false
+    
     
     override func viewDidLoad() {
         getRecommendedTopics(currentPage, pageSize: 10)
@@ -70,7 +74,7 @@ class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, U
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "skipToUsers"
+        if segue.identifier == "nextToUsers"
         {
 
         }
@@ -79,7 +83,15 @@ class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, U
             
         }
 
-        
+    }
+    
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if identifier == "nextToUsers" && !postFinished
+        {
+            return false
+        }
+        return true
     }
     
     

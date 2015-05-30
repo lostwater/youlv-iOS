@@ -17,7 +17,7 @@
 @interface ChatViewController : UIViewController
 @property (nonatomic) NSString* chattitle;
 @property (nonatomic) int lawyerId;
-@property (nonatomic) int groupId;
+//@property (nonatomic) int groupId;
 @property (nonatomic) BOOL isGroup;
 
 -(void)headImageDidClick:(UUMessageCell *)cell userId:(NSString *)userId;

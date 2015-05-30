@@ -47,7 +47,7 @@ class ArticleTableViewCell: UITableViewCell {
         articleTitle.text = dataDict.objectForKey("title") as? String
         articleTextView.text =  dataDict.objectForKey("acro") as? String
         userName.text = dataDict.objectForKey("lawyerName") as? String
-        articleTime.text = dataDict.objectForKey("createDate") as? String
+        articleTime.text =  defaultDateFormatter.stringFromDate(NSDate(fromString: (dataDict.objectForKey("createDate") as! String)))
         commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Normal)
         commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Selected)
         likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Normal)

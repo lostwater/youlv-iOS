@@ -11,6 +11,21 @@ import UIKit
 class StartGroupChat1ViewController : UIViewController ,FSMediaPickerDelegate {
 
     @IBOutlet weak var groupPicButton: UIButton!
+    @IBOutlet weak var groupName: UITextField!
+    @IBOutlet weak var groupIntro: UITextField!
+    @IBAction func nextClicked(sender: AnyObject) {
+    }
+
+    @IBAction func groupNameEnd(sender: AnyObject) {
+        groupName.resignFirstResponder()
+        groupIntro.becomeFirstResponder()
+    }
+    
+    @IBAction func groupIntroEnd(sender: AnyObject) {
+        groupIntro.resignFirstResponder()
+    }
+    
+    
     var groupPic:UIImage?
     
     override func viewDidLoad() {
@@ -42,6 +57,30 @@ class StartGroupChat1ViewController : UIViewController ,FSMediaPickerDelegate {
     
     func mediaPickerDidCancel(mediaPicker: FSMediaPicker!) {
         
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if identifier == "goGroupOptions"
+        {
+            let gn : String = groupName.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            if gn == ""
+            {
+                let av = UIAlertView(title: nil, message: "群名不能为空", delegate: nil, cancelButtonTitle: "确认")
+                av.show()
+                return false
+            }
+        }
+        return true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goGroupOptions"
+        {
+            let vc = segue.destinationViewController as! StartGroupChat2ViewController
+            vc.groupName = groupName.text
+            vc.groupDesc = groupIntro.text
+            vc.groupPic = groupPic
+        }
     }
     
 

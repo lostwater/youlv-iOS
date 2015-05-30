@@ -24,6 +24,6 @@ func goRecommendTopics()
 {
     var sb = UIStoryboard(name:"Login",bundle:nil)
     var vc = sb.instantiateViewControllerWithIdentifier("RecommendedTopicsVC") as! UIViewController
-    self.presentViewController(vc,animated:true,completion:nil)
+    self.navigationController?.pushViewController(vc,animated:true)
 }
 }

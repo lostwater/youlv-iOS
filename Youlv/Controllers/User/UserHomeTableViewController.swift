@@ -55,7 +55,7 @@ class UserHomeTableViewController: UITableViewController {
     
     func displayData(dataDict : NSDictionary)
     {
-        userImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("lawyer_photoUrl") as! String))
+        userImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("lawyer_photoUrl") as! String),placeholderImage:headImage)
         userIntroTextView.text = dataDict.objectForKey("lawyer_introduction") as? String
         userIntroTextView.textColor = UIColor.whiteColor()
         userName.text =  dataDict.objectForKey("lawyer_introduction") as? String

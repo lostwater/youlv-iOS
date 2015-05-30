@@ -10,6 +10,8 @@
 	<string>Youlv</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>646fb212-6d06-11e3-a2a4-57cd746879f3++1155</key>
+		<string>svn://192.168.0.179/BloodSugar/BloodSugar_iOS_V1/Views/MJRefresh/MJRefresh.bundle</string>
 		<key>7CED0927ABAB776EFD538273A0E9A6C6C4551619</key>
 		<string>git.ramy-inc.com:ios-team/Youlv-IOS.git</string>
 	</dict>
@@ -17,8 +19,15 @@
 	<string>Youlv.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>646fb212-6d06-11e3-a2a4-57cd746879f3++1155</key>
+		<string>../../Youlv/Classes/MJRefresh/MJRefresh.bundle/</string>
 		<key>7CED0927ABAB776EFD538273A0E9A6C6C4551619</key>
 		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>646fb212-6d06-11e3-a2a4-57cd746879f3++1155</key>
+		<string>svn://192.168.0.179/BloodSugar</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>git.ramy-inc.com:ios-team/Youlv-IOS.git</string>
@@ -28,6 +37,14 @@
 	<string>7CED0927ABAB776EFD538273A0E9A6C6C4551619</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>646fb212-6d06-11e3-a2a4-57cd746879f3++1155</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MJRefresh.bundle</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

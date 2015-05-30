@@ -22,8 +22,8 @@ class SettingsTableViewController: UITableViewController {
         
     }
     
-    var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: ".com.Ramy.Youlv")
-    var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: ".com.Ramy.Youlv")
+    var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: serviceName)
+    var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: serviceName)
     
     override func viewDidLoad() {
         super.viewDidLoad()

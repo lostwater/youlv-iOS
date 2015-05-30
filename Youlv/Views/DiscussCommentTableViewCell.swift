@@ -59,8 +59,7 @@ class DiscussCommentTableViewCell: UITableViewCell {
     
     func likeReply()
     {
-        var parameters : NSDictionary = ["replyId":self.tag,"sessionId":sessionId]
-        DataClient().postLikeTopicReply(parameters) { (data, error) -> () in
+        DataClient().postLikeTopicReply(self.tag) { (data, error) -> () in
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.likeReplyCompleted(data,error: error)
                 

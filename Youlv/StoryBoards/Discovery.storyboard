@@ -770,7 +770,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="bsK-Pi-43T" kind="show" id="hsq-jx-YSs"/>
+                                                    <segue destination="bsK-Pi-43T" kind="show" identifier="goInterviewAsk" id="hsq-jx-YSs"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -812,7 +812,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cL6-eD-ph3" id="6oJ-eC-26C">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Usy-Zx-YXZ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Usy-Zx-YXZ" customClass="AvatarImageView" customModule="Youlv" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="16" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="Lls-M5-pTl">
@@ -845,6 +845,9 @@
                                                     <variation key="heightClass=regular">
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="likedButtonClicked:" destination="cL6-eD-ph3" eventType="touchUpInside" id="xnu-K4-mka"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3z-JL-YmG">
                                                     <rect key="frame" x="130" y="31" width="31" height="15"/>
@@ -1046,7 +1049,7 @@
         <!--InterviewAskVC-->
         <scene sceneID="seB-Zh-Za5">
             <objects>
-                <viewController title="InterviewAskVC" id="bsK-Pi-43T" sceneMemberID="viewController">
+                <viewController title="InterviewAskVC" id="bsK-Pi-43T" customClass="InterviewAskViewController" customModule="Youlv" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OK4-6u-fXi"/>
                         <viewControllerLayoutGuide type="bottom" id="wtv-EX-lRc"/>
@@ -1078,10 +1081,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="我要提问" id="Idw-Oq-Ffm">
-                        <barButtonItem key="rightBarButtonItem" title="发送" id="J7T-Za-bLG"/>
+                        <barButtonItem key="rightBarButtonItem" title="发送" id="J7T-Za-bLG">
+                            <connections>
+                                <segue destination="Bmq-EU-T5z" kind="unwind" identifier="unwindToInterviewDetail" unwindAction="unwindToInterviewDetail:" id="6go-fJ-A0M"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="text" destination="Amu-o2-y3G" id="Bgt-l7-SF0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Qj-IM-nCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Bmq-EU-T5z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="290" y="2505"/>
         </scene>
@@ -2027,7 +2038,7 @@
         <image name="linecommentdotted" width="320" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="woE-hP-Teg"/>
         <segue reference="Iob-x3-5uL"/>
+        <segue reference="woE-hP-Teg"/>
     </inferredMetricsTieBreakers>
 </document>

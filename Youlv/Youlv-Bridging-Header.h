@@ -31,4 +31,9 @@
 #import "UIImageView+AFNetworking.h"
 #import "UIButton+AFNetworking.h"
 #import "UUInputFunctionView.h"
+#import "SFHFKeychainUtils.h"
+
+#import "ChatSendHelper.h"
+#import "ConvertToCommonEmoticonsHelper.h"
+#import "EMCommandMessageBody.h"
 //

@@ -43,9 +43,10 @@ class ArticleDetailViewController: UIViewController {
     func displayData(dataDict : NSDictionary)
     {
         articleId = (dataDict.objectForKey("articleId") as? Int)!
-        
+        userImageView.image = headImage
         userName.text = dataDict.objectForKey("lawyerName") as? String
-        articleTime.text = dataDict.objectForKey("createDate") as? String
+        
+        articleTime.text = defaultDateFormatter.stringFromDate(NSDate(fromString: (dataDict.objectForKey("createDate") as! String)))
         articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("url") as! String))
         articleTitle.text = dataDict.objectForKey("title") as? String
         articleTextView.text =  dataDict.objectForKey("acro") as? String
@@ -80,10 +81,11 @@ class ArticleDetailViewController: UIViewController {
     {
         if data?.objectForKey("errcode") as? Int == 0
         {
-            likedButton.selected = true
-        }
-        
-        
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.likedButton.selected = true
+            })
+          
+        }       
     }
     
     

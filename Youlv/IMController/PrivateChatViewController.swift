@@ -10,6 +10,7 @@
 
 class PrivateChatViewController: ChatViewController {
     var userId = ""
+    var userName = ""
     override func headImageDidClick(cell: UUMessageCell!, userId: String!)
     {
             let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("userVC") as! UserViewController
@@ -24,6 +25,22 @@ class PrivateChatViewController: ChatViewController {
         conversation = EaseMob.sharedInstance().chatManager.conversationForChatter!(userId,isGroup: false)
     }
     
+    func emSendText(message : String)
+    {
+       let emmessage = ChatSendHelper.sendTextMessageWithString(message, toUsername: userName, isChatGroup: false, requireEncryption: false, ext: nil)
+
+    }
+    
+    func emSendImage(image : UIImage)
+    {
+        let emmessage = ChatSendHelper.sendImageMessageWithImage(image, toUsername: userName, isChatGroup: false, requireEncryption: false, ext: nil)
+    }
+    
+    func emSendVoice(voice : EMChatVoice)
+    {
+         let emmessage = ChatSendHelper.sendVoice(voice, toUsername: userName, isChatGroup: false, requireEncryption: false, ext: nil)
+
+    }
 
     
 

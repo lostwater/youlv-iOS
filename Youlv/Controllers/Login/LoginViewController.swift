@@ -42,19 +42,19 @@ class LoginViewController: UIViewController {
     @IBOutlet var passowrd: UITextField!
     @IBOutlet var userAccount: UITextField!
 
- 
+    var storedPassword : String?
+    var storedAccount : String?
     
-    var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: ".com.Ramy.Youlv")
-    var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: ".com.Ramy.Youlv")
+    var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: serviceName)
+    var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: serviceName)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.backItem?.title = "";
         hideWeixinWeibo()
-        var storedPassword = passwordKeyWrapper.objectForKey(kSecAttrService) as? String
-        var storedAccount = accountKeyWrapper.objectForKey(kSecAttrService) as? String
-        //storedPassword = "123456"
-        //storedAccount = "18518757071"
+        storedPassword = passwordKeyWrapper.objectForKey(kSecAttrService) as? String
+        storedAccount = accountKeyWrapper.objectForKey(kSecAttrService) as? String
+
         userAccount.text = storedAccount
         passowrd.text = storedPassword
         if userAccount.text == nil || passowrd.text == nil ||  userAccount.text=="" ||   passowrd.text == ""{
@@ -90,6 +90,12 @@ class LoginViewController: UIViewController {
                 self.goMainVC()
             })
 
+        }
+        else
+        {
+            let message = data?.objectForKey("errcode") as? String
+            let av = UIAlertView( title: "登录失败", message:message, delegate:nil, cancelButtonTitle:"确认")
+            av.show()
         }
         //self.goMainVC()
         
@@ -130,8 +136,23 @@ class LoginViewController: UIViewController {
         myLawyerId = dictData.objectForKey("lawyer_id") as! Int
     }
     
+    
+    func loadAccountAndPassword()
+    {
+        var error = NSErrorPointer()
+        if (SFHFKeychainUtils.getPasswordForUsername("", andServiceName: serviceName, error: error) != nil)
+        {
+            NSLog("密码读取成功")
+        }
+    }
+    
     func saveAccountAndPassword()
     {
+        var error = NSErrorPointer()
+        if SFHFKeychainUtils.storeUsername(userAccount.text, andPassword: passowrd.text, forServiceName: serviceName, updateExisting: true, error: error)
+        {
+            NSLog("密码保存成功")
+        }
         accountKeyWrapper.setObject(userAccount.text, forKey: kSecAttrService)
         passwordKeyWrapper.setObject(passowrd.text, forKey: kSecAttrService)
 

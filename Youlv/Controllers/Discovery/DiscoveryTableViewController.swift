@@ -25,22 +25,15 @@ class DiscoveryTableViewController: UITableViewController {
     let client = DataClient()
     func getTopics(currentPage: Int, pageSize:Int)
     {
-        client.getHotTopicGroup(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getTopicsCompleted(data, error: error)
+        client.getHotTopicGroup(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getTopicsCompleted(dict, error: error)
         })
     }
     
-    func getTopicsCompleted(data:NSData?,error:NSError?)
+    func getTopicsCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
         
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         topicsArray = (dictData.objectForKey("hotTopicGroups") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.displayTopics()

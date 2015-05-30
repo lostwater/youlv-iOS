@@ -138,6 +138,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signupButtonClicked:" destination="wm9-QA-MvQ" eventType="touchUpInside" id="G13-c5-a0Z"/>
+                                    <segue destination="n1s-Aj-FxQ" kind="show" identifier="goRecommendedTopics" id="9Gi-ar-0H3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -255,13 +256,13 @@
                                     <rect key="frame" x="345" y="64" width="110" height="110"/>
                                 </variation>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-CH-eRa">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" image="bgloginbar" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-CH-eRa">
                                 <rect key="frame" x="170" y="208" width="260" height="45"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconusername" translatesAutoresizingMaskIntoConstraints="NO" id="ue5-bq-fEF">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="iconusername" translatesAutoresizingMaskIntoConstraints="NO" id="ue5-bq-fEF">
                                 <rect key="frame" x="188" y="216" width="30" height="30"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KEa-ak-IgA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KEa-ak-IgA">
                                 <rect key="frame" x="226" y="216" width="186" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="186" id="A5S-y7-HWS"/>
@@ -414,8 +415,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lnK-9Z-YxI">
-                                <rect key="frame" x="0.0" y="111" width="600" height="445"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lnK-9Z-YxI">
+                                <rect key="frame" x="0.0" y="108" width="600" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TopicCell" editingAccessoryType="checkmark" textLabel="L9o-Jb-MxK" detailTextLabel="nsw-U4-klT" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="BJ1-Nf-2F4">
@@ -478,8 +479,8 @@
                                     <segue destination="HgG-QZ-jae" kind="show" identifier="nextToUsers" id="afi-pU-pRO"/>
                                 </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDu-Ee-wzl">
-                                <rect key="frame" x="0.0" y="67" width="600" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDu-Ee-wzl">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <barButtonItem title="全部关注" id="7Sm-Lk-6Xu">
@@ -574,9 +575,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="推荐关注话题" id="ugc-9j-vbT"/>
                     <connections>
-                        <outlet property="BottomBarImageView" destination="Eh0-hM-Rtq" id="ZJQ-rI-lFX"/>
-                        <outlet property="BtnNext" destination="X04-S2-IqC" id="3NQ-iV-qKg"/>
-                        <outlet property="BtnSkip" destination="EAq-AF-VSo" id="bsN-Nh-HMi"/>
                         <outlet property="selectAllIcon" destination="cvu-nh-DZW" id="lML-Bc-Md8"/>
                         <outlet property="selectAllText" destination="7Sm-Lk-6Xu" id="QsH-2b-S2V"/>
                         <outlet property="tableView" destination="lnK-9Z-YxI" id="fb8-dS-R3p"/>
@@ -659,7 +657,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButtonClicked:" destination="HgG-QZ-jae" eventType="touchDragInside" id="EdF-au-xfk"/>
+                                    <action selector="nextButtonClicked:" destination="HgG-QZ-jae" eventType="touchUpInside" id="0TE-fm-JgR"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTx-ta-TC7">
@@ -758,9 +756,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="推荐关注话题" id="YJC-0h-0LR"/>
                     <connections>
-                        <outlet property="BottomBarImageView" destination="HXY-Bt-Zam" id="4gH-aO-c2r"/>
-                        <outlet property="BtnNext" destination="iI0-OX-aqD" id="k9g-RP-yaZ"/>
-                        <outlet property="BtnSkip" destination="xJ1-Ok-ivt" id="9P1-0r-cZ4"/>
                         <outlet property="selectAllIcon" destination="diU-0x-rKi" id="czh-hv-FHD"/>
                         <outlet property="selectAllText" destination="tzc-9y-2eV" id="oIS-Yq-zdi"/>
                         <outlet property="tableView" destination="8yS-Me-3sj" id="YsE-r7-7ur"/>

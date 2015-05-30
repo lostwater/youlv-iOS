@@ -57,9 +57,12 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
         print(errorPointer.debugDescription)
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
+        if dict == nil
+        {
+            return
+        }
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         topicsArray = (dictData.objectForKey("topicList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.displayData(dictData)
@@ -89,6 +92,12 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         fullHeader()
         
+    }
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        hidesBottomBarWhenPushed = true
     }
     
     

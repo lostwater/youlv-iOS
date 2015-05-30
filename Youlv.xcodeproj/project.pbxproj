@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B001B7C1B1A253A00689F80 /* JoinGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B001B7B1B1A253A00689F80 /* JoinGroupTableViewController.swift */; };
+		0B001B7F1B1A269300689F80 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B001B7E1B1A269300689F80 /* SFHFKeychainUtils.m */; };
 		0B10C9E71ADAEE7C00695853 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9E61ADAEE7C00695853 /* Home.storyboard */; };
 		0B10C9EA1ADB054D00695853 /* NewPublish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9E91ADB054D00695853 /* NewPublish.storyboard */; };
 		0B10C9EC1ADB06E600695853 /* Discovery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9EB1ADB06E600695853 /* Discovery.storyboard */; };
@@ -56,6 +58,13 @@
 		0B61920C1AE94AE300A8258A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B61920B1AE94AE300A8258A /* Comment.swift */; };
 		0B6251671B0DF9D20028FD77 /* DRNRealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6251641B0DF9D20028FD77 /* DRNRealTimeBlurView.m */; };
 		0B6251681B0DF9D20028FD77 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6251661B0DF9D20028FD77 /* UIImage+BoxBlur.m */; };
+		0B6FA2281B162B9B001414B0 /* ChatSendHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FA2271B162B9B001414B0 /* ChatSendHelper.m */; };
+		0B6FA22B1B162C81001414B0 /* ConvertToCommonEmoticonsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FA22A1B162C81001414B0 /* ConvertToCommonEmoticonsHelper.m */; };
+		0B6FA2311B162C8A001414B0 /* Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FA22E1B162C8A001414B0 /* Emoji.m */; };
+		0B6FA2321B162C8A001414B0 /* EmojiEmoticons.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FA2301B162C8A001414B0 /* EmojiEmoticons.m */; };
+		0B6FA2341B1633A9001414B0 /* GroupChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FA2331B1633A9001414B0 /* GroupChatViewController.swift */; };
+		0B6FA2361B164145001414B0 /* StartGroupChat2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FA2351B164145001414B0 /* StartGroupChat2ViewController.swift */; };
+		0B6FA2381B177336001414B0 /* InterviewAskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FA2371B177336001414B0 /* InterviewAskViewController.swift */; };
 		0B71BD4B1B09022300257C17 /* EaseMobHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B71BD4A1B09022300257C17 /* EaseMobHelper.swift */; };
 		0B71BD4E1B0906C700257C17 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B71BD4D1B0906C700257C17 /* KeychainItemWrapper.m */; };
 		0B786E581B0B8E36008B80BC /* MyEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B786E571B0B8E36008B80BC /* MyEventsTableViewController.swift */; };
@@ -65,7 +74,6 @@
 		0B8BB8E21B0614290034B006 /* InterviewQATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8BB8E11B0614280034B006 /* InterviewQATableViewCell.swift */; };
 		0B8BB8E41B06697A0034B006 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8BB8E31B06697A0034B006 /* JobTableViewCell.swift */; };
 		0B8BB8E61B0777380034B006 /* ResearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8BB8E51B0777380034B006 /* ResearchTableViewCell.swift */; };
-		0B93C9FB1ADC0936003117BE /* LoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */; };
 		0B93C9FD1ADC26D7003117BE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */; };
 		0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */; };
 		0BA1EC311B023A8F004F3546 /* DiscussCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1EC301B023A8F004F3546 /* DiscussCommentTableViewCell.swift */; };
@@ -175,6 +183,9 @@
 /* Begin PBXFileReference section */
 		00DF49B96C5C3ABABDB9AD47 /* libPods-YoulvTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YoulvTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02DEE20A9728714FF4EF1428 /* Pods-YoulvTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoulvTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YoulvTests/Pods-YoulvTests.release.xcconfig"; sourceTree = "<group>"; };
+		0B001B7B1B1A253A00689F80 /* JoinGroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupTableViewController.swift; sourceTree = "<group>"; };
+		0B001B7D1B1A269300689F80 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		0B001B7E1B1A269300689F80 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		0B10C9E61ADAEE7C00695853 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		0B10C9E91ADB054D00695853 /* NewPublish.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewPublish.storyboard; sourceTree = "<group>"; };
 		0B10C9EB1ADB06E600695853 /* Discovery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discovery.storyboard; sourceTree = "<group>"; };
@@ -230,6 +241,17 @@
 		0B6251641B0DF9D20028FD77 /* DRNRealTimeBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRNRealTimeBlurView.m; sourceTree = "<group>"; };
 		0B6251651B0DF9D20028FD77 /* UIImage+BoxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxBlur.h"; sourceTree = "<group>"; };
 		0B6251661B0DF9D20028FD77 /* UIImage+BoxBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxBlur.m"; sourceTree = "<group>"; };
+		0B6FA2261B162B9B001414B0 /* ChatSendHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSendHelper.h; sourceTree = "<group>"; };
+		0B6FA2271B162B9B001414B0 /* ChatSendHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSendHelper.m; sourceTree = "<group>"; };
+		0B6FA2291B162C81001414B0 /* ConvertToCommonEmoticonsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConvertToCommonEmoticonsHelper.h; path = Youlv/IMController/ConvertToCommonEmoticonsHelper.h; sourceTree = SOURCE_ROOT; };
+		0B6FA22A1B162C81001414B0 /* ConvertToCommonEmoticonsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConvertToCommonEmoticonsHelper.m; path = Youlv/IMController/ConvertToCommonEmoticonsHelper.m; sourceTree = SOURCE_ROOT; };
+		0B6FA22D1B162C8A001414B0 /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
+		0B6FA22E1B162C8A001414B0 /* Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoji.m; sourceTree = "<group>"; };
+		0B6FA22F1B162C8A001414B0 /* EmojiEmoticons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiEmoticons.h; sourceTree = "<group>"; };
+		0B6FA2301B162C8A001414B0 /* EmojiEmoticons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiEmoticons.m; sourceTree = "<group>"; };
+		0B6FA2331B1633A9001414B0 /* GroupChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChatViewController.swift; sourceTree = "<group>"; };
+		0B6FA2351B164145001414B0 /* StartGroupChat2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGroupChat2ViewController.swift; sourceTree = "<group>"; };
+		0B6FA2371B177336001414B0 /* InterviewAskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterviewAskViewController.swift; path = Youlv/Controllers/Discovery/InterviewAskViewController.swift; sourceTree = SOURCE_ROOT; };
 		0B71BD4A1B09022300257C17 /* EaseMobHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseMobHelper.swift; sourceTree = "<group>"; };
 		0B71BD4C1B0906C700257C17 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		0B71BD4D1B0906C700257C17 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
@@ -240,7 +262,6 @@
 		0B8BB8E11B0614280034B006 /* InterviewQATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterviewQATableViewCell.swift; sourceTree = "<group>"; };
 		0B8BB8E31B06697A0034B006 /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		0B8BB8E51B0777380034B006 /* ResearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchTableViewCell.swift; sourceTree = "<group>"; };
-		0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginNavigationController.swift; path = Youlv/Controllers/Login/LoginNavigationController.swift; sourceTree = SOURCE_ROOT; };
 		0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommenedViewController.swift; sourceTree = "<group>"; };
 		0BA1EC301B023A8F004F3546 /* DiscussCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussCommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -472,6 +493,7 @@
 		0B5FDEFA1AD6A2EF00773360 /* Youlv */ = {
 			isa = PBXGroup;
 			children = (
+				0B6FA22C1B162C8A001414B0 /* Emoji */,
 				0BB7F7631AEB6C5800F72D80 /* Classes */,
 				0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */,
 				0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */,
@@ -546,7 +568,6 @@
 		0B6191FA1AE949B000A8258A /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				0B93C9FA1ADC0936003117BE /* LoginNavigationController.swift */,
 				0BCECFEC1ADAAD95006BE53A /* LoginViewController.swift */,
 				0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */,
 				0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */,
@@ -554,6 +575,17 @@
 				0BA682DC1AF533A100780FFD /* RecommendedUsersViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		0B6FA22C1B162C8A001414B0 /* Emoji */ = {
+			isa = PBXGroup;
+			children = (
+				0B6FA22D1B162C8A001414B0 /* Emoji.h */,
+				0B6FA22E1B162C8A001414B0 /* Emoji.m */,
+				0B6FA22F1B162C8A001414B0 /* EmojiEmoticons.h */,
+				0B6FA2301B162C8A001414B0 /* EmojiEmoticons.m */,
+			);
+			path = Emoji;
 			sourceTree = "<group>";
 		};
 		0BB5B5301B0CFF8E008A2A85 /* MJRefresh */ = {
@@ -643,12 +675,15 @@
 		0BB5B5891B0D000D008A2A85 /* IMController */ = {
 			isa = PBXGroup;
 			children = (
+				0B6FA2261B162B9B001414B0 /* ChatSendHelper.h */,
+				0B6FA2271B162B9B001414B0 /* ChatSendHelper.m */,
 				0BB5B58A1B0D000D008A2A85 /* ChatModel.h */,
 				0BB5B58B1B0D000D008A2A85 /* ChatModel.m */,
 				0BB5B58C1B0D000D008A2A85 /* ChatViewController.h */,
 				0BB5B58D1B0D000D008A2A85 /* ChatViewController.m */,
 				0BB5B58E1B0D000D008A2A85 /* ChatViewController.xib */,
 				0BFADDFD1B0E406A0063BFDF /* PrivateChatViewController.swift */,
+				0B6FA2331B1633A9001414B0 /* GroupChatViewController.swift */,
 			);
 			name = IMController;
 			path = ../IMController;
@@ -657,6 +692,10 @@
 		0BB7F7631AEB6C5800F72D80 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0B001B7D1B1A269300689F80 /* SFHFKeychainUtils.h */,
+				0B001B7E1B1A269300689F80 /* SFHFKeychainUtils.m */,
+				0B6FA2291B162C81001414B0 /* ConvertToCommonEmoticonsHelper.h */,
+				0B6FA22A1B162C81001414B0 /* ConvertToCommonEmoticonsHelper.m */,
 				0B6251631B0DF9D20028FD77 /* DRNRealTimeBlurView.h */,
 				0B6251641B0DF9D20028FD77 /* DRNRealTimeBlurView.m */,
 				0B6251651B0DF9D20028FD77 /* UIImage+BoxBlur.h */,
@@ -739,8 +778,10 @@
 		0BC050D01AEF3C2E003360CE /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				0B001B7B1B1A253A00689F80 /* JoinGroupTableViewController.swift */,
 				0BCECFF61ADAE23F006BE53A /* MessagesViewController.swift */,
 				0BBE374C1AE15DC700FA0018 /* StartGroupChat1ViewController.swift */,
+				0B6FA2351B164145001414B0 /* StartGroupChat2ViewController.swift */,
 				0BB5B52D1B0CE98F008A2A85 /* MyFriendsViewController.swift */,
 				0B2AF2D71AE7EFE400F7A5F9 /* ContactsTableViewController.swift */,
 			);
@@ -754,6 +795,7 @@
 				0B2A9D041B04DB1B007FF789 /* GroupTopicsTableViewController.swift */,
 				0B2A9CF21B03B443007FF789 /* InterviewTableViewController.swift */,
 				0B2A9CF61B04BC85007FF789 /* InterviewDetailTableViewController.swift */,
+				0B6FA2371B177336001414B0 /* InterviewAskViewController.swift */,
 				0B2A9CFA1B04DA7C007FF789 /* JobsTableViewController.swift */,
 				0B2A9D021B04DAE9007FF789 /* JobDetailViewController.swift */,
 				0B2A9CFC1B04DA94007FF789 /* JobsBookmarkedTableViewController.swift */,
@@ -986,6 +1028,7 @@
 				0BB5B56C1B0CFF8E008A2A85 /* NSDate+Utils.m in Sources */,
 				0BBE37471AE1069B00FA0018 /* MyGroupsCellView.swift in Sources */,
 				0BCECFF71ADAE23F006BE53A /* MessagesViewController.swift in Sources */,
+				0B001B7F1B1A269300689F80 /* SFHFKeychainUtils.m in Sources */,
 				0BB2C1EB1B07C53F00F1812A /* ArticleCommentsTableViewController.swift in Sources */,
 				0B2F31221B089E810019DFAB /* OCHelper.m in Sources */,
 				0B71BD4E1B0906C700257C17 /* KeychainItemWrapper.m in Sources */,
@@ -1000,9 +1043,9 @@
 				0B3C725D1B00B2E200D264E2 /* DiscussTableViewCell.swift in Sources */,
 				0BC050C91AEE76F4003360CE /* EventsTableViewController.swift in Sources */,
 				0B6192061AE94A9D00A8258A /* Order.swift in Sources */,
-				0B93C9FB1ADC0936003117BE /* LoginNavigationController.swift in Sources */,
 				0B2AF2D41AE7ECDB00F7A5F9 /* Contact.swift in Sources */,
 				0B6251671B0DF9D20028FD77 /* DRNRealTimeBlurView.m in Sources */,
+				0B6FA2321B162C8A001414B0 /* EmojiEmoticons.m in Sources */,
 				0BBE373E1AE105B900FA0018 /* FriendCellView.swift in Sources */,
 				0B8BB8E61B0777380034B006 /* ResearchTableViewCell.swift in Sources */,
 				0BEF298D1AFBC870001C7D43 /* DataManager.swift in Sources */,
@@ -1019,6 +1062,7 @@
 				0B61920A1AE94AC200A8258A /* Event.swift in Sources */,
 				0BC050C51AEE6F9B003360CE /* NaviBarMenuProtocol.swift in Sources */,
 				0B6192021AE94A7600A8258A /* Lawyer.swift in Sources */,
+				0B6FA2311B162C8A001414B0 /* Emoji.m in Sources */,
 				0B6192041AE94A8900A8258A /* Article.swift in Sources */,
 				0B2AF2C71AE6A61700F7A5F9 /* MyOpportunitiesTableViewController.swift in Sources */,
 				0B2A9CF31B03B443007FF789 /* InterviewTableViewController.swift in Sources */,
@@ -1036,6 +1080,7 @@
 				0BB5B52E1B0CE98F008A2A85 /* MyFriendsViewController.swift in Sources */,
 				0BB5B5681B0CFF8E008A2A85 /* MJRefreshBaseView.m in Sources */,
 				0B2F31201B088C950019DFAB /* NewOpportunityOptionsViewController.swift in Sources */,
+				0B6FA2381B177336001414B0 /* InterviewAskViewController.swift in Sources */,
 				0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */,
 				0BBE37451AE1067400FA0018 /* JoinGroupsCellView.swift in Sources */,
 				0BB5B5841B0CFF8F008A2A85 /* UUMessageContentButton.m in Sources */,
@@ -1049,6 +1094,7 @@
 				0B2AF2CF1AE7D27400F7A5F9 /* SettingsTableViewController.swift in Sources */,
 				0BB5B5901B0D000D008A2A85 /* ChatViewController.m in Sources */,
 				0BA1EC331B023AD9004F3546 /* NotUsingDiscussDetailTableViewController.swift in Sources */,
+				0B001B7C1B1A253A00689F80 /* JoinGroupTableViewController.swift in Sources */,
 				0B2AF2D11AE7E55700F7A5F9 /* TopicsTableViewController.swift in Sources */,
 				0BC050C31AEE4443003360CE /* OpportunitiesTableViewController.swift in Sources */,
 				0BC050CB1AEE7712003360CE /* ArticlesTableViewController.swift in Sources */,
@@ -1057,6 +1103,7 @@
 				0BC050CD1AEE9629003360CE /* Helper.swift in Sources */,
 				0BFADDFE1B0E406A0063BFDF /* PrivateChatViewController.swift in Sources */,
 				0BA682F21AF6276900780FFD /* UserHomeTableViewController.swift in Sources */,
+				0B6FA22B1B162C81001414B0 /* ConvertToCommonEmoticonsHelper.m in Sources */,
 				0BB5B58F1B0D000D008A2A85 /* ChatModel.m in Sources */,
 				0BB5B52C1B0CA393008A2A85 /* NewTopicReplyViewController.swift in Sources */,
 				0B5FDEFE1AD6A2EF00773360 /* AppDelegate.swift in Sources */,
@@ -1074,18 +1121,21 @@
 				0B5155C41B0DBA38008753A0 /* DiscussReplyViewController.swift in Sources */,
 				0B2AF2D81AE7EFE400F7A5F9 /* ContactsTableViewController.swift in Sources */,
 				0B6191F81AE9295200A8258A /* NewTopicTableViewController.swift in Sources */,
+				0B6FA2341B1633A9001414B0 /* GroupChatViewController.swift in Sources */,
 				0B2A9CFB1B04DA7C007FF789 /* JobsTableViewController.swift in Sources */,
 				0B786E5E1B0BAC77008B80BC /* DiscoveryTableViewController.swift in Sources */,
 				0BB5B5881B0CFF8F008A2A85 /* Mp3Recorder.m in Sources */,
 				0B20E0141B0B6BFF00B529D5 /* MyTopicsTableViewController.swift in Sources */,
 				0B6192081AE94AB000A8258A /* Discuss.swift in Sources */,
 				0BCAEE221AD7CC6300421B7A /* TopTabBarController.swift in Sources */,
+				0B6FA2281B162B9B001414B0 /* ChatSendHelper.m in Sources */,
 				0BA682E81AF5437600780FFD /* UIImageView+Reflected.m in Sources */,
 				0B2A9CEF1B039CE2007FF789 /* ArticleDetailViewController.swift in Sources */,
 				0BA682FA1AF67D2F00780FFD /* OpportunityTableViewCell.swift in Sources */,
 				0BCAEE241AD82ACB00421B7A /* MainTabBarController.swift in Sources */,
 				0BCECFF11ADABFBE006BE53A /* NewViewController.swift in Sources */,
 				0BC050C71AEE76CD003360CE /* DiscussTableViewController.swift in Sources */,
+				0B6FA2361B164145001414B0 /* StartGroupChat2ViewController.swift in Sources */,
 				0B2A9D031B04DAE9007FF789 /* JobDetailViewController.swift in Sources */,
 				0B2A9CF51B03B458007FF789 /* InterviewTableViewCell.swift in Sources */,
 				0B2A9CED1B038710007FF789 /* ImageListView.swift in Sources */,

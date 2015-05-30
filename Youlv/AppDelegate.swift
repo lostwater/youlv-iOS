@@ -25,6 +25,8 @@ var sessionId = "76153026bac352110d4cd6a4dbb295d6"
 var myLawyerId = 0
 var defaultDateFormatter = NSDateFormatter()
 
+let groupMaxUsers = 300
+let serviceName = "com.Ramy.Youlv"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

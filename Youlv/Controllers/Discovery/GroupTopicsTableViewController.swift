@@ -53,9 +53,12 @@ class GroupTopicsTableViewController: UITableViewController {
         }
         
         let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
+        if dict == nil
+        {
+            return
+        }
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         repliedArray = (dictData.objectForKey("topicList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.displayData(dictData.objectForKey("group_topmsg") as! NSDictionary)

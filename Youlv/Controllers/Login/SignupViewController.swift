@@ -39,24 +39,31 @@ class SignupViewController: UIViewController {
     var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: ".com.Ramy.Youlv")
     var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: ".com.Ramy.Youlv")
     
+    var signUpSucceeded = false
+    
+    
     var error = EMError()
     func easeMobSignup()
     {
         EaseMob.sharedInstance().chatManager.asyncRegisterNewAccount(mobile.text, password: password.text, withCompletion: { (username, password, error) -> Void in
-            if(error != nil)
-            {
-                NSLog("注册成功")
-                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                    self.goMainVC()
-                })
-            }
-            else
-            {
-                 NSLog("注册失败")
-            }
+            self.emSignupCompleted(username, password: password, error: error)
         }, onQueue: nil)
     }
     
+    func emSignupCompleted(username:String,password:String,error:EMError?)
+    {
+        if(error != nil)
+        {
+            NSLog("注册成功")
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.goMainVC()
+            })
+        }
+        else
+        {
+            NSLog("注册失败")
+        }
+    }
     
     
     func signup()
@@ -67,7 +74,7 @@ class SignupViewController: UIViewController {
             return
         }
         let parameters = NSDictionary(objects:[mobile.text,password.text], forKeys: ["phone","password"])
-        DataClient().postSignup(parameters) { (data, error) -> () in
+        DataClient().postSignup(mobile.text,password: password.text){ (data, error) -> () in
             self.signupCompleted(data,error: error)
         }
     }
@@ -83,10 +90,11 @@ class SignupViewController: UIViewController {
         }
         else
         {
-            let av = UIAlertView(title:"注册失败", message: data!.objectForKey("errmessage") as? String, delegate: nil, cancelButtonTitle: "确定")
-            av.show()
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                let av = UIAlertView(title:"注册失败", message: data!.objectForKey("errmessage") as? String, delegate: nil, cancelButtonTitle: "确定")
+                av.show()
+            })
         }
-        
     }
     
     func login()
@@ -106,7 +114,8 @@ class SignupViewController: UIViewController {
             sessionId = data!.objectForKey("sessionId") as! String
         }
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.goRecommendTopics()
+            self.signUpSecussed = true
+            self.performSegueWithIdentifier("goRecommendedTopics", sender: self)
         })
 
     }
@@ -171,6 +180,14 @@ class SignupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if !signUpSucceeded && identifier == "goRecommendedTopics"
+        {
+            signup()
+            return false
+        }
+        return true
+    }
  
 
     /*

@@ -9,7 +9,12 @@
 import UIKit
 
 class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+    
+    @IBAction func unwindToInterviewDetail(segue: UIStoryboardSegue)
+    {
+        //performSegueWithIdentifier("UnwindToGroupTopics", sender: self)
+    }
+    
     @IBOutlet var interviewImageView: UIImageView!
     @IBOutlet var guestImageView: UIImageView!
     @IBOutlet var guestName: UILabel!
@@ -17,6 +22,10 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
     @IBOutlet var fellowGuestButton: UIButton!
     
     @IBAction func fellowGuestButtonClicked(sender: AnyObject) {
+        if !fellowGuestButton.selected
+        {
+             markInterview()
+        }
     }
     
     
@@ -71,12 +80,34 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
         })
     }
     
+    func markInterview()
+    {
+        DataClient().postMarkInterview(interviewId!) { (dict, error) -> () in
+            self.markInterviewCompleted(dict, error: error)
+        }
+    }
+    
+    func markInterviewCompleted(dict:NSDictionary?, error:NSError?)
+    {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.fellowGuestButton.selected = true
+        })
+        
+    }
+
+    
+    
     func displayData()
     {
-        //interviewImageView.sd_setImageWithURL(NSURL(string: dataDict?.objectForKey("photoUrl") as! String))
-        guestImageView.sd_setImageWithURL(NSURL(string: dataDictFromList?.objectForKey("view_lawyerPhotoUrl") as! String))
+        
+        if (dataDictFromList!.objectForKey("view_isAtten") as! Int) > 0
+        {
+            fellowGuestButton.selected = true
+        }
+        interviewImageView.sd_setImageWithURL(NSURL(string: dataDict?.objectForKey("view_imgUrl") as! String))
+        guestImageView.sd_setImageWithURL(NSURL(string: dataDictFromList?.objectForKey("view_lawyerPhotoUrl") as! String),placeholderImage:headImage)
         guestName.text = dataDictFromList?.objectForKey("view_lawyerName") as? String
-        guestFansCount.text = String(dataDict?.objectForKey("lawyer_fansCount") as! Int)
+        guestFansCount.text = "粉丝: " + String(dataDict?.objectForKey("lawyer_fansCount") as! Int)
         guestTextView.text = dataDict?.objectForKey("lawyer_introduction") as! String
         interviewTextView.text = dataDictFromList?.objectForKey("view_content") as! String
         displayExpandableViews()
@@ -107,6 +138,10 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
 
     }
     
+    
+    override func viewWillAppear(animated: Bool) {
+        getInterviewDetail()
+    }
 
     
     override func viewDidLoad() {
@@ -115,12 +150,17 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
         guestExpandButton.setImage(UIImage(named:"buttonarrowup"), forState: UIControlState.Selected)
         interviewExpandButton.setImage(UIImage(named:"buttonarrowdown"), forState: UIControlState.Normal)
         interviewExpandButton.setImage(UIImage(named:"buttonarrowup"), forState: UIControlState.Selected)
-        
-        
-        getInterviewDetail()
-
+        //fellowGuestButton.setImage(UIImage(named:"buttonarrowdown"), forState: UIControlState.Normal)
+        fellowGuestButton.setImage(UIImage(named:"buttoncollectedevent"), forState: UIControlState.Selected)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goInterviewAsk"
+        {
+            let vc = segue.destinationViewController as! InterviewAskViewController
+            vc.interviewId = self.interviewId!
+        }
+    }
     
 
     override func didReceiveMemoryWarning() {
