@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func passwordTextFieldEnd(sender: AnyObject) {
         passowrd.resignFirstResponder()
-        login()
+        //login()
     }
     @IBAction func accountTextFieldEnd(sender: AnyObject) {
         userAccount.resignFirstResponder()
@@ -60,7 +60,10 @@ class LoginViewController: UIViewController {
         if userAccount.text == nil || passowrd.text == nil ||  userAccount.text=="" ||   passowrd.text == ""{
             return
         }
-        login()
+        else
+        {
+            login()
+        }
     }
     
     

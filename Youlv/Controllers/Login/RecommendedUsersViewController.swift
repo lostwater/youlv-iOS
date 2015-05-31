@@ -14,8 +14,34 @@ class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UI
     @IBOutlet weak var selectAllText: UIBarButtonItem!
     @IBOutlet weak var selectAllIcon: UIBarButtonItem!
     @IBAction func selectAllClicked(sender: AnyObject) {
+        if selectedAll
+        {
+            for cell  in tableView.visibleCells()
+            {
+                
+                (cell as! UITableViewCell).selected = false
+                
+            }
+            selectAllIcon.image = UIImage(named:"checkon")
+        }
+        else
+        {
+            for cell  in tableView.visibleCells()
+            {
+                
+                (cell as! UITableViewCell).selected = true
+                
+            }
+            selectAllIcon.image = UIImage(named:"checkoff")
+        }
+        selectedAll = !selectedAll
+        
     }
+    
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    var selectedAll = false
     
     @IBAction func skipButtonClicked(sender: AnyObject) {
         goMainVC()

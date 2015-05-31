@@ -42,14 +42,16 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.navigationItem.title = "商机"
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
         getOrderList(currentPage, pageSize: 10)
        
     }
     
-    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.navigationItem.title = "商机"
+    }
     
     
     let client = DataClient()

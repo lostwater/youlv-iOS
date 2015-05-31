@@ -13,38 +13,67 @@ class MyOpportunitiesTableViewController: UITableViewController {
     var ordersArray : NSArray?
     var currentPage = 1
     
+    @IBOutlet weak var switcher: UISegmentedControl!
+    
+    @IBAction func switcherChanged(sender: AnyObject) {
+        if switcher.selectedSegmentIndex == 0
+        {
+            currentPage = 1
+            getMyPostOpportunities(currentPage, pageSize:10)
+        }
+        if switcher.selectedSegmentIndex == 1
+        {
+            currentPage = 1
+            getMyRepiliedOpportunities(currentPage, pageSize:10)
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMyPostOpportunities(currentPage, pageSize:10)
+        if switcher.selectedSegmentIndex == 0
+        {
+            currentPage = 1
+            getMyPostOpportunities(currentPage, pageSize:10)
+        }
+        if switcher.selectedSegmentIndex == 1
+        {
+            currentPage = 1
+            getMyRepiliedOpportunities(currentPage, pageSize:10)
+        }
     }
     
     
     let client = DataClient()
     func getMyPostOpportunities(currentPage: Int, pageSize:Int)
     {
-        client.getMyPostOpportunities(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getMyPostOpportunitiesCompleted(data, error: error)
+        client.getMyPostOpportunities(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getMyPostOpportunitiesCompleted(dict, error: error)
         })
     }
     
-    func getMyPostOpportunitiesCompleted(data:NSData?,error:NSError?)
+    func getMyPostOpportunitiesCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-        if dict == nil{
-            return
-        }
         let dictData = dict!.objectForKey("data") as! NSDictionary
         ordersArray = (dictData.objectForKey("orderList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()
         })
-        
+    }
+    
+    func getMyRepiliedOpportunities(currentPage: Int, pageSize:Int)
+    {
+        client.getMyRepiliedOpportunities(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getMyRepiliedOpportunitiesCompleted(dict, error: error)
+        })
+    }
+
+    func getMyRepiliedOpportunitiesCompleted(dict:NSDictionary?,error:NSError?)
+    {
+        let dictData = dict!.objectForKey("data") as! NSDictionary
+        ordersArray = (dictData.objectForKey("orderList") as? NSArray)!
+        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

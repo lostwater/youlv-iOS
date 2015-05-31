@@ -41,14 +41,16 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.navigationItem.title = "活动"
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
         getEventList(currentPage, pageSize: 10)
 
     }
     
-    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.navigationItem.title = "活动"
+    }
     
     let client = DataClient()
     func getEventList(currentPage: Int, pageSize:Int)

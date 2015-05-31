@@ -476,20 +476,32 @@ class DataClient
         task.resume()
     }
     
-    func getMyPostOpportunities(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    
+    func getMyRepiliedOpportunities(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "lawyer/replyOwnOrders?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
+        })
+    }
+    
+    
+    
+    func getMyPostOpportunities(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "lawyer/getOrderList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
+
     }
     
     func getMyPostTopics(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
@@ -801,6 +813,23 @@ class DataClient
             completion(data, error)
         })
     }
+    
+    func postMarkTopics(topicIds : [Int], completion: (NSDictionary?, NSError?)->()){
+        let parameters = NSDictionary(objects:[topicIds,sessionId], forKeys: ["topicIds","sessionId"])
+        var path = serverUrl + "topic/attenHotTopics"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+    }
+    
+    func postPollowUsers(userIds : [Int], completion: (NSDictionary?, NSError?)->()){
+        let parameters = NSDictionary(objects:[userIds,sessionId], forKeys: ["topicIds","sessionId"])
+        var path = serverUrl + "topic/attenHotTopics"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
+        })
+    }
+
 
     
     func serializeHTTPRequest(pathString : String, parameters : NSDictionary) -> NSMutableURLRequest
@@ -946,12 +975,13 @@ class DataClient
         var path = serverUrl + "user/reg"
         var postData = NSMutableData(data: ("phone="+phone).dataUsingEncoding(NSUTF8StringEncoding)!)
         postData.appendData(("&password="+password).dataUsingEncoding(NSUTF8StringEncoding)!)
-        
-        var request = NSMutableURLRequest(URL: NSURL(string: (serverUrl + "user/reg"))!,
+        path = path + "?phone="+phone
+        path = path + "&password="+password
+        var request = NSMutableURLRequest(URL: NSURL(string: path)!,
             cachePolicy: .UseProtocolCachePolicy,
             timeoutInterval: 10.0)
-        request.HTTPMethod = "POST"
-        request.HTTPBody = postData
+        request.HTTPMethod = "GET"
+        //request.HTTPBody = postData
         
         let session = NSURLSession.sharedSession()
         let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
@@ -990,35 +1020,19 @@ class DataClient
     }
     
     
-    func testReg(parameters:NSDictionary)
+    func postUserInfo(username : String, intro : String, office : String, cityId : Int , completion: (NSDictionary?, NSError?)->())
     {
-        var p : NSDictionary = ["phone":"18312345678","password":"123456"]
-    
+        let parameters = NSDictionary()
         
-        
-        var postData = NSMutableData(data: "phone=18212345678".dataUsingEncoding(NSUTF8StringEncoding)!)
-        postData.appendData("&password=123456".dataUsingEncoding(NSUTF8StringEncoding)!)
-        
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://123.57.252.2/user/reg")!,
-            cachePolicy: .UseProtocolCachePolicy,
-            timeoutInterval: 10.0)
-        request.HTTPMethod = "POST"
-        request.HTTPBody = postData
-        
-        let session = NSURLSession.sharedSession()
-        let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                println(error)
-            } else {
-                let httpResponse = response as? NSHTTPURLResponse
-                println(httpResponse)
-            }
+        //(objects:[username,sessionId], forKeys: ["name","introducation","lawOffice",])
+        var path = serverUrl + "topic/attenHotTopics"
+        nativePost(path, parameters: parameters, completion: { (data, error) -> () in
+            completion(data, error)
         })
-        
-        dataTask.resume()
+
     }
-
-
+    
+    
 
     
 }

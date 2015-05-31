@@ -46,12 +46,17 @@ class ArticlesTableViewController: UITableViewController,NaviBarMenu {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.navigationItem.title = "文章"
+       
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
         getArticleList(currentPage,pageSize: 10)
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+         tabBarController?.navigationItem.title = "文章"
+    }
     
     
     

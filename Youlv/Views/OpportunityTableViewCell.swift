@@ -92,9 +92,12 @@ class OpportunityTableViewCell: UITableViewCell {
                   opportunityIconImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("lawyer_photoUrl") as! String)!, placeholderImage: headImage)
                 opportunityTitleLable.text = dataDict.objectForKey("lawyer_name") as? String
 
-
-
             }
+        }
+        
+        if count(opportunityTitleLable.text!) > 11
+        {
+            opportunityTitleLable.text = opportunityTitleLable.text!.substringToIndex(advance(opportunityTitleLable.text!.startIndex,10)) + "..."
         }
 
     }

@@ -32,11 +32,15 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       tabBarController?.navigationItem.title = "讨论"
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
         getDiscussList(currentPage,pageSize: 10)
 
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.navigationItem.title = "讨论"
     }
     
     

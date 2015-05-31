@@ -666,13 +666,13 @@
                                 <items>
                                     <barButtonItem title="全部关注" id="tzc-9y-2eV">
                                         <connections>
-                                            <action selector="selectAll:" destination="HgG-QZ-jae" id="DL0-ei-hke"/>
+                                            <action selector="selectAllClicked:" destination="HgG-QZ-jae" id="AMi-Tt-430"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BKt-sL-KiQ"/>
                                     <barButtonItem image="checkoff" style="plain" id="diU-0x-rKi">
                                         <connections>
-                                            <action selector="selectAll:" destination="HgG-QZ-jae" id="xmH-o9-yqI"/>
+                                            <action selector="selectAllClicked:" destination="HgG-QZ-jae" id="N7X-uT-1wa"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

@@ -9,24 +9,46 @@
 
 
 class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
-
-
+    
     @IBOutlet weak var selectAllText: UIBarButtonItem!
     @IBOutlet weak var selectAllIcon: UIBarButtonItem!
     @IBAction func selectAllClicked(sender: AnyObject) {
-        tableView.selectAll(self)
+        if selectedAll
+        {
+            for cell  in tableView.visibleCells()
+            {
+            
+                (cell as! UITableViewCell).selected = false
+            
+            }
+            selectAllIcon.image = UIImage(named:"checkon")
+        }
+        else
+        {
+            for cell  in tableView.visibleCells()
+            {
+                
+                (cell as! UITableViewCell).selected = true
+                
+            }
+            selectAllIcon.image = UIImage(named:"checkoff")
+        }
+        selectedAll = !selectedAll
+
     }
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
+    var selectedAll = false
     var currentPage = 1
     var topicsArray : NSArray?
     let client = DataClient()
-    
     var postFinished = false
-    
-    
+
     override func viewDidLoad() {
         getRecommendedTopics(currentPage, pageSize: 10)
+        selectAllIcon.image = UIImage(named:"checkoff")
     }
     
     func getRecommendedTopics(currentPage: Int, pageSize:Int)

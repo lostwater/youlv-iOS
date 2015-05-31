@@ -17,7 +17,7 @@ class SignupViewController: UIViewController {
     @IBOutlet var signupButton: UIButton!
     
     @IBAction func signupButtonClicked(sender: AnyObject) {
-         signup()
+         //signup()
     }
     
     @IBOutlet var sendButton: UIButton!
@@ -36,45 +36,51 @@ class SignupViewController: UIViewController {
         userName.resignFirstResponder()
     }
     
-    var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: ".com.Ramy.Youlv")
-    var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: ".com.Ramy.Youlv")
+    var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: serviceName)
+    var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: serviceName)
+    
+    
+    var storedUsername = ""
+    var storedPassword = ""
     
     var signUpSucceeded = false
-    
-    
     var error = EMError()
     func easeMobSignup()
     {
-        EaseMob.sharedInstance().chatManager.asyncRegisterNewAccount(mobile.text, password: password.text, withCompletion: { (username, password, error) -> Void in
+        EaseMob.sharedInstance().chatManager.asyncRegisterNewAccount(storedUsername, password: storedPassword, withCompletion: { (username, password, error) -> Void in
             self.emSignupCompleted(username, password: password, error: error)
         }, onQueue: nil)
     }
     
     func emSignupCompleted(username:String,password:String,error:EMError?)
     {
-        if(error != nil)
+        if(error == nil)
         {
-            NSLog("注册成功")
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.goMainVC()
-            })
+            NSLog("EM注册成功")
+            //dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                //self.goMainVC()
+           // })
         }
         else
         {
-            NSLog("注册失败")
+            
+            NSLog("EM注册失败")
         }
     }
     
     
     func signup()
     {
-        if mobile.text == nil || password.text == nil ||  mobile.text=="" ||   password.text == ""
+        
+        storedUsername = mobile.text
+        storedPassword = password.text
+        if storedUsername == "" ||   storedPassword == ""
         {
             showEmptyAlert()
             return
         }
-        let parameters = NSDictionary(objects:[mobile.text,password.text], forKeys: ["phone","password"])
-        DataClient().postSignup(mobile.text,password: password.text){ (data, error) -> () in
+        let parameters = NSDictionary(objects:[storedUsername,storedPassword], forKeys: ["phone","password"])
+        DataClient().postSignup(storedUsername,password: storedPassword){ (data, error) -> () in
             self.signupCompleted(data,error: error)
         }
     }
@@ -84,6 +90,7 @@ class SignupViewController: UIViewController {
         
         if data!.objectForKey("errcode") as! Int == 0
         {
+            NSLog("YL注册成功")
             easeMobSignup()
             saveAccountAndPassword()
             login()
@@ -99,7 +106,7 @@ class SignupViewController: UIViewController {
     
     func login()
     {
-        let parameters = NSDictionary(objects:[mobile.text,password.text], forKeys: ["phone","password"])
+        let parameters = NSDictionary(objects:[storedUsername,storedPassword], forKeys: ["phone","password"])
         DataClient().postLogin(parameters) { (data, error) -> () in
             self.loginCompleted(data,error: error)
         }
@@ -114,7 +121,7 @@ class SignupViewController: UIViewController {
             sessionId = data!.objectForKey("sessionId") as! String
         }
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.signUpSecussed = true
+            self.signUpSucceeded = true
             self.performSegueWithIdentifier("goRecommendedTopics", sender: self)
         })
 
@@ -123,7 +130,7 @@ class SignupViewController: UIViewController {
     
     func easeMobLogin()
     {
-        EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(mobile.text, password: password.text, completion: { (loginInfo, error) -> Void in
+        EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(storedUsername, password: storedPassword, completion: { (loginInfo, error) -> Void in
             if error == nil && loginInfo != nil
             {
                 NSLog("登陆成功")
@@ -157,8 +164,8 @@ class SignupViewController: UIViewController {
     
     func saveAccountAndPassword()
     {
-        accountKeyWrapper.setObject(mobile.text, forKey: kSecAttrService)
-        passwordKeyWrapper.setObject(password.text, forKey: kSecAttrService)
+        accountKeyWrapper.setObject(storedUsername, forKey: kSecAttrService)
+        passwordKeyWrapper.setObject(storedPassword, forKey: kSecAttrService)
         
     }
     
