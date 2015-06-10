@@ -44,17 +44,22 @@ class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UI
     var selectedAll = false
     
     @IBAction func skipButtonClicked(sender: AnyObject) {
+        
         goMainVC()
     }
     @IBAction func nextButtonClicked(sender: AnyObject) {
+        followUsers()
         goMainVC()
     }
     var currentPage = 1
     var usersArray : NSArray?
     let client = DataClient()
     
+    var selectedImage = UIImage(named:"checkoff")
+    
     override func viewDidLoad() {
         getRecommendedUsers(currentPage,pageSize: 10)
+        
     }
     
     func getRecommendedUsers(currentPage: Int, pageSize:Int)
@@ -98,10 +103,31 @@ class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UI
         //cell.imageView?.sd_setImageWithURL(NSURL(string: content.objectForKey("") as! String))
         cell.textLabel?.text = content.objectForKey("name") as? String
         cell.detailTextLabel?.text = content.objectForKey("introduction") as? String
+        cell.imageView?.image = UIImage(named:"checkoff")
+        cell.imageView?.hidden = true
+        var image = UIImageView(image: selectedImage)
+        image.center = cell.center
+        image.frame.origin = CGPointMake(400,image.frame.origin.y)
+        cell.addSubview(image)
+        
+        //cell.imageView!.frame.origin = CGPointMake(300,  cell.imageView!.frame.origin.y)
         return cell
     }
     
-
+    func followUsers()
+    {
+        var ids = NSMutableArray()
+        for c in tableView.visibleCells()
+        {
+            let cell = c as! UITableViewCell
+            if cell.selected
+            {
+                ids.addObject(cell.tag)
+            }
+        }
+        
+        DataClient().postFollowUsers(ids){ (dict, erorr) -> () in}
+    }
     
     
     

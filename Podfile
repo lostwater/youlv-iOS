@@ -11,6 +11,7 @@ pod 'THCalendarDatePicker'
 pod 'EaseMobSDKFull'
 pod 'AFNetworking'
 pod 'TAPageControl'
+pod 'MYBlurIntroductionView'
 end
 
 target 'YoulvTests' do
@@ -23,5 +24,6 @@ pod 'THCalendarDatePicker'
 pod 'EaseMobSDKFull'
 pod 'AFNetworking'
 pod 'TAPageControl'
+pod 'MYBlurIntroductionView'
 end
 

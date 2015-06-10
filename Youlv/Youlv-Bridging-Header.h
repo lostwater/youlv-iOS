@@ -32,7 +32,7 @@
 #import "UIButton+AFNetworking.h"
 #import "UUInputFunctionView.h"
 #import "SFHFKeychainUtils.h"
-
+#import "MYBlurIntroductionView.h"
 #import "ChatSendHelper.h"
 #import "ConvertToCommonEmoticonsHelper.h"
 #import "EMCommandMessageBody.h"

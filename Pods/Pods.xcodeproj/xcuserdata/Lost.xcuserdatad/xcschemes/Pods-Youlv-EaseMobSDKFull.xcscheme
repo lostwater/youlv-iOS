@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B357BEE382529A531B809D0A"
+               BlueprintIdentifier = "38C646A580B05A4DC95A3D4F"
                BuildableName = "libPods-Youlv-EaseMobSDKFull.a"
                BlueprintName = "Pods-Youlv-EaseMobSDKFull"
                ReferencedContainer = "container:Pods.xcodeproj">

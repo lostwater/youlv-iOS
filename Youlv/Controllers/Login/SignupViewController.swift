@@ -21,7 +21,10 @@ class SignupViewController: UIViewController {
     }
     
     @IBOutlet var sendButton: UIButton!
-    @IBOutlet var sendButtonClicked: UIButton!
+    
+    @IBAction func sendButtonClicked(sender: AnyObject) {
+        askValidCode()
+    }
     
     @IBAction func mobileEnd(sender: AnyObject) {
         mobile.resignFirstResponder()
@@ -45,6 +48,8 @@ class SignupViewController: UIViewController {
     
     var signUpSucceeded = false
     var error = EMError()
+    var validCodeAnswer = ""
+    
     func easeMobSignup()
     {
         EaseMob.sharedInstance().chatManager.asyncRegisterNewAccount(storedUsername, password: storedPassword, withCompletion: { (username, password, error) -> Void in
@@ -71,7 +76,21 @@ class SignupViewController: UIViewController {
     
     func signup()
     {
-        
+        if validCode.text == ""
+        {
+            //showErrorMessage("验证码不能为空")
+            //return
+        }
+        if validCode.text != validCodeAnswer
+        {
+            showErrorMessage("验证码错误")
+            return
+        }
+        if userName.text == ""
+        {
+             showErrorMessage("用户名不能为空")
+            return
+        }
         storedUsername = mobile.text
         storedPassword = password.text
         if storedUsername == "" ||   storedPassword == ""
@@ -79,8 +98,8 @@ class SignupViewController: UIViewController {
             showEmptyAlert()
             return
         }
-        let parameters = NSDictionary(objects:[storedUsername,storedPassword], forKeys: ["phone","password"])
-        DataClient().postSignup(storedUsername,password: storedPassword){ (data, error) -> () in
+        //let parameters = NSDictionary(objects:[storedUsername,storedPassword], forKeys: ["phone","password"])
+        DataClient().postSignup(storedUsername,password: storedPassword,code: validCode.text,name: userName.text){ (data, error) -> () in
             self.signupCompleted(data,error: error)
         }
     }
@@ -162,6 +181,23 @@ class SignupViewController: UIViewController {
         myLawyerId = dictData.objectForKey("lawyer_id") as! Int
     }
     
+    
+    func askValidCode()
+    {
+        
+        DataClient().postSendMobile(mobile.text, type: 0) { (dict, error) -> () in
+            self.askValdCodeCompleted(dict,error: error)
+        }
+        let av = UIAlertView(title: "", message: "验证码已发送", delegate: nil, cancelButtonTitle: "确认")
+        av.show()
+    }
+    
+    func askValdCodeCompleted(dict:NSDictionary?,error:NSError?)
+    {
+        
+        validCodeAnswer = dict!.objectForKey("code") as! String
+    }
+    
     func saveAccountAndPassword()
     {
         accountKeyWrapper.setObject(storedUsername, forKey: kSecAttrService)
@@ -172,6 +208,12 @@ class SignupViewController: UIViewController {
     func showEmptyAlert()
     {
         let av = UIAlertView(title: "", message: "手机或密码不能为空", delegate: nil, cancelButtonTitle: "取消")
+        av.show()
+    }
+    
+    func showErrorMessage(message :String)
+    {
+        let av = UIAlertView(title: "", message: message, delegate: nil, cancelButtonTitle: "取消")
         av.show()
     }
 

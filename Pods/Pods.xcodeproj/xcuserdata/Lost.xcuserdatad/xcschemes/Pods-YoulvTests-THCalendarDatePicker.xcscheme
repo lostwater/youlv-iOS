@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "140034ADF2AF33CA36A6EA3C"
+               BlueprintIdentifier = "BF4F572D86ABAEACBD93BFCE"
                BuildableName = "libPods-YoulvTests-THCalendarDatePicker.a"
                BlueprintName = "Pods-YoulvTests-THCalendarDatePicker"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -26,6 +26,7 @@ PODS:
   - EaseMobSDKFull (2.1.5)
   - FSMediaPicker (0.0.2)
   - KNSemiModalViewController (0.3)
+  - MYBlurIntroductionView (1.0.3)
   - MZAppearance (1.1.4)
   - MZFormSheetController (3.0.3):
     - MZAppearance
@@ -46,6 +47,7 @@ DEPENDENCIES:
   - EaseMobSDKFull
   - FSMediaPicker
   - KNSemiModalViewController
+  - MYBlurIntroductionView
   - MZFormSheetController
   - SDWebImage
   - TAPageControl
@@ -57,6 +59,7 @@ SPEC CHECKSUMS:
   EaseMobSDKFull: 2a2617938192a53dd13ca67b99dd57b98de1a077
   FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
   KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
+  MYBlurIntroductionView: b12651c25574580472ff34989a4c5b81c157009f
   MZAppearance: 417ac97a5dd739329545e44372e06f715b7e5c15
   MZFormSheetController: 36771856696eeef2eaec9b18c75791d3c95cb661
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29

@@ -53,23 +53,13 @@ class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, U
     
     func getRecommendedTopics(currentPage: Int, pageSize:Int)
     {
-        client.getRecommendedTopics(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getRecommendedTopicsCompleted(data, error: error)
+        client.getRecommendedTopics(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getRecommendedTopicsCompleted(dict, error: error)
         })
     }
     
-    func getRecommendedTopicsCompleted(data:NSData?,error:NSError?)
+    func getRecommendedTopicsCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-        if dict == nil{
-            return
-        }
         let dictData = dict!.objectForKey("data") as! NSDictionary
         topicsArray = (dictData.objectForKey("topicList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), {() -> Void in
@@ -92,13 +82,14 @@ class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, U
         //cell.imageView?.sd_setImageWithURL(NSURL(string: content.objectForKey("") as! String))
         cell.textLabel?.text = content.objectForKey("title") as? String
         cell.detailTextLabel?.text = content.objectForKey("content") as? String
+        cell.tag = content.objectForKey("articleId") as! Int
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "nextToUsers"
         {
-
+            markTopics()
         }
         if segue.identifier == "skipToUsers"
         {
@@ -109,15 +100,31 @@ class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, U
     
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        
+        
         if identifier == "nextToUsers" && !postFinished
         {
+            return true
             return false
         }
         return true
     }
     
-    
-    
+    func markTopics()
+    {
+        var ids = NSMutableArray()
+        for c in tableView.visibleCells()
+        {
+            let cell = c as! UITableViewCell
+            if cell.selected
+            {
+                ids.addObject(cell.tag)
+            }
+        }
+        
+        DataClient().postMarkTopics(ids){ (dict, erorr) -> () in}
+    }
+  
     
 }
 

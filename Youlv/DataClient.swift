@@ -15,21 +15,17 @@ class DataClient
     var sessionId = "76153026bac352110d4cd6a4dbb295d6"
     
     
-    func getRecommendedTopics(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getRecommendedTopics(currentPage : Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "topic/findHotTopics?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> () in
+            completion(dict,error)
         })
-        
-        task.resume()
-        
+
     }
     
     
@@ -635,7 +631,15 @@ class DataClient
     }
     
     
-    
+    func getGroupList(completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "lawyer/getGroupList?"
+        path = path + "&sessionId=" + String(sessionId)
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
+        })
+
+    }
 
     func postFollowUser(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
@@ -815,20 +819,58 @@ class DataClient
     }
     
     func postMarkTopics(topicIds : [Int], completion: (NSDictionary?, NSError?)->()){
+        //let parameters = NSDictionary(objects:[sessionId], forKeys: ["sessionId"])
         let parameters = NSDictionary(objects:[topicIds,sessionId], forKeys: ["topicIds","sessionId"])
         var path = serverUrl + "topic/attenHotTopics"
+        nativePost(path, parameters: parameters, completion: { (dict, error) -> () in
+            completion(dict, error)
+        })
+    }
+    
+    
+    func postMarkTopics(topicIds : NSArray, completion: (NSDictionary?, NSError?)->()){
+        //let parameters = NSDictionary(objects:[sessionId], forKeys: ["sessionId"])
+        var path = serverUrl + "topic/attenHotTopics?"
+        path = path + "&sessionId=" + String(sessionId)
+        for id in topicIds
+        {
+            path = path + "&topicIds=" + (id as! String)
+        }
+        nativeGet(path) { (dict, error) -> () in
+            completion(dict, error)
+        }
+    }
+    
+    func postFollowUsers(userIds : [Int], completion: (NSDictionary?, NSError?)->()){
+        let parameters = NSDictionary(objects:[userIds,sessionId], forKeys: ["lawyerIds","sessionId"])
+        var path = serverUrl + "laywer/attenHotLawyers"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
     }
     
-    func postPollowUsers(userIds : [Int], completion: (NSDictionary?, NSError?)->()){
-        let parameters = NSDictionary(objects:[userIds,sessionId], forKeys: ["topicIds","sessionId"])
-        var path = serverUrl + "topic/attenHotTopics"
+    
+    func postFollowUsers(userIds : NSArray, completion: (NSDictionary?, NSError?)->()){
+        //let parameters = NSDictionary(objects:[sessionId], forKeys: ["sessionId"])
+        var path = serverUrl + "laywer/attenHotLawyers?"
+        path = path + "&sessionId=" + String(sessionId)
+        for id in userIds
+        {
+            path = path + "&userIds=" + (id as! String)
+        }
+        nativeGet(path) { (dict, error) -> () in
+            completion(dict, error)
+        }
+    }
+    
+    func postSendMobile(mobile:String,type:Int, completion: (NSDictionary?, NSError?)->()){
+        let parameters = NSDictionary(objects:[mobile,type], forKeys: ["mobile","bizType"])
+        var path = serverUrl + "code/captcha"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
     }
+
 
 
     
@@ -947,8 +989,8 @@ class DataClient
             let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
             if dict == nil
             {
-                //let ds = NSString(data: data, encoding: NSUTF8StringEncoding)
-                //print(ds)
+                let ds = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+                NSLog(ds)
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                     let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
                     av.show()
@@ -970,7 +1012,7 @@ class DataClient
         
     }
     
-    func postSignup(phone: String, password: String , completion: (NSDictionary?, NSError?)->())
+    func postSignup(phone: String, password: String, code: String, name:String , completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "user/reg"
         var postData = NSMutableData(data: ("phone="+phone).dataUsingEncoding(NSUTF8StringEncoding)!)

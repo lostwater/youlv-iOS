@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegate, UIPickerViewDataSource,UIPickerViewDelegate {
+class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegate, UIPickerViewDataSource,UIPickerViewDelegate,UITableViewDataSource,UITableViewDelegate {
 
     @IBOutlet var deadlineDataButton: UIButton!
     @IBAction func deadlineDataButtonClicked(sender: AnyObject) {
@@ -201,6 +201,64 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if indexPath.item == 0
+        {
+           return tableView.dequeueReusableCellWithIdentifier("publicCell", forIndexPath: indexPath) as! UITableViewCell
+
+        }
+        if indexPath.item == 1
+        {
+            return tableView.dequeueReusableCellWithIdentifier("whiteCell", forIndexPath: indexPath) as! UITableViewCell
+            
+        }
+        if indexPath.item == 2
+        {
+            return tableView.dequeueReusableCellWithIdentifier("blackCell", forIndexPath: indexPath) as! UITableViewCell
+            
+        }
+        return tableView.dequeueReusableCellWithIdentifier("usersCell", forIndexPath: indexPath) as! UITableViewCell
+
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.item != 3
+        {
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            if cell!.selected
+            {
+                cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
+            }
+            else
+            {
+                cell!.accessoryType =  UITableViewCellAccessoryType.None
+            }
+        }
+
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.item != 3 && tableView.indexPathForSelectedRow()!.item != 3
+        {
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            if cell!.selected
+            {
+                cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
+            }
+            else
+            {
+                cell!.accessoryType =  UITableViewCellAccessoryType.None
+            }
+        }
+        
     }
 
 

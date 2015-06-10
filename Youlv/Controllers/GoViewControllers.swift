@@ -26,4 +26,8 @@ func goRecommendTopics()
     var vc = sb.instantiateViewControllerWithIdentifier("RecommendedTopicsVC") as! UIViewController
     self.navigationController?.pushViewController(vc,animated:true)
 }
+    
+    
+    
+    
 }
