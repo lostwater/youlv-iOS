@@ -14,18 +14,26 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     @IBOutlet weak var buttonWeixin: UIButton!
     @IBOutlet weak var buttonWeibo: UIButton!
     
-    @IBOutlet var finalIntroPanel: MYIntroductionPanel!
+    //@IBOutlet var finalIntroPanel: MYIntroductionPanel!
+    @IBOutlet var introPanel1: MYIntroductionPanel!
+    @IBOutlet var introPanel2: MYIntroductionPanel!
+    @IBOutlet var introPanel3: MYIntroductionPanel!
+    @IBOutlet var introPanel4: MYIntroductionPanel!
+    @IBOutlet var introPanel5: MYIntroductionPanel!
+    
     
     @IBOutlet weak var introButtonLogin: UIButton!
     @IBOutlet weak var introButtonSignup: UIButton!
     
     @IBAction func introButtonSignupClicked(sender: AnyObject) {
         performSegueWithIdentifier("goSignUp", sender: sender)
+        navigationController?.navigationBar.translucent = false
     }
     
     
     @IBAction func introButtonLoginClicked(sender: AnyObject) {
-            introView.hidden = true
+        introView.hidden = true
+        navigationController?.navigationBar.translucent = false
     }
     
     @IBAction func passwordTextFieldEnd(sender: AnyObject) {
@@ -67,10 +75,17 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.backItem?.title = "";
-    
-        setIntro()
+        //userDefaults = NSUserDefaults()
+        //let key = userDefaults.boolForKey("firstUse")
+        if !userDefaults.boolForKey("usedBefore")
+        {
+            setIntro()
+            userDefaults.setBool(true, forKey: "usedBefore")
+            userDefaults.synchronize()
+        }
+
         
-        
+
         hideWeixinWeibo()
         storedPassword = passwordKeyWrapper.objectForKey(kSecAttrService) as? String
         storedAccount = accountKeyWrapper.objectForKey(kSecAttrService) as? String
@@ -82,7 +97,7 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         }
         else
         {
-            //login()
+            login()
         }
     }
     
@@ -207,28 +222,7 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         navigationController?.navigationBar.translucent = true
         let fullFrame = UIScreen.mainScreen().bounds
         introView = MYBlurIntroductionView(frame: fullFrame)
-        let panel0 = MYIntroductionPanel(frame: fullFrame,title: "", description: "", image: UIImage(named:"intro0"))
-        panel0.PanelSeparatorLine.hidden = true
-        panel0.PanelImageView.frame = fullFrame
-        panel0.PanelImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        let panel1 = MYIntroductionPanel(frame: fullFrame, title: "", description: "", image: UIImage(named:"intro1"))
-        panel1.PanelSeparatorLine.hidden = true
-        panel1.PanelImageView.frame = fullFrame
-        panel1.PanelImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        let panel2 = MYIntroductionPanel(frame: fullFrame, title: "", description: "", image: UIImage(named:"intro2"))
-        panel2.PanelSeparatorLine.hidden = true
-        panel2.PanelImageView.frame = fullFrame
-        panel2.PanelImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        let panel3 = MYIntroductionPanel(frame: fullFrame, title: "", description: "", image: UIImage(named:"intro3"))
-        panel3.PanelSeparatorLine.hidden = true
-        panel3.PanelImageView.frame = fullFrame
-        panel3.PanelImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        let panel4 = MYIntroductionPanel(frame: fullFrame, title: "", description: "", image: UIImage(named:"intro4"))
-        panel4.PanelSeparatorLine.hidden = true
-        panel4.PanelImageView.frame = fullFrame
-        panel4.PanelImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        let introPanels = [panel0,panel1,panel2,panel3,panel4,finalIntroPanel]
-        
+        let introPanels = [introPanel1,introPanel2,introPanel3,introPanel4,introPanel5]
         introView.buildIntroductionWithPanels(introPanels)
         introView.backgroundColor = UIColor.whiteColor()
         introView.PageControl.hidden = true

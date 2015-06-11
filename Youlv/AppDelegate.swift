@@ -28,7 +28,7 @@ var defaultDateFormatter = NSDateFormatter()
 let groupMaxUsers = 300
 let serviceName = "com.Ramy.Youlv"
 
-let userDefaults = NSUserDefaults()
+var userDefaults = NSUserDefaults.standardUserDefaults()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -47,14 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         
-        if userDefaults.objectForKey("firstUse") == nil
-        {
-            
-        }
-        else
-        {
-            userDefaults.setBool(false, forKey: "firstUse")
-        }
+      
         
         return true
     }

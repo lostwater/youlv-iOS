@@ -404,9 +404,13 @@
                         <outlet property="buttonOtherLogin" destination="y5L-DS-d4D" id="vlj-CE-eJL"/>
                         <outlet property="buttonWeibo" destination="yKX-CB-5W9" id="7Vd-5p-QY5"/>
                         <outlet property="buttonWeixin" destination="Oob-1G-Jxq" id="4X0-yT-Gol"/>
-                        <outlet property="finalIntroPanel" destination="zfs-gJ-XkR" id="l5z-W7-VwU"/>
                         <outlet property="introButtonLogin" destination="SNq-pY-TIM" id="5I5-8q-bVj"/>
                         <outlet property="introButtonSignup" destination="4vo-d9-axv" id="Ons-F1-VBv"/>
+                        <outlet property="introPanel1" destination="rTM-B2-Bg6" id="hfO-ZJ-ebv"/>
+                        <outlet property="introPanel2" destination="nfG-FV-GTA" id="E62-L4-ci9"/>
+                        <outlet property="introPanel3" destination="pgV-0D-P7I" id="otB-DP-8Lf"/>
+                        <outlet property="introPanel4" destination="sFq-G3-MBN" id="YRn-xY-ICF"/>
+                        <outlet property="introPanel5" destination="zfs-gJ-XkR" id="de5-GI-Wk7"/>
                         <outlet property="passowrd" destination="ELQ-HS-42y" id="1bw-OB-sQ2"/>
                         <outlet property="userAccount" destination="KEa-ak-IgA" id="QTu-VS-drJ"/>
                     </connections>
@@ -449,6 +453,70 @@
                         <constraint firstAttribute="width" secondItem="SG3-3k-XpE" secondAttribute="width" id="lAS-vr-xkP"/>
                         <constraint firstItem="4vo-d9-axv" firstAttribute="width" secondItem="SG3-3k-XpE" secondAttribute="width" multiplier="1:2" id="qAD-nw-bkT"/>
                         <constraint firstAttribute="centerY" secondItem="SG3-3k-XpE" secondAttribute="centerY" id="vBJ-Je-U8Z"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="rTM-B2-Bg6" customClass="MYIntroductionPanel">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro1" translatesAutoresizingMaskIntoConstraints="NO" id="6n9-kO-b97">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="6n9-kO-b97" secondAttribute="centerX" id="WB5-qJ-FfI"/>
+                        <constraint firstAttribute="height" secondItem="6n9-kO-b97" secondAttribute="height" id="dAY-Wh-HCF"/>
+                        <constraint firstAttribute="width" secondItem="6n9-kO-b97" secondAttribute="width" id="iKQ-sn-4sq"/>
+                        <constraint firstAttribute="centerY" secondItem="6n9-kO-b97" secondAttribute="centerY" id="kQm-HW-Ggs"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="nfG-FV-GTA" customClass="MYIntroductionPanel">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro2" translatesAutoresizingMaskIntoConstraints="NO" id="r8E-32-NAx">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="r8E-32-NAx" secondAttribute="width" id="Ayz-gM-BJ9"/>
+                        <constraint firstAttribute="centerX" secondItem="r8E-32-NAx" secondAttribute="centerX" id="Fdo-Bh-fmL"/>
+                        <constraint firstAttribute="centerY" secondItem="r8E-32-NAx" secondAttribute="centerY" id="Nyx-gq-pAY"/>
+                        <constraint firstAttribute="height" secondItem="r8E-32-NAx" secondAttribute="height" id="tJt-Od-nfK"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="pgV-0D-P7I" customClass="MYIntroductionPanel">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro3" translatesAutoresizingMaskIntoConstraints="NO" id="qGJ-aT-Q02">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" secondItem="qGJ-aT-Q02" secondAttribute="height" id="W1D-MM-QlP"/>
+                        <constraint firstAttribute="centerX" secondItem="qGJ-aT-Q02" secondAttribute="centerX" id="aPC-yd-NBK"/>
+                        <constraint firstAttribute="width" secondItem="qGJ-aT-Q02" secondAttribute="width" id="fXB-cJ-O7w"/>
+                        <constraint firstAttribute="centerY" secondItem="qGJ-aT-Q02" secondAttribute="centerY" id="fjr-no-qYg"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="sFq-G3-MBN" customClass="MYIntroductionPanel">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro4" translatesAutoresizingMaskIntoConstraints="NO" id="HpH-SZ-jfm">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="HpH-SZ-jfm" secondAttribute="centerY" id="BL4-no-iZ5"/>
+                        <constraint firstAttribute="height" secondItem="HpH-SZ-jfm" secondAttribute="height" id="WAd-4a-ZhG"/>
+                        <constraint firstAttribute="centerX" secondItem="HpH-SZ-jfm" secondAttribute="centerX" id="erX-3G-b5o"/>
+                        <constraint firstAttribute="width" secondItem="HpH-SZ-jfm" secondAttribute="width" id="k5M-DC-xz2"/>
                     </constraints>
                 </view>
             </objects>
@@ -835,6 +903,10 @@
         <image name="iconlogo" width="110" height="110"/>
         <image name="iconpassword" width="30" height="30"/>
         <image name="iconusername" width="30" height="30"/>
+        <image name="intro1" width="1080" height="1920"/>
+        <image name="intro2" width="1080" height="1920"/>
+        <image name="intro3" width="1080" height="1920"/>
+        <image name="intro4" width="1080" height="1920"/>
         <image name="intro5" width="1080" height="1920"/>
         <image name="line48px" width="1" height="24"/>
     </resources>
