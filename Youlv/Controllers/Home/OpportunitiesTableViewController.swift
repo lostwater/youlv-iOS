@@ -10,7 +10,7 @@
 
 import UIKit
 
-class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
+class OpportunitiesTableViewController: OpportunitiesBaseTableViewController,NaviBarMenu {
     let menuWidth : CGFloat = 180
     let menuHeight : CGFloat = 172
     
@@ -35,9 +35,7 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
     var selectedTitle : String?
     var titleButton : UIButton?
     
-    var ordersArray = NSArray()
 
-    var currentPage = 1
     
     
     override func viewDidLoad() {
@@ -57,23 +55,14 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
     let client = DataClient()
     func getOrderList(currentPage: Int, pageSize:Int)
     {
-        client.getOrderList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getOrderListCompleted(data, error: error)
+        client.getOrderList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getOrderListCompleted(dict, error: error)
         })
     }
     
-    func getOrderListCompleted(data:NSData?,error:NSError?)
+    func getOrderListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-        if dict == nil{
-            return
-        }
+
         let dictData = dict!.objectForKey("data") as! NSDictionary
         ordersArray = (dictData.objectForKey("orderList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
@@ -82,56 +71,15 @@ class OpportunitiesTableViewController: UITableViewController,NaviBarMenu {
         
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        
-        return ordersArray.count
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityTableViewCell", forIndexPath: indexPath) as! OpportunityTableViewCell
-        let content = ordersArray.objectAtIndex(indexPath.row) as! NSDictionary
-        cell.displayData(content)
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let content = ordersArray.objectAtIndex(indexPath.row) as! NSDictionary
-        let contentText = content.objectForKey("order_content") as! NSString
-        //let size = CGSizeMake(self.view.frame.size.width - 20, CGFloat.max)
-        
-        let attributes : Dictionary = [NSFontAttributeName:UIFont(name: "HelveticaNeue", size: 14)]
-        let textSize = contentText.sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(14)])
-        
-        return textSize.height+160
-    }
-
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goOpportunityDetail"
         {
             let vc = segue.destinationViewController as! OpportunityDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            vc.dataDict = ordersArray.objectAtIndex(selectedIndex!) as? NSDictionary
-            vc.opportunityId = (ordersArray.objectAtIndex(selectedIndex!) as! NSDictionary).objectForKey("order_id") as! Int
+            vc.dataDict = ordersArray!.objectAtIndex(selectedIndex!) as? NSDictionary
+            vc.opportunityId = (ordersArray!.objectAtIndex(selectedIndex!) as! NSDictionary).objectForKey("order_id") as! Int
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
-    // MARK: - Table view data source
     
     
     func setMenuTextAndHide(selectedButton : UIButton)

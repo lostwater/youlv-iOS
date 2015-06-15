@@ -64,23 +64,13 @@ class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UI
     
     func getRecommendedUsers(currentPage: Int, pageSize:Int)
     {
-        client.getRecommendedUsers(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getRecommendedUsersCompleted(data, error: error)
+        client.getRecommendedUsers(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getRecommendedUsersCompleted(dict, error: error)
         })
     }
     
-    func getRecommendedUsersCompleted(data:NSData?,error:NSError?)
+    func getRecommendedUsersCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-        if dict == nil{
-            return
-        }
         let dictData = dict!.objectForKey("data") as! NSDictionary
         usersArray = (dictData.objectForKey("lawyerList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), {() -> Void in

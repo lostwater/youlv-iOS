@@ -8,26 +8,118 @@
 
 import UIKit
 
+enum SearchType : Int
+{
+    case Discuss = 0
+    case Article = 1
+    case Event = 2
+    case Opportunity = 3
+ 
+}
+
+
+
 class HomeSearchTableViewController: UITableViewController {
 
+    
+    @IBOutlet weak var searchText: UITextField!
     @IBOutlet weak var SearchBar: UISearchBar!
     @IBOutlet var tableVIew: UITableView!
     @IBOutlet weak var tagsView: DWTagList!
     
+    @IBAction func doSearchClicked(sender: AnyObject) {
+        currentPage = 1
+        search(currentPage)
+    }
+    
+    var searchType = SearchType.Discuss
+    var cellDataArray : NSArray?
+    var currentPage = 1
+
+    let opportunitiesVC = UIStoryboard(name:"Home",bundle:nil).instantiateViewControllerWithIdentifier("OpportunitiesVC") as! OpportunitiesTableViewController
+    let discussesVC = UIStoryboard(name:"Home",bundle:nil).instantiateViewControllerWithIdentifier("DiscussesVC") as! DiscussTableViewController
+    let eventsVC = UIStoryboard(name:"Home",bundle:nil).instantiateViewControllerWithIdentifier("EventsVC") as! EventsTableViewController
+    let articlesVC = UIStoryboard(name:"Home",bundle:nil).instantiateViewControllerWithIdentifier("ArticlesVC") as! ArticlesTableViewController
+    
+    var proxyTableViewController : UITableViewController?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showTags()
-        tagsView.setTags(["test1","test2"])
-        tagsView.display()
+        //showTags()
+        //tagsView.setTags(["test1","test2"])
+        //tagsView.display()
         
-        self.navigationItem.titleView = SearchBar
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //self.navigationItem.titleView = SearchBar
     }
+    
+    func search(page : Int)
+    {
+        let searchTitle = searchText.text
+        if searchType == SearchType.Discuss
+        {
+            DataClient().searchDiscuss(searchTitle, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+                self.searchCompleted(dict,error: error)
+            })
+        }
+        if searchType == SearchType.Opportunity
+        {
+            DataClient().searchOrders(searchTitle, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+                self.searchCompleted(dict,error: error)
+            })
+        }
+        if searchType == SearchType.Event
+        {
+            DataClient().searchActive(searchTitle, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+                self.searchCompleted(dict,error: error)
+            })
+        }
+        if searchType == SearchType.Article
+        {
+            DataClient().searchArticle(searchTitle, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+                self.searchCompleted(dict,error: error)
+            })
+        }
+
+    }
+    
+    func searchCompleted(dict:NSDictionary?,error:NSError?)
+    {
+        
+        let dictData = dict!.objectForKey("data") as! NSDictionary
+        if searchType == SearchType.Discuss
+        {
+            cellDataArray = dictData.objectForKey("discuessList") as? NSArray
+            discussesVC.discussArray = cellDataArray
+            proxyTableViewController = discussesVC
+        }
+        if searchType == SearchType.Opportunity
+        {
+            cellDataArray = dictData.objectForKey("orderList") as? NSArray
+            opportunitiesVC.ordersArray = cellDataArray
+            proxyTableViewController = opportunitiesVC
+        }
+        if searchType == SearchType.Event
+        {
+            cellDataArray = dictData.objectForKey("activeList") as? NSArray
+            eventsVC.eventsArray = cellDataArray
+            proxyTableViewController = eventsVC
+        }
+        if searchType == SearchType.Article
+        {
+            cellDataArray = dictData.objectForKey("articleList") as? NSArray
+            articlesVC.articlesArray = cellDataArray
+            proxyTableViewController = articlesVC
+        }
+                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
+        
+    }
+    
+
+
     
     func showTags()
     {
@@ -42,7 +134,37 @@ class HomeSearchTableViewController: UITableViewController {
         //HeaderView.frame = SearchBar.frame
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        self.hidesBottomBarWhenPushed = false
+        if segue.identifier == "goRepliedDiscussDetail" || segue.identifier == "goPostedDiscussDetail"
+        {
+            let discussDetail = segue.destinationViewController as! DiscussDetailViewController
+            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            let dataDict = cellDataArray!.objectAtIndex(selectedIndex!) as? NSDictionary
+            
+            discussDetail.dataDict = dataDict
+            discussDetail.topicId = dataDict?.objectForKey("topic_id") as? Int
+            discussDetail.isFromMyTopic = false
+        }
+        if segue.identifier == "goEventDetail"
+        {
+            let eventDetail = segue.destinationViewController as! EventDetailViewController
+            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            var selectedData = cellDataArray!.objectAtIndex(selectedIndex!) as! NSDictionary
+            eventDetail.eventId = (cellDataArray!.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)?.toInt()
+        }
+        if segue.identifier == "goOpportunityDetail"
+        {
+            let vc = segue.destinationViewController as! OpportunityDetailViewController
+            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            vc.dataDict = cellDataArray!.objectAtIndex(selectedIndex!) as? NSDictionary
+            vc.opportunityId = (cellDataArray!.objectAtIndex(selectedIndex!) as! NSDictionary).objectForKey("order_id") as! Int
+        }
+        if segue.identifier == "goArticleDetail"
+        {
+            let vc = segue.destinationViewController as! ArticleDetailViewController
+            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            var selectedData = cellDataArray!.objectAtIndex(selectedIndex!) as! NSDictionary
+            vc.dataDict = cellDataArray!.objectAtIndex(selectedIndex!) as? NSDictionary
+        }
     }
     
         
@@ -54,70 +176,24 @@ class HomeSearchTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+        let number = opportunitiesVC.numberOfSectionsInTableView(tableView)
+       return proxyTableViewController?.numberOfSectionsInTableView(tableView) ?? 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
+        let number = opportunitiesVC.tableView(tableView, numberOfRowsInSection:section)
 
-    /*
+        return proxyTableViewController?.tableView(tableView, numberOfRowsInSection:section) ?? 0
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+        return proxyTableViewController!.tableView(tableView, cellForRowAtIndexPath:indexPath)
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return proxyTableViewController!.tableView(tableView, heightForRowAtIndexPath:indexPath)
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

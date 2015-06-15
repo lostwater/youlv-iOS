@@ -87,28 +87,13 @@ class OpportunityDetailViewController: UIViewController {
     */
     func getPubishUser()
     {
-        DataClient().getOrderDetail(opportunityId, completion: { (data, error) -> () in
-            self.getPubishUserCompleted(data,error: error)
+        DataClient().getOrderDetail(opportunityId, completion: { (dict, error) -> () in
+            self.getPubishUserCompleted(dict,error: error)
         })
     }
     
-    func getPubishUserCompleted(data:NSData?,error:NSError?)
+    func getPubishUserCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-        if dict == nil
-        {
-           return
-        }
-        if dict?.objectForKey("errcode") as? Int == 1
-        {
-            return
-        }
-        
         let userData = (dict!.objectForKey("data") as! NSDictionary).objectForKey("lawyerRelate") as! NSDictionary
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.displayData(userData)

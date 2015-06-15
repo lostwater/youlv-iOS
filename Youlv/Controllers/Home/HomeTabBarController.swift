@@ -12,7 +12,11 @@ import UIKit
     
 class HomeTabBarController: TopTabBarController
 {
+    @IBAction func unwindToHomeTabBarController(segue: UIStoryboardSegue)
+    {
 
+    }
+    
     var naviMenuView : UIView?
     var isTabsSet = false
     
@@ -105,7 +109,14 @@ class HomeTabBarController: TopTabBarController
         self.tabBarController?.navigationItem.titleView = centerButton;
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
+        if segue.identifier == "goOpportunityDetail"
+        {
+            let vc = segue.destinationViewController as! HomeSearchTableViewController
+            vc.searchType = SearchType(rawValue: tabBarController!.selectedIndex)!
+        }
+    }
     
     /*
     // MARK: - Navigation

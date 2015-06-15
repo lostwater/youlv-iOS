@@ -29,74 +29,60 @@ class DataClient
     }
     
     
-    func getRecommendedUsers(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getRecommendedUsers(currentPage : Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "lawyer/findHotLawyers?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> () in
+            completion(dict,error)
         })
         
-        task.resume()
-        
+
     }
 
     
     
-    func getCityList(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getCityList(currentPage : Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "lawyer/getCityList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
         
     }
 
     
-    func getOrderList(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getOrderList(currentPage : Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "order/getOrderList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
        
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
         
     }
     
     
-    func getOrderDetail(orderId : Int, completion: (NSData?, NSError?)->())
+    func getOrderDetail(orderId : Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "order/orderDetail?"
         path = path + "&sessionId=" + String(sessionId)
         path = path + "&orderId=" + String(orderId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
+
     }
     
     func getDiscussList(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
@@ -395,7 +381,7 @@ class DataClient
         task.resume()
     }
     
-    func getUserProfileWithTopicList(userId: Int, currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getUserProfileWithTopicList(userId: Int, currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
 
     {
         var path = serverUrl + "lawyer/getLawyerInfo?"
@@ -404,13 +390,9 @@ class DataClient
         path = path + "&lawyerId=" + String(userId)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> () in
+            completion(dict, error)
         })
-        
-        task.resume()
         
     }
     
@@ -640,6 +622,58 @@ class DataClient
         })
 
     }
+    
+    
+    
+    
+    func searchOrders(title:String, currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "order/searchOrders?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&title=" + String(title)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
+        })
+    }
+    
+    func searchDiscuss(title:String, currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "discuss/searchDiscuss?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&title=" + String(title)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
+        })
+    }
+    
+    func searchActive(title:String, currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "active/searchActive?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&title=" + String(title)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
+        })
+    }
+    
+    func searchArticle(title:String, currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "article/searchArticle?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&title=" + String(title)
+        path = path + "&pageSize=" + String(pageSize)
+        path = path + "&sessionId=" + String(sessionId)
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
+        })
+    }
+    
 
     func postFollowUser(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
@@ -938,8 +972,10 @@ class DataClient
         let task = session.dataTaskWithURL(url!){ (data, responese, error) -> Void in
             if data == nil || error != nil
             {
-                let av = UIAlertView( title: "网络故障", message:nil, delegate:nil, cancelButtonTitle:"确认")
-                av.show()
+                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                    let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
+                    av.show()
+                })
                 return
             }
             let errorPointer = NSErrorPointer()
@@ -948,15 +984,20 @@ class DataClient
             {
                 let ds = NSString(data: data, encoding: NSUTF8StringEncoding)
                 print(ds)
-                let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
-                av.show()
+                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                    let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
+                    av.show()
+                })
+
                 return
             }
             if dict!.objectForKey("errcode") as! Int == 1
             {
                 let message = dict!.objectForKey("errmessage") as! String
-                let av = UIAlertView( title: "错误", message:message, delegate:nil, cancelButtonTitle:"确认")
-                av.show()
+                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                    let av = UIAlertView( title: "错误", message:message, delegate:nil, cancelButtonTitle:"确认")
+                    av.show()
+                })
                 return
             }
             completion(dict, error)

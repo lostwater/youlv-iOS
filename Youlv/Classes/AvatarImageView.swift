@@ -10,6 +10,8 @@
 class AvatarImageView: UIImageView {
     
     var userId = 0
+    var isPushEnabled = true
+    
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -20,12 +22,15 @@ class AvatarImageView: UIImageView {
     
     func tapped()
     {
+        if isPushEnabled
+        {
         let sourceVC = viewController()
         if sourceVC != nil
         {
             let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("userVC") as! UserViewController
             vc.userId = userId
             sourceVC!.navigationController?.pushViewController(vc, animated:true)
+        }
         }
     }
     

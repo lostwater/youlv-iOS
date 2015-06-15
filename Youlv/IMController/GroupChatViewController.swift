@@ -8,7 +8,7 @@
 
 
 
-class GroupChatViewController: ChatViewController {
+class GroupChatViewController: UUChatViewController {
     var groupId = ""
     var groupName = ""
     override func headImageDidClick(cell: UUMessageCell!, userId: String!)
@@ -22,7 +22,7 @@ class GroupChatViewController: ChatViewController {
     override func viewDidLoad() {
         self.navigationItem.title = self.chattitle
         super.viewDidLoad()
-        conversation = EaseMob.sharedInstance().chatManager.conversationForChatter!(groupId,isGroup: true)
+        EaseMob.sharedInstance().chatManager.conversationForChatter!(groupId, conversationType: EMConversationType.eConversationTypeGroupChat)
     }
     
     func emSendText(message : String)

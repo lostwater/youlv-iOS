@@ -56,7 +56,8 @@ class StartGroupChat2ViewController: UIViewController,UITableViewDataSource,UITa
     {
         var groupStyleSetting = EMGroupStyleSetting()
         groupStyleSetting.groupMaxUsersCount = groupMaxUsers
-        groupStyleSetting.groupStyle = eGroupStyle_PublicOpenJoin
+        groupStyleSetting.groupStyle = EMGroupStyle.eGroupStyle_PublicOpenJoin
+        //groupStyleSetting.groupStyle = eGroupStyle_PublicOpenJoin
         EaseMob.sharedInstance().chatManager.asyncCreateGroupWithSubject(groupName, description: groupDesc, invitees: invitees as [AnyObject], initialWelcomeMessage: "", styleSetting: groupStyleSetting, completion: { (group, error) -> Void in
             if error == nil
             {

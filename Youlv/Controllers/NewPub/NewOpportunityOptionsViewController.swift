@@ -98,21 +98,15 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
     func getCityList()
     {
         
-        DataClient().getCityList(1, pageSize: 100, completion: { (data, error) -> () in
-            self.getCityListCompleted(data,error: error)
+        DataClient().getCityList(1, pageSize: 100, completion: { (dict, error) -> () in
+            self.getCityListCompleted(dict,error: error)
         })
     }
     
-    func getCityListCompleted(data:NSData?,error:NSError?)
+    func getCityListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dataDict = dict.objectForKey("data") as? NSDictionary
+
+        let dataDict = dict!.objectForKey("data") as? NSDictionary
         cityList = dataDict!.objectForKey("cityList") as? NSArray
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.cityPicker.reloadAllComponents()

@@ -65,7 +65,7 @@ func resizeTextView(textView : UITextView)
     let textsize = textView.sizeThatFits(textView.frame.size)
     //textView.size
     
-    textView.frame.size = textsize
+    textView.frame.size.height = textsize.height
     let cs = textView.constraints()
     cs.filter{
         let c = $0 as! NSLayoutConstraint

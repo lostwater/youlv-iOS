@@ -22,21 +22,15 @@ class MyHomeTableViewController: UITableViewController {
     
     func getMyProfile()
     {
-        DataClient().getUserProfileWithTopicList(myLawyerId,currentPage: 1,pageSize: 0,completion: { (data, error) -> () in
-            self.getMyProfileCompleted(data,error: error)
+        DataClient().getUserProfileWithTopicList(myLawyerId,currentPage: 1,pageSize: 0,completion: { (dict, error) -> () in
+            self.getMyProfileCompleted(dict,error: error)
         })
     }
     
-    func getMyProfileCompleted(data:NSData?,error:NSError?)
+    func getMyProfileCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        self.dataDict = dict.objectForKey("data") as? NSDictionary
+
+        self.dataDict = dict!.objectForKey("data") as? NSDictionary
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.displayData()
         })

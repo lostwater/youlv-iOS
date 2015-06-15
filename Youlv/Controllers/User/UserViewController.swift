@@ -38,30 +38,19 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
     var topicsArray : NSArray?
     var currentPage = 1
     var userId = myLawyerId
+    var phone : String?
     
     let client = DataClient()
     func getUserProfileWithTopicList(currentPage: Int, pageSize:Int)
     {
-        client.getUserProfileWithTopicList(userId, currentPage: currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getUserProfileWithTopicListCompleted(data, error: error)
+        client.getUserProfileWithTopicList(userId, currentPage: currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getUserProfileWithTopicListCompleted(dict, error: error)
         })
     }
     
-    func getUserProfileWithTopicListCompleted(data:NSData?,error:NSError?)
+    func getUserProfileWithTopicListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        
-        NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
-        print(errorPointer.debugDescription)
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-        if dict == nil
-        {
-            return
-        }
+
         let dictData = dict!.objectForKey("data") as! NSDictionary
         topicsArray = (dictData.objectForKey("topicList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
@@ -77,7 +66,7 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
         userImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("lawyer_photoUrl") as! String))
         userIntroTextView.text = dataDict.objectForKey("lawyer_introduction") as? String
    
-        userName.text =  dataDict.objectForKey("lawyer_introduction") as? String
+        userName.text =  dataDict.objectForKey("lawyer_name") as? String
         userAdd.text = (dataDict.objectForKey("lawyer_cityName") as! String) + ", " + (dataDict.objectForKey("lawyer_lawOffice") as! String)
         var fellowstitle = String(dataDict.objectForKey("lawyer_attentionCount")as! Int)
         fellowstitle = "关注 " + fellowstitle
@@ -88,10 +77,21 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         userIntroTextView.textAlignment = NSTextAlignment.Center
         userIntroTextView.textColor = UIColor.whiteColor()
-
+        
+        phone =  dataDict.objectForKey("phone") as? String
         
         fullHeader()
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goPersonalChatVC"
+        {
+            let vc = segue.destinationViewController as! PrivateChatViewController
+            vc.userPhone = phone!
+            vc.chattitle = userName.text
+        }
+
     }
     
     
@@ -125,8 +125,10 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
         return topicsArray?.count ?? 0
     }
     
+    
      func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if(self.tableView.contentOffset.y > 0)
+        let y = self.tableView.contentOffset.y
+        if(self.tableView.contentOffset.y > firstCellHeight())
         {
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.shortHeader()
@@ -155,6 +157,7 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
         {
             cell = tableView.dequeueReusableCellWithIdentifier("DiscussRepliedCell", forIndexPath: indexPath) as? DiscussTableViewCell
         }
+        cell?.isAvatarPushEnabled = false
         cell?.displayData(content)
         return cell!
     }
@@ -181,6 +184,34 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
             
         }
         
+    }
+    
+    func firstCellHeight() -> CGFloat
+    {
+        if topicsArray?.count ?? 0 == 0
+        {
+            return 0
+        }
+        let content = topicsArray!.objectAtIndex(0) as! NSDictionary
+        if content.objectForKey("operate_type") as! Int == 0
+        {
+            let baseHeight :CGFloat = 115.0
+            let topicContentText = content.objectForKey("topic_content") as! String
+            let textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
+            
+            return textHeight+baseHeight
+            
+        }
+        else
+        {
+            let baseHeight :CGFloat = 115.0+95.0
+            let topicContentText = content.objectForKey("topic_content") as! String
+            let operatorContentText = content.objectForKey("operate_content") as! String
+            var textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
+            textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, self.view.frame.width - 32).height
+            return textHeight+baseHeight
+            
+        }
     }
     
     func fullHeader()

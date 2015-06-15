@@ -23,7 +23,8 @@ class DiscussTableViewCell: UITableViewCell
     @IBOutlet var topicUserName: UILabel?
     @IBOutlet var operatorName: UILabel?
     @IBOutlet var operatorTime: UILabel!
-    @IBOutlet var bookMarkedButton: UIButton!
+    @IBOutlet var bookMarkedButton: UIButton?
+    @IBOutlet var likedButton: UIButton?
     @IBOutlet var topicTextView: UITextView!
     @IBOutlet var operatorTextView: UITextView?
     @IBOutlet weak var topicTitle: UILabel?
@@ -32,16 +33,17 @@ class DiscussTableViewCell: UITableViewCell
     @IBOutlet var topicTextHeightConstraint: NSLayoutConstraint!
     @IBOutlet var operatorTextHeightConstraint: NSLayoutConstraint?
     
-    var dateFormatter = NSDateFormatter()
+    var isAvatarPushEnabled = true
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        dateFormatter.dateFormat="yyyy.MM.dd HH:mm"
         // Initialization code
     }
     
     func displayData(dataDict : NSDictionary)
     {
+        topicUserImageViewer?.isPushEnabled = isAvatarPushEnabled
         discussOperateType = DiscussOperateType(rawValue: dataDict.objectForKey("operate_type") as! Int)
         if discussOperateType == DiscussOperateType.Bookmark
         {
@@ -62,22 +64,33 @@ class DiscussTableViewCell: UITableViewCell
         topicTitle?.text = dataDict.objectForKey("topic_title") as? String
         operatorName?.text = dataDict.objectForKey("operate__lawyerName") as? String
         let time = NSDate(fromString:dataDict.objectForKey("operate_createDate") as! String)
-        operatorTime.text = dateFormatter.stringFromDate(time!)
-        bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+        operatorTime.text = defaultDateFormatter.stringFromDate(time!)
+        likedButton?.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
 , forState: UIControlState.Normal)
-        bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+        likedButton?.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
             , forState: UIControlState.Selected)
-        bookMarkedButton.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
-        bookMarkedButton.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
-        let isMarked = dataDict.objectForKey("topic_isPraise") as! Bool
-        if isMarked
+        likedButton?.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
+        likedButton?.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
+        likedButton?.selected = dataDict.objectForKey("topic_isPraise") as! Bool
+        
+        
+        bookMarkedButton?.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
+        bookMarkedButton?.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
+
+        var storeCount = dataDict.objectForKey("storeCount") as? Int
+        var isStore = dataDict.objectForKey("isStore") as? Bool
+        if storeCount != nil
         {
-            bookMarkedButton.selected = true
+        bookMarkedButton?.setTitle(String(storeCount!)
+            , forState: UIControlState.Normal)
+        bookMarkedButton?.setTitle(String(storeCount!)
+            , forState: UIControlState.Selected)
         }
-        else
+        if isStore != nil
         {
-            bookMarkedButton.selected = false
+            bookMarkedButton?.selected = isStore!
         }
+
         topicTextView.text = dataDict.objectForKey("topic_content") as? String
         operatorTextView?.text = dataDict.objectForKey("operate_content") as? String
         resizeTextView(topicTextView)
@@ -103,22 +116,15 @@ class DiscussTableViewCell: UITableViewCell
         operatorTime.text = dataDict.objectForKey("topic_createDate") as? String
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
 
-        bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+        bookMarkedButton?.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
             , forState: UIControlState.Normal)
-        bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+        bookMarkedButton?.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
             , forState: UIControlState.Selected)
-        bookMarkedButton.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
-        bookMarkedButton.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
-        let isMarked = dataDict.objectForKey("topic_isPraise") as! Bool
-        if isMarked
-        {
-            bookMarkedButton.selected = true
-        }
-        else
-        {
-            bookMarkedButton.selected = false
-        }
-        bookMarkedButton.hidden = true
+        bookMarkedButton?.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
+        bookMarkedButton?.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
+        bookMarkedButton?.selected = dataDict.objectForKey("isStore") as! Bool
+
+        bookMarkedButton?.hidden = true
         topicTextView.text = dataDict.objectForKey("topic_content") as? String
 
         resizeTextView(topicTextView)
@@ -140,21 +146,13 @@ class DiscussTableViewCell: UITableViewCell
 
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
 
-        bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+        bookMarkedButton?.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
             , forState: UIControlState.Normal)
-        bookMarkedButton.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+        bookMarkedButton?.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
             , forState: UIControlState.Selected)
-        bookMarkedButton.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
-        bookMarkedButton.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
-        let isMarked = dataDict.objectForKey("topic_isPraise") as! Bool
-        if isMarked
-        {
-            bookMarkedButton.selected = true
-        }
-        else
-        {
-            bookMarkedButton.selected = false
-        }
+        bookMarkedButton?.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
+        bookMarkedButton?.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
+        bookMarkedButton?.selected = dataDict.objectForKey("isStore") as! Bool
         topicTextView.text = dataDict.objectForKey("topic_content") as? String
 
         resizeTextView(topicTextView)
@@ -173,7 +171,7 @@ class DiscussTableViewCell: UITableViewCell
         operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl))
         operatorName?.text = dataDict.objectForKey("reply_lawyerName") as? String
         operatorTime.text = dataDict.objectForKey("reply_createDate") as? String
-        bookMarkedButton.hidden = true
+        bookMarkedButton?.hidden = true
 
         topicTextView.text = dataDict.objectForKey("topic_content") as? String
         operatorTextView?.text = dataDict.objectForKey("reply_content") as? String

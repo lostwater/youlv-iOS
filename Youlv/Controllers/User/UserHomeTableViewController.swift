@@ -27,24 +27,15 @@ class UserHomeTableViewController: UITableViewController {
     let client = DataClient()
     func getUserProfileWithTopicList(currentPage: Int, pageSize:Int)
     {
-        client.getUserProfileWithTopicList(userId, currentPage: currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getUserProfileWithTopicListCompleted(data, error: error)
+        client.getUserProfileWithTopicList(userId, currentPage: currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getUserProfileWithTopicListCompleted(dict, error: error)
         })
     }
     
-    func getUserProfileWithTopicListCompleted(data:NSData?,error:NSError?)
+    func getUserProfileWithTopicListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        
-        NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
-        print(errorPointer.debugDescription)
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         topicsArray = (dictData.objectForKey("topicList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.displayData(dictData)

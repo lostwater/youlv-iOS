@@ -6,11 +6,12 @@
 //  Copyright (c) 2015 Ramy. All rights reserved.
 //
 
+import UIKit
 
 
-class PrivateChatViewController: ChatViewController {
-    var userId = ""
-    var userName = ""
+class PrivateChatViewController: UUChatViewController{
+    var userPhone = ""
+
     override func headImageDidClick(cell: UUMessageCell!, userId: String!)
     {
             let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("userVC") as! UserViewController
@@ -22,26 +23,40 @@ class PrivateChatViewController: ChatViewController {
     override func viewDidLoad() {
         self.navigationItem.title = self.chattitle
         super.viewDidLoad()
-        conversation = EaseMob.sharedInstance().chatManager.conversationForChatter!(userId,isGroup: false)
+        EaseMob.sharedInstance().chatManager.conversationForChatter!(userPhone, conversationType: EMConversationType.eConversationTypeChat)
+    
     }
     
     func emSendText(message : String)
     {
-       let emmessage = ChatSendHelper.sendTextMessageWithString(message, toUsername: userName, isChatGroup: false, requireEncryption: false, ext: nil)
+       let emmessage = ChatSendHelper.sendTextMessageWithString(message, toUsername: userPhone, isChatGroup: false, requireEncryption: false, ext: nil)
 
     }
     
     func emSendImage(image : UIImage)
     {
-        let emmessage = ChatSendHelper.sendImageMessageWithImage(image, toUsername: userName, isChatGroup: false, requireEncryption: false, ext: nil)
+        let emmessage = ChatSendHelper.sendImageMessageWithImage(image, toUsername: userPhone, isChatGroup: false, requireEncryption: false, ext: nil)
     }
     
     func emSendVoice(voice : EMChatVoice)
     {
-         let emmessage = ChatSendHelper.sendVoice(voice, toUsername: userName, isChatGroup: false, requireEncryption: false, ext: nil)
+         let emmessage = ChatSendHelper.sendVoice(voice, toUsername: userPhone, isChatGroup: false, requireEncryption: false, ext: nil)
 
     }
-
     
+    override func inputView(inputView: UUInputFunctionView!, sendMessage message: String!) {
+        super.inputView(inputView,sendMessage:message)
+        emSendText(	message)
+
+    }
+    
+    override func inputView(inputView: UUInputFunctionView!, sendPicture image: UIImage!) {
+       super.inputView(inputView,sendPicture:image)
+        emSendImage(image)
+    }
+    
+    override func inputView(inputView: UUInputFunctionView!, sendVoice voice: NSData!, time second: Int) {
+        super.inputView(inputView,sendVoice:voice,time:second)
+    }
 
 }
