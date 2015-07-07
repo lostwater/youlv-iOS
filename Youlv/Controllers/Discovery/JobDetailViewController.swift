@@ -62,22 +62,14 @@ class JobDetailViewController: UIViewController {
     let client = DataClient()
     func getJobDetail()
     {
-        client.getJobDetail(jobId!, completion: { (data, error) -> () in
-            self.getJobDetailCompleted(data, error: error)
+        client.getJobDetail(jobId!, completion: { (dict, error) -> () in
+            self.getJobDetailCompleted(dict, error: error)
         })
     }
     
-    func getJobDetailCompleted(data:NSData?,error:NSError?)
+    func getJobDetailCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        dataDict = dict.objectForKey("data") as? NSDictionary
+        dataDict = dict!.objectForKey("data") as? NSDictionary
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.displayData()
         })
@@ -150,7 +142,7 @@ class JobDetailViewController: UIViewController {
             
         }
         
-        companyImageView.sd_setImageWithURL(NSURL(string:companyImageUrl!))
+        companyImageView.sd_setImageWithURL(NSURL(string:companyImageUrl ?? ""))
         companyIntroName.text =  dataDict!.objectForKey("position_officeName") as? String
         companyIntro.text = dataDict!.objectForKey("office_introduction") as? String
         

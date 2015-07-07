@@ -69,8 +69,8 @@ class MyOpportunitiesTableViewController: UITableViewController {
 
     func getMyRepiliedOpportunitiesCompleted(dict:NSDictionary?,error:NSError?)
     {
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        ordersArray = (dictData.objectForKey("orderList") as? NSArray)!
+        ordersArray = dict!.objectForKey("data") as? NSArray
+        //ordersArray = (dictData.objectForKey("orderList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()
         })
@@ -90,30 +90,52 @@ class MyOpportunitiesTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityTableViewCell", forIndexPath: indexPath) as! OpportunityTableViewCell
-        let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
-        cell.displayData(content)
-        return cell
+        if switcher.selectedSegmentIndex == 0
+        {
+            let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityTableViewCell", forIndexPath: indexPath) as! OpportunityTableViewCell
+            let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
+            cell.displayData(content)
+            return cell
+        }
+        else
+        {
+            let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityReplyCell", forIndexPath: indexPath) as! OpportunityReplyTableViewCell
+            let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
+            cell.displayData(content)
+            return cell
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
-        let contentText = content.objectForKey("order_content") as! NSString
-        //let size = CGSizeMake(self.view.frame.size.width - 20, CGFloat.max)
-        
-        let attributes : Dictionary = [NSFontAttributeName:UIFont(name: "HelveticaNeue", size: 14)]
-        let textSize = contentText.sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(14)])
-        
-        return textSize.height+160
+        if switcher.selectedSegmentIndex == 0
+        {
+            let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
+            var contentText = content.objectForKey("order_content") as? String
+            let contentTextSize = calTextSizeWithDefaultSettings(contentText!)
+            
+            return contentTextSize.height + 160.0
+
+        }
+        else
+        {
+            let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
+            var opportunityText = content.objectForKey("orderContent") as? String
+            let opportunityTextSize = calTextSizeWithDefaultSettings(opportunityText!)
+            var replyText = content.objectForKey("receiveContent") as? String
+            let replyTextSize = calTextSizeWithDefaultSettings(opportunityText!)
+            
+            return opportunityTextSize.height + replyTextSize.height + 120.0
+        }
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goOpportunityDetail"
+        if segue.identifier == "goPostedOpportunityDetail"
         {
             let opportunityDetail = segue.destinationViewController as! OpportunityDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item
             opportunityDetail.dataDict = ordersArray!.objectAtIndex(selectedIndex!) as? NSDictionary
+            opportunityDetail.opportunityId = opportunityDetail.dataDict?.objectForKey("order_id") as! Int
         }
         
     }

@@ -33,7 +33,7 @@ class HomeSearchTableViewController: UITableViewController {
     }
     
     var searchType = SearchType.Discuss
-    var cellDataArray : NSArray?
+    var cellDataArray : NSMutableArray?
     var currentPage = 1
 
     let opportunitiesVC = UIStoryboard(name:"Home",bundle:nil).instantiateViewControllerWithIdentifier("OpportunitiesVC") as! OpportunitiesTableViewController
@@ -90,26 +90,26 @@ class HomeSearchTableViewController: UITableViewController {
         let dictData = dict!.objectForKey("data") as! NSDictionary
         if searchType == SearchType.Discuss
         {
-            cellDataArray = dictData.objectForKey("discuessList") as? NSArray
-            discussesVC.discussArray = cellDataArray
+            cellDataArray = dictData.objectForKey("discuessList") as? NSMutableArray
+            discussesVC.dataArray = cellDataArray ?? NSMutableArray()
             proxyTableViewController = discussesVC
         }
         if searchType == SearchType.Opportunity
         {
-            cellDataArray = dictData.objectForKey("orderList") as? NSArray
-            opportunitiesVC.ordersArray = cellDataArray
+            cellDataArray = dictData.objectForKey("orderList") as? NSMutableArray
+            opportunitiesVC.dataArray = cellDataArray!
             proxyTableViewController = opportunitiesVC
         }
         if searchType == SearchType.Event
         {
-            cellDataArray = dictData.objectForKey("activeList") as? NSArray
-            eventsVC.eventsArray = cellDataArray
+            cellDataArray = dictData.objectForKey("activeList") as? NSMutableArray
+            eventsVC.dataArray = cellDataArray!
             proxyTableViewController = eventsVC
         }
         if searchType == SearchType.Article
         {
-            cellDataArray = dictData.objectForKey("articleList") as? NSArray
-            articlesVC.articlesArray = cellDataArray
+            cellDataArray = dictData.objectForKey("articleList") as? NSMutableArray
+            articlesVC.dataArray = cellDataArray!
             proxyTableViewController = articlesVC
         }
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in

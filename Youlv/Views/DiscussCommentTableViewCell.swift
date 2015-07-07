@@ -13,7 +13,7 @@ import UIKit
 
 class DiscussCommentTableViewCell: UITableViewCell {
 
-    @IBOutlet var UserImageView: UIImageView!
+    @IBOutlet var UserImageView: AvatarImageView!
     @IBOutlet var UserName: UILabel!
     @IBOutlet var CommentContent: UILabel!
     @IBOutlet var CommentTime: UILabel!
@@ -23,9 +23,14 @@ class DiscussCommentTableViewCell: UITableViewCell {
         if !LikedButton.selected
         {
             likeReply()
+            LikedButton.selected = true
+            var likedCount = LikedButton.titleLabel!.text!.toInt()! + 1
+            LikedButton.setTitle(String(likedCount), forState: UIControlState.Normal)
+            LikedButton.setTitle(String(likedCount), forState: UIControlState.Selected)
         }
     }
-
+    
+   
     
     override func awakeFromNib() {
         LikedButton.setImage(UIImage(named:"buttonlikecommentgrey"), forState: UIControlState.Normal)
@@ -34,26 +39,39 @@ class DiscussCommentTableViewCell: UITableViewCell {
     
     func displayData(dataDict : NSDictionary)
     {
+        let commentString = dataDict.objectForKey("content") as! String
+        CommentContent.numberOfLines = 0
+        CommentContent.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        CommentContent.text = commentString
+        
+        var attCommentStr = NSAttributedString(string: CommentContent.text!)
+        var range = NSMakeRange(0,attCommentStr.length)
+        var strDict = attCommentStr.attributesAtIndex(0, effectiveRange: &range)
+        var commentTextSize = attCommentStr.boundingRectWithSize(CommentContent.frame.size, options: NSStringDrawingOptions.UsesFontLeading, context: nil).size
+        CommentContent.frame.size = commentTextSize
+
         self.tag = dataDict.objectForKey("id") as! Int
+
         UserImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String), placeholderImage: UIImage(named:"pichead"))
- 
+        UserImageView.userId = (dataDict.objectForKey("lawyerId") as! String).toInt()!
         UserName.text = dataDict.objectForKey("lawyerName") as? String
-        CommentContent.text = dataDict.objectForKey("content") as? String
+        
+        
+        //var commentSize = NSString(string: CommentContent.text!).sizeWithAttributes(attrs: [NSObject : AnyObject]?)
+        
+        
         CommentTime.text = dateToText(NSDate(fromString: dataDict.objectForKey("createDate") as! String))
         LikedButton.setTitle(dataDict.objectForKey("praiseCount") as? String, forState: UIControlState.Normal)
         LikedButton.setTitle(dataDict.objectForKey("praiseCount") as? String, forState: UIControlState.Selected)
+    
+ 
+        
         LikedButton.setTitleColor(appBlueColor, forState: UIControlState.Selected)
         LikedButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
 
         let isMarked = (dataDict.objectForKey("isPraise") as! String).toInt()
-        if Bool(isMarked!)
-        {
-            LikedButton.selected = true
-        }
-        else
-        {
-            LikedButton.selected = false
-        }
+        
+        LikedButton.selected = Bool(isMarked!)
         
     }
     
@@ -69,12 +87,7 @@ class DiscussCommentTableViewCell: UITableViewCell {
     
     func likeReplyCompleted(data:NSDictionary?,error:NSError?)
     {
-        if data?.objectForKey("errcode") as? Int == 0
-        {
-            let count = LikedButton.titleLabel!.text!.toInt()! + 1
-            LikedButton.setTitle(String(count), forState: UIControlState.Selected)
-            LikedButton.selected = true
-        }
+
         
         
     }

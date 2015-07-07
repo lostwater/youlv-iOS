@@ -9,21 +9,16 @@
 import UIKit
 
 
-class PrivateChatViewController: UUChatViewController{
+class PrivateChatViewController: ChatViewController{
     var userPhone = ""
+    var username = ""
 
-    override func headImageDidClick(cell: UUMessageCell!, userId: String!)
-    {
-            let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("userVC") as! UserViewController
-            vc.userId = 1
-            self.navigationController?.pushViewController(vc, animated:true)
-    }
-    
     var conversation : EMConversation?
     override func viewDidLoad() {
-        self.navigationItem.title = self.chattitle
+        self.navigationItem.title = self.username
         super.viewDidLoad()
-        EaseMob.sharedInstance().chatManager.conversationForChatter!(userPhone, conversationType: EMConversationType.eConversationTypeChat)
+        setupChatVCWithChatter( userPhone, conversationType: EMConversationType.eConversationTypeChat)
+        //EaseMob.sharedInstance().chatManager.conversationForChatter!(userPhone, conversationType: EMConversationType.eConversationTypeChat)
     
     }
     
@@ -43,20 +38,6 @@ class PrivateChatViewController: UUChatViewController{
          let emmessage = ChatSendHelper.sendVoice(voice, toUsername: userPhone, isChatGroup: false, requireEncryption: false, ext: nil)
 
     }
-    
-    override func inputView(inputView: UUInputFunctionView!, sendMessage message: String!) {
-        super.inputView(inputView,sendMessage:message)
-        emSendText(	message)
 
-    }
-    
-    override func inputView(inputView: UUInputFunctionView!, sendPicture image: UIImage!) {
-       super.inputView(inputView,sendPicture:image)
-        emSendImage(image)
-    }
-    
-    override func inputView(inputView: UUInputFunctionView!, sendVoice voice: NSData!, time second: Int) {
-        super.inputView(inputView,sendVoice:voice,time:second)
-    }
 
 }

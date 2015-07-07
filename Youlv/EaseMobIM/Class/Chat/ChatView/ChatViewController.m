@@ -101,7 +101,22 @@
     }
     
     return self;
+
 }
+
+- (void)setupChatVCWithChatter:(NSString *)chatter conversationType:(EMConversationType)type
+{
+    _isPlayingAudio = NO;
+    _chatter = chatter;
+    _conversationType = type;
+    _messages = [NSMutableArray array];
+    
+    //根据接收者的username获取当前会话的管理者
+    _conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:chatter
+                                                                conversationType:type];
+    [_conversation markAllMessagesAsRead:YES];
+}
+
 
 - (BOOL)isChatGroup
 {

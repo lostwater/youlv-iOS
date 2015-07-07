@@ -70,10 +70,7 @@ class ArticleDetailViewController: UIViewController {
     {
         var parameters : NSDictionary = ["articleId":articleId!,"sessionId":sessionId]
         DataClient().postLikeArticle(parameters) { (data, error) -> () in
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.likeThisCompleted(data,error: error)
-                
-            })
         }
     }
     

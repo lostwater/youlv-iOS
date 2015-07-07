@@ -49,22 +49,15 @@ class MyTopicsTableViewController: UITableViewController {
     let client = DataClient()
     func getMyPostTopics(currentPage: Int, pageSize:Int)
     {
-        client.getMyPostTopics(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getMyPostTopicsCompleted(data, error: error)
+        client.getMyPostTopics(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getMyPostTopicsCompleted(dict, error: error)
         })
     }
     
-    func getMyPostTopicsCompleted(data:NSData?,error:NSError?)
+    func getMyPostTopicsCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
         
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         discussArray = (dictData.objectForKey("topicList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()
@@ -74,22 +67,14 @@ class MyTopicsTableViewController: UITableViewController {
     
     func getMyMarkedTopics(currentPage: Int, pageSize:Int)
     {
-        client.getMyMarkedTopics(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getMyMarkedTopicsCompleted(data, error: error)
+        client.getMyMarkedTopics(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getMyMarkedTopicsCompleted(dict, error: error)
         })
     }
     
-    func getMyMarkedTopicsCompleted(data:NSData?,error:NSError?)
+    func getMyMarkedTopicsCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         discussArray = (dictData.objectForKey("topicList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()
@@ -99,22 +84,15 @@ class MyTopicsTableViewController: UITableViewController {
     
     func getMyRepliedTopics(currentPage: Int, pageSize:Int)
     {
-        client.getMyRepliedTopics(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getMyRepliedTopicsCompleted(data, error: error)
+        client.getMyRepliedTopics(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getMyRepliedTopicsCompleted(dict, error: error)
         })
     }
     
-    func getMyRepliedTopicsCompleted(data:NSData?,error:NSError?)
+    func getMyRepliedTopicsCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         discussArray = (dictData.objectForKey("topicReplyList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()

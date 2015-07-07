@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yhm-0x-i7E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yhm-0x-i7E">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -404,6 +404,7 @@
                         <outlet property="buttonOtherLogin" destination="y5L-DS-d4D" id="vlj-CE-eJL"/>
                         <outlet property="buttonWeibo" destination="yKX-CB-5W9" id="7Vd-5p-QY5"/>
                         <outlet property="buttonWeixin" destination="Oob-1G-Jxq" id="4X0-yT-Gol"/>
+                        <outlet property="introButton" destination="U5t-Lh-XlD" id="HoU-tz-9DT"/>
                         <outlet property="introButtonLogin" destination="SNq-pY-TIM" id="5I5-8q-bVj"/>
                         <outlet property="introButtonSignup" destination="4vo-d9-axv" id="Ons-F1-VBv"/>
                         <outlet property="introPanel1" destination="rTM-B2-Bg6" id="hfO-ZJ-ebv"/>
@@ -423,7 +424,16 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro5" translatesAutoresizingMaskIntoConstraints="NO" id="SG3-3k-XpE">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNq-pY-TIM">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5t-Lh-XlD">
+                            <rect key="frame" x="276" y="285" width="47" height="45"/>
+                            <state key="normal" image="word">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="introButtonClicked:" destination="PFB-GV-1QB" eventType="touchUpInside" id="eH5-S8-OTk"/>
+                            </connections>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNq-pY-TIM">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
                             <state key="normal">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -432,7 +442,7 @@
                                 <action selector="introButtonLoginClicked:" destination="PFB-GV-1QB" eventType="touchUpInside" id="D2n-Se-G8z"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vo-d9-axv">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vo-d9-axv">
                             <rect key="frame" x="300" y="0.0" width="300" height="600"/>
                             <connections>
                                 <action selector="introButtonSignupClicked:" destination="PFB-GV-1QB" eventType="touchUpInside" id="gsG-30-5rZ"/>
@@ -447,13 +457,22 @@
                         <constraint firstAttribute="centerX" secondItem="SG3-3k-XpE" secondAttribute="centerX" id="Mzp-oG-djI"/>
                         <constraint firstItem="4vo-d9-axv" firstAttribute="height" secondItem="SG3-3k-XpE" secondAttribute="height" id="O9g-o0-MMt"/>
                         <constraint firstAttribute="centerY" secondItem="SNq-pY-TIM" secondAttribute="centerY" id="Ukb-ak-g4C"/>
+                        <constraint firstAttribute="centerX" secondItem="U5t-Lh-XlD" secondAttribute="centerX" id="VDQ-8F-bzN"/>
                         <constraint firstItem="SNq-pY-TIM" firstAttribute="height" secondItem="SG3-3k-XpE" secondAttribute="height" id="bT3-3A-gMK"/>
+                        <constraint firstItem="SG3-3k-XpE" firstAttribute="leading" secondItem="U5t-Lh-XlD" secondAttribute="trailing" constant="-323" id="bX7-8V-CTv"/>
+                        <constraint firstAttribute="bottom" secondItem="U5t-Lh-XlD" secondAttribute="bottom" constant="100" id="ebh-Iq-kRb"/>
                         <constraint firstItem="SNq-pY-TIM" firstAttribute="width" secondItem="SG3-3k-XpE" secondAttribute="width" multiplier="1:2" id="f23-TR-puk"/>
                         <constraint firstAttribute="trailing" secondItem="4vo-d9-axv" secondAttribute="trailing" id="kpy-no-51U"/>
                         <constraint firstAttribute="width" secondItem="SG3-3k-XpE" secondAttribute="width" id="lAS-vr-xkP"/>
                         <constraint firstItem="4vo-d9-axv" firstAttribute="width" secondItem="SG3-3k-XpE" secondAttribute="width" multiplier="1:2" id="qAD-nw-bkT"/>
                         <constraint firstAttribute="centerY" secondItem="SG3-3k-XpE" secondAttribute="centerY" id="vBJ-Je-U8Z"/>
+                        <constraint firstAttribute="centerX" secondItem="SNq-pY-TIM" secondAttribute="centerX" constant="150" id="yCb-KT-jsb"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="bX7-8V-CTv"/>
+                        </mask>
+                    </variation>
                 </view>
                 <view contentMode="scaleToFill" id="rTM-B2-Bg6" customClass="MYIntroductionPanel">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -903,12 +922,13 @@
         <image name="iconlogo" width="110" height="110"/>
         <image name="iconpassword" width="30" height="30"/>
         <image name="iconusername" width="30" height="30"/>
-        <image name="intro1" width="1080" height="1920"/>
-        <image name="intro2" width="1080" height="1920"/>
-        <image name="intro3" width="1080" height="1920"/>
-        <image name="intro4" width="1080" height="1920"/>
-        <image name="intro5" width="1080" height="1920"/>
+        <image name="intro1" width="360" height="640"/>
+        <image name="intro2" width="360" height="640"/>
+        <image name="intro3" width="360" height="640"/>
+        <image name="intro4" width="360" height="640"/>
+        <image name="intro5" width="360" height="640"/>
         <image name="line48px" width="1" height="24"/>
+        <image name="word" width="150" height="47"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="afi-pU-pRO"/>

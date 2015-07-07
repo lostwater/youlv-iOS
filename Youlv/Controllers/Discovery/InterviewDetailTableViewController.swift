@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class InterviewDetailViewController: BaseTableViewController {
     
     @IBAction func unwindToInterviewDetail(segue: UIStoryboardSegue)
     {
@@ -30,7 +30,6 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
     
     
     @IBOutlet var guestTextView: UITextView!
-    @IBOutlet var guestTextViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var guestExpandButton: UIButton!
     @IBAction func guestExpandButtonClicked(sender: AnyObject) {
         guestExpandButton.selected = !guestExpandButton.selected
@@ -39,45 +38,50 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
 
 
     @IBOutlet var interviewTextView: UITextView!
-    @IBOutlet var interviewTextViewHeightContraint: UITextView!
     @IBOutlet var interviewExpandButton: UIButton!
     @IBAction func interviewExpandButtonClicked(sender: AnyObject) {
         interviewExpandButton.selected = !interviewExpandButton.selected
         displayExpandableViews()
     }
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
     
     var interviewId : Int?
-    var qAndAArray : NSArray?
-    var currentPage = 1
     var dataDict : NSDictionary?
     var dataDictFromList : NSDictionary?
     
 
-    func getInterviewDetail()
+    override func getDataArray(currentPage: Int, pageSize:Int)
     {
-        DataClient().getInterviewDetail(interviewId!, currentPage: currentPage, pageSize: 10) { (data, error) -> () in
-            self.getInterviewDetailCompleted(data,error: error)
+        getInterviewDetail(currentPage, pageSize:pageSize)
+    }
+    
+    
+
+
+    func getInterviewDetail(currentPage: Int, pageSize:Int)
+    {
+        DataClient().getInterviewDetail(interviewId!, currentPage:currentPage, pageSize:pageSize) { (dict, error) -> () in
+            self.getInterviewDetailCompleted(dict,error: error)
         }
     }
     
-    func getInterviewDetailCompleted(data:NSData?,error:NSError?)
+    func getInterviewDetailCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
+        let dictData = dict!.objectForKey("data") as! NSDictionary
+        
+        let array = dictData.objectForKey("viewDiscusses") as? NSArray
+        if (array?.count ?? 0) > 0
         {
-            return
+            dataArray.addObjectsFromArray(array! as Array)
+            currentPage++
+            
         }
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        dataDict = dict.objectForKey("data") as? NSDictionary
-        qAndAArray = (dataDict!.objectForKey("viewDiscusses") as? NSArray)!
-        
-        dataDict = dataDict!.objectForKey("viewDetail") as? NSDictionary
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-          self.displayData()
+        dataDict = dictData.objectForKey("viewDetail") as? NSDictionary
+        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+            self.displayData()
         })
+
     }
     
     func markInterview()
@@ -95,7 +99,6 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
         
     }
 
-    
     
     func displayData()
     {
@@ -116,6 +119,7 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
     
     func displayExpandableViews()
     {
+        
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.3)
         if guestExpandButton.selected
@@ -134,15 +138,12 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
         {
             collapseView(interviewTextView)
         }
-         UIView.commitAnimations()
-
+        
+        headerView.frame.size.height = 414 + getHeightConstaint(guestTextView) + getHeightConstaint(interviewTextView)
+        self.tableView.tableHeaderView = headerView
+        UIView.commitAnimations()
     }
     
-    
-    override func viewWillAppear(animated: Bool) {
-        getInterviewDetail()
-    }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,6 +153,7 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
         interviewExpandButton.setImage(UIImage(named:"buttonarrowup"), forState: UIControlState.Selected)
         //fellowGuestButton.setImage(UIImage(named:"buttonarrowdown"), forState: UIControlState.Normal)
         fellowGuestButton.setImage(UIImage(named:"buttoncollectedevent"), forState: UIControlState.Selected)
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -162,47 +164,48 @@ class InterviewDetailViewController: UIViewController,UITableViewDelegate,UITabl
         }
     }
     
+    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return qAndAArray?.count ?? 0
-    }
-
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("InterviewContactCell", forIndexPath: indexPath) as! InterviewQATableViewCell
 
-        cell.displayData(qAndAArray?.objectAtIndex(indexPath.item) as! NSDictionary)
+        cell.displayData(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
 
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let basicHeight : CGFloat = 99
-        let text = (qAndAArray?.objectAtIndex(indexPath.item) as! NSDictionary).objectForKey("discuss_content") as! String
+        let text = (dataArray.objectAtIndex(indexPath.item) as! NSDictionary).objectForKey("discuss_content") as! String
         let textHeight = calTextSizeWithDefualtFont(text, self.view.frame.width - 32).height
         return textHeight + basicHeight
+    		
     }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
+    
+    
+//    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return headerView
+//    }
+
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.barTintColor = UIColor.clearColor()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named:"bgnavigationtitle"), forBarMetrics: UIBarMetrics.Default)
+        
         self.navigationController?.navigationBar.translucent = true
+        tableView.frame = CGRectMake(0,-64,self.view.frame.size.width,self.view.frame.size.height+64)
         
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named:"alpha0"), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.barTintColor = appBlueColor
         self.navigationController?.navigationBar.translucent = false
         

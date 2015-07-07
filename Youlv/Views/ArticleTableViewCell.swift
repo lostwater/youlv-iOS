@@ -14,7 +14,8 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet var articleTime: UILabel!
     @IBOutlet var articleImageView: UIImageView!
     @IBOutlet var articleTitle: UILabel!
-    @IBOutlet var articleTextView: UITextView!
+    //@IBOutlet var articleTextView: UITextView!
+    @IBOutlet weak var articleContent: UILabel!
     
     @IBOutlet var commentButton: UIButton!
     @IBOutlet var likedButton: UIButton!
@@ -45,7 +46,9 @@ class ArticleTableViewCell: UITableViewCell {
         self.tag = (dataDict.objectForKey("articleId") as? Int)!
         articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("url") as! String))
         articleTitle.text = dataDict.objectForKey("title") as? String
-        articleTextView.text =  dataDict.objectForKey("acro") as? String
+        //articleTextView.text =  dataDict.objectForKey("acro") as? String
+        articleContent.text =  dataDict.objectForKey("acro") as? String
+
         userName.text = dataDict.objectForKey("lawyerName") as? String
         articleTime.text =  defaultDateFormatter.stringFromDate(NSDate(fromString: (dataDict.objectForKey("createDate") as! String)))
         commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Normal)

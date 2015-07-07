@@ -38,39 +38,28 @@ class EventDetailViewController: UIViewController {
         let eventTimeText = "开始: " + defaultDateFormatter.stringFromDate(NSDate(fromString: (dataDict!.objectForKey("activeTime") as! String)))
         eventTime.text = eventTimeText
         let photoDicts = dataDict?.objectForKey("attentionPhotos") as? NSArray
-        var photoUrls = NSArray()
-        for photo in photoDicts!
+        if photoDicts != nil
         {
-            photoUrls = photoUrls.arrayByAddingObject((photo as! NSDictionary).objectForKey("photoUrl") as! String)
+            var photoUrls = NSArray()
+            for photo in photoDicts!
+            {
+                photoUrls = photoUrls.arrayByAddingObject((photo as! NSDictionary).objectForKey("photoUrl") as! String)
+            }
+            membersImageList.setImages(photoUrls)
         }
-        let isMarked = dataDict?.objectForKey("isCollect") as? Bool
-        if isMarked!
-        {
-            bookMarkButton.selected = true
-        }
-        
-        membersImageList.setImages(photoUrls)
-        
-
+        bookMarkButton.selected = dataDict?.objectForKey("isCollect") as! Bool
     }
     
     func getEventDetail()
     {
-        DataClient().getEventDetail(eventId!, completion: { (data, error) -> () in
-            self.getEventDetailCompleted(data,error: error)
+        DataClient().getEventDetail(eventId!, completion: { (dict, error) -> () in
+            self.getEventDetailCompleted(dict,error: error)
         })
     }
     
-    func getEventDetailCompleted(data:NSData?,error:NSError?)
+    func getEventDetailCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        self.dataDict = dict.objectForKey("data") as? NSDictionary
+        self.dataDict = dict!.objectForKey("data") as? NSDictionary
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.loadData()
         })

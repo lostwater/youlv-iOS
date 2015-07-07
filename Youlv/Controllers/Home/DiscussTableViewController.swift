@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiscussTableViewController: UITableViewController,NaviBarMenu {
+class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
     
     let menuWidth : CGFloat = 180
     let menuHeight : CGFloat = 212
@@ -27,47 +27,45 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
     @IBOutlet weak var menuButton2: UIButton!
     @IBOutlet weak var menuButton3: UIButton!
 
-    var discussArray : NSArray?
-    var currentPage = 1
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
-        getDiscussList(currentPage,pageSize: 10)
+        //getDiscussList(currentPage,pageSize: 10)
 
+    }
+    
+    override func getDataArray(currentPage: Int, pageSize:Int)
+    {
+        getDiscussList(currentPage, pageSize:pageSize)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.navigationItem.title = "讨论"
     }
-    
-    
-    let client = DataClient()
+   
+
     func getDiscussList(currentPage: Int, pageSize:Int)
     {
-        client.getDiscussList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getDiscussListCompleted(data, error: error)
+        DataClient().getDiscussList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getDiscussListCompleted(dict, error: error)
         })
     }
     
-    func getDiscussListCompleted(data:NSData?,error:NSError?)
+    func getDiscussListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
+        let dictData = dict!.objectForKey("data") as! NSDictionary
+        let array = dictData.objectForKey("discuessList") as? NSArray
+        if (array?.count ?? 0) > 0
         {
-            return
+            dataArray.addObjectsFromArray(array! as Array)
+            currentPage++
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+
         }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
-        discussArray = (dictData.objectForKey("discuessList") as? NSArray)!
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -75,7 +73,7 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
         {
             let discussDetail = segue.destinationViewController as! DiscussDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            let dataDict = discussArray!.objectAtIndex(selectedIndex!) as? NSDictionary
+            let dataDict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
             
             discussDetail.dataDict = dataDict
             discussDetail.topicId = dataDict?.objectForKey("topic_id") as? Int
@@ -83,21 +81,10 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        
-        return discussArray?.count ?? 0
-    }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let content = discussArray!.objectAtIndex(indexPath.row) as! NSDictionary
+        let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
         var cell : DiscussTableViewCell?
         if content.objectForKey("operate_type") as! Int == 0
         {
@@ -114,10 +101,10 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let content = discussArray!.objectAtIndex(indexPath.row) as! NSDictionary
+        let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
         if content.objectForKey("operate_type") as! Int == 0
         {
-            let baseHeight :CGFloat = 115.0
+            let baseHeight :CGFloat = 100.0
             let topicContentText = content.objectForKey("topic_content") as! String
             let textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
             
@@ -126,7 +113,7 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
         }
         else
         {
-            let baseHeight :CGFloat = 115.0+90.0
+            let baseHeight :CGFloat = 100.0+90.0
             let topicContentText = content.objectForKey("topic_content") as! String
             let operatorContentText = content.objectForKey("operate_content") as! String
             var textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
@@ -136,7 +123,7 @@ class DiscussTableViewController: UITableViewController,NaviBarMenu {
         }
         
     }
-
+    
 
     
     

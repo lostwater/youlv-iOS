@@ -84,7 +84,7 @@ class SignupViewController: UIViewController {
         if validCode.text != validCodeAnswer
         {
             showErrorMessage("验证码错误")
-            return
+            //return
         }
         if userName.text == ""
         {
@@ -126,19 +126,16 @@ class SignupViewController: UIViewController {
     func login()
     {
         let parameters = NSDictionary(objects:[storedUsername,storedPassword], forKeys: ["phone","password"])
-        DataClient().postLogin(parameters) { (data, error) -> () in
-            self.loginCompleted(data,error: error)
+        DataClient().postLogin(parameters) { (dict, error) -> () in
+            self.loginCompleted(dict,error: error)
         }
     }
     
-    func loginCompleted(data:NSDictionary?,error:NSError?)
+    func loginCompleted(dict:NSDictionary?,error:NSError?)
     {
-        getMyId()
         easeMobLogin()
-        if data?.objectForKey("errcode") as? Int == 0
-        {
-            sessionId = data!.objectForKey("sessionId") as! String
-        }
+            sessionId = dict!.objectForKey("sessionId") as! String
+            myLawyerId = dict!.objectForKey("lawyerId") as! Int
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.signUpSucceeded = true
             self.performSegueWithIdentifier("goRecommendedTopics", sender: self)
@@ -158,28 +155,6 @@ class SignupViewController: UIViewController {
     }
     
     
-    func getMyId()
-    {
-        DataClient().getMyProfile { (data, error) -> () in
-            self.getMyIdCompleted(data,error: error)
-        }
-    }
-    
-    func getMyIdCompleted(data:NSData?,error:NSError?)
-    {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-        if dict == nil{
-            return
-        }
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        myLawyerId = dictData.objectForKey("lawyer_id") as! Int
-    }
     
     
     func askValidCode()

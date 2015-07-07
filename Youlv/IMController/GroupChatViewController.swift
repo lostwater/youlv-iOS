@@ -8,21 +8,17 @@
 
 
 
-class GroupChatViewController: UUChatViewController {
+class GroupChatViewController: ChatViewController {
     var groupId = ""
     var groupName = ""
-    override func headImageDidClick(cell: UUMessageCell!, userId: String!)
-    {
-        let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("userVC") as! UserViewController
-        vc.userId = 1
-        self.navigationController?.pushViewController(vc, animated:true)
-    }
+
     
     var conversation : EMConversation?
     override func viewDidLoad() {
-        self.navigationItem.title = self.chattitle
+        self.navigationItem.title = self.groupName
         super.viewDidLoad()
-        EaseMob.sharedInstance().chatManager.conversationForChatter!(groupId, conversationType: EMConversationType.eConversationTypeGroupChat)
+        setupChatVCWithChatter(groupName, conversationType: EMConversationType.eConversationTypeChat)
+        //EaseMob.sharedInstance().chatManager.conversationForChatter!(groupId, conversationType: EMConversationType.eConversationTypeGroupChat)
     }
     
     func emSendText(message : String)

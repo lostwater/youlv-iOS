@@ -122,7 +122,7 @@ class DiscussTableViewCell: UITableViewCell
             , forState: UIControlState.Selected)
         bookMarkedButton?.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
         bookMarkedButton?.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
-        bookMarkedButton?.selected = dataDict.objectForKey("isStore") as! Bool
+        //bookMarkedButton?.selected = dataDict.objectForKey("isStore") as! Bool
 
         bookMarkedButton?.hidden = true
         topicTextView.text = dataDict.objectForKey("topic_content") as? String
@@ -152,7 +152,7 @@ class DiscussTableViewCell: UITableViewCell
             , forState: UIControlState.Selected)
         bookMarkedButton?.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
         bookMarkedButton?.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
-        bookMarkedButton?.selected = dataDict.objectForKey("isStore") as! Bool
+        //bookMarkedButton?.selected = dataDict.objectForKey("isStore") as! Bool
         topicTextView.text = dataDict.objectForKey("topic_content") as? String
 
         resizeTextView(topicTextView)

@@ -24,6 +24,12 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     
     @IBOutlet weak var introButtonLogin: UIButton!
     @IBOutlet weak var introButtonSignup: UIButton!
+    @IBOutlet weak var introButton: UIButton!
+    
+    @IBAction func introButtonClicked(sender: AnyObject) {
+        performSegueWithIdentifier("goSignUp", sender: sender)
+        navigationController?.navigationBar.translucent = false
+    }
     
     @IBAction func introButtonSignupClicked(sender: AnyObject) {
         performSegueWithIdentifier("goSignUp", sender: sender)
@@ -111,18 +117,20 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
             return
         }
         let parameters = NSDictionary(objects:[userAccount.text,passowrd.text], forKeys: ["phone","password"])
-        DataClient().postLogin(parameters) { (data, error) -> () in
-            self.loginCompleted(data,error: error)
+        DataClient().postLogin(parameters) { (dict, error) -> () in
+            self.loginCompleted(dict,error: error)
                     }
     }
     
-    func loginCompleted(data:NSDictionary?,error:NSError?)
+    func loginCompleted(dict:NSDictionary?,error:NSError?)
     {
-        getMyId()
+        
         easeMobLogin()
-        if data?.objectForKey("errcode") as? Int == 0
+        if dict?.objectForKey("errcode") as? Int == 0
         {
-            sessionId = data!.objectForKey("sessionId") as! String
+            sessionId = dict!.objectForKey("sessionId") as! String
+            myLawyerId = dict!.objectForKey("lawyerId") as! Int
+
             saveAccountAndPassword()
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.goMainVC()
@@ -131,7 +139,7 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         }
         else
         {
-            let message = data?.objectForKey("errcode") as? String
+            let message = dict?.objectForKey("errcode") as? String
             let av = UIAlertView( title: "登录失败", message:message, delegate:nil, cancelButtonTitle:"确认")
             av.show()
         }
@@ -146,32 +154,12 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
             {
                 NSLog("登陆成功")
             }
+            //if error.errorCode == EMErrorType.
+            //{
+                
+            //}
+            
         }, onQueue: nil)
-    }
-    
-    
-    
-    func getMyId()
-    {
-        DataClient().getMyProfile { (data, error) -> () in
-            self.getMyIdCompleted(data,error: error)
-        }
-    }
-    
-    func getMyIdCompleted(data:NSData?,error:NSError?)
-    {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-        if dict == nil{
-            return
-        }
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        myLawyerId = dictData.objectForKey("lawyer_id") as! Int
     }
     
     

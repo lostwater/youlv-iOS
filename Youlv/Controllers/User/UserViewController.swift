@@ -63,7 +63,7 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
     func displayData(dataDict : NSDictionary)
     {
         
-        userImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("lawyer_photoUrl") as! String))
+        userImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("lawyer_photoUrl") as! String), placeholderImage: headImage)
         userIntroTextView.text = dataDict.objectForKey("lawyer_introduction") as? String
    
         userName.text =  dataDict.objectForKey("lawyer_name") as? String
@@ -89,7 +89,7 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
         {
             let vc = segue.destinationViewController as! PrivateChatViewController
             vc.userPhone = phone!
-            vc.chattitle = userName.text
+            //vc.chattitle = userName.text
         }
 
     }

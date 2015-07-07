@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DiscussDetailViewController: ViewControllerWithTableView{
     @IBOutlet var DiscussContentView: UIView!
     @IBOutlet var UserImageView: UIImageView!
     @IBOutlet var DiscussTitle: UILabel!
@@ -23,7 +23,7 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBAction func sendAndUnwindFromReply(segue: UIStoryboardSegue)
     {
-        getDiscussDetail()
+       
     }
     
     @IBAction func followButtonClicked(sender: AnyObject) {
@@ -37,30 +37,30 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
     var dataDict : NSDictionary?
     var topicId : Int?
     var isFromMyTopic = false
-    var currentPage = 1
-    
+
     override func viewDidLoad() {
         ResponeButton.setImage(UIImage(named:"buttonrespondlargeoutline"), forState: UIControlState.Normal)
         ResponeButton.setImage(UIImage(named:"buttonrespondlarge"), forState: UIControlState.Selected)
         FellowButton.setImage(UIImage(named:"buttonfollowlargeoutline"), forState:UIControlState.Normal)
         FellowButton.setImage(UIImage(named:"buttonfollowlarge"), forState:UIControlState.Selected)
+            }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        //currentPage = 1
         if isFromMyTopic
         {
             displayDataFromMyTopics()
         }
         else
         {
-        
+            
             displayData()
         }
+        getDataArray()
+        //getDataArray(currentPage,pageSize:10)
     }
-    
-    
-    override func viewDidAppear(animated: Bool) {
-        getDiscussDetail()
-    }
-    
-   
+
     func markTopic()
     {
         var parameters : NSDictionary = ["topicId":topicId!, "sessionId":sessionId]
@@ -88,7 +88,8 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
         DiscussTime.text = defaultDateFormatter.stringFromDate(NSDate(fromString: dataDict!.objectForKey("operate_createDate") as! String))
         DiscussTextView.text = dataDict!.objectForKey("topic_content") as? String
         resizeTextView()
-        getDiscussDetail()
+        
+
         
         let isMarked = dataDict!.objectForKey("topic_isPraise") as! Bool
         if isMarked
@@ -130,8 +131,7 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
         DiscussTime.text = date
         DiscussTextView.text = self.dataDict!.objectForKey("topic_content") as? String
         resizeTextView()
-        getDiscussDetail()
-        
+                
         let isMarked = true
         //let isMarked = self.dataDict!.objectForKey("topic_isPraise") as! Bool
         if isMarked
@@ -152,33 +152,44 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+
+    override func getDataArray()
+    {
+        dataArray.removeAllObjects()
+        getDiscussDetail()
+    }
     
-    
-    var commentsArray = NSArray()
     func getDiscussDetail()
     {
-        DataClient().getTopicDetail(topicId!, currentPage: currentPage, pageSize: 10) { (data, error) -> () in
-            self.getDiscussDetailCompleted(data,error: error)
+        
+        DataClient().getTopicDetail(topicId!) { (dict, error) -> () in
+            self.getDiscussDetailCompleted(dict,error: error)
+        }
+    }
+    
+    func getDiscussDetail(currentPage: Int, pageSize: Int)
+    {
+        
+        DataClient().getTopicDetail(topicId!,currentPage: currentPage, pageSize: currentPage) { (dict, error) -> () in
+            self.getDiscussDetailCompleted(dict,error: error)
         }
     }
     
 
-    func getDiscussDetailCompleted(data:NSData?,error:NSError?)
+    func getDiscussDetailCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
         
-        let dictData = dict.objectForKey("data") as! NSDictionary
-        commentsArray = (dictData.objectForKey("replyList") as? NSArray)!
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        let dictData = dict!.objectForKey("data") as! NSDictionary
+        let array = dictData.objectForKey("replyList") as? NSArray
+        if (array?.count ?? 0) > 0
+        {
+            dataArray.addObjectsFromArray(array! as Array)
+            //currentPage++
+        }
+        
+        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()
         })
-
-        
     }
     
     func resizeTextView() -> CGFloat
@@ -189,24 +200,26 @@ class DiscussDetailViewController: UIViewController, UITableViewDataSource, UITa
         return textSize.height+8
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DiscussCommentCell", forIndexPath: indexPath) as! DiscussCommentTableViewCell
-        cell.displayData(commentsArray.objectAtIndex(indexPath.item) as! NSDictionary)
+        cell.displayData(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
     }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commentsArray.count    }
-    
 
 
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+
+        let content = dataArray.objectAtIndex(indexPath.item) as! NSDictionary
+        var commentString = content.objectForKey("content") as! String
+
+        var attCommentStr = NSAttributedString(string: commentString)
+        var range = NSMakeRange(0,attCommentStr.length)
+        var strDict = attCommentStr.attributesAtIndex(0, effectiveRange: &range)
+         var commentTextSize = calTextSizeWithDefualtFont(commentString, tableView.frame.width - 74)
+        return commentTextSize.height + 38
+    }
     
   
     

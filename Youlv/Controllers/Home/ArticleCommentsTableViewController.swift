@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArticleCommentsTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class ArticleCommentsTableViewController: ViewControllerWithPagedTableView {
     
     var articleId : Int?
     
@@ -19,67 +19,112 @@ class ArticleCommentsTableViewController: UIViewController,UITableViewDataSource
     
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var sendButton: UIButton!
+    
+    
     @IBAction func sendButtonClicked(sender: AnyObject) {
+        DataClient().postArticleComment(articleId!, comment: newCommentTextField.text) { (dict, error) -> () in
+            if dict != nil
+            {
+                let message = dict!.objectForKey("errmessage") as! String
+                let errorcode = dict!.objectForKey("errcode") as! Int
+                if errorcode == 0
+                {
+                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                        KVNProgress.showSuccessWithStatus(message)
+                    })
+                }
+                if errorcode == 1
+                {
+                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                        KVNProgress.showErrorWithStatus(message)
+                    })
+                }
+            }
+            
+        }
     }
     
     
+    @IBOutlet weak var inputViewToBottom: NSLayoutConstraint!
     
-    var commentsArray : NSArray?
-    let client = DataClient()
-    var currentPage = 1
-    
-    override func viewDidLoad() {
-        getArticleCommentsList(currentPage, pageSize:10)
+    @IBAction func editingBegin(sender: AnyObject) {
+        
     }
+    @IBAction func editingEnd(sender: AnyObject) {
+        resignFirstResponder()
+        //inputViewToBottom.constant = 0
+    }
+    
+    override func getDataArray(currentPage: Int, pageSize:Int)
+    {
+        getArticleCommentsList(currentPage, pageSize:pageSize)
+    }
+
     
     func getArticleCommentsList(currentPage: Int, pageSize:Int)
     {
-        client.getArticleCommentsList(articleId!, currentPage: currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getArticleCommentsListCompleted(data, error: error)
+        DataClient().getArticleCommentsList(articleId!, currentPage: currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getArticleCommentsListCompleted(dict, error: error)
         })
     }
     
-    func getArticleCommentsListCompleted(data:NSData?,error:NSError?)
+    func getArticleCommentsListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        let ds = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
-        print(ds)
-        NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
-        print(errorPointer.debugDescription)
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-        if dict == nil
-        {
-            return
-        }
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        commentsArray = (dictData.objectForKey("commentList") as? NSArray)!
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-            self.commentsCountButton.setTitle(String(self.commentsArray?.count ?? 0), forState: UIControlState.Normal)
-        })
-    }
-    
-     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-    
-     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return commentsArray?.count ?? 0
+        let dictData = dict!.objectForKey("data") as! NSDictionary
+        let array = dictData.objectForKey("commentList") as? NSArray
+        if (array?.count ?? 0) > 0
+        {
+            dataArray.addObjectsFromArray(array! as Array)
+            currentPage++
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+                self.commentsCountButton.setTitle(String(self.dataArray.count), forState: UIControlState.Normal)
+            })
+            
+        }
+        
+    }
+
+    
+    override func viewDidLoad() {
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow", name: UIKeyboardWillShowNotification, object: nil)
     }
     
-     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ArticleCommentCell", forIndexPath: indexPath) as! ArticleTableViewCell
-        cell.displayData(commentsArray!.objectAtIndex(indexPath.item) as! NSDictionary)
+    func keyboardWillShow(notification: NSNotification)
+    {
+        let info = notification.userInfo!
+        let value: AnyObject  = info[UIKeyboardFrameEndUserInfoKey]!
+        
+        let rawFrame = value.CGRectValue()
+        let keyboardFrame = view.convertRect(rawFrame, fromView: nil)
+        
+        inputViewToBottom.constant = keyboardFrame.height
+
+    }
+    
+   
+    
+    
+     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ArticleCommentCell", forIndexPath: indexPath) as! ArticleCommentTableViewCell
+        cell.displayData(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
         
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        let content = dataArray.objectAtIndex(indexPath.item) as! NSDictionary
+        var commentString = content.objectForKey("comment") as! String
+        
+        var attCommentStr = NSAttributedString(string: commentString)
+        var range = NSMakeRange(0,attCommentStr.length)
+        var strDict = attCommentStr.attributesAtIndex(0, effectiveRange: &range)
+        var commentTextSize = calTextSizeWithDefualtFont(commentString, tableView.frame.width - 74)
+        return commentTextSize.height + 38
+    }
+    
 
   
 }

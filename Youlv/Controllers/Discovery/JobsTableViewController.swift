@@ -16,22 +16,15 @@ class JobsTableViewController: UITableViewController {
     let client = DataClient()
     func getJobList(currentPage: Int, pageSize:Int)
     {
-        client.getJobList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getJobListCompleted(data, error: error)
+        client.getJobList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getJobListCompleted(dict, error: error)
         })
     }
     
-    func getJobListCompleted(data:NSData?,error:NSError?)
+    func getJobListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         jobsArray = (dictData.objectForKey("positionList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()

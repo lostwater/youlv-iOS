@@ -12,21 +12,23 @@ class DiscussReplyViewController: UIViewController {
     @IBOutlet var textView: CPTextViewPlaceholder!
     
     var topicId = 0
+    var isSend = false
     
     func send()
     {
         var parameters : NSDictionary = ["topicId":topicId,"content":textView.text,"sessionId":sessionId]
         DataClient().postDiscussReply(parameters) { (data, error) -> () in
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.sendCompleted(data,error: error)
-                
-            })
+            self.sendCompleted(data,error: error)
         }
     }
     
     func sendCompleted(data:NSDictionary?,error:NSError?)
     {
-        UIAlertView(title: data?.objectForKey("errmessage") as? String, message: nil, delegate: nil, cancelButtonTitle: "ok").show()
+        isSend = true
+        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+            self.performSegueWithIdentifier("SendAndUnwindFromReply", sender: self)
+            //UIAlertView(title: data?.objectForKey("errmessage") as? String, message: nil, delegate: nil, cancelButtonTitle: "ok").show()
+            })
         
     }
     
@@ -34,10 +36,21 @@ class DiscussReplyViewController: UIViewController {
         textView.becomeFirstResponder()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SendAndUnwindFromReply"
+
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if identifier == "SendAndUnwindFromReply"
         {
-            send()
+            if isSend
+            {
+                return true
+            }
+            else
+            {
+                send()
+                return false
+            }
         }
+        return true
     }
 }

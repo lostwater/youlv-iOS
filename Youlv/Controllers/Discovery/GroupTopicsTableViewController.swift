@@ -36,28 +36,15 @@ class GroupTopicsTableViewController: UITableViewController {
         
     }
     
-    
-    let client = DataClient()
     func getTopicGroupDetail(currentPage: Int, pageSize:Int)
     {
-        client.getTopicGroupDetail(groupId, currentPage: currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getTopicGroupDetailCompleted(data, error: error)
+        DataClient().getTopicGroupDetail(groupId, currentPage: currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getTopicGroupDetailCompleted(dict, error: error)
         })
     }
     
-    func getTopicGroupDetailCompleted(data:NSData?,error:NSError?)
+    func getTopicGroupDetailCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-        if dict == nil
-        {
-            return
-        }
         let dictData = dict!.objectForKey("data") as! NSDictionary
         repliedArray = (dictData.objectForKey("topicList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in

@@ -16,22 +16,14 @@ class JobsBookmarkedTableViewController: UITableViewController {
     let client = DataClient()
     func getMarkedJobList(currentPage: Int, pageSize:Int)
     {
-        client.getMarkedJobList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getMarkedJobListCompleted(data, error: error)
+        client.getMarkedJobList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getMarkedJobListCompleted(dict, error: error)
         })
     }
     
-    func getMarkedJobListCompleted(data:NSData?,error:NSError?)
+    func getMarkedJobListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         jobsArray = (dictData.objectForKey("storeList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()

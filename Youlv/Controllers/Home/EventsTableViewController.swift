@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventsTableViewController: UITableViewController,NaviBarMenu {
+class EventsTableViewController: BaseTableViewController,NaviBarMenu {
     
     let menuWidth : CGFloat = 180
     let menuHeight : CGFloat = 172
@@ -34,16 +34,11 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
     var naviMenuView : UIView?
     var selectedTitle : String?
     var titleButton : UIButton?
-    
-    var eventsArray : NSArray?
-    
-    var currentPage = 1
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
-        getEventList(currentPage, pageSize: 10)
 
     }
     
@@ -52,33 +47,32 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
         tabBarController?.navigationItem.title = "活动"
     }
     
-    let client = DataClient()
+    
+    override func getDataArray(currentPage: Int, pageSize:Int)
+    {
+        getEventList(currentPage, pageSize:pageSize)
+    }
+    
     func getEventList(currentPage: Int, pageSize:Int)
     {
-        client.getEventList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getEventListCompleted(data, error: error)
+        DataClient().getEventList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getEventListCompleted(dict, error: error)
         })
     }
     
-    func getEventListCompleted(data:NSData?,error:NSError?)
+    func getEventListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
+        let dictData = dict!.objectForKey("data") as! NSDictionary
+        let array = dictData.objectForKey("activeList") as? NSArray
+        if (array?.count ?? 0) > 0
         {
-            return
+            dataArray.addObjectsFromArray(array! as Array)
+            currentPage++
         }
-        let errorPointer = NSErrorPointer()
-        let ds = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
-        //print(NSJSONSerialization.isValidJSONObject(data!))
-        NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
-        print(errorPointer.debugDescription)
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-
-        let dictData = dict.objectForKey("data") as! NSDictionary
-        eventsArray = (dictData.objectForKey("activeList") as? NSArray)!
+        
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()
         })
-        
     }
     
     
@@ -87,34 +81,15 @@ class EventsTableViewController: UITableViewController,NaviBarMenu {
         {
             let eventDetail = segue.destinationViewController as! EventDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            var selectedData = eventsArray!.objectAtIndex(selectedIndex!) as! NSDictionary
-            eventDetail.eventId = (eventsArray!.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)?.toInt()
+            var selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
+            eventDetail.eventId = (dataArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)?.toInt()
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
-    // MARK: - Table view data source
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return eventsArray?.count ?? 0
-    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventTableViewCell
-        cell.displayData(eventsArray!.objectAtIndex(indexPath.item) as! NSDictionary)
+        cell.displayData(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
 
     }

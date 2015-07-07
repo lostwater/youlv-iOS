@@ -27,24 +27,15 @@ class MyEventsTableViewController: UITableViewController {
     let client = DataClient()
     func getMyEventsList(currentPage: Int, pageSize:Int)
     {
-        client.getMyEventsList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getMyEventsListCompleted(data, error: error)
+        client.getMyEventsList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getMyEventsListCompleted(dict, error: error)
         })
     }
     
-    func getMyEventsListCompleted(data:NSData?,error:NSError?)
+    func getMyEventsListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-
-        NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
-        print(errorPointer.debugDescription)
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
         
-        let dictData = dict.objectForKey("data") as! NSDictionary
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         eventsArray = (dictData.objectForKey("activeList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()

@@ -16,22 +16,14 @@ class ResearchTableViewController: UITableViewController {
     let client = DataClient()
     func getResearchList(currentPage: Int, pageSize:Int)
     {
-        client.getResearchList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getResearchListCompleted(data, error: error)
+        client.getResearchList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getResearchListCompleted(dict, error: error)
         })
     }
     
-    func getResearchListCompleted(data:NSData?,error:NSError?)
-    {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+    func getResearchListCompleted(dict:NSDictionary?,error:NSError?)
+    {    
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         researchArry = (dictData.objectForKey("voteList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()

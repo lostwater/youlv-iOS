@@ -25,9 +25,12 @@ class SettingsTableViewController: UITableViewController {
     var accountKeyWrapper = KeychainItemWrapper(identifier: "account", accessGroup: serviceName)
     var passwordKeyWrapper = KeychainItemWrapper(identifier: "password", accessGroup: serviceName)
     
+    @IBOutlet weak var userIdLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         reDrawFoot()
+        userIdLabel.text = "友律ID " + (accountKeyWrapper.objectForKey(kSecAttrService) as! String)
 
     }
 

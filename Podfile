@@ -12,6 +12,8 @@ pod 'EaseMobSDKFull'
 pod 'AFNetworking'
 pod 'TAPageControl'
 pod 'MYBlurIntroductionView'
+pod 'IQKeyboardManager'
+pod 'KVNProgress'
 end
 
 target 'YoulvTests' do
@@ -25,5 +27,8 @@ pod 'EaseMobSDKFull'
 pod 'AFNetworking'
 pod 'TAPageControl'
 pod 'MYBlurIntroductionView'
+pod 'IQKeyboardManager'
+pod 'KVNProgress'
 end
+
 

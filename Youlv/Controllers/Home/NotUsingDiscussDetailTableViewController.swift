@@ -23,21 +23,14 @@ class DiscussDetailTableViewController: UITableViewController {
     
     func getDiscussDetail()
     {
-        DataClient().getTopicDetail(topicId!, currentPage: currentPage, pageSize: 10) { (data, error) -> () in
-            self.getDiscussDetailCompleted(data,error: error)
+        DataClient().getTopicDetail(topicId!, currentPage: currentPage, pageSize: 10) { (dict, error) -> () in
+            self.getDiscussDetailCompleted(dict,error: error)
         }
     }
     
-    func getDiscussDetailCompleted(data:NSData?,error:NSError?)
+    func getDiscussDetailCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         
         commentsArray = (dictData.objectForKey("replyList") as? NSArray)!
         dispatch_async(dispatch_get_main_queue(), { () -> Void in

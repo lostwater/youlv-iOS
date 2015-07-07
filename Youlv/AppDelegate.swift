@@ -9,6 +9,9 @@
 import UIKit
 
 let appBlueColor = UIColorFromRGB(0x00B1F1)
+let bgGreyColor = UIColorFromRGB(0xF1F0F5)
+let bgNaviColor = UIColor(white: 0, alpha: 0.1)
+
 var appNaviMenuView : UIView?
 var isCancellingNew = false
 var headImage = UIImage(named:"pichead")
@@ -26,7 +29,7 @@ var myLawyerId = 0
 var defaultDateFormatter = NSDateFormatter()
 
 let groupMaxUsers = 300
-let serviceName = "com.Ramy.Youlv"
+let serviceName = "com.RamyTech.Youlv"
 
 var userDefaults = NSUserDefaults.standardUserDefaults()
 
@@ -47,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         
-      
+        IQKeyboardManager.sharedManager().enable = true
         
         return true
     }
@@ -73,6 +76,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    
+    
     
     func setNavBar()
     {

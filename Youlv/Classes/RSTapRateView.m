@@ -149,33 +149,26 @@ UIImage *imageStarFull;
     
     // One
     self.oneStarButton.frame = CGRectMake(centerButtonLeft - (starButtonSpacing + starButtonWidth) * 2, centerButtonTop, starButtonWidth, starButtonHeight);
-    
-    _oneStarReflectionView.image = [UIImageView reflectedImage:_oneStarButton.imageView withHeight:_oneStarButton.imageView.bounds.size.height * kDefaultReflectionFraction];
-    _oneStarReflectionView.frame = CGRectMake(centerButtonLeft - (starButtonSpacing + starButtonWidth) * 2, centerButtonTop +  starButtonHeight + 1.f, starButtonWidth, starButtonHeight);
+
     
     // Two
     self.twoStarButton.frame = CGRectMake(centerButtonLeft - (starButtonSpacing + starButtonWidth) * 1, centerButtonTop, starButtonWidth, starButtonHeight);
     
-    _twoStarReflectionView.image = [UIImageView reflectedImage:_twoStarButton.imageView withHeight:_twoStarButton.imageView.bounds.size.height * kDefaultReflectionFraction];
-    _twoStarReflectionView.frame = CGRectMake(self.twoStarButton.frame.origin.x, centerButtonTop +  starButtonHeight + 1.f, starButtonWidth, starButtonHeight);
+
     
     // Three
     self.threeStarButton.frame = CGRectMake(centerButtonLeft, centerButtonTop, starButtonWidth, starButtonHeight);
-    
-    _threeStarReflectionView.image = [UIImageView reflectedImage:_threeStarButton.imageView withHeight:_threeStarButton.imageView.bounds.size.height * kDefaultReflectionFraction];
-    _threeStarReflectionView.frame = CGRectMake(centerButtonLeft, centerButtonTop +  starButtonHeight + 1.f, starButtonWidth, starButtonHeight);
+
     
     // Four
     self.fourStarButton.frame = CGRectMake(centerButtonLeft + (starButtonSpacing + starButtonWidth) * 1, centerButtonTop, starButtonWidth, starButtonHeight);
     
-    _fourStarReflectionView.image = [UIImageView reflectedImage:_fourStarButton.imageView withHeight:_fourStarButton.imageView.bounds.size.height * kDefaultReflectionFraction];
-    _fourStarReflectionView.frame = CGRectMake(centerButtonLeft + (starButtonSpacing + starButtonWidth) * 1, centerButtonTop +  starButtonHeight + 1.f, starButtonWidth, starButtonHeight);
+
     
     // Five
     self.fiveStarButton.frame = CGRectMake(centerButtonLeft + (starButtonSpacing + starButtonWidth) * 2, centerButtonTop, starButtonWidth, starButtonHeight);
     
-    _fiveStarReflectionView.image = [UIImageView reflectedImage:_fiveStarButton.imageView withHeight:_fiveStarButton.imageView.bounds.size.height * kDefaultReflectionFraction];
-    _fiveStarReflectionView.frame = CGRectMake(centerButtonLeft + (starButtonSpacing + starButtonWidth) * 2, centerButtonTop +  starButtonHeight + 1.f, starButtonWidth, starButtonHeight);
+
 }
 
 - (void)layoutSubviews {

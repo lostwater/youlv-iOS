@@ -27,7 +27,8 @@
 
 - (instancetype)initWithChatter:(NSString *)chatter isGroup:(BOOL)isGroup;
 - (instancetype)initWithChatter:(NSString *)chatter conversationType:(EMConversationType)type;
-
+//custom added
+- (void)setupChatVCWithChatter:(NSString *)chatter conversationType:(EMConversationType)type;
 - (void)reloadData;
 
 - (void)hideImagePicker;

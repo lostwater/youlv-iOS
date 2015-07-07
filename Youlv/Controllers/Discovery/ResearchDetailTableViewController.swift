@@ -23,22 +23,15 @@ class ResearchDetailTableViewController: UITableViewController {
     let client = DataClient()
     func getResearchDetail()
     {
-        client.getResearchDetail(researchId!, completion: { (data, error) -> () in
-            self.getResearchDetailCompleted(data, error: error)
+        client.getResearchDetail(researchId!, completion: { (dict, error) -> () in
+            self.getResearchDetailCompleted(dict, error: error)
         })
     }
     
-    func getResearchDetailCompleted(data:NSData?,error:NSError?)
+    func getResearchDetailCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        
-        let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        dataDict = dict.objectForKey("data") as? NSDictionary
+ 
+        dataDict = dict!.objectForKey("data") as? NSDictionary
         optionsResult = dataDict!.objectForKey("vote_result") as? NSDictionary
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
           self.displayData()
@@ -48,7 +41,7 @@ class ResearchDetailTableViewController: UITableViewController {
     
     func displayData()
     {
-        votedCount.text = dataDict?.objectForKey("vote_sum") as? String
+        votedCount.text = String(dataDict!.objectForKey("vote_sum") as! Int)
         pieChart.diameter = Int32(pieChart.frame.size.height - CGFloat(16))
         let keys = NSArray(array: optionsResult!.allKeys)
         let values = NSArray(array: optionsResult!.allValues)

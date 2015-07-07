@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D130a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cbX-vn-25k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cbX-vn-25k">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -18,86 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUR-xb-S2i">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="112" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2HJ-TS-nkA">
-                                        <rect key="frame" x="8" y="8" width="600" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="600" id="tuf-bX-fPH"/>
-                                        </constraints>
-                                        <state key="normal" title="与我相关" image="iconme">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="tuf-bX-fPH"/>
-                                            </mask>
-                                        </variation>
-                                    </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="line48px" translatesAutoresizingMaskIntoConstraints="NO" id="41r-Q7-Vjx">
-                                        <rect key="frame" x="0.0" y="60" width="600" height="1"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="0.5" id="0vd-HF-NzL"/>
-                                            <constraint firstAttribute="height" constant="0.5" id="Ag6-gW-q48"/>
-                                            <constraint firstAttribute="height" constant="1" id="im4-vG-gyP"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="0vd-HF-NzL"/>
-                                                <exclude reference="im4-vG-gyP"/>
-                                            </mask>
-                                        </variation>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="112" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5NM-vd-dnR">
-                                        <rect key="frame" x="8" y="72" width="600" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="600" id="V4V-eZ-gqn"/>
-                                        </constraints>
-                                        <state key="normal" title="赞过我的" image="iconlike">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="V4V-eZ-gqn"/>
-                                            </mask>
-                                        </variation>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="5NM-vd-dnR" secondAttribute="bottom" constant="8" id="2QQ-WS-Mv1"/>
-                                    <constraint firstItem="2HJ-TS-nkA" firstAttribute="width" secondItem="aUR-xb-S2i" secondAttribute="width" id="6Kb-Fc-UZK"/>
-                                    <constraint firstAttribute="width" secondItem="41r-Q7-Vjx" secondAttribute="width" id="6kH-es-T7A"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="HPb-HH-akI"/>
-                                    <constraint firstAttribute="height" constant="120" id="IaW-7l-xyM"/>
-                                    <constraint firstAttribute="height" constant="100" id="KeL-Ox-Rxm"/>
-                                    <constraint firstItem="2HJ-TS-nkA" firstAttribute="leading" secondItem="aUR-xb-S2i" secondAttribute="leading" constant="8" id="LPC-Bs-C0V"/>
-                                    <constraint firstAttribute="centerY" secondItem="41r-Q7-Vjx" secondAttribute="centerY" id="M7m-ub-XS3"/>
-                                    <constraint firstAttribute="centerX" secondItem="41r-Q7-Vjx" secondAttribute="centerX" id="c3w-nb-JQg"/>
-                                    <constraint firstItem="5NM-vd-dnR" firstAttribute="width" secondItem="aUR-xb-S2i" secondAttribute="width" id="daQ-Ok-yRV"/>
-                                    <constraint firstItem="5NM-vd-dnR" firstAttribute="leading" secondItem="aUR-xb-S2i" secondAttribute="leading" constant="8" id="qBl-VL-R7w"/>
-                                    <constraint firstItem="2HJ-TS-nkA" firstAttribute="top" secondItem="aUR-xb-S2i" secondAttribute="top" constant="8" id="zG9-XM-1tN"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="keyPath">
-                                        <color key="value" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="HPb-HH-akI"/>
-                                        <exclude reference="KeL-Ox-Rxm"/>
-                                    </mask>
-                                </variation>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Qp-ZD-jl0">
-                                <rect key="frame" x="0.0" y="166" width="600" height="370"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="MessageCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bsN-oT-Xf1">
@@ -198,20 +120,25 @@
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="aUR-xb-S2i" firstAttribute="width" secondItem="jxf-fO-Ugj" secondAttribute="width" id="4fy-rA-5La"/>
-                            <constraint firstItem="aUR-xb-S2i" firstAttribute="top" secondItem="6Ud-Tn-Xi3" secondAttribute="bottom" id="4rG-Rs-D3M"/>
                             <constraint firstItem="6Qp-ZD-jl0" firstAttribute="leading" secondItem="jxf-fO-Ugj" secondAttribute="leadingMargin" constant="-16" id="9HA-X7-H2y"/>
+                            <constraint firstAttribute="centerY" secondItem="6Qp-ZD-jl0" secondAttribute="centerY" id="BQs-uM-1cW"/>
+                            <constraint firstItem="6Qp-ZD-jl0" firstAttribute="width" secondItem="jxf-fO-Ugj" secondAttribute="width" id="Bkg-jz-Zwg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dNq-67-2DC" secondAttribute="trailing" id="EC5-Jb-AXF"/>
+                            <constraint firstItem="6Qp-ZD-jl0" firstAttribute="top" secondItem="6Ud-Tn-Xi3" secondAttribute="bottom" id="Eji-hj-H0p"/>
                             <constraint firstItem="jx7-17-5Fb" firstAttribute="top" secondItem="6Qp-ZD-jl0" secondAttribute="bottom" id="GuB-3L-GZY"/>
                             <constraint firstItem="6Ud-Tn-Xi3" firstAttribute="leading" secondItem="dNq-67-2DC" secondAttribute="trailing" id="N6Q-m2-AIe"/>
-                            <constraint firstItem="aUR-xb-S2i" firstAttribute="leading" secondItem="jxf-fO-Ugj" secondAttribute="leadingMargin" constant="-16" id="SS5-pp-KD5"/>
                             <constraint firstItem="dNq-67-2DC" firstAttribute="top" secondItem="6Ud-Tn-Xi3" secondAttribute="bottom" id="Sw1-gn-T0q"/>
+                            <constraint firstItem="6Qp-ZD-jl0" firstAttribute="height" secondItem="jxf-fO-Ugj" secondAttribute="height" id="ajR-0g-Nae"/>
                             <constraint firstAttribute="width" secondItem="6Qp-ZD-jl0" secondAttribute="width" id="fkG-ah-NO9"/>
-                            <constraint firstItem="6Qp-ZD-jl0" firstAttribute="top" secondItem="5NM-vd-dnR" secondAttribute="bottom" constant="54" id="gQT-aQ-0gr"/>
+                            <constraint firstAttribute="centerX" secondItem="6Qp-ZD-jl0" secondAttribute="centerX" id="wzE-KA-v3u"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="9HA-X7-H2y"/>
+                                <exclude reference="Bkg-jz-Zwg"/>
+                                <exclude reference="Eji-hj-H0p"/>
                                 <exclude reference="N6Q-m2-AIe"/>
+                                <exclude reference="GuB-3L-GZY"/>
                             </mask>
                         </variation>
                         <connections>
@@ -1070,8 +997,6 @@
         <image name="iconfavorite" width="17" height="17"/>
         <image name="icongroupname" width="40" height="40"/>
         <image name="iconintro" width="40" height="40"/>
-        <image name="iconlike" width="40" height="40"/>
-        <image name="iconme" width="40" height="40"/>
         <image name="iconprofileloacl" width="10" height="13"/>
         <image name="line48px" width="1" height="24"/>
         <image name="linecommentdotted" width="320" height="1"/>

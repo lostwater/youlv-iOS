@@ -85,24 +85,32 @@ class DataClient
 
     }
     
-    func getDiscussList(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getDiscussList(currentPage : Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "discuss/getDiscussList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
-        })
         
-        task.resume()
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
+        })
         
     }
     
-    func getTopicDetail(topicId : Int, currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getTopicDetail(topicId : Int, completion: (NSDictionary?, NSError?)->())
+    {
+        var path = serverUrl + "topic/getTopicDetail?"
+        path = path + "&sessionId=" + String(sessionId)
+        path = path + "&topicId=" + String(topicId)
+        
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
+        })
+    }
+    
+    func getTopicDetail(topicId : Int, currentPage : Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "topic/getTopicDetail?"
         path = path + "currentPage=" + String(currentPage)
@@ -110,86 +118,66 @@ class DataClient
         path = path + "&sessionId=" + String(sessionId)
         path = path + "&topicId=" + String(topicId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
     }
     
-    func getVoteList(currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getVoteList(currentPage : Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "vote/getVoteList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
         
     }
     
-    func getEventList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getEventList(currentPage:Int, pageSize:Int,completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "active/getActiveList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
         
     }
     
-    func getEventDetail(eventId : Int, completion: (NSData?, NSError?)->())
+    func getEventDetail(eventId : Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "active/getActiveDetail?"
         path = path + "activeId=" + String(eventId)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
         
     }
     
 
     
 
-    func getArticleList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getArticleList(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "article/articleList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
     
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
         
     }
     
-    func getArticleCommentsList(articleId:Int, currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getArticleCommentsList(articleId:Int, currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "article/articleDetail?"
         path = path + "currentPage=" + String(currentPage)
@@ -197,37 +185,29 @@ class DataClient
         path = path + "&sessionId=" + String(sessionId)
         path = path + "&articleId=" + String(articleId)
 
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
         
     }
     
     
     
-    func getInterviewList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getInterviewList(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "microview/getViewList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
         
     }
     
     
-    func getInterviewDetail(interviewId : Int, currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getInterviewDetail(interviewId : Int, currentPage : Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "microview/viewDetail?"
         path = path + "currentPage=" + String(currentPage)
@@ -236,17 +216,13 @@ class DataClient
         path = path + "&microViewId=" + String(interviewId)
         
  
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
     }
     
     
-    func getTopicGroupDetail(groupId : Int, currentPage : Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getTopicGroupDetail(groupId : Int, currentPage : Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "topic/getGroupDetail?"
         path = path + "currentPage=" + String(currentPage)
@@ -255,66 +231,50 @@ class DataClient
         path = path + "&groupId=" + String(groupId)
         
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
     }
 
    
     
     
-    func getJobList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getJobList(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "position/getPositionList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> () in
+            completion(dict, error)
         })
-        
-        task.resume()
         
     }
     
-    func getMarkedJobList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getMarkedJobList(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "position/getStoreList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> () in
+            completion(dict, error)
         })
-        
-        task.resume()
     }
 
     
-    func getJobDetail(jobId : Int, completion: (NSData?, NSError?)->())
+    func getJobDetail(jobId : Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "position/positionDetail?"
         path = path + "&sessionId=" + String(sessionId)
         path = path + "&positionId=" + String(jobId)
         
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> () in
+            completion(dict, error)
         })
-        
-        task.resume()
     }
     
     
@@ -322,63 +282,50 @@ class DataClient
 
 
     
-    func getResearchList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getResearchList(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "vote/getVoteList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> () in
+            completion(dict, error)
         })
-        
-        task.resume()
     }
     
-    func getResearchDetail(voteId : Int, completion: (NSData?, NSError?)->())
+    func getResearchDetail(voteId : Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "vote/voteDetail?"
         path = path + "&sessionId=" + String(sessionId)
         path = path + "&voteId=" + String(voteId)
     
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> () in
+            completion(dict, error)
         })
-        task.resume()
     }
     
-    func postVote(voteId : Int, optionId: Int, completion: (NSData?, NSError?)->())
+    func postVote(voteId : Int, optionId: Int, completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "vote/voteChoise"
-        var params = "voteId=" + String(voteId)
-        params = params + "&optionId=" + String(optionId)
-        params = params + "&sessionId=" + String(sessionId)
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPBody = (params as NSString).dataUsingEncoding(NSUTF8StringEncoding)
-        request.HTTPMethod = "POST"
-        let task = session.dataTaskWithRequest(request) { ( data, responese, error ) -> Void in
-            completion(data, error)
-        }
-        task.resume()
+        var path = serverUrl + "vote/voteChoise?"
+        path = path + "voteId=" + String(voteId)
+        path = path + "&optionId=" + String(optionId)
+        path = path + "&sessionId=" + String(sessionId)
+        
+        nativeGet(path, completion: { (dict, error) -> () in
+            completion(dict, error)
+        })
         
     }
     
-    func getMyProfile(completion: (NSData?, NSError?)->())
+    func getMyProfile(completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "lawyer/getMaterialt?"
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in completion(data, error)
+        nativeGet(path, completion: { (dict, error) -> () in
+            completion(dict, error)
         })
-        task.resume()
     }
     
     func getUserProfileWithTopicList(userId: Int, currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
@@ -436,22 +383,27 @@ class DataClient
         })
     }
     
+    func postArticleComment(articleId: Int, comment:String, completion: (NSDictionary?, NSError?)->())
+
+    {
+        var path = serverUrl + "article/aticleComment"
+        let parameters = NSDictionary(objects:[articleId,comment,sessionId], forKeys: ["articleId","comment","sessionId"])
+        nativePost(path,parameters: parameters,completion: { (dict, error) -> Void in
+            completion(dict, error)
+        })
+    }
 
     
-    func getGroupList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getGroupList(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "topic/getGroupList?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
     }
     
     
@@ -482,68 +434,52 @@ class DataClient
 
     }
     
-    func getMyPostTopics(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getMyPostTopics(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "lawyer/getReportTopics?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
     }
 
-    func getMyMarkedTopics(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getMyMarkedTopics(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "lawyer/getAttetionTopics?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
     }
     
-    func getMyRepliedTopics(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getMyRepliedTopics(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "lawyer/getReplyTopics?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
     }
     
-    func getMyEventsList(currentPage:Int, pageSize:Int, completion: (NSData?, NSError?)->())
+    func getMyEventsList(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "lawyer/getStoreActives?"
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         
-        var session = NSURLSession.sharedSession()
-        let url = NSURL(string: path)
-        let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
-            completion(data, error)
+        nativeGet(path,completion: { (dict, error) -> Void in
+            completion(dict, error)
         })
-        
-        task.resume()
     }
     
     func getHotTopicGroup(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
@@ -623,8 +559,7 @@ class DataClient
 
     }
     
-    
-    
+   
     
     func searchOrders(title:String, currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
@@ -931,7 +866,22 @@ class DataClient
         manager.responseSerializer = AFJSONResponseSerializer()
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.POST(pathString, parameters: parameters, success: { (requestOperation, data) -> Void in
-            completion(data as? NSDictionary, nil)
+            let dict = data as? NSDictionary
+            if dict == nil
+            {
+                return
+            }
+            if dict!.objectForKey("errcode") as! Int == 1
+            {
+                let message = dict!.objectForKey("errmessage") as! String
+                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                    KVNProgress.showErrorWithStatus((message))
+                })
+                return
+            }
+            completion(dict, nil)
+            
+            
         })
             { (requestOperation, error) -> Void in
                 completion(nil, error as NSError)
@@ -946,7 +896,6 @@ class DataClient
         //manager.responseSerializer = AFJSONResponseSerializer()
         
         manager.POST(pathString, parameters: parameters, success: { (requestOperation, data) -> Void in
-        
             completion(data as? NSDictionary, nil)
             })
             { (requestOperation, error) -> Void in
@@ -972,21 +921,30 @@ class DataClient
         let task = session.dataTaskWithURL(url!){ (data, responese, error) -> Void in
             if data == nil || error != nil
             {
+                
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                    let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
-                    av.show()
+                    KVNProgress.showErrorWithStatus("网络故障")
+                    //let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
+                    //av.show()
                 })
                 return
             }
+            
+            var dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            dataString = dataString?.stringByReplacingOccurrencesOfString("\n",withString:"")
+            dataString = dataString?.stringByReplacingOccurrencesOfString("\r",withString:"")
+            var formatteddata =  dataString?.dataUsingEncoding(NSUTF8StringEncoding)
             let errorPointer = NSErrorPointer()
-            let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
+            
+            let dict = NSJSONSerialization.JSONObjectWithData(formatteddata!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
             if dict == nil
             {
-                let ds = NSString(data: data, encoding: NSUTF8StringEncoding)
-                print(ds)
+                //let ds = NSString(data: formatteddata, encoding: NSUTF8StringEncoding)
+                print(dataString)
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                    let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
-                    av.show()
+                    KVNProgress.showErrorWithStatus("数据出错")
+                    //let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
+                    //av.show()
                 })
 
                 return
@@ -995,8 +953,9 @@ class DataClient
             {
                 let message = dict!.objectForKey("errmessage") as! String
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                    let av = UIAlertView( title: "错误", message:message, delegate:nil, cancelButtonTitle:"确认")
-                    av.show()
+                    KVNProgress.showErrorWithStatus(message)
+                    //let av = UIAlertView( title: "错误", message:message, delegate:nil, cancelButtonTitle:"确认")
+                    //av.show()
                 })
                 return
             }
@@ -1017,9 +976,11 @@ class DataClient
         let task = session.dataTaskWithRequest(request) { ( data, responese, error ) -> Void in
             if data == nil || error != nil
             {
+                
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                    let av = UIAlertView( title: "网络故障", message:nil, delegate:nil, cancelButtonTitle:"确认")
-                    av.show()
+                    KVNProgress.showErrorWithStatus("网络故障")
+                    //let av = UIAlertView( title: "网络故障", message:nil, delegate:nil, cancelButtonTitle:"确认")
+                    //av.show()
                 })
                 
                 return
@@ -1033,17 +994,20 @@ class DataClient
                 let ds = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
                 NSLog(ds)
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                    let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
-                    av.show()
+                KVNProgress.showError()
+                    //let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
+                    //av.show()
                 })
                 return
             }
             if dict!.objectForKey("errcode") as! Int == 1
             {
+                
                 let message = dict!.objectForKey("errmessage") as! String
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                    let av = UIAlertView( title: "错误", message:message, delegate:nil, cancelButtonTitle:"确认")
-                    av.show()
+                    KVNProgress.showErrorWithStatus(message)
+                    //let av = UIAlertView( title: "错误", message:message, delegate:nil, cancelButtonTitle:"确认")
+                    //av.show()
                 })
                 return
             }
@@ -1080,6 +1044,7 @@ class DataClient
                     //let ds = NSString(data: data, encoding: NSUTF8StringEncoding)
                     //print(ds)
                     dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                        
                         let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
                         av.show()
                     })

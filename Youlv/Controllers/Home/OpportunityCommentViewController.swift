@@ -13,21 +13,24 @@ class OpportunityCommentViewController: UIViewController {
     @IBOutlet var textView: CPTextViewPlaceholder!
 
     var opportunityId = 0
+    var isSend = false
     
     func send()
     {
         var parameters : NSDictionary = ["orderId":opportunityId,"content":textView.text,"sessionId":sessionId]
         DataClient().postOpportunityComment(parameters) { (data, error) -> () in
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.sendCompleted(data,error: error)
-                
-            })
+            self.sendCompleted(data,error: error)
         }
     }
     
     func sendCompleted(data:NSDictionary?,error:NSError?)
     {
-        UIAlertView(title: data?.objectForKey("errmessage") as? String, message: nil, delegate: nil, cancelButtonTitle: "ok").show()
+        isSend = true
+        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+           
+            self.performSegueWithIdentifier("SendAndUnwindFromComment", sender: self)
+            //UIAlertView(title: data?.objectForKey("errmessage") as? String, message: nil, delegate: nil, cancelButtonTitle: "ok").show()
+        })
         
     }
     
@@ -35,11 +38,21 @@ class OpportunityCommentViewController: UIViewController {
         textView.becomeFirstResponder()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SendAndUnwindFromComment"
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if identifier == "SendAndUnwindFromComment"
         {
-            send()
+            if isSend
+            {
+                return true
+            }
+            else
+            {
+                send()
+                return false
+            }
         }
+        return true
     }
+
 }
 

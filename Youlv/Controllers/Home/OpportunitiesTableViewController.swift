@@ -10,7 +10,7 @@
 
 import UIKit
 
-class OpportunitiesTableViewController: OpportunitiesBaseTableViewController,NaviBarMenu {
+class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
     let menuWidth : CGFloat = 180
     let menuHeight : CGFloat = 172
     
@@ -51,23 +51,34 @@ class OpportunitiesTableViewController: OpportunitiesBaseTableViewController,Nav
         tabBarController?.navigationItem.title = "商机"
     }
     
+    override func getDataArray(currentPage: Int, pageSize:Int)
+    {
+        getOrderList(currentPage, pageSize:pageSize)
+    }
     
-    let client = DataClient()
+    
+    
     func getOrderList(currentPage: Int, pageSize:Int)
     {
-        client.getOrderList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+        DataClient().getOrderList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
             self.getOrderListCompleted(dict, error: error)
         })
     }
     
     func getOrderListCompleted(dict:NSDictionary?,error:NSError?)
     {
-
         let dictData = dict!.objectForKey("data") as! NSDictionary
-        ordersArray = (dictData.objectForKey("orderList") as? NSArray)!
+        let array = dictData.objectForKey("orderList") as? NSArray
+        if (array?.count ?? 0) > 0
+        {
+            dataArray.addObjectsFromArray(array! as Array)
+            currentPage++
+        }
+        
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                    self.tableView.reloadData()
+            self.tableView.reloadData()
         })
+
         
     }
     
@@ -76,9 +87,28 @@ class OpportunitiesTableViewController: OpportunitiesBaseTableViewController,Nav
         {
             let vc = segue.destinationViewController as! OpportunityDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            vc.dataDict = ordersArray!.objectAtIndex(selectedIndex!) as? NSDictionary
-            vc.opportunityId = (ordersArray!.objectAtIndex(selectedIndex!) as! NSDictionary).objectForKey("order_id") as! Int
+            vc.dataDict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
+            vc.opportunityId = (dataArray.objectAtIndex(selectedIndex!) as! NSDictionary).objectForKey("order_id") as! Int
         }
+    }
+    
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityTableViewCell", forIndexPath: indexPath) as! OpportunityTableViewCell
+        let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
+        cell.displayData(content)
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let text = (dataArray.objectAtIndex(indexPath.row) as! NSDictionary).objectForKey("order_content") as! String
+        return calTextSizeWithDefualtFont(text,self.view.frame.size.width - 20).height+160.0
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     

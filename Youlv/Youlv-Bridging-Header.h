@@ -6,6 +6,9 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+#import "KeyboardManager.h"
+#import "KVNProgress.h"
+
 #import "FSMediaPicker.h"
 #import "BlurryModalSegue.h"
 #import "DWTagList.h"
@@ -20,28 +23,12 @@
 #import "KeychainItemWrapper.h"
 #import "TAPageControl.h"
 #import "CPTextViewPlaceholder.h"
-
-#import "DRNRealTimeBlurView.h"
 #import "NSDate+Utils.h"
+#import "DRNRealTimeBlurView.h"
 
 
-#import "UUMessage.h"
-#import "UUMessageContentButton.h"
-#import "UUImageAvatarBrowser.h"
-#import "UUAVAudioPlayer.h"
-#import "UIButton+AFNetworking.h"
-#import "UUMessageContentButton.h"
-#import "UUProgressHUD.h"
-#import "Mp3Recorder.h"
-#import "ACMacros.h"
-#import "ChatModel.h"
-#import "UUChatViewController.h"
-#import "UUInputFunctionView.h"
-#import "MJRefresh.h"
-#import "UUMessageCell.h"
-#import "ChatModel.h"
-#import "UUMessageFrame.h"
-
+#import "ChatViewController.h"
+#import "EMChatManagerDefs.h"
 
 #import "EaseMob.h"
 #import "ChatSendHelper.h"

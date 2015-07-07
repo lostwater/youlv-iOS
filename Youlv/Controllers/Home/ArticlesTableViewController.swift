@@ -7,41 +7,37 @@
 //
 import UIKit
 
-class ArticlesTableViewController: UITableViewController,NaviBarMenu {
+class ArticlesTableViewController: BaseTableViewController,NaviBarMenu {
 
     
-    var articlesArray : NSArray?
-    let client = DataClient()
-    var currentPage = 1
+    override func getDataArray(currentPage: Int, pageSize:Int)
+    {
+        getArticleList(currentPage, pageSize:pageSize)
+    }
+    
     
     func getArticleList(currentPage: Int, pageSize:Int)
     {
-        client.getArticleList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getArticleListCompleted(data, error: error)
+        DataClient().getArticleList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getArticleListCompleted(dict, error: error)
         })
     }
     
-    func getArticleListCompleted(data:NSData?,error:NSError?)
+    func getArticleListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        let ds = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
-        print(ds)
-        NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
-        print(errorPointer.debugDescription)
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-        if dict == nil
-        {
-            return
-        }
         let dictData = dict!.objectForKey("data") as! NSDictionary
-        articlesArray = (dictData.objectForKey("articleList") as? NSArray)!
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
+        let array = dictData.objectForKey("articleList") as? NSArray
+        if (array?.count ?? 0) > 0
+        {
+            dataArray.addObjectsFromArray(array! as Array)
+            currentPage++
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+
+        }
+        
+        
     }
     
     override func viewDidLoad() {
@@ -49,7 +45,6 @@ class ArticlesTableViewController: UITableViewController,NaviBarMenu {
        
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
-        getArticleList(currentPage,pageSize: 10)
     }
     
     
@@ -65,34 +60,15 @@ class ArticlesTableViewController: UITableViewController,NaviBarMenu {
         {
             let vc = segue.destinationViewController as! ArticleDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            var selectedData = articlesArray!.objectAtIndex(selectedIndex!) as! NSDictionary
-            vc.dataDict = articlesArray!.objectAtIndex(selectedIndex!) as? NSDictionary
+            var selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
+            vc.dataDict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
-    // MARK: - Table view data source
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return articlesArray?.count ?? 0
-    }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ArticleCell", forIndexPath: indexPath) as! ArticleTableViewCell
-        cell.displayData(articlesArray!.objectAtIndex(indexPath.item) as! NSDictionary)
+        cell.displayData(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
         
     }

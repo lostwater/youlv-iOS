@@ -1,4 +1,5 @@
-    //
+
+//
 //  HomeViewController.swift
 //  Youlv
 //
@@ -12,10 +13,15 @@ import UIKit
     
 class HomeTabBarController: TopTabBarController
 {
+    @IBAction func btnHelpClicked(sender: AnyObject) {
+        let av = UIAlertView(title: nil, message: "更多疑问，可以拨打客服电话4400-865-8605，或发送邮件给我info@iruyi.com", delegate: nil, cancelButtonTitle: "确定")
+        av.show()
+    }
     @IBAction func unwindToHomeTabBarController(segue: UIStoryboardSegue)
     {
 
     }
+    @IBOutlet weak var btnHelp: UIBarButtonItem!
     
     var naviMenuView : UIView?
     var isTabsSet = false
@@ -24,6 +30,11 @@ class HomeTabBarController: TopTabBarController
     {
         let i = item.tag
         setNaviMenu(viewControllers![i] as! NaviBarMenu)
+        navigationItem.leftBarButtonItem = nil
+        if i == 3
+        {
+            navigationItem.leftBarButtonItem = btnHelp
+        }
     }
     
     func setNaviMenu(naviBarMenu : NaviBarMenu)
@@ -49,6 +60,8 @@ class HomeTabBarController: TopTabBarController
         button.imageEdgeInsets = UIEdgeInsetsMake(0,button.titleLabel!.frame.size.width,0,-button.titleLabel!.frame.size.width)
     }
     
+
+    
     override func awakeFromNib() {
         if !isTabsSet
         {
@@ -59,8 +72,7 @@ class HomeTabBarController: TopTabBarController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+             // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,6 +130,11 @@ class HomeTabBarController: TopTabBarController
         }
     }
     
+
+    
+
+    
+
     /*
     // MARK: - Navigation
 

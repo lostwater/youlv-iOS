@@ -34,25 +34,15 @@ class TopicsTableViewController: UITableViewController {
     let client = DataClient()
     func getTopicList(currentPage: Int, pageSize:Int)
     {
-        client.getGroupList(currentPage, pageSize: pageSize, completion: { (data, error) -> () in
-            self.getTopicListCompleted(data, error: error)
+        client.getGroupList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getTopicListCompleted(dict, error: error)
         })
     }
     
-    func getTopicListCompleted(data:NSData?,error:NSError?)
+    func getTopicListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        let ds = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
-        print(ds)
-        NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
-        print(errorPointer.debugDescription)
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
-        
-        let dictData = dict.objectForKey("data") as! NSDictionary
+
+        let dictData = dict!.objectForKey("data") as! NSDictionary
         topicsArray = (dictData.objectForKey("groupList") as? NSArray)!
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()

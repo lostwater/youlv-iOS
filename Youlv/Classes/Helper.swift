@@ -59,8 +59,16 @@ func calTextSizeWithDefualtFont(text : String, fontSize : CGFloat, width : CGFlo
     return CGSizeMake(width,textsize.height)
 }
 
+func calTextSizeWithDefaultSettings(text : String) ->CGSize
+{
+    let textsize = text.boundingRectWithSize(CGSizeMake(UIScreen().bounds.width -  32, CGFloat.max),
+        options:NSStringDrawingOptions.UsesLineFragmentOrigin,
+        attributes:[NSFontAttributeName:UIFont.systemFontOfSize(14)],
+        context:nil)
+    return CGSizeMake(textsize.width,textsize.height)
+}
 
-func resizeTextView(textView : UITextView)
+func resizeTextView(textView : UITextView) -> CGSize
 {
     let textsize = textView.sizeThatFits(textView.frame.size)
     //textView.size
@@ -80,6 +88,7 @@ func resizeTextView(textView : UITextView)
         let constrainth = cs.first as! NSLayoutConstraint
         constrainth.constant = textsize.height + 16
     }
+    return textsize
 }
 
 func collapseView(view: UIView)
@@ -95,9 +104,28 @@ func collapseView(view: UIView)
     }
     if(cs.first != nil)
     {
-        let constrainth = cs.first as! NSLayoutConstraint
-        constrainth.constant = 0
+        let constraint = cs.first as! NSLayoutConstraint
+        constraint.constant = 0
     }
+}
+
+func getHeightConstaint(view: UIView) ->CGFloat
+{
+    let cs = view.constraints()
+    cs.filter{
+        let c = $0 as! NSLayoutConstraint
+        if c.firstAttribute == NSLayoutAttribute.Height
+        {
+            return true
+        }
+        return false
+    }
+    if(cs.first != nil)
+    {
+        let constraint = cs.first as! NSLayoutConstraint
+        return constraint.constant
+    }
+    return 0
 }
 
 
@@ -105,6 +133,8 @@ func dateToText(date : NSDate) -> String
 {
 
     let now = NSDate()
+    let difYears = now.year() - date.year()
+    let difMonths = now.month() - date.month()
     let difDays = now.day() - date.day()
     let difHours = now.hour() - date.hour()
     let difMinutes = now.minute() - date.minute()
@@ -115,7 +145,7 @@ func dateToText(date : NSDate) -> String
     let totalDifDays : Int = totalDifHours / 24
     
     
-    if totalDifDays > 0
+    if totalDifDays > 0 || difMonths > 0 || difYears > 0
     {
         return defaultDateFormatter.stringFromDate(date)
     }

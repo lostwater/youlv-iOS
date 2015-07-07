@@ -47,7 +47,10 @@ class OpportunityDetailViewController: UIViewController {
 
 
     }
-    
+    @IBAction func btnHelpClicked(sender: AnyObject) {
+        let av = UIAlertView(title: nil, message: "更多疑问，可以拨打客服电话4400-865-8605，或发送邮件给我info@iruyi.com", delegate: nil, cancelButtonTitle: "确定")
+        av.show()
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -113,6 +116,10 @@ class OpportunityDetailViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        
+        likeButton.hidden = true
+        commentButton.hidden = true
+
         if dataDict != nil
         {
             let type = dataDict!.objectForKey("order_type") as! Int
@@ -126,21 +133,23 @@ class OpportunityDetailViewController: UIViewController {
              opportunityTags.setTags(NSArray(object: dataDict!.objectForKey("order_keyWords")!) as [AnyObject])
             opportunityTags.display()
             //opportunityLikedButton.titleLabel?.text = String(dataDict!.objectForKey("order_interestCount") as! Int)
-            textViewHeightConstraint.constant = resetTextViewSize()
+            resizeTextView(opportunityTextView)
             setOpportunityType(OpportunityType(rawValue: type)!)
             
-            
-            if (dataDict!.objectForKey("order_isInterest") as! Bool)
+            if dataDict!.objectForKey("order_isInterest") != nil
             {
-                likeButton.hidden = true
-                commentButton.hidden = false
+                if (dataDict!.objectForKey("order_isInterest") as! Bool)
+                {
+                    likeButton.hidden = true
+                    commentButton.hidden = false
+                }
+                else
+                {
+                    likeButton.hidden = false
+                    commentButton.hidden = true
+                }
             }
-            else
-            {
-                likeButton.hidden = false
-                commentButton.hidden = true
-            }
-            
+        
             getPubishUser()
         }
         
@@ -169,7 +178,7 @@ class OpportunityDetailViewController: UIViewController {
                 opportunityPaymentImageView.hidden = true
                 opportunityImageView.image = UIImage(named: "iconcase")
                 naviItem.rightBarButtonItem = naviEditButton
-                naviItem.title = "案源流转"
+                //naviItem.title = "案源流转"
                 paymentHeightConstraint.constant = 0
 
 
@@ -187,7 +196,7 @@ class OpportunityDetailViewController: UIViewController {
                 opportunityPayment.hidden = true
                 opportunityPaymentImageView.hidden = true
                 naviItem.rightBarButtonItem = naviEditButton
-                naviItem.title = "商业信息"
+                //naviItem.title = "商业信息"
                 paymentHeightConstraint.constant = 0
 
             }

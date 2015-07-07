@@ -24,7 +24,7 @@ class AvatarImageView: UIImageView {
     {
         if isPushEnabled
         {
-        let sourceVC = viewController()
+        let sourceVC = sourceViewController()
         if sourceVC != nil
         {
             let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("userVC") as! UserViewController
@@ -34,7 +34,7 @@ class AvatarImageView: UIImageView {
         }
     }
     
-    func viewController() -> UIViewController?
+    func sourceViewController() -> UIViewController?
     {
         for var next = self.superview; next != nil ; next = next?.superview
         {
