@@ -14,10 +14,34 @@ class NewTopicTableViewController: UITableViewController {
         isCancellingNew = true
         self.dismissViewControllerAnimated(false,completion:nil);
     }
-    @IBAction func buttonPubClicked(sender: AnyObject) {
+    
+    @IBAction func newTopicGroupDidSelected(segue: UIStoryboardSegue)
+    {
+        
+        let vc =  segue.sourceViewController as! TopicsTableViewController
+        topicGroupId = vc.selectedGroupId
     }
     
-    var topicGroupId : Int?
+    @IBAction func newTopicGroupDidCancell(segue: UIStoryboardSegue)
+    {
+        topicGroupId = 0
+    }
+    
+    @IBOutlet weak var contentTextView: CPTextViewPlaceholder!
+    
+    
+    @IBAction func buttonPubClicked(sender: AnyObject) {
+        if topicGroupId == 0
+        {
+            
+        }
+        else
+        {
+            postTopic()
+        }
+    }
+    
+    var topicGroupId = 0
     var topicGroupName : String?
     
     
@@ -35,6 +59,19 @@ class NewTopicTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func postTopic()
+    {
+        DataClient().postTopic(topicGroupId, content: contentTextView.text!) { (dict, error) -> () in
+            self.postTopicCompleted(dict,error:error)
+        }
+    }
+    
+    func postTopicCompleted(dict:NSDictionary?, error:NSError?)
+    {
+        isCancellingNew = true
+        self.dismissViewControllerAnimated(false, completion:nil)
     }
 
     // MARK: - Table view data source

@@ -13,7 +13,7 @@ class NewOpTableViewController: UITableViewController {
     @IBAction func buttonPubClicked(sender: AnyObject) {
         thetitle = titleTextField.text
         content = contentContainer.text
-         postDict = NSDictionary(objects: [thetitle, content, type, tagList, blackList, whiteList,cityId, cityName,curDate, sessionId], forKeys: ["tile","content","type","keyWords","blackList","whiteList","cityId","cityName","deaddate","sessionId"])
+         postDict = NSDictionary(objects: [thetitle, content, privilege, tagList, blackList, whiteList,cityId, cityName,deadDate, sessionId], forKeys: ["tile","content","type","keyWords","blackList","whiteList","cityId","cityName","deaddate","sessionId"])
         DataClient().postOrder(postDict!, completion: { (data, error) -> () in
             
         })
@@ -31,7 +31,7 @@ class NewOpTableViewController: UITableViewController {
     @IBOutlet var contentContainer: UITextField!
 
     @IBAction func typeSegmentChanged(sender: AnyObject) {
-        type = typeSegment.selectedSegmentIndex
+        privilege = typeSegment.selectedSegmentIndex
     }
     
     @IBAction func contentEnd(sender: AnyObject) {
@@ -45,12 +45,12 @@ class NewOpTableViewController: UITableViewController {
     
     var thetitle = ""
     var content = ""
-    var type = 0
+    var privilege = 0
     
     var tagList = NSArray()
     var blackList = NSArray()
     var whiteList = NSArray()
-    var curDate = NSDate()
+    var deadDate = NSDate()
     var formatter = NSDateFormatter()
     
     var cityList : NSArray?
@@ -73,7 +73,7 @@ class NewOpTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        typeSegment.selectedSegmentIndex = type
+        typeSegment.selectedSegmentIndex = privilege
         titleTextField.text = thetitle
         contentContainer.text = content
         // Uncomment the following line to preserve selection between presentations
@@ -95,7 +95,7 @@ class NewOpTableViewController: UITableViewController {
             let vc = segue.destinationViewController as! NewOpportunityOptionsViewController
             vc.thetitle = thetitle
             vc.content = content
-            vc.type = type
+            vc.privilege = privilege
         }
     }
 

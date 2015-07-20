@@ -22,7 +22,7 @@ class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UI
                 (cell as! UITableViewCell).selected = false
                 
             }
-            selectAllIcon.image = UIImage(named:"checkon")
+            selectAllIcon.image = UIImage(named:"checkoff")
         }
         else
         {
@@ -32,7 +32,7 @@ class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UI
                 (cell as! UITableViewCell).selected = true
                 
             }
-            selectAllIcon.image = UIImage(named:"checkoff")
+            selectAllIcon.image = UIImage(named:"checkon")
         }
         selectedAll = !selectedAll
         
@@ -88,17 +88,12 @@ class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! ContactTableViewCell
         let content = usersArray!.objectAtIndex(indexPath.row) as! NSDictionary
         //cell.imageView?.sd_setImageWithURL(NSURL(string: content.objectForKey("") as! String))
-        cell.textLabel?.text = content.objectForKey("name") as? String
-        cell.detailTextLabel?.text = content.objectForKey("introduction") as? String
-        cell.imageView?.image = UIImage(named:"checkoff")
-        cell.imageView?.hidden = true
-        var image = UIImageView(image: selectedImage)
-        image.center = cell.center
-        image.frame.origin = CGPointMake(400,image.frame.origin.y)
-        cell.addSubview(image)
+        cell.userName.text = content.objectForKey("name") as? String
+        cell.intro?.text = content.objectForKey("introduction") as? String
+        //cell.imageView?.hidden = true
         
         //cell.imageView!.frame.origin = CGPointMake(300,  cell.imageView!.frame.origin.y)
         return cell

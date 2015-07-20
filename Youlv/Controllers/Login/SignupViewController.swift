@@ -84,7 +84,7 @@ class SignupViewController: UIViewController {
         if validCode.text != validCodeAnswer
         {
             showErrorMessage("验证码错误")
-            //return
+            return
         }
         if userName.text == ""
         {

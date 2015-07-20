@@ -27,7 +27,8 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     @IBOutlet weak var introButton: UIButton!
     
     @IBAction func introButtonClicked(sender: AnyObject) {
-        performSegueWithIdentifier("goSignUp", sender: sender)
+        introView.hidden = true
+        navigationItem.rightBarButtonItem?.title = "注册"
         navigationController?.navigationBar.translucent = false
     }
     
@@ -39,6 +40,7 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     
     @IBAction func introButtonLoginClicked(sender: AnyObject) {
         introView.hidden = true
+        navigationItem.rightBarButtonItem?.title = "注册"
         navigationController?.navigationBar.translucent = false
     }
     
@@ -83,8 +85,12 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         self.navigationController?.navigationBar.backItem?.title = "";
         //userDefaults = NSUserDefaults()
         //let key = userDefaults.boolForKey("firstUse")
+        
+        
         if !userDefaults.boolForKey("usedBefore")
+        //if true
         {
+            navigationItem.rightBarButtonItem?.title = ""
             setIntro()
             userDefaults.setBool(true, forKey: "usedBefore")
             userDefaults.synchronize()

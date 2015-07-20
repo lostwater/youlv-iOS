@@ -21,7 +21,7 @@ class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, U
                 (cell as! UITableViewCell).selected = false
             
             }
-            selectAllIcon.image = UIImage(named:"checkon")
+            selectAllIcon.image = UIImage(named:"checkoff")
         }
         else
         {
@@ -31,7 +31,7 @@ class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, U
                 (cell as! UITableViewCell).selected = true
                 
             }
-            selectAllIcon.image = UIImage(named:"checkoff")
+            selectAllIcon.image = UIImage(named:"checkon")
         }
         selectedAll = !selectedAll
 
@@ -77,11 +77,11 @@ class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, U
     }
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TopicCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! ContactTableViewCell
         let content = topicsArray!.objectAtIndex(indexPath.row) as! NSDictionary
         //cell.imageView?.sd_setImageWithURL(NSURL(string: content.objectForKey("") as! String))
-        cell.textLabel?.text = content.objectForKey("title") as? String
-        cell.detailTextLabel?.text = content.objectForKey("content") as? String
+        cell.userName.text = content.objectForKey("title") as? String
+        cell.intro?.text = content.objectForKey("content") as? String
         cell.tag = content.objectForKey("articleId") as! Int
         return cell
     }

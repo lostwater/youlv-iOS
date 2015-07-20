@@ -50,8 +50,8 @@ class ArticleDetailViewController: UIViewController {
         articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("url") as! String))
         articleTitle.text = dataDict.objectForKey("title") as? String
         articleTextView.text =  dataDict.objectForKey("acro") as? String
-        commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Normal)
-        commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Selected)
+        //commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Normal)
+        //commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Selected)
         likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Normal)
         likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Selected)
         let isLiked = dataDict.objectForKey("isStore") as! Bool

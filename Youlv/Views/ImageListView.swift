@@ -21,14 +21,16 @@ class ImageListView: UIView
         }
         for var i = 0 ; i < imageUrlList.count || CGFloat(i*60) > (frameWidth - 60); i++
         {
-            let x = CGFloat(i)*60.0
-            let f = CGRectMake(x, 0.0, 50.0, 50.0)
+            let x = CGFloat(i)*46.0
+            let f = CGRectMake(x, 0.0, 30.0, 30.0)
             var iv = UIImageView(frame: f)
-            iv.sd_setImageWithURL(NSURL(string: imageUrlList.objectAtIndex(i) as! String  ))
+            iv.sd_setImageWithURL(NSURL(string: imageUrlList.objectAtIndex(i) as! String  ), placeholderImage: headImage)
+
             if (x + 120 > frameWidth && i < imageUrlList.count - 1)
             {
                 iv.image = UIImage(named:"buttonmoremember")
             }
+            self.addSubview(iv)
         }
     
     }

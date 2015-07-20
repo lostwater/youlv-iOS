@@ -12,9 +12,6 @@ class MyFriendsViewController: UIViewController,UITableViewDataSource,UITableVie
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
-    var contactsArrayt : NSArray?
-    var currentPage = 1
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.navigationItem.titleView = searchBar
@@ -24,28 +21,21 @@ class MyFriendsViewController: UIViewController,UITableViewDataSource,UITableVie
     
     
     
-    let client = DataClient()
+    var dataArray = NSMutableArray()
+    
+    
     func  getFriendsList()
     {
-        client.getMyFollowedUsers({ (data, error) -> () in
-            self.getFriendsListCompleted(data, error: error)
+        DataClient().getMyFollowedUsers({ (dict, error) -> () in
+            self.getFriendsListCompleted(dict, error: error)
         })
     }
     
-    func getFriendsListCompleted(data:NSData?,error:NSError?)
+    func getFriendsListCompleted(dict:NSDictionary?,error:NSError?)
     {
-        if error != nil
-        {
-            return
-        }
-        let errorPointer = NSErrorPointer()
-        let ds = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
-        NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer)
-        print(errorPointer.debugDescription)
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
         
-        let dictData = dict.objectForKey("data") as! NSDictionary
-        contactsArrayt = (dictData.objectForKey("lawyerList") as? NSArray)!
+        let dictData = dict!.objectForKey("data") as! NSDictionary
+        let dataArray = dictData.objectForKey("lawyerList") as! NSArray
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()
         })
@@ -57,7 +47,7 @@ class MyFriendsViewController: UIViewController,UITableViewDataSource,UITableVie
         {
             let vc = segue.destinationViewController as! UserViewController
             let selectedIndex = tableView.indexPathForSelectedRow()!.item
-            vc.userId = (contactsArrayt?.objectAtIndex(selectedIndex) as! NSDictionary).objectForKey("lawyer_id") as! Int
+            vc.userId = (dataArray.objectAtIndex(selectedIndex) as! NSDictionary).objectForKey("lawyer_id") as! Int
         }
     }
     
@@ -77,13 +67,13 @@ class MyFriendsViewController: UIViewController,UITableViewDataSource,UITableVie
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return contactsArrayt?.count ?? 0
+        return dataArray.count
     }
     
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) as! UITableViewCell
-        let dataDict = contactsArrayt!.objectAtIndex(indexPath.item) as! NSDictionary
+        let dataDict = dataArray.objectAtIndex(indexPath.item) as! NSDictionary
         cell.imageView?.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("lawyer_photoUrl") as! String))
         cell.textLabel!.text =  dataDict.objectForKey("lawyer_name") as? String
         //cell.detailTextLabel!.text = dataDict.objectForKey("") as? String

@@ -9,7 +9,31 @@
 import UIKit
 
 class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegate, UIPickerViewDataSource,UIPickerViewDelegate,UITableViewDataSource,UITableViewDelegate {
-
+    
+    @IBOutlet weak var privilegeTable: UITableView!
+    @IBAction func opportunityBWListDidSet(segue: UIStoryboardSegue)
+    {
+        let contactsVC = segue.sourceViewController as! GeneralContactsTableViewController
+        if privilege == 1
+        {
+            whiteList = contactsVC.selectedContactIds
+        }
+        if privilege == 2
+        {
+            blackList = contactsVC.selectedContactIds
+        }
+        headUrls = contactsVC.selectedContactHeads
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.privilegeTable.reloadData()
+        })
+    }
+    
+    @IBAction func opportunityBWListDidCancel(segue: UIStoryboardSegue)
+    {
+        privilege = 0
+    }
+    
+    
     @IBOutlet var deadlineDataButton: UIButton!
     @IBAction func deadlineDataButtonClicked(sender: AnyObject) {
         showCalender()
@@ -43,13 +67,27 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
 
     var thetitle = ""
     var content = ""
-    var type = 0
+    
+    var _privilege = 0
+    var privilege : Int{
+        get{return _privilege}
+        set(value)
+        {
+            if _privilege != value
+            {
+                _privilege = value
+                privilegeTable.reloadData()
+            }
+        }
+    }
     
     var tagList = NSArray()
     var blackList = NSArray()
     var whiteList = NSArray()
-    var curDate = NSDate()
+    var deadDate = NSDate()
     var formatter = NSDateFormatter()
+    
+    var headUrls = NSArray()
     
     var cityList : NSArray?
     var cityId = 1
@@ -77,17 +115,22 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
             vc.tagList = tagList
             vc.blackList = blackList
             vc.whiteList = whiteList
-            vc.curDate = curDate
+            vc.deadDate = deadDate
             vc.thetitle = thetitle
             vc.content = content
-            vc.type = type
+            vc.privilege = privilege
+        }
+        if segue.identifier == "setWhiteList" || segue.identifier == "setBlackList"
+        {
+            var vc = segue.destinationViewController as! GeneralContactsTableViewController
+            vc.isSelectable  = true
         }
     }
     
     
     func displayDate()
     {
-        deadlineDataButton.setTitle(formatter.stringFromDate(curDate), forState: UIControlState.Normal)
+        deadlineDataButton.setTitle(formatter.stringFromDate(deadDate), forState: UIControlState.Normal)
     }
     
     func showCityList()
@@ -121,7 +164,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
         {
             datePicker = THDatePickerViewController.datePicker();
         }
-        datePicker?.date = curDate;
+        datePicker?.date = deadDate;
         datePicker?.delegate = self;
         datePicker?.setAllowClearDate(false)
         datePicker?.setAutoCloseOnSelectDate(true)
@@ -167,7 +210,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
     }
     
     func datePickerDonePressed(datePicker: THDatePickerViewController){
-        curDate = datePicker.date
+        deadDate = datePicker.date
         displayDate()
         dismissSemiModalView()
     }
@@ -198,63 +241,142 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        if privilege == 0
+        {
+            return 3
+        }
+        else
+        {
+            return 4
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.item == 0
+        if privilege == 0
         {
-           return tableView.dequeueReusableCellWithIdentifier("publicCell", forIndexPath: indexPath) as! UITableViewCell
-
-        }
-        if indexPath.item == 1
-        {
-            return tableView.dequeueReusableCellWithIdentifier("whiteCell", forIndexPath: indexPath) as! UITableViewCell
-            
-        }
-        if indexPath.item == 2
-        {
-            return tableView.dequeueReusableCellWithIdentifier("blackCell", forIndexPath: indexPath) as! UITableViewCell
-            
-        }
-        return tableView.dequeueReusableCellWithIdentifier("usersCell", forIndexPath: indexPath) as! UITableViewCell
-
-    }
-    
-    
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.item != 3
-        {
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if cell!.selected
+            if indexPath.item == 0
             {
-                cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
+                let cell = tableView.dequeueReusableCellWithIdentifier("publicCell", forIndexPath: indexPath) as! UITableViewCell
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                cell.tag = 0
+                return cell
+                
             }
-            else
+            if indexPath.item == 1
             {
-                cell!.accessoryType =  UITableViewCellAccessoryType.None
+                let cell = tableView.dequeueReusableCellWithIdentifier("whiteCell", forIndexPath: indexPath) as! UITableViewCell
+                cell.accessoryType = UITableViewCellAccessoryType.None
+                cell.tag = 1
+                return cell
+                
             }
-        }
-
-    }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.item != 3 && tableView.indexPathForSelectedRow()!.item != 3
-        {
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
-            if cell!.selected
+            if indexPath.item == 2
             {
-                cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
-            }
-            else
-            {
-                cell!.accessoryType =  UITableViewCellAccessoryType.None
+                let cell = tableView.dequeueReusableCellWithIdentifier("blackCell", forIndexPath: indexPath) as! UITableViewCell
+                cell.accessoryType = UITableViewCellAccessoryType.None
+                cell.tag = 2
+                return cell
             }
         }
         
-    }
+        if privilege == 1
+        {
+            if indexPath.item == 0
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("publicCell", forIndexPath: indexPath) as! UITableViewCell
+                cell.accessoryType = UITableViewCellAccessoryType.None
+                //cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                cell.tag = 0
+                return cell
+                
+            }
+            if indexPath.item == 1
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("whiteCell", forIndexPath: indexPath) as! UITableViewCell
+                cell.tag = 1
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                return cell
+                
+            }
+            if indexPath.item == 2
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("usersCell", forIndexPath: indexPath) as!
+                UserImagesTableViewCell
+                cell.imagesView.setImages(headUrls)
+                cell.tag = 9
+                return cell
+            }
+            if indexPath.item == 3
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("blackCell", forIndexPath: indexPath) as! UITableViewCell
+                cell.tag = 2
+                cell.accessoryType = UITableViewCellAccessoryType.None
+                return cell
+            }
+            
+            
+            
+        }
+        if privilege == 2
+        {
+            if indexPath.item == 0
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("publicCell", forIndexPath: indexPath) as! UITableViewCell
+                //cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                cell.tag = 0
+                cell.accessoryType = UITableViewCellAccessoryType.None
+                return cell
+                
+            }
+            if indexPath.item == 1
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("whiteCell", forIndexPath: indexPath) as! UITableViewCell
+                cell.tag = 1
+                cell.accessoryType = UITableViewCellAccessoryType.None
+                return cell
+                
+            }
+            
+            if indexPath.item == 2
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("blackCell", forIndexPath: indexPath) as! UITableViewCell
+                cell.tag = 2
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                return cell
+                
+            }
+            if indexPath.item == 3
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("usersCell", forIndexPath: indexPath) as!
+                UserImagesTableViewCell
+                cell.imagesView.setImages(headUrls)
+                cell.tag = 9
+                return cell
+            }
+        }
+       return UITableViewCell()
 
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        if cell!.tag != 9
+        {
+            privilege = cell!.tag
+            tableView.reloadData()
+//            for c in tableView.visibleCells()
+//            {
+//                if (c as! UITableViewCell).tag != 9
+//                {
+//                    (c as! UITableViewCell).accessoryType = UITableViewCellAccessoryType.None
+//                }
+//            }
+//            cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
+        
+    }
+    
+    
 
     /*
     // MARK: - Navigation

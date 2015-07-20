@@ -15,6 +15,21 @@ class TopicsTableViewController: UITableViewController {
     var topicsArray : NSArray?
     var currentPage = 1
     
+    var selectedGroupId : Int
+        {
+        get{
+            if let selectedIndex = tableView.indexPathForSelectedRow()
+            {
+              
+                let dataDict = topicsArray!.objectAtIndex(selectedIndex.item) as! NSDictionary
+                return dataDict.objectForKey("group_id") as! Int
+            }
+            else
+            {
+                return 0
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +95,8 @@ class TopicsTableViewController: UITableViewController {
 
         return cell
     }
+    
+
     
 
     

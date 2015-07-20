@@ -49,7 +49,6 @@ class StartGroupChat2ViewController: UIViewController,UITableViewDataSource,UITa
     
     func createGroupCompleted(dict:NSDictionary? , error:NSError?)
     {
-        
         emCreateGroup()
     }
     
