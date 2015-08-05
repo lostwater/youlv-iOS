@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/Messages/StartGroupChat1ViewController.swift"
-            timestampString = "454445641.682851"
+            timestampString = "460476981.490358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "uploadPicClicked(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1808,11 +1808,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/Messages/StartGroupChat2ViewController.swift"
-            timestampString = "456999842.90916"
+            timestampString = "459457094.661501"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1830,38 +1830,6 @@
             startingLineNumber = "100"
             endingLineNumber = "100"
             landmarkName = "awakeFromNib()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Youlv/Controllers/Messages/StartGroupChat2ViewController.swift"
-            timestampString = "456999842.90916"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "emCreateGroup()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Youlv/Controllers/Messages/StartGroupChat2ViewController.swift"
-            timestampString = "456999842.90916"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "createGroupCompleted(_:error:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1920,11 +1888,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/DataClient.swift"
-            timestampString = "458760226.697419"
+            timestampString = "459460522.122516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1182"
-            endingLineNumber = "1182"
+            startingLineNumber = "1183"
+            endingLineNumber = "1183"
             landmarkName = "DataClient"
             landmarkType = "3">
          </BreakpointContent>
@@ -1936,12 +1904,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/DataClient.swift"
-            timestampString = "458760226.697419"
+            timestampString = "459460522.122516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "867"
-            endingLineNumber = "867"
-            landmarkName = "serializeJsonRequest(_:parameters:)"
+            startingLineNumber = "868"
+            endingLineNumber = "868"
+            landmarkName = "serializeHTTPRequest(_:parameters:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1952,11 +1920,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/DataClient.swift"
-            timestampString = "458504525.303437"
+            timestampString = "459460522.122516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "483"
-            endingLineNumber = "483"
+            startingLineNumber = "482"
+            endingLineNumber = "482"
             landmarkName = "getMyEventsList(_:pageSize:completion:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1968,11 +1936,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/Login/LoginViewController.swift"
-            timestampString = "458055585.504541"
+            timestampString = "460274780.370297"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -2048,7 +2016,7 @@
                   moduleName = "Youlv"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Controllers/User/UserHomeTableViewController.swift"
-                  timestampString = "458760231.215082"
+                  timestampString = "460267706.121023"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -2063,7 +2031,7 @@
                   moduleName = "Youlv"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Controllers/User/UserHomeTableViewController.swift"
-                  timestampString = "458760231.215592"
+                  timestampString = "460267706.121263"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -2256,13 +2224,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/DataClient.swift"
-            timestampString = "458504525.303437"
+            timestampString = "459460522.122516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "665"
-            endingLineNumber = "665"
-            landmarkName = "postMarkTopic(_:completion:)"
-            landmarkType = "5">
+            startingLineNumber = "666"
+            endingLineNumber = "666"
+            landmarkName = "DataClient"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2492,22 +2460,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Youlv/Controllers/Messages/StartGroupChat2ViewController.swift"
-            timestampString = "456999842.90916"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "emCreateGroup()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -2572,47 +2524,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Youlv/Controllers/Messages/StartGroupChat2ViewController.swift"
-            timestampString = "456999842.90916"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "emCreateGroup()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Youlv/Controllers/Messages/StartGroupChat2ViewController.swift"
-            timestampString = "456999842.90916"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "shouldPerformSegueWithIdentifier(_:sender:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/Login/LoginViewController.swift"
-            timestampString = "458748440.047237"
+            timestampString = "460274780.370297"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "loginCompleted(_:error:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2958,11 +2878,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/DataClient.swift"
-            timestampString = "458760226.697419"
+            timestampString = "459460522.122516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1038"
-            endingLineNumber = "1038"
+            startingLineNumber = "1039"
+            endingLineNumber = "1039"
             landmarkName = "nativePost(_:parameters:completion:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2974,11 +2894,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/DataClient.swift"
-            timestampString = "458760226.697419"
+            timestampString = "459460522.122516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1034"
-            endingLineNumber = "1034"
+            startingLineNumber = "1035"
+            endingLineNumber = "1035"
             landmarkName = "nativePost(_:parameters:completion:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3099,11 +3019,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/Login/LoginViewController.swift"
-            timestampString = "458055585.504541"
+            timestampString = "460274780.370297"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -3483,11 +3403,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/DataClient.swift"
-            timestampString = "458760226.697419"
+            timestampString = "459460522.122516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1030"
-            endingLineNumber = "1030"
+            startingLineNumber = "1031"
+            endingLineNumber = "1031"
             landmarkName = "nativePost(_:parameters:completion:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3499,12 +3419,201 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/DataClient.swift"
-            timestampString = "458760226.697419"
+            timestampString = "459460522.122516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1031"
-            endingLineNumber = "1031"
+            startingLineNumber = "1032"
+            endingLineNumber = "1032"
             landmarkName = "nativePost(_:parameters:completion:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Youlv/Classes/CPTextViewPlaceholder.m"
+            timestampString = "459451494.620583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "-textDidChange:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Youlv/Views/GroupTableViewCell.swift"
+            timestampString = "459460036.330042"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "GroupTableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Youlv.GroupTableViewCell.groupId.getter : Swift.String"
+                  moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Views/GroupTableViewCell.swift"
+                  timestampString = "460267706.128593"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Youlv.GroupTableViewCell.groupId.setter : Swift.String"
+                  moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Views/GroupTableViewCell.swift"
+                  timestampString = "460267706.128824"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Youlv.GroupTableViewCell.groupId.materializeForSet : Swift.String"
+                  moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Views/GroupTableViewCell.swift"
+                  timestampString = "460267706.12906"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Youlv.GroupTableViewCell.init (Youlv.GroupTableViewCell.Type)(style : C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; Youlv.GroupTableViewCell"
+                  moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Views/GroupTableViewCell.swift"
+                  timestampString = "460267706.129263"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "255">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Youlv.GroupTableViewCell.init (Youlv.GroupTableViewCell.Type)(coder : ObjectiveC.NSCoder) -&gt; Youlv.GroupTableViewCell"
+                  moduleName = "Youlv"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Views/GroupTableViewCell.swift"
+                  timestampString = "460267706.129446"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "191">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Youlv/Controllers/Base/BaseTableViewController.swift"
+            timestampString = "459461086.024792"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "tableView(_:willDisplayCell:forRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Youlv/Controllers/Home/EventsTableViewController.swift"
+            timestampString = "459461308.972521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Youlv/Controllers/Login/LoginViewController.swift"
+            timestampString = "460267361.880319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "passwordTextFieldEnd(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Youlv/Controllers/Login/LoginViewController.swift"
+            timestampString = "460274780.370297"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "accountTextFieldEnd(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Youlv/Controllers/Login/LoginViewController.swift"
+            timestampString = "460274780.370297"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "accountTextFieldEnd(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

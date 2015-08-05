@@ -113,6 +113,8 @@
 		0BD29F1C1B4318F7004B1A9D /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD29F1B1B4318F7004B1A9D /* BaseTableViewController.swift */; };
 		0BD29F1E1B43C0B9004B1A9D /* ViewControllerWithPagedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD29F1D1B43C0B9004B1A9D /* ViewControllerWithPagedTableView.swift */; };
 		0BD29F201B43C679004B1A9D /* ViewControllerWithTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD29F1F1B43C679004B1A9D /* ViewControllerWithTableView.swift */; };
+		0BD91B971B62C30200C8CC7F /* MyGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD91B961B62C30200C8CC7F /* MyGroupsTableViewController.swift */; };
+		0BD91B991B62C3A800C8CC7F /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD91B981B62C3A800C8CC7F /* GroupTableViewCell.swift */; };
 		0BDA4E211B2F53E2004B6753 /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDA4C0B1B2F53E0004B6753 /* EMAudioPlayerUtil.m */; };
 		0BDA4E221B2F53E2004B6753 /* EMAudioRecorderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDA4C0D1B2F53E0004B6753 /* EMAudioRecorderUtil.m */; };
 		0BDA4E231B2F53E2004B6753 /* EMCDDeviceManager+Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BDA4C0F1B2F53E0004B6753 /* EMCDDeviceManager+Media.m */; };
@@ -592,6 +594,8 @@
 		0BD29F1B1B4318F7004B1A9D /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		0BD29F1D1B43C0B9004B1A9D /* ViewControllerWithPagedTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithPagedTableView.swift; sourceTree = "<group>"; };
 		0BD29F1F1B43C679004B1A9D /* ViewControllerWithTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithTableView.swift; sourceTree = "<group>"; };
+		0BD91B961B62C30200C8CC7F /* MyGroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsTableViewController.swift; sourceTree = "<group>"; };
+		0BD91B981B62C3A800C8CC7F /* GroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		0BDA4C071B2F53E0004B6753 /* EMCDDeviceManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerDelegate.h; sourceTree = "<group>"; };
 		0BDA4C081B2F53E0004B6753 /* EMCDDeviceManagerProximitySensorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerProximitySensorDelegate.h; sourceTree = "<group>"; };
 		0BDA4C0A1B2F53E0004B6753 /* EMAudioPlayerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAudioPlayerUtil.h; sourceTree = "<group>"; };
@@ -1349,6 +1353,7 @@
 				0B8BB8E31B06697A0034B006 /* JobTableViewCell.swift */,
 				0B8BB8E51B0777380034B006 /* ResearchTableViewCell.swift */,
 				0B242CBC1B4D8ACB0080771D /* UserImagesTableViewCell.swift */,
+				0BD91B981B62C3A800C8CC7F /* GroupTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1362,6 +1367,7 @@
 				0B6FA2351B164145001414B0 /* StartGroupChat2ViewController.swift */,
 				0BB5B52D1B0CE98F008A2A85 /* MyFriendsViewController.swift */,
 				0B2AF2D71AE7EFE400F7A5F9 /* ContactsTableViewController.swift */,
+				0BD91B961B62C30200C8CC7F /* MyGroupsTableViewController.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -2829,6 +2835,7 @@
 				0BDA4E9F1B2F53E2004B6753 /* EditNicknameViewController.m in Sources */,
 				0BA1EC371B034D4C004F3546 /* EventDetailViewController.swift in Sources */,
 				0BDA4E7C1B2F53E2004B6753 /* EMChatTextBubbleView.m in Sources */,
+				0BD91B991B62C3A800C8CC7F /* GroupTableViewCell.swift in Sources */,
 				0BCECFC01AD99B8E006BE53A /* HomeNavigationController.swift in Sources */,
 				0BDA4E431B2F53E2004B6753 /* UIImageView+EMHighlightedWebCache.m in Sources */,
 				0BD29F201B43C679004B1A9D /* ViewControllerWithTableView.swift in Sources */,
@@ -2842,6 +2849,7 @@
 				0BDA4E761B2F53E2004B6753 /* DXChatBarMoreView.m in Sources */,
 				0BB5B52E1B0CE98F008A2A85 /* MyFriendsViewController.swift in Sources */,
 				0BDA4E351B2F53E2004B6753 /* DACircularProgressView.m in Sources */,
+				0BD91B971B62C30200C8CC7F /* MyGroupsTableViewController.swift in Sources */,
 				0B2F31201B088C950019DFAB /* NewOpportunityOptionsViewController.swift in Sources */,
 				0BDA4E2B1B2F53E2004B6753 /* MBProgressHUD+Add.m in Sources */,
 				0BDA4E971B2F53E2004B6753 /* RealtimeSearchUtil.m in Sources */,

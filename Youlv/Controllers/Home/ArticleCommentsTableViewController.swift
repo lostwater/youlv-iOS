@@ -79,7 +79,7 @@ class ArticleCommentsTableViewController: ViewControllerWithPagedTableView {
             currentPage++
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
-                self.commentsCountButton.setTitle(String(self.dataArray.count), forState: UIControlState.Normal)
+                self.commentsCountButton.setTitle("评论"+String(self.dataArray.count), forState: UIControlState.Normal)
             })
             
         }
@@ -88,6 +88,8 @@ class ArticleCommentsTableViewController: ViewControllerWithPagedTableView {
 
     
     override func viewDidLoad() {
+        
+        newCommentTextField.setValue(UIColor.blackColor(), forKeyPath: "_placeholderLabel.textColor")
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow", name: UIKeyboardWillShowNotification, object: nil)
     }
     

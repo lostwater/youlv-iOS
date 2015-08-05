@@ -15,6 +15,12 @@ class InterviewAskViewController: UIViewController {
     
     var interviewId = 0
     var isDidSend = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //text.becomeFirstResponder()
+    }
+    
     func send()
     {
         DataClient().postInterviewAsk(interviewId, content: text.text) { (dict, error) -> () in

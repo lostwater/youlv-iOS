@@ -48,6 +48,12 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         passowrd.resignFirstResponder()
         //login()
     }
+    
+    func passwordTextFieldEnd()
+    {
+        passowrd.resignFirstResponder()
+    }
+    
     @IBAction func accountTextFieldEnd(sender: AnyObject) {
         userAccount.resignFirstResponder()
         passowrd.becomeFirstResponder()
@@ -70,6 +76,8 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     
     @IBOutlet var passowrd: UITextField!
     @IBOutlet var userAccount: UITextField!
+    
+    //var returnKeyHandler : IQKeyboardReturnKeyHandler?
 
     var storedPassword : String?
     var storedAccount : String?
@@ -83,6 +91,11 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.backItem?.title = "";
+        passowrd.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
+        userAccount.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
+        
+        passowrd.addDoneOnKeyboardWithTarget(self, action:"passwordTextFieldEnd")
+        //returnKeyHandler = IQKeyboardReturnKeyHandler(viewController: self)
         //userDefaults = NSUserDefaults()
         //let key = userDefaults.boolForKey("firstUse")
         

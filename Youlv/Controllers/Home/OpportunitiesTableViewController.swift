@@ -73,11 +73,12 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
         {
             dataArray.addObjectsFromArray(array! as Array)
             currentPage++
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
         }
         
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
+        
 
         
     }

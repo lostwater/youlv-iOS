@@ -112,7 +112,7 @@ class DiscussTableViewCell: UITableViewCell
         discussOperateType = DiscussOperateType.Post
         let topic_photoUrl = dataDict.objectForKey("topic_lawyerPhotoUrl") as! String
 
-        topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl))
+        topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl), placeholderImage: UIImage(named:"pichead"))
         operatorTime.text = dataDict.objectForKey("topic_createDate") as? String
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
 
@@ -124,7 +124,7 @@ class DiscussTableViewCell: UITableViewCell
         bookMarkedButton?.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
         //bookMarkedButton?.selected = dataDict.objectForKey("isStore") as! Bool
 
-        bookMarkedButton?.hidden = true
+        //bookMarkedButton?.hidden = true
         topicTextView.text = dataDict.objectForKey("topic_content") as? String
 
         resizeTextView(topicTextView)
@@ -142,7 +142,7 @@ class DiscussTableViewCell: UITableViewCell
         discussOperateType = DiscussOperateType.Post
         let topic_photoUrl = dataDict.objectForKey("topic_lawyerPhotoUrl") as! String
         operatorTime.text = dataDict.objectForKey("topic_createDate") as? String
-        topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl))
+        topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl), placeholderImage: UIImage(named:"pichead"))
 
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
 
@@ -168,10 +168,10 @@ class DiscussTableViewCell: UITableViewCell
     {
         discussOperateType = DiscussOperateType.Post
         let operate_photoUrl = dataDict.objectForKey("reply_lawyerPhotoUrl") as! String
-        operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl))
+        operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl), placeholderImage: UIImage(named:"pichead"))
         operatorName?.text = dataDict.objectForKey("reply_lawyerName") as? String
         operatorTime.text = dataDict.objectForKey("reply_createDate") as? String
-        bookMarkedButton?.hidden = true
+        //bookMarkedButton?.hidden = true
 
         topicTextView.text = dataDict.objectForKey("topic_content") as? String
         operatorTextView?.text = dataDict.objectForKey("reply_content") as? String

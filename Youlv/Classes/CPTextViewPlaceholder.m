@@ -11,7 +11,7 @@
 @interface CPTextViewPlaceholder()
 
 @property (nonatomic) UITextAutocorrectionType originalCorrection;
-@property (nonatomic, strong) UIColor *placeholderColor;
+
 @property (nonatomic, strong) UIColor *originalTextColor;
 @property (nonatomic, getter = isUsingPlaceholder) BOOL usingPlaceholder;
 @property (nonatomic, getter = isSettingPlaceholder) BOOL settingPlaceholder;
@@ -33,7 +33,7 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didBeginEditing) name:UITextViewTextDidBeginEditingNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEndEditing) name:UITextViewTextDidEndEditingNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:UITextViewTextDidChangeNotification object:self];
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:UITextViewTextDidChangeNotification object:self];
     }
     
     return self;
@@ -43,7 +43,7 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidBeginEditingNotification object:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidEndEditingNotification object:self];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidChangeNotification object:self];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidChangeNotification object:self];
 }
 
 - (void)layoutSubviews
@@ -66,6 +66,7 @@
     if (self.isUsingPlaceholder) {
         [self sendCursorToBeginning];
     }
+    [self setText];
 }
 
 - (void)didEndEditing
@@ -73,6 +74,41 @@
     if (self.text.length == 0) {
         [self setupPlaceholder];
     }
+}
+
+- (void)setText
+{
+    if (self.isSettingPlaceholder) {
+        //return;
+    }
+    
+    if (self.text.length == 0) {
+        //[self setupPlaceholder];
+        //return;
+    }
+    
+    if (self.isUsingPlaceholder) {
+        self.usingPlaceholder = NO;
+        NSRange range = [self.text rangeOfString:self.placeholder options:NSLiteralSearch];
+        
+        if (range.location != NSNotFound) {
+            NSString *newText = [self.text stringByReplacingCharactersInRange:range withString:@""];
+            super.textColor = self.originalTextColor;
+            super.autocorrectionType = self.originalCorrection;
+            
+            //User pasted a text equals to placeholder or setText was called
+            if ([newText isEqualToString:self.placeholder]) {
+                [self sendCursorToEnd];
+                //this is necessary for iOS 5.x
+            } else if (newText.length == 0) {
+                //[self setupPlaceholder];
+                //return;
+            }
+            
+            self.text = newText;
+        }
+    }
+
 }
 
 - (void)textDidChange:(NSNotification *)notification

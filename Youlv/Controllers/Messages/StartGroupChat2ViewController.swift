@@ -62,10 +62,9 @@ class StartGroupChat2ViewController: UIViewController,UITableViewDataSource,UITa
             if error == nil
             {
                 NSLog("创建成功 -- &@",group)
-                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                     self.isCreated = true
                     self.performSegueWithIdentifier("goMessagesVC", sender: self)
-                })
+
             }
         }, onQueue: nil)
         

@@ -36,7 +36,7 @@ class NewTopicReplyViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        textView.becomeFirstResponder()
+        //textView.becomeFirstResponder()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

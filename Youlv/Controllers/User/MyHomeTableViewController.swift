@@ -39,7 +39,7 @@ class MyHomeTableViewController: UITableViewController {
     
     func displayData()
     {
-        userImageView.sd_setImageWithURL(NSURL(string: dataDict!.objectForKey("lawyer_photoUrl") as! String))
+        userImageView.sd_setImageWithURL(NSURL(string: dataDict!.objectForKey("lawyer_photoUrl") as! String), placeholderImage: headImage)
         userName.text = dataDict!.objectForKey("lawyer_name") as? String
         location.text = (dataDict!.objectForKey("lawyer_cityName") as! String) + ", " + (dataDict!.objectForKey("lawyer_lawOffice") as! String)
         var fellowstitle = String(dataDict!.objectForKey("lawyer_attentionCount")as! Int)

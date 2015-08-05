@@ -25,12 +25,16 @@ class StartGroupChat1ViewController : UIViewController ,FSMediaPickerDelegate {
         groupIntro.resignFirstResponder()
     }
     
+    func groupIntroEnd() {
+        groupIntro.resignFirstResponder()
+    }
+
     
     var groupPic:UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         groupIntro.addDoneOnKeyboardWithTarget(self, action:"groupIntroEnd")
         // Do any additional setup after loading the view.
     }
     @IBAction func uploadPicClicked(sender: AnyObject) {

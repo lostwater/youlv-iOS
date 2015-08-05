@@ -16,9 +16,10 @@ class JobTableViewCell: UITableViewCell {
     @IBOutlet var jobLocation: UILabel!
     @IBOutlet var jobTime: UILabel!
     @IBOutlet var salaryLabel: UILabel!
-    
+    var dateFormatter = NSDateFormatter()
     override func awakeFromNib() {
         super.awakeFromNib()
+        dateFormatter.dateFormat="yyyy.MM.dd"
         // Initialization code
     }
 
@@ -30,6 +31,7 @@ class JobTableViewCell: UITableViewCell {
     
     func displayData(dataDict : NSDictionary)
     {
+        dateFormatter.dateFormat="yyyy.MM.dd"
         /*
         "positionList":[
         {
@@ -45,9 +47,20 @@ class JobTableViewCell: UITableViewCell {
         
         //jobImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("position_officePhoto") as! String)!)
         companyName.text = dataDict.objectForKey("position_officeName") as? String
-        jobPosition.text = "律师"
+        let type = dataDict.objectForKey("position_type") as! Int
+        if type == 1
+        {
+            jobPosition.text = "全职"
+        }
+        if type == 0
+        {
+            jobPosition.text = "兼职"
+        }
+        let time = NSDate(fromString:dataDict.objectForKey("position_createDate") as! String)
+        jobTime.text = dateFormatter.stringFromDate(time!)
+
         salaryLabel.text = dataDict.objectForKey("position_salary") as? String
-        jobTime.text =  dataDict.objectForKey("position_createDate") as? String
+        //jobTime.text =  dataDict.objectForKey("position_createDate") as? String
         jobLocation.text = dataDict.objectForKey("position_cityName") as? String
 
 

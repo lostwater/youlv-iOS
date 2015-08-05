@@ -196,7 +196,7 @@ class InterviewDetailViewController: BaseTableViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.barTintColor = UIColor.clearColor()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named:"bgnavigationtitle"), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named:"bgTransNavi"), forBarMetrics: UIBarMetrics.Default)
         
         self.navigationController?.navigationBar.translucent = true
         tableView.frame = CGRectMake(0,-64,self.view.frame.size.width,self.view.frame.size.height+64)

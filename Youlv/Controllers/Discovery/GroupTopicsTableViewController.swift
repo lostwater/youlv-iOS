@@ -108,7 +108,7 @@ class GroupTopicsTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.barTintColor = UIColor.clearColor()
         self.navigationController?.navigationBar.translucent = true
-        //let view = self.tableView.headerViewForSection(0)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named:"bgTransNavi"), forBarMetrics: UIBarMetrics.Default)        //let view = self.tableView.headerViewForSection(0)
         //view!.frame = CGRectMake(0,-44,view!.frame.size.width,view!.frame.size.height)
         
     }

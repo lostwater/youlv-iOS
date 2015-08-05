@@ -23,7 +23,7 @@ class OpportunityReplyTableViewCell: UITableViewCell {
         userImage.userId = dataDict.objectForKey("id") as? Int ?? 0
         userImage.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("photoUrl") as! String)!, placeholderImage: headImage)
         userName.text = dataDict.objectForKey("name") as? String
-        replyText.text = dataDict.objectForKey("receiveContent") as? String
+        replyText.text = dataDict.objectForKey("replyContent") as? String
         opportunityTitle.text = dataDict.objectForKey("title") as? String
         opportunityText.text = dataDict.objectForKey("orderContent") as? String
         resizeTextView(replyText)

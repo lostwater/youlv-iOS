@@ -403,13 +403,12 @@ class DataClient
     }
     
     
-    func getGroupList(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
+    func getTopicGroupList(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "topic/getGroupList?"
+        path = path + "&sessionId=" + String(sessionId)
         path = path + "currentPage=" + String(currentPage)
         path = path + "&pageSize=" + String(pageSize)
-        path = path + "&sessionId=" + String(sessionId)
-        
         nativeGet(path,completion: { (dict, error) -> Void in
             completion(dict, error)
         })
@@ -554,9 +553,11 @@ class DataClient
     }
     
     
-    func getGroupList(completion: (NSDictionary?, NSError?)->())
+    func getGroupList(currentPage:Int, pageSize:Int, completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "lawyer/getGroupList?"
+        path = path + "currentPage=" + String(currentPage)
+        path = path + "&pageSize=" + String(pageSize)
         path = path + "&sessionId=" + String(sessionId)
         nativeGet(path,completion: { (dict, error) -> Void in
             completion(dict, error)

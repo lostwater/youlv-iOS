@@ -121,10 +121,10 @@ class MyOpportunitiesTableViewController: UITableViewController {
             let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
             var opportunityText = content.objectForKey("orderContent") as? String
             let opportunityTextSize = calTextSizeWithDefaultSettings(opportunityText!)
-            var replyText = content.objectForKey("receiveContent") as? String
+            var replyText = content.objectForKey("replycontent") as? String
             let replyTextSize = calTextSizeWithDefaultSettings(opportunityText!)
             
-            return opportunityTextSize.height + replyTextSize.height + 120.0
+            return opportunityTextSize.height + replyTextSize.height + 200.0
         }
     }
     

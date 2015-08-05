@@ -49,7 +49,7 @@ class TopicsTableViewController: UITableViewController {
     let client = DataClient()
     func getTopicList(currentPage: Int, pageSize:Int)
     {
-        client.getGroupList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+        client.getTopicGroupList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
             self.getTopicListCompleted(dict, error: error)
         })
     }

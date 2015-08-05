@@ -18,6 +18,10 @@ class BaseTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentPage = 1
+        dataArray.removeAllObjects()
+        getDataArray(currentPage,pageSize:10)
+
                 // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -25,7 +29,7 @@ class BaseTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    override func viewWillAppear(animated: Bool)
+     func viewWillAppear2(animated: Bool)
     {
         currentPage = 1
         dataArray.removeAllObjects()

@@ -16,6 +16,8 @@ class MyFriendsViewController: UIViewController,UITableViewDataSource,UITableVie
         super.viewDidLoad()
         //self.navigationItem.titleView = searchBar
         //tableView.
+        //var textfield = searchBar.valueForKey("_searchField") as! UITextField
+        //textfield.setValue(appBlueColor, forKeyPath: "_placeholderLabel.textColor")
         getFriendsList()
     }
     

@@ -103,10 +103,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    
+    func setTableViewSeprator()
+    {
+        UITableView.appearance().separatorInset = UIEdgeInsetsZero
+        UITableViewCell.appearance().separatorInset = UIEdgeInsetsZero
+        UITableView.appearance().layoutMargins = UIEdgeInsetsZero
+        UITableViewCell.appearance().layoutMargins = UIEdgeInsetsZero
+        UITableViewCell.appearance().preservesSuperviewLayoutMargins = false
+    }
+    
     func setAppearance()
     {
         //UITableViewCell.appearance().accessoryView = UIImageView(image: UIImage(named: "buttonarrowsrightblue")) as UIView
         setNavBar()
+        setTableViewSeprator()
     }
     
 
