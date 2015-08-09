@@ -47,7 +47,7 @@ class ArticleDetailViewController: UIViewController {
         userName.text = dataDict.objectForKey("lawyerName") as? String
         
         articleTime.text = defaultDateFormatter.stringFromDate(NSDate(fromString: (dataDict.objectForKey("createDate") as! String)))
-        articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("url") as! String))
+        articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("url") as! String),placeholderImage:defualtPic)
         articleTitle.text = dataDict.objectForKey("title") as? String
         articleTextView.text =  dataDict.objectForKey("acro") as? String
         //commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Normal)

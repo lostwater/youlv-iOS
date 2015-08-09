@@ -113,6 +113,7 @@ class DiscussTableViewCell: UITableViewCell
         let topic_photoUrl = dataDict.objectForKey("topic_lawyerPhotoUrl") as! String
 
         topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl), placeholderImage: UIImage(named:"pichead"))
+        topicUserImageViewer?.userId = dataDict.objectForKey("topic_lawyerId") as! Int
         operatorTime.text = dataDict.objectForKey("topic_createDate") as? String
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
 
@@ -143,7 +144,7 @@ class DiscussTableViewCell: UITableViewCell
         let topic_photoUrl = dataDict.objectForKey("topic_lawyerPhotoUrl") as! String
         operatorTime.text = dataDict.objectForKey("topic_createDate") as? String
         topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl), placeholderImage: UIImage(named:"pichead"))
-
+        topicUserImageViewer?.userId = dataDict.objectForKey("topic_lawyerId") as! Int
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
 
         bookMarkedButton?.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
@@ -169,6 +170,7 @@ class DiscussTableViewCell: UITableViewCell
         discussOperateType = DiscussOperateType.Post
         let operate_photoUrl = dataDict.objectForKey("reply_lawyerPhotoUrl") as! String
         operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl), placeholderImage: UIImage(named:"pichead"))
+        operatorImageView?.userId = dataDict.objectForKey("reply_lawyerId") as! Int
         operatorName?.text = dataDict.objectForKey("reply_lawyerName") as? String
         operatorTime.text = dataDict.objectForKey("reply_createDate") as? String
         //bookMarkedButton?.hidden = true

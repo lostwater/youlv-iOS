@@ -20,7 +20,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>646fb212-6d06-11e3-a2a4-57cd746879f3++1155</key>
-		<string>../../Youlv/Classes/MJRefresh/MJRefresh.bundle/</string>
+		<string>../../Youlv/Classes/MJRefresh/MJRefresh.bundle</string>
 		<key>7CED0927ABAB776EFD538273A0E9A6C6C4551619</key>
 		<string>../..</string>
 	</dict>

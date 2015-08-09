@@ -31,7 +31,7 @@ class EventDetailViewController: UIViewController {
     
     func loadData()
     {
-        eventImageView.sd_setImageWithURL(NSURL(string: dataDict?.objectForKey("photoUrl") as! String))
+        eventImageView.sd_setImageWithURL(NSURL(string: dataDict?.objectForKey("photoUrl") as! String),placeholderImage:defualtPic)
         eventName.text = dataDict?.objectForKey("title") as? String
         eventTextView.text = dataDict?.objectForKey("content") as? String
         //eventLocation.text = dataDict?.objectForKey("content") as? String
@@ -99,15 +99,18 @@ class EventDetailViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.barTintColor = UIColor.clearColor()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named:"bgTransNavi"), forBarMetrics: UIBarMetrics.Default)
+        
         self.navigationController?.navigationBar.translucent = true
-
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named:"alpha0"), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.barTintColor = appBlueColor
         self.navigationController?.navigationBar.translucent = false
-    
+        
     }
 
 }

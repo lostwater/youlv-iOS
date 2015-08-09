@@ -25,6 +25,7 @@ PODS:
     - UIImage+BlurredFrame (~> 0.0.4)
   - EaseMobSDKFull (2.1.7)
   - FSMediaPicker (0.0.2)
+  - ImagePlayerView (1.0.3)
   - IQKeyboardManager (3.2.4)
   - KNSemiModalViewController (0.3)
   - KVNProgress (2.2.1)
@@ -38,7 +39,6 @@ PODS:
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
-  - TAPageControl (0.2.0)
   - THCalendarDatePicker (1.1.1):
     - KNSemiModalViewController (~> 0.3)
   - UIImage+BlurredFrame (0.0.4)
@@ -48,13 +48,13 @@ DEPENDENCIES:
   - BlurryModalSegue
   - EaseMobSDKFull
   - FSMediaPicker
+  - ImagePlayerView
   - IQKeyboardManager
   - KNSemiModalViewController
   - KVNProgress
   - MYBlurIntroductionView
   - MZFormSheetController
   - SDWebImage
-  - TAPageControl
   - THCalendarDatePicker
 
 SPEC CHECKSUMS:
@@ -62,6 +62,7 @@ SPEC CHECKSUMS:
   BlurryModalSegue: 35cdad34eba31228e4d84073033a9ea7d6537aa4
   EaseMobSDKFull: 43858ca9a62bbe1fa4c7c006f944a3e52a4bff48
   FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
+  ImagePlayerView: c5db63e0548d711b16b2c7a3acae720216d0082b
   IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
   KVNProgress: 7001d2d16a2755cee5599e8e485befe056f2197b
@@ -69,7 +70,6 @@ SPEC CHECKSUMS:
   MZAppearance: 6e9dc64e42074c0a19812a327f590746c3283bab
   MZFormSheetController: 7a20745f6ecb1459f78d8c1be3d1c686f8cb7211
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
-  TAPageControl: fd11d779bbb5c2464ca2f55dde9e288213ea8a9b
   THCalendarDatePicker: afe4e41805ed68e37da1145c4c2dde08afb6c8a0
   UIImage+BlurredFrame: ad2f7195c6947ea3117c7d202f75a51958d5061a
 

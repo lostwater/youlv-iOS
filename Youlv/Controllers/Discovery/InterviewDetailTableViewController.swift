@@ -107,7 +107,7 @@ class InterviewDetailViewController: BaseTableViewController {
         {
             fellowGuestButton.selected = true
         }
-        interviewImageView.sd_setImageWithURL(NSURL(string: dataDict?.objectForKey("view_imgUrl") as! String))
+        interviewImageView.sd_setImageWithURL(NSURL(string: dataDict?.objectForKey("view_imgUrl") as! String),placeholderImage:defualtPic)
         guestImageView.sd_setImageWithURL(NSURL(string: dataDictFromList?.objectForKey("view_lawyerPhotoUrl") as! String),placeholderImage:headImage)
         guestName.text = dataDictFromList?.objectForKey("view_lawyerName") as? String
         guestFansCount.text = "粉丝: " + String(dataDict?.objectForKey("lawyer_fansCount") as! Int)

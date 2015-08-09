@@ -15,7 +15,7 @@ class ResearchDetailTableViewController: UITableViewController {
     
     var researchId : Int?
     var dataDict : NSDictionary?
-    var optionsContentArray : NSArray?
+    var optionsContentArray = NSMutableArray()
     var optionsResult : NSDictionary?
     var content : String?
     
@@ -41,15 +41,27 @@ class ResearchDetailTableViewController: UITableViewController {
     
     func displayData()
     {
-        votedCount.text = String(dataDict!.objectForKey("vote_sum") as! Int)
+        var voteSum = dataDict!.objectForKey("vote_sum") as! Int
+        votedCount.text = "共" + String(voteSum) + "人参与投票"
         pieChart.diameter = Int32(pieChart.frame.size.height - CGFloat(16))
-        let keys = NSArray(array: optionsResult!.allKeys)
-        let values = NSArray(array: optionsResult!.allValues)
         var components = NSMutableArray()
+        if voteSum == 0
+        {
+            let  component = PCPieComponent()
+            component.title = "无人投票"
+             component.value = 1
+            component.colour = UIColor.whiteColor()
+            components.addObject(component)
+        }
+        else
+        {
+            let keys = optionsResult?.objectForKey("optionID") as! NSArray
+        let values = optionsResult?.objectForKey("votesCount") as! NSArray
+        
         for var i = 0; i < optionsResult!.count; i++ {
   
-            let title = (optionsContentArray?.objectAtIndex(i) as! NSDictionary).objectForKey("option_content") as! String
-            //PCPieComponent(title: <#String!#>, value: <#Float#>)
+            let title = (optionsContentArray.objectAtIndex(i) as! NSDictionary).objectForKey("option_content") as! String
+            //PCPieComponent(title: , value: <#Float#>)
             let component = PCPieComponent()
             component.title = title
             component.value = values.objectAtIndex(i) as! Float
@@ -68,13 +80,19 @@ class ResearchDetailTableViewController: UITableViewController {
             }
             components.addObject(component)
         }
+        }
         pieChart.components = components
+        pieChart.setNeedsDisplay()
+
     }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pieChart.titleFont = UIFont(name:"HelveticaNeue", size:16)
+        //pieChart. = UIFont(Name:"HelveticaNeue", size:16)
+        //pieChart.showArrow = false
         getResearchDetail()
     }
 
@@ -90,7 +108,7 @@ class ResearchDetailTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return optionsContentArray!.count + 2
+        return optionsContentArray.count + 2
     }
 
 
@@ -110,7 +128,7 @@ class ResearchDetailTableViewController: UITableViewController {
         else
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("OptionCell", forIndexPath: indexPath) as! UITableViewCell
-            cell.textLabel?.text = (optionsContentArray?.objectAtIndex(index - 2) as! NSDictionary).objectForKey("option_content") as? String
+            cell.textLabel?.text = (optionsContentArray.objectAtIndex(index - 2) as! NSDictionary).objectForKey("option_content") as? String
             return cell
         }
 

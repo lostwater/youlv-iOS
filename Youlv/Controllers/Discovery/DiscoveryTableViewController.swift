@@ -8,7 +8,7 @@
 
 
 
-class DiscoveryTableViewController: UITableViewController {
+class DiscoveryTableViewController: UITableViewController,ImagePlayerViewDelegate {
 
     @IBOutlet weak var topicButton1: UIButton!
     @IBOutlet weak var topicButton2: UIButton!
@@ -18,9 +18,14 @@ class DiscoveryTableViewController: UITableViewController {
     @IBOutlet var topicButtons: [UIButton]!
     @IBOutlet weak var adScroll: UIScrollView!
     
+    @IBOutlet weak var imagePlayer: ImagePlayerView!
+    
+    
     var currentPage = 1
     var topicsArray : NSArray?
     var adsArray : NSArray?
+    
+    var adsUrlsArray = NSMutableArray()
     
     let client = DataClient()
     func getTopics(currentPage: Int, pageSize:Int)
@@ -61,8 +66,14 @@ class DiscoveryTableViewController: UITableViewController {
         
         let dictData = dict.objectForKey("data") as! NSDictionary
         adsArray = (dictData.objectForKey("adList") as? NSArray)!
+        for a in adsArray!
+        {
+            var adict = a as! NSDictionary
+             adsUrlsArray.addObject(NSURL(string: adict.objectForKey("photoUrl") as! String)!)
+        }
+
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            
+            self.imagePlayer.reloadData()
         })
         
     }
@@ -70,6 +81,11 @@ class DiscoveryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getTopics(1,pageSize: 10)
+        imagePlayer.imagePlayerViewDelegate = self
+        imagePlayer.scrollInterval = 5
+        imagePlayer.pageControlPosition = ICPageControlPosition.BottomCenter
+        imagePlayer.hidePageControl = false
+        getAds()
     }
     
     func displayTopics()
@@ -92,6 +108,19 @@ class DiscoveryTableViewController: UITableViewController {
             //UIImageView.
         }
         //adPageControl.
+    }
+    
+    func numberOfItems() -> Int {
+        return adsUrlsArray.count
+    }
+    
+    func imagePlayerView(imagePlayerView: ImagePlayerView!, loadImageForImageView imageView: UIImageView!, index: Int) {
+        imageView.sd_setImageWithURL(self.adsUrlsArray.objectAtIndex(index) as! NSURL, placeholderImage: headImage)
+
+    }
+    
+    func imagePlayerView(imagePlayerView: ImagePlayerView!, didTapAtIndex index: Int, imageURL: NSURL!) {
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

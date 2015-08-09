@@ -26,7 +26,7 @@ class EventTableViewCell: UITableViewCell {
    
     func displayData(dataDict : NSDictionary)
     {
-        eventImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String))
+        eventImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String),placeholderImage:defualtPic)
         eventName.text = dataDict.objectForKey("title") as? String
         eventValid.text = "截止到 " + defaultDateFormatter.stringFromDate(NSDate(fromString: dataDict.objectForKey("activeTime") as! String))
 

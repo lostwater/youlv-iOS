@@ -32,6 +32,7 @@ class GroupTopicsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topicImageView.image = defualtPic
         getTopicGroupDetail(currentPage,pageSize: 10)
         
     }
@@ -117,6 +118,7 @@ class GroupTopicsTableViewController: UITableViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.barTintColor = appBlueColor
         self.navigationController?.navigationBar.translucent = false
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named:"alpha0"), forBarMetrics: UIBarMetrics.Default)
         
     }
 

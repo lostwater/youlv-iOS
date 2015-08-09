@@ -15,6 +15,9 @@ let bgNaviColor = UIColor(white: 0, alpha: 0.1)
 var appNaviMenuView : UIView?
 var isCancellingNew = false
 var headImage = UIImage(named:"pichead")
+var defualtPic = UIImage(named:"th.jpeg")
+
+
 func UIColorFromRGB(rgbValue: UInt) -> UIColor {
     return UIColor(
         red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
@@ -26,7 +29,9 @@ func UIColorFromRGB(rgbValue: UInt) -> UIColor {
 
 var sessionId = "76153026bac352110d4cd6a4dbb295d6"
 var myLawyerId = 0
+var myAccount = ""
 var defaultDateFormatter = NSDateFormatter()
+
 
 let groupMaxUsers = 300
 let serviceName = "com.RamyTech.Youlv"
@@ -98,7 +103,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NSForegroundColorAttributeName:UIColor.whiteColor()
         ];
         UINavigationBar.appearance().barTintColor = appBlueColor
-        UIBarButtonItem.appearance().setBackButtonBackgroundImage(UIImage(named: "buttonarrowleftwhite"), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "buttonarrowsleftwhite")
+        //UIBarButtonItem.appearance().setBackButtonBackgroundImage(UIImage(named: "arrows_left"), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -500, vertical: 0), forBarMetrics: UIBarMetrics.Default)
         
     }

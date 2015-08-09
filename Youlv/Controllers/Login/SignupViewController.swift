@@ -13,6 +13,7 @@ class SignupViewController: UIViewController {
     @IBOutlet var mobile: UITextField!
     @IBOutlet var validCode: UITextField!
     @IBOutlet var password: UITextField!
+    @IBOutlet weak var confirmpassword: UITextField!
     @IBOutlet var userName: UITextField!
     @IBOutlet var signupButton: UIButton!
     
@@ -34,6 +35,9 @@ class SignupViewController: UIViewController {
     }
     @IBAction func passwordEnd(sender: AnyObject) {
         password.resignFirstResponder()
+    }
+    @IBAction func confirmpasswordEnd(sender: AnyObject) {
+        confirmpassword.resignFirstResponder()
     }
     @IBAction func usernameEnd(sender: AnyObject) {
         userName.resignFirstResponder()
@@ -76,6 +80,7 @@ class SignupViewController: UIViewController {
     
     func signup()
     {
+        userName.text = "d"
         if validCode.text == ""
         {
             //showErrorMessage("验证码不能为空")
@@ -86,11 +91,16 @@ class SignupViewController: UIViewController {
             showErrorMessage("验证码错误")
             return
         }
-        if userName.text == ""
+        if password.text != confirmpassword.text
         {
-             showErrorMessage("用户名不能为空")
+            showErrorMessage("两次密码输入不同")
             return
         }
+//        if userName.text == ""
+//        {
+//             showErrorMessage("用户名不能为空")
+//            return
+//        }
         storedUsername = mobile.text
         storedPassword = password.text
         if storedUsername == "" ||   storedPassword == ""
@@ -178,6 +188,7 @@ class SignupViewController: UIViewController {
         accountKeyWrapper.setObject(storedUsername, forKey: kSecAttrService)
         passwordKeyWrapper.setObject(storedPassword, forKey: kSecAttrService)
         
+        myAccount = storedUsername
     }
     
     func showEmptyAlert()

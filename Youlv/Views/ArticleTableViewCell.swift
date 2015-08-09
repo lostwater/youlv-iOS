@@ -44,7 +44,7 @@ class ArticleTableViewCell: UITableViewCell {
     func displayData(dataDict : NSDictionary)
     {
         self.tag = (dataDict.objectForKey("articleId") as? Int)!
-        articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("url") as! String))
+        articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("url") as! String),placeholderImage:defualtPic)
         articleTitle.text = dataDict.objectForKey("title") as? String
         //articleTextView.text =  dataDict.objectForKey("acro") as? String
         articleContent.text =  dataDict.objectForKey("acro") as? String

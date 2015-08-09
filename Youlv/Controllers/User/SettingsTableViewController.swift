@@ -30,7 +30,8 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         reDrawFoot()
-        userIdLabel.text = "友律ID " + (accountKeyWrapper.objectForKey(kSecAttrService) as! String)
+        //userIdLabel.text = "友律ID " + (accountKeyWrapper.objectForKey(kSecAttrService) as! String)
+        userIdLabel.text = "友律ID " + myAccount
 
     }
 

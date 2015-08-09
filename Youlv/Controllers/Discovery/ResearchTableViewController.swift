@@ -82,7 +82,7 @@ class ResearchTableViewController: UITableViewController {
             var selectedData = researchArry?.objectAtIndex(selectedIndex!) as! NSDictionary
             vc.researchId = selectedData.objectForKey("vote_id") as? Int
             vc.content = selectedData.objectForKey("vote_content") as? String
-            vc.optionsContentArray  = selectedData.objectForKey("vote_options") as? NSArray
+            vc.optionsContentArray  = selectedData.objectForKey("vote_options") as! NSMutableArray
 
         }
     }

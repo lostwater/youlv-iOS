@@ -149,7 +149,7 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         {
             sessionId = dict!.objectForKey("sessionId") as! String
             myLawyerId = dict!.objectForKey("lawyerId") as! Int
-
+            
             saveAccountAndPassword()
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.goMainVC()
@@ -198,8 +198,11 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         {
             NSLog("密码保存成功")
         }
+        
         accountKeyWrapper.setObject(userAccount.text, forKey: kSecAttrService)
         passwordKeyWrapper.setObject(passowrd.text, forKey: kSecAttrService)
+        
+        myAccount = userAccount.text
 
     }
 

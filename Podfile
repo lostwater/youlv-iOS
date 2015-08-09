@@ -10,10 +10,11 @@ pod 'KNSemiModalViewController'
 pod 'THCalendarDatePicker'
 pod 'EaseMobSDKFull'
 pod 'AFNetworking'
-pod 'TAPageControl'
+
 pod 'MYBlurIntroductionView'
 pod 'IQKeyboardManager'
 pod 'KVNProgress'
+pod 'ImagePlayerView'
 end
 
 target 'YoulvTests' do
@@ -25,10 +26,11 @@ pod 'KNSemiModalViewController'
 pod 'THCalendarDatePicker'
 pod 'EaseMobSDKFull'
 pod 'AFNetworking'
-pod 'TAPageControl'
+
 pod 'MYBlurIntroductionView'
 pod 'IQKeyboardManager'
 pod 'KVNProgress'
+pod 'ImagePlayerView'
 end
 
 

@@ -6,6 +6,9 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+
+#import "ImagePlayerView.h"
+
 #import "KeyboardManager.h"
 #import "KVNProgress.h"
 
@@ -21,7 +24,7 @@
 #import "SFHFKeychainUtils.h"
 #import "MYBlurIntroductionView.h"
 #import "KeychainItemWrapper.h"
-#import "TAPageControl.h"
+
 #import "CPTextViewPlaceholder.h"
 #import "NSDate+Utils.h"
 #import "DRNRealTimeBlurView.h"

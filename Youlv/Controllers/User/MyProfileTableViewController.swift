@@ -16,11 +16,24 @@ class MyProfileTableViewController: UITableViewController {
     @IBOutlet var userImageView: UIImageView!
     @IBOutlet var userName: UITextField!
     @IBOutlet var userIntroTextView: UITextView!
+    @IBOutlet weak var userIntro: UITextField!
     @IBOutlet var orgName: UITextField!
     @IBOutlet var location: UITextField!
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBAction func editClicked(sender: AnyObject) {
+        if editEabled
+        {
+            updateProfile()
+        }
+        switchEditMode()
+        
+    }
+    
+    var editEabled = false
 
     var dataDict : NSDictionary?
+    
     
     func getMyProfile()
     {
@@ -28,6 +41,7 @@ class MyProfileTableViewController: UITableViewController {
             self.getMyProfileCompleted(dict,error: error)
         })
     }
+    
     
     func getMyProfileCompleted(dict:NSDictionary?,error:NSError?)
     {
@@ -39,19 +53,57 @@ class MyProfileTableViewController: UITableViewController {
         
     }
     
+    func updateProfile()
+    {
+        
+    }
+    
     func displayData()
     {
-        userImageView.sd_setImageWithURL(NSURL(string: dataDict!.objectForKey("lawyer_photoUrl") as! String))
+        userImageView.sd_setImageWithURL(NSURL(string: dataDict!.objectForKey("lawyer_photoUrl") as! String),placeholderImage:headImage)
         userName.text = dataDict!.objectForKey("lawyer_name") as? String
+        userIntro.text = dataDict!.objectForKey("lawyer_introduction") as? String
         userIntroTextView.text = dataDict!.objectForKey("lawyer_introduction") as? String
         orgName.text = dataDict!.objectForKey("lawyer_lawOffice") as? String
         location.text = dataDict!.objectForKey("lawyer_cityName") as? String
         
     }
+    
+    func switchEditMode()
+    {
+        editEabled = !editEabled
+        if editEabled
+        {
+            editButton.title = "完成"
+            
+           
+            userName.enabled = true
+            userIntro.enabled = true
+            orgName.enabled = true
+            location.enabled = true
+        
+            userName.becomeFirstResponder()
+
+        }
+        else
+        {
+            
+            editButton.title = "编辑"
+            userName.enabled = false
+            userIntro.enabled = false
+            orgName.enabled = false
+            location.enabled = false
+           
+        }
+    }
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        userName.enabled = false
+        userIntro.enabled = false
+        orgName.enabled = false
+        location.enabled = false
         getMyProfile()
 
     }

@@ -15,6 +15,7 @@
 		0B10C9EF1ADB070300695853 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B10C9EE1ADB070300695853 /* Messages.storyboard */; };
 		0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B10C9F21ADB090800695853 /* HomeTabBarController.swift */; };
 		0B20E0141B0B6BFF00B529D5 /* MyTopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20E0131B0B6BFF00B529D5 /* MyTopicsTableViewController.swift */; };
+		0B2280021B77401F00ED4CFE /* th.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0B2280011B77401F00ED4CFE /* th.jpeg */; };
 		0B242CBD1B4D8ACC0080771D /* UserImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B242CBC1B4D8ACB0080771D /* UserImagesTableViewCell.swift */; };
 		0B242CC01B4D93070080771D /* GeneralContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B242CBF1B4D93070080771D /* GeneralContactsTableViewController.swift */; };
 		0B2A9CED1B038710007FF789 /* ImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2A9CEC1B038710007FF789 /* ImageListView.swift */; };
@@ -477,6 +478,7 @@
 		0B10C9EE1ADB070300695853 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		0B10C9F21ADB090800695853 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeTabBarController.swift; path = Youlv/Controllers/Home/HomeTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		0B20E0131B0B6BFF00B529D5 /* MyTopicsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyTopicsTableViewController.swift; path = Youlv/Controllers/User/MyTopicsTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		0B2280011B77401F00ED4CFE /* th.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = th.jpeg; sourceTree = SOURCE_ROOT; };
 		0B242CBC1B4D8ACB0080771D /* UserImagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImagesTableViewCell.swift; sourceTree = "<group>"; };
 		0B242CBF1B4D93070080771D /* GeneralContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralContactsTableViewController.swift; sourceTree = "<group>"; };
 		0B2A9CEC1B038710007FF789 /* ImageListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListView.swift; sourceTree = "<group>"; };
@@ -1184,6 +1186,7 @@
 		0B5FDEFA1AD6A2EF00773360 /* Youlv */ = {
 			isa = PBXGroup;
 			children = (
+				0B2280011B77401F00ED4CFE /* th.jpeg */,
 				0BDA4C031B2F53E0004B6753 /* EaseMobIM */,
 				0BB7F7631AEB6C5800F72D80 /* Classes */,
 				0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */,
@@ -2546,6 +2549,7 @@
 				0BDA4EB11B2F53E2004B6753 /* chatListCellHead.png in Resources */,
 				0BDA4EF21B2F53E2004B6753 /* chatBar_more_face@2x.png in Resources */,
 				0BDA4F291B2F53E2004B6753 /* chatBar_more_locationSelected.png in Resources */,
+				0B2280021B77401F00ED4CFE /* th.jpeg in Resources */,
 				0BDA4F2E1B2F53E2004B6753 /* chatBar_more_photoSelected@2x.png in Resources */,
 				0BDA4ECF1B2F53E2004B6753 /* VoiceSearchFeedback011.png in Resources */,
 				0BDA4F591B2F53E2004B6753 /* groupPublicHeader@2x.png in Resources */,

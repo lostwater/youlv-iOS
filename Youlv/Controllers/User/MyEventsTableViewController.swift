@@ -8,19 +8,46 @@
 
 import UIKit
 
-class MyEventsTableViewController: UITableViewController {
+class MyEventsTableViewController: BaseTableViewController {
     
-
+    override func getDataArray(currentPage: Int, pageSize:Int)
+    {
+        getEventList(currentPage, pageSize:pageSize)
+    }
     
-    var eventsArray : NSArray?
-    
-    var currentPage = 1
+    func getEventList(currentPage: Int, pageSize:Int)
+    {
+        DataClient().getEventList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
+            self.getEventListCompleted(dict, error: error)
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMyEventsList(currentPage, pageSize: 10)
+        //setNaviMenu()
+        //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
         
     }
+    
+    func getEventListCompleted(dict:NSDictionary?,error:NSError?)
+    {
+        let dictData = dict!.objectForKey("data") as! NSDictionary
+        let array = dictData.objectForKey("activeList") as? NSArray
+        if (array?.count ?? 0) > 0
+        {
+            dataArray.addObjectsFromArray(array! as Array)
+            currentPage++
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
+            
+            
+        }
+        
+    }
+    
+    var eventsArray : NSArray?
+    
     
     
     
@@ -49,8 +76,8 @@ class MyEventsTableViewController: UITableViewController {
         {
             let eventDetail = segue.destinationViewController as! EventDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            var selectedData = eventsArray!.objectAtIndex(selectedIndex!) as! NSDictionary
-            eventDetail.eventId = (eventsArray!.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)?.toInt()
+            var selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
+            eventDetail.eventId = (dataArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)?.toInt()
         }
     }
     
@@ -69,14 +96,10 @@ class MyEventsTableViewController: UITableViewController {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return eventsArray?.count ?? 0
-    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventTableViewCell
-        cell.displayData(eventsArray!.objectAtIndex(indexPath.item) as! NSDictionary)
+        cell.displayData(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
         
     }
