@@ -30,6 +30,8 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         introView.hidden = true
         navigationItem.rightBarButtonItem?.title = "注册"
         navigationController?.navigationBar.translucent = false
+        
+        tryAutoLogin()
     }
     
     @IBAction func introButtonSignupClicked(sender: AnyObject) {
@@ -93,28 +95,33 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         self.navigationController?.navigationBar.backItem?.title = "";
         passowrd.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
         userAccount.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
+        hideWeixinWeibo()
         
         passowrd.addDoneOnKeyboardWithTarget(self, action:"passwordTextFieldEnd")
         //returnKeyHandler = IQKeyboardReturnKeyHandler(viewController: self)
         //userDefaults = NSUserDefaults()
         //let key = userDefaults.boolForKey("firstUse")
         
-        
-        if !userDefaults.boolForKey("usedBefore")
-        //if true
+        let version = majorVersion
+        if userDefaults.stringForKey("lastRunVersion") != majorVersion
+            //if true
         {
             navigationItem.rightBarButtonItem?.title = ""
             setIntro()
-            userDefaults.setBool(true, forKey: "usedBefore")
+            userDefaults.setObject(majorVersion, forKey: "lastRunVersion")
             userDefaults.synchronize()
         }
-
-        
-
-        hideWeixinWeibo()
+        else
+        {
+            tryAutoLogin()
+        }
+    }
+    
+    func tryAutoLogin()
+    {
         storedPassword = passwordKeyWrapper.objectForKey(kSecAttrService) as? String
         storedAccount = accountKeyWrapper.objectForKey(kSecAttrService) as? String
-
+        
         userAccount.text = storedAccount
         passowrd.text = storedPassword
         if userAccount.text == nil || passowrd.text == nil ||  userAccount.text=="" ||   passowrd.text == ""{
@@ -124,6 +131,7 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         {
             login()
         }
+
     }
     
     
@@ -248,6 +256,7 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     
     func introduction(introductionView: MYBlurIntroductionView!, didFinishWithType finishType: MYFinishType) {
         navigationController?.navigationBar.translucent = false
+        tryAutoLogin()
     }
 
 

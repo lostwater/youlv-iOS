@@ -22,6 +22,16 @@ class ArticleDetailViewController: UIViewController {
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var likedButton: UIButton!
     
+    @IBOutlet weak var shareMenuView: UIView!
+    @IBOutlet var gesture: UITapGestureRecognizer!
+    
+    @IBAction func shareClicked(sender: AnyObject) {
+        shareMenuView.hidden = !shareMenuView.hidden
+    }
+    
+    @IBAction func viewTapped(sender: AnyObject) {
+        shareMenuView.hidden = true
+    }
     @IBAction func likedButtonClicked(sender: AnyObject) {
         if  !likedButton.selected
         {

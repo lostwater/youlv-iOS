@@ -32,6 +32,9 @@ var myLawyerId = 0
 var myAccount = ""
 var defaultDateFormatter = NSDateFormatter()
 
+let infoDict = NSBundle.mainBundle().infoDictionary
+let majorVersion = infoDict?["CFBundleShortVersionString"] as? String
+let minorVersion = infoDict?["CFBundleVersion"] as? String
 
 let groupMaxUsers = 300
 let serviceName = "com.RamyTech.Youlv"
@@ -43,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         //DataManager().getOrderList(1, pageSize: 10)
@@ -51,7 +53,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setAppearance()
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         
-        EaseMob.sharedInstance().registerSDKWithAppKey("yoolegal#yoolegal", apnsCertName: "")
+        var apnsCertName = "propush"
+        #if DEBUG
+            apnsCertName = "devpush";
+        #else
+            apnsCertName = "propush";
+        #endif
+        
+        EaseMob.sharedInstance().registerSDKWithAppKey("yoolegal#yoolegal", apnsCertName: apnsCertName)
         EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         
@@ -99,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backItem?.title = "";
         UINavigationBar.appearance().titleTextAttributes =
             [
-                NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 24)!,
+                NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 16)!,
                 NSForegroundColorAttributeName:UIColor.whiteColor()
         ];
         UINavigationBar.appearance().barTintColor = appBlueColor

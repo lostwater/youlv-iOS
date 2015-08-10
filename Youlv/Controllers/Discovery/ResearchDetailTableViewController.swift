@@ -92,7 +92,7 @@ class ResearchDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         pieChart.titleFont = UIFont(name:"HelveticaNeue", size:16)
         //pieChart. = UIFont(Name:"HelveticaNeue", size:16)
-        //pieChart.showArrow = false
+        pieChart.showArrow = false
         getResearchDetail()
     }
 

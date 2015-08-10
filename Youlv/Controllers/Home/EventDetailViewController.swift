@@ -17,9 +17,17 @@ class EventDetailViewController: UIViewController {
     @IBOutlet var eventTime: UILabel!
     @IBOutlet var eventTextView: UITextView!
     @IBOutlet var membersImageList: ImageListView!
-    
     @IBOutlet var bookMarkButton: UIButton!
     
+    @IBOutlet weak var shareMenu: UIView!
+    @IBAction func viewTapped(sender: AnyObject) {
+        shareMenu.hidden = true
+    }
+    
+    @IBAction func shareClicked(sender: AnyObject) {
+        shareMenu.hidden = !shareMenu.hidden
+    }
+   
     @IBAction func bookMarkButtonClicked(sender: AnyObject) {
         if !bookMarkButton.selected
         {

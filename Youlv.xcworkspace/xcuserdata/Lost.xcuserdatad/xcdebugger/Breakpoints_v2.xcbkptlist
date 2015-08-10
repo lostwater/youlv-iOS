@@ -1742,22 +1742,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Youlv/Controllers/Login/LoginViewController.swift"
-            timestampString = "460274780.370297"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1826,7 +1810,7 @@
                   moduleName = "Youlv"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Controllers/User/UserHomeTableViewController.swift"
-                  timestampString = "460804660.202085"
+                  timestampString = "460917190.312164"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -1841,7 +1825,7 @@
                   moduleName = "Youlv"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Controllers/User/UserHomeTableViewController.swift"
-                  timestampString = "460804660.202863"
+                  timestampString = "460917190.312976"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -2322,28 +2306,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/Controllers/Home/EventDetailViewController.swift"
-            timestampString = "456135228.966899"
+            timestampString = "460834371.133129"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "loadData()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Youlv/Controllers/Login/LoginViewController.swift"
-            timestampString = "460274780.370297"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "loginCompleted(_:error:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2828,22 +2796,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Youlv/Controllers/Login/LoginViewController.swift"
-            timestampString = "460274780.370297"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Youlv/Views/ContactTableViewCell.swift"
             timestampString = "458749746.938869"
             startingColumnNumber = "9223372036854775807"
@@ -3277,7 +3229,7 @@
                   moduleName = "Youlv"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Views/GroupTableViewCell.swift"
-                  timestampString = "460804660.233131"
+                  timestampString = "460917190.34419"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -3292,7 +3244,7 @@
                   moduleName = "Youlv"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Views/GroupTableViewCell.swift"
-                  timestampString = "460804660.233894"
+                  timestampString = "460917190.344932"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -3307,7 +3259,7 @@
                   moduleName = "Youlv"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Views/GroupTableViewCell.swift"
-                  timestampString = "460804660.234557"
+                  timestampString = "460917190.345611"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -3322,7 +3274,7 @@
                   moduleName = "Youlv"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Views/GroupTableViewCell.swift"
-                  timestampString = "460804660.235206"
+                  timestampString = "460917190.346289"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -3337,7 +3289,7 @@
                   moduleName = "Youlv"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Lost/Documents/Xcode%20Projects/Youlv/Youlv/Views/GroupTableViewCell.swift"
-                  timestampString = "460804660.235858"
+                  timestampString = "460917190.34694"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -3376,54 +3328,6 @@
             startingLineNumber = "87"
             endingLineNumber = "87"
             landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Youlv/Controllers/Login/LoginViewController.swift"
-            timestampString = "460267361.880319"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "passwordTextFieldEnd(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Youlv/Controllers/Login/LoginViewController.swift"
-            timestampString = "460274780.370297"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "accountTextFieldEnd(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Youlv/Controllers/Login/LoginViewController.swift"
-            timestampString = "460274780.370297"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "accountTextFieldEnd(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3713,6 +3617,22 @@
             endingLineNumber = "26"
             landmarkName = "StartGroupChat2ViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Youlv/Controllers/Login/LoginViewController.swift"
+            timestampString = "460917037.699841"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "setIntro()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

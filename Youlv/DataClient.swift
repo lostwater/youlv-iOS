@@ -986,7 +986,7 @@ class DataClient
                 }
                 let message = dict!.objectForKey("errmessage") as! String
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                   // KVNProgress.showErrorWithStatus(message)
+                    KVNProgress.showErrorWithStatus(message)
                 })
                 completion(dict, error)
             }
@@ -1058,7 +1058,7 @@ class DataClient
                 }
                 let message = dict!.objectForKey("errmessage") as! String
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                   // KVNProgress.showErrorWithStatus(message)
+                    KVNProgress.showErrorWithStatus(message)
                 })
                 completion(dict, error)
             }

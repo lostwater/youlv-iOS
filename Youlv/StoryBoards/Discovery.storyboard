@@ -1702,10 +1702,10 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconperson" translatesAutoresizingMaskIntoConstraints="NO" id="WQF-LR-caU">
-                                    <rect key="frame" x="274" y="217" width="23" height="23"/>
+                                    <rect key="frame" x="246" y="217" width="23" height="23"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wb7-SZ-pvY">
-                                    <rect key="frame" x="305" y="220" width="36" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共0人参与调查" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wb7-SZ-pvY">
+                                    <rect key="frame" x="277" y="220" width="92" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -1722,6 +1722,7 @@
                                 <constraint firstItem="WQF-LR-caU" firstAttribute="centerY" secondItem="wb7-SZ-pvY" secondAttribute="centerY" id="K7t-Et-3qo"/>
                                 <constraint firstAttribute="trailing" secondItem="wSH-tf-05j" secondAttribute="trailing" constant="8" id="Rfi-iC-oTd"/>
                                 <constraint firstAttribute="bottom" secondItem="wSH-tf-05j" secondAttribute="bottom" constant="50" id="Ude-4n-Hbp"/>
+                                <constraint firstAttribute="centerX" secondItem="wb7-SZ-pvY" secondAttribute="centerX" constant="-23" id="Zag-r1-Y05"/>
                                 <constraint firstItem="wSH-tf-05j" firstAttribute="top" secondItem="zOK-EQ-2rc" secondAttribute="top" id="lEU-aS-tKx"/>
                                 <constraint firstAttribute="centerX" secondItem="WQF-LR-caU" secondAttribute="centerX" constant="15" id="oTk-nk-Ld6"/>
                                 <constraint firstItem="wSH-tf-05j" firstAttribute="leading" secondItem="zOK-EQ-2rc" secondAttribute="leading" constant="8" id="uyy-FY-Gbm"/>
@@ -1730,6 +1731,7 @@
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="19Z-Af-dke"/>
+                                    <exclude reference="oTk-nk-Ld6"/>
                                 </mask>
                             </variation>
                         </view>
@@ -1831,11 +1833,11 @@
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconjobnamegrey" translatesAutoresizingMaskIntoConstraints="NO" id="e4y-oB-gUy">
-                                            <rect key="frame" x="92" y="38" width="18" height="18"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconjobnamegrey" translatesAutoresizingMaskIntoConstraints="NO" id="e4y-oB-gUy">
+                                            <rect key="frame" x="92" y="37" width="18" height="18"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iconjobloaclgrey" translatesAutoresizingMaskIntoConstraints="NO" id="G4J-oW-fHL">
-                                            <rect key="frame" x="154" y="38" width="18" height="18"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconjobloaclgrey" translatesAutoresizingMaskIntoConstraints="NO" id="G4J-oW-fHL">
+                                            <rect key="frame" x="154" y="37" width="18" height="18"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKM-8t-OAm">
                                             <rect key="frame" x="548" y="38" width="36" height="17"/>
@@ -1970,8 +1972,8 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="iconvote" translatesAutoresizingMaskIntoConstraints="NO" id="Vci-pM-CME">
-                                            <rect key="frame" x="461" y="170" width="17" height="17"/>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconvote" translatesAutoresizingMaskIntoConstraints="NO" id="Vci-pM-CME">
+                                            <rect key="frame" x="461" y="169" width="17" height="17"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>

@@ -534,13 +534,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Youlv/AppDelegate.swift"
-            timestampString = "460800389.268919"
+            timestampString = "460916014.093139"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "setNavBar()"
-            landmarkType = "5">
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
