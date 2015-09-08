@@ -12,24 +12,79 @@ class BaseTableViewController: UITableViewController {
 
     var dataArray = NSMutableArray()
     var currentPage = 1
+    var isLoading = false
+    
+    var httpGet : ((currentPage: Int, pageSize:Int)->Void)?
+
     
     func getDataArray(currentPage: Int, pageSize:Int)
-    {}
+    {
+        if isLoading
+        {
+            return
+        }
+        else
+        {
+            isLoading = true
+            httpGet!(currentPage: currentPage, pageSize:10)
+        }
+    }
+    
+    func endLoad()
+    {
+        isLoading = false
+        tableView.headerEndRefreshing()
+        tableView.footerEndRefreshing()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupRefresh()
         currentPage = 1
         dataArray.removeAllObjects()
         getDataArray(currentPage,pageSize:10)
-
-                // Uncomment the following line to preserve selection between presentations
+        // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-     func viewWillAppear2(animated: Bool)
+    func refreshDataArrary()
+    {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.currentPage = 1
+            self.dataArray.removeAllObjects()
+            self.getDataArray(self.currentPage,pageSize:10)
+        })
+        
+
+    }
+    
+    func setupRefresh(){
+        self.tableView.addHeaderWithCallback({
+            if self.isLoading
+            {
+                self.tableView.headerEndRefreshing()
+                return
+            }
+                self.refreshDataArrary()
+            
+            }
+        )
+        self.tableView.addFooterWithCallback({
+            if self.isLoading
+            {
+                self.tableView.footerEndRefreshing()
+                return
+            }
+                self.getDataArray(self.currentPage,pageSize: 10)
+                //self.tableView.setFooterHidden(true)
+        })
+    }
+
+    
+    func viewWillAppear2(animated: Bool)
     {
         currentPage = 1
         dataArray.removeAllObjects()
@@ -61,7 +116,7 @@ class BaseTableViewController: UITableViewController {
         return dataArray.count
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+     func tableView2(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
             if indexPath.item == dataArray.count - 1
             {

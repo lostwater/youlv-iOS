@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cLS-a9-eZR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cLS-a9-eZR">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -303,6 +303,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Fkq-ml-Djj">
                         <barButtonItem key="rightBarButtonItem" title="主页" id="NwW-l1-4kO">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="hidden" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <segue destination="EgA-Nu-WFO" kind="show" id="uQ4-Mk-pFA"/>
                             </connections>
@@ -620,8 +623,8 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="w9o-Nf-MRP"/>
                                                     <exclude reference="ceD-XQ-BZ2"/>
+                                                    <exclude reference="w9o-Nf-MRP"/>
                                                 </mask>
                                             </variation>
                                         </imageView>
@@ -812,24 +815,6 @@
                                             <segue destination="8Y7-4p-00n" kind="show" trigger="accessoryAction" id="eCa-JG-w5v"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="nCQ-ha-7sj" style="IBUITableViewCellStyleDefault" id="Ifc-LN-Ulm">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ifc-LN-Ulm" id="pWk-jn-j6p">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="账号绑定" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nCQ-ha-7sj">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="xW2-w3-pol" kind="show" id="Xf6-le-Qfn"/>
-                                            <segue destination="xW2-w3-pol" kind="show" trigger="accessoryAction" id="cDR-Gj-g5X"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="TUq-M7-IJu" style="IBUITableViewCellStyleDefault" id="5Uz-sN-TCe">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Uz-sN-TCe" id="96m-of-s2f">
@@ -847,20 +832,6 @@
                                             <segue destination="ODE-he-sK7" kind="show" id="Col-qi-RI4"/>
                                             <segue destination="ODE-he-sK7" kind="show" trigger="accessoryAction" id="mh6-1l-vas"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="BEO-7y-iqw" style="IBUITableViewCellStyleDefault" id="nAR-0X-ovd">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nAR-0X-ovd" id="QaR-N4-Q03">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="清空缓存" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BEO-7y-iqw">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -2543,7 +2514,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iconprofileloacl" translatesAutoresizingMaskIntoConstraints="NO" id="ic8-4w-NgY">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="iconprofileloacl" translatesAutoresizingMaskIntoConstraints="NO" id="ic8-4w-NgY">
                                         <rect key="frame" x="291" y="100" width="10" height="13"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOO-JS-wh1">
@@ -2910,6 +2881,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cgh-bU-ZdJ">
                         <barButtonItem key="rightBarButtonItem" image="buttonshare" id="9FK-zM-kRf">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="hidden" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="buttonShareClicked:" destination="EgA-Nu-WFO" id="C7x-2Z-aw6"/>
                             </connections>
@@ -2972,9 +2946,8 @@
         <image name="pichead" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xLU-Pz-6yh"/>
-        <segue reference="cDR-Gj-g5X"/>
         <segue reference="mh6-1l-vas"/>
+        <segue reference="xLU-Pz-6yh"/>
         <segue reference="UAF-5s-7aL"/>
         <segue reference="DCu-Ly-5D3"/>
     </inferredMetricsTieBreakers>

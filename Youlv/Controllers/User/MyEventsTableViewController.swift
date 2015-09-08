@@ -9,25 +9,18 @@
 import UIKit
 
 class MyEventsTableViewController: BaseTableViewController {
-    
-    override func getDataArray(currentPage: Int, pageSize:Int)
-    {
-        getEventList(currentPage, pageSize:pageSize)
+    override func awakeFromNib() {
+        httpGet = getEventList
     }
     
+
     func getEventList(currentPage: Int, pageSize:Int)
     {
         DataClient().getEventList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
             self.getEventListCompleted(dict, error: error)
         })
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //setNaviMenu()
-        //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
-        
-    }
+
     
     func getEventListCompleted(dict:NSDictionary?,error:NSError?)
     {
@@ -39,6 +32,9 @@ class MyEventsTableViewController: BaseTableViewController {
             currentPage++
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
+                self.tableView.headerEndRefreshing()
+                self.tableView.footerEndRefreshing()
+
             })
             
             

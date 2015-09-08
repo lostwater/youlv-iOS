@@ -50,6 +50,13 @@
 		0B6191F81AE9295200A8258A /* NewTopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6191F71AE9295200A8258A /* NewTopicTableViewController.swift */; };
 		0B6251671B0DF9D20028FD77 /* DRNRealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6251641B0DF9D20028FD77 /* DRNRealTimeBlurView.m */; };
 		0B6251681B0DF9D20028FD77 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6251661B0DF9D20028FD77 /* UIImage+BoxBlur.m */; };
+		0B6C6B5A1B9F22BD00AB98D6 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6C6B531B9F22BD00AB98D6 /* arrow@2x.png */; };
+		0B6C6B5B1B9F22BD00AB98D6 /* Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C6B541B9F22BD00AB98D6 /* Refresh.swift */; };
+		0B6C6B5C1B9F22BD00AB98D6 /* RefreshBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C6B551B9F22BD00AB98D6 /* RefreshBaseView.swift */; };
+		0B6C6B5D1B9F22BD00AB98D6 /* RefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C6B561B9F22BD00AB98D6 /* RefreshConst.swift */; };
+		0B6C6B5E1B9F22BD00AB98D6 /* RefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C6B571B9F22BD00AB98D6 /* RefreshFooterView.swift */; };
+		0B6C6B5F1B9F22BD00AB98D6 /* RefreshHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C6B581B9F22BD00AB98D6 /* RefreshHeaderView.swift */; };
+		0B6C6B601B9F22BD00AB98D6 /* UIScrollView+Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C6B591B9F22BD00AB98D6 /* UIScrollView+Refresh.swift */; };
 		0B6FA2341B1633A9001414B0 /* GroupChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FA2331B1633A9001414B0 /* GroupChatViewController.swift */; };
 		0B6FA2361B164145001414B0 /* StartGroupChat2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FA2351B164145001414B0 /* StartGroupChat2ViewController.swift */; };
 		0B6FA2381B177336001414B0 /* InterviewAskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FA2371B177336001414B0 /* InterviewAskViewController.swift */; };
@@ -520,6 +527,13 @@
 		0B6251641B0DF9D20028FD77 /* DRNRealTimeBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRNRealTimeBlurView.m; sourceTree = "<group>"; };
 		0B6251651B0DF9D20028FD77 /* UIImage+BoxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxBlur.h"; sourceTree = "<group>"; };
 		0B6251661B0DF9D20028FD77 /* UIImage+BoxBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxBlur.m"; sourceTree = "<group>"; };
+		0B6C6B531B9F22BD00AB98D6 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		0B6C6B541B9F22BD00AB98D6 /* Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
+		0B6C6B551B9F22BD00AB98D6 /* RefreshBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshBaseView.swift; sourceTree = "<group>"; };
+		0B6C6B561B9F22BD00AB98D6 /* RefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshConst.swift; sourceTree = "<group>"; };
+		0B6C6B571B9F22BD00AB98D6 /* RefreshFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshFooterView.swift; sourceTree = "<group>"; };
+		0B6C6B581B9F22BD00AB98D6 /* RefreshHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshHeaderView.swift; sourceTree = "<group>"; };
+		0B6C6B591B9F22BD00AB98D6 /* UIScrollView+Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Refresh.swift"; sourceTree = "<group>"; };
 		0B6FA2331B1633A9001414B0 /* GroupChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChatViewController.swift; sourceTree = "<group>"; };
 		0B6FA2351B164145001414B0 /* StartGroupChat2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGroupChat2ViewController.swift; sourceTree = "<group>"; };
 		0B6FA2371B177336001414B0 /* InterviewAskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterviewAskViewController.swift; path = Youlv/Controllers/Discovery/InterviewAskViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -1269,6 +1283,20 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		0B6C6B521B9F22BD00AB98D6 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				0B6C6B531B9F22BD00AB98D6 /* arrow@2x.png */,
+				0B6C6B541B9F22BD00AB98D6 /* Refresh.swift */,
+				0B6C6B551B9F22BD00AB98D6 /* RefreshBaseView.swift */,
+				0B6C6B561B9F22BD00AB98D6 /* RefreshConst.swift */,
+				0B6C6B571B9F22BD00AB98D6 /* RefreshFooterView.swift */,
+				0B6C6B581B9F22BD00AB98D6 /* RefreshHeaderView.swift */,
+				0B6C6B591B9F22BD00AB98D6 /* UIScrollView+Refresh.swift */,
+			);
+			path = Refresh;
+			sourceTree = "<group>";
+		};
 		0BB5B5891B0D000D008A2A85 /* IMController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1282,6 +1310,7 @@
 		0BB7F7631AEB6C5800F72D80 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0B6C6B521B9F22BD00AB98D6 /* Refresh */,
 				0BD29F161B41917A004B1A9D /* NSDate+Utils.h */,
 				0BD29F171B41917A004B1A9D /* NSDate+Utils.m */,
 				0B001B7D1B1A269300689F80 /* SFHFKeychainUtils.h */,
@@ -2517,6 +2546,7 @@
 				0BDA4E551B2F53E2004B6753 /* sr_refresh@2X.png in Resources */,
 				0BDA4EC01B2F53E2004B6753 /* VoiceSearchFeedback003@2x.png in Resources */,
 				0BDA4F5B1B2F53E2004B6753 /* newFriends@2x.png in Resources */,
+				0B6C6B5A1B9F22BD00AB98D6 /* arrow@2x.png in Resources */,
 				0B5FDF081AD6A2EF00773360 /* LaunchScreen.xib in Resources */,
 				0BDA4EBC1B2F53E2004B6753 /* VoiceSearchFeedback001@2x.png in Resources */,
 				0BDA4ED21B2F53E2004B6753 /* VoiceSearchFeedback012@2x.png in Resources */,
@@ -2823,12 +2853,14 @@
 				0BDA4EAA1B2F53E2004B6753 /* XHMessageTextView.m in Sources */,
 				0BDA4E3B1B2F53E2004B6753 /* EMSDWebImageManager.m in Sources */,
 				0BDA4E2F1B2F53E2004B6753 /* MWGridViewController.m in Sources */,
+				0B6C6B601B9F22BD00AB98D6 /* UIScrollView+Refresh.swift in Sources */,
 				0BA682DB1AF5335C00780FFD /* RecommendedTopicsViewController.swift in Sources */,
 				0BDA4E2C1B2F53E2004B6753 /* MBProgressHUD.m in Sources */,
 				0BDA4E861B2F53E2004B6753 /* ContactView.m in Sources */,
 				0BC050C51AEE6F9B003360CE /* NaviBarMenuProtocol.swift in Sources */,
 				0BDA4E6D1B2F53E2004B6753 /* ChatListViewController.m in Sources */,
 				0BDA4E611B2F53E2004B6753 /* NSDateFormatter+Category.m in Sources */,
+				0B6C6B5B1B9F22BD00AB98D6 /* Refresh.swift in Sources */,
 				0BDA4E9D1B2F53E2004B6753 /* BlackListViewController.m in Sources */,
 				0BDA4E3D1B2F53E2004B6753 /* MKAnnotationView+EMWebCache.m in Sources */,
 				0B2AF2C71AE6A61700F7A5F9 /* MyOpportunitiesTableViewController.swift in Sources */,
@@ -2846,6 +2878,7 @@
 				0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */,
 				0B8BB8E21B0614290034B006 /* InterviewQATableViewCell.swift in Sources */,
 				0BDA4E371B2F53E2004B6753 /* EMSDWebImageCompat.m in Sources */,
+				0B6C6B5E1B9F22BD00AB98D6 /* RefreshFooterView.swift in Sources */,
 				0BDA4E211B2F53E2004B6753 /* EMAudioPlayerUtil.m in Sources */,
 				0BB7F7661AEB6CA200F72D80 /* DWTagList.m in Sources */,
 				0BB2C1E71B07A4F700F1812A /* PCPieChart.m in Sources */,
@@ -2907,6 +2940,7 @@
 				0B2A9D051B04DB1B007FF789 /* GroupTopicsTableViewController.swift in Sources */,
 				0BA682F51AF63AD200780FFD /* CPTextViewPlaceholder.m in Sources */,
 				0BC050CD1AEE9629003360CE /* Helper.swift in Sources */,
+				0B6C6B5F1B9F22BD00AB98D6 /* RefreshHeaderView.swift in Sources */,
 				0BDA4E441B2F53E2004B6753 /* UIImageView+EMWebCache.m in Sources */,
 				0BFADDFE1B0E406A0063BFDF /* PrivateChatViewController.swift in Sources */,
 				0BA682F21AF6276900780FFD /* UserHomeTableViewController.swift in Sources */,
@@ -2916,6 +2950,7 @@
 				0BDA4E741B2F53E2004B6753 /* DXFaceView.m in Sources */,
 				0BB5B52C1B0CA393008A2A85 /* NewTopicReplyViewController.swift in Sources */,
 				0B5FDEFE1AD6A2EF00773360 /* AppDelegate.swift in Sources */,
+				0B6C6B5C1B9F22BD00AB98D6 /* RefreshBaseView.swift in Sources */,
 				0BDA4E6E1B2F53E2004B6753 /* ChatSendHelper.m in Sources */,
 				0BDA4E5D1B2F53E2004B6753 /* EMVoiceConverter.mm in Sources */,
 				0BBE37431AE1064000FA0018 /* FriendHomeMessageCellView.swift in Sources */,
@@ -2948,6 +2983,7 @@
 				0BDA4E381B2F53E2004B6753 /* EMSDWebImageDecoder.m in Sources */,
 				0BDA4EA21B2F53E2004B6753 /* BaseTableViewCell.m in Sources */,
 				0BDA4E571B2F53E2004B6753 /* SRSlimeView.m in Sources */,
+				0B6C6B5D1B9F22BD00AB98D6 /* RefreshConst.swift in Sources */,
 				0B2A9CFB1B04DA7C007FF789 /* JobsTableViewController.swift in Sources */,
 				0B786E5E1B0BAC77008B80BC /* DiscoveryTableViewController.swift in Sources */,
 				0B20E0141B0B6BFF00B529D5 /* MyTopicsTableViewController.swift in Sources */,

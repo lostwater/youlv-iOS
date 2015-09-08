@@ -35,6 +35,10 @@ class EventsTableViewController: BaseTableViewController,NaviBarMenu {
     var selectedTitle : String?
     var titleButton : UIButton?
 
+    override func awakeFromNib() {
+        httpGet = getEventList
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //setNaviMenu()
@@ -47,11 +51,6 @@ class EventsTableViewController: BaseTableViewController,NaviBarMenu {
         tabBarController?.navigationItem.title = "活动"
     }
     
-    
-    override func getDataArray(currentPage: Int, pageSize:Int)
-    {
-        getEventList(currentPage, pageSize:pageSize)
-    }
     
     func getEventList(currentPage: Int, pageSize:Int)
     {
@@ -70,6 +69,8 @@ class EventsTableViewController: BaseTableViewController,NaviBarMenu {
             currentPage++
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
+                 self.endLoad()
+
             })
 
             

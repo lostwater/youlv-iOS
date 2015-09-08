@@ -33,6 +33,7 @@ class MyHomeTableViewController: UITableViewController {
         self.dataDict = dict!.objectForKey("data") as? NSDictionary
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.displayData()
+            
         })
         
     }

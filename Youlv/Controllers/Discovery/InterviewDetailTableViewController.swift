@@ -80,6 +80,8 @@ class InterviewDetailViewController: BaseTableViewController {
         dataDict = dictData.objectForKey("viewDetail") as? NSDictionary
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.displayData()
+             self.endLoad()
+
         })
 
     }

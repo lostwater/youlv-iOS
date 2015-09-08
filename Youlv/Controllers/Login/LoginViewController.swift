@@ -91,11 +91,14 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     var introView = MYBlurIntroductionView()
 
     override func viewDidLoad() {
+         //self.goMainVC()
+        
         super.viewDidLoad()
         self.navigationController?.navigationBar.backItem?.title = "";
         passowrd.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
         userAccount.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
-        hideWeixinWeibo()
+        //hideWeixinWeibo()
+        hideAll()
         
         passowrd.addDoneOnKeyboardWithTarget(self, action:"passwordTextFieldEnd")
         //returnKeyHandler = IQKeyboardReturnKeyHandler(viewController: self)
@@ -103,8 +106,8 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         //let key = userDefaults.boolForKey("firstUse")
         
         let version = majorVersion
-        if userDefaults.stringForKey("lastRunVersion") != majorVersion
-            //if true
+        //if userDefaults.stringForKey("lastRunVersion") != majorVersion
+            if true
         {
             navigationItem.rightBarButtonItem?.title = ""
             setIntro()
@@ -219,6 +222,13 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     {
         let av = UIAlertView(title: "", message: "账号或密码为空", delegate: nil, cancelButtonTitle: "取消")
         av.show()
+    }
+    
+    func hideAll()
+    {
+        buttonOtherLogin.hidden = true
+        buttonWeixin.hidden = true
+        buttonWeibo.hidden = true
     }
     
     func hideWeixinWeibo()

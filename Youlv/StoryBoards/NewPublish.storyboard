@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="imR-x3-3nY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="imR-x3-3nY">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -99,20 +99,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="L3t-S0-aw1" secondAttribute="centerY" id="a6o-mT-tU4"/>
-                                                <constraint firstItem="L3t-S0-aw1" firstAttribute="leading" secondItem="c6c-ga-mqD" secondAttribute="leadingMargin" constant="10" id="tbt-9H-WNh"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Drv-Jm-IQa">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Drv-Jm-IQa" id="qvB-Aq-yKq">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1Ww-cg-72F">
-                                                    <rect key="frame" x="220" y="7" width="200" height="29"/>
+                                                    <rect key="frame" x="200" y="8" width="200" height="29"/>
                                                     <segments>
                                                         <segment title="案源介绍"/>
                                                         <segment title="协作外包"/>
@@ -125,8 +113,10 @@
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerX" secondItem="1Ww-cg-72F" secondAttribute="centerX" constant="-20" id="Pr4-cn-tph"/>
-                                                <constraint firstAttribute="centerY" secondItem="1Ww-cg-72F" secondAttribute="centerY" constant="0.5" id="XPx-JL-efx"/>
+                                                <constraint firstAttribute="centerY" secondItem="1Ww-cg-72F" secondAttribute="centerY" id="2Vf-15-otV"/>
+                                                <constraint firstAttribute="centerY" secondItem="L3t-S0-aw1" secondAttribute="centerY" id="a6o-mT-tU4"/>
+                                                <constraint firstAttribute="centerX" secondItem="1Ww-cg-72F" secondAttribute="centerX" id="d5j-0L-m0z"/>
+                                                <constraint firstItem="L3t-S0-aw1" firstAttribute="leading" secondItem="c6c-ga-mqD" secondAttribute="leadingMargin" constant="10" id="tbt-9H-WNh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -200,7 +190,7 @@
                         <viewControllerLayoutGuide type="bottom" id="DSy-Tm-bFF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mpj-s3-o3l">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5L-Pn-PKw">
@@ -336,7 +326,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDV-QP-qqG">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDV-QP-qqG">
                                 <rect key="frame" x="0.0" y="311" width="600" height="271"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN8-2B-oFQ">
@@ -547,7 +537,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="选择话题" id="SxN-0f-0AK">
                         <barButtonItem key="backBarButtonItem" title="取消" id="TWR-SS-m35"/>
-                        <barButtonItem key="rightBarButtonItem" image="buttonsearch" id="g9b-JC-l79"/>
+                        <barButtonItem key="rightBarButtonItem" image="buttonsearch" id="g9b-JC-l79">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="hidden" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>

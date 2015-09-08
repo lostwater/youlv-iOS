@@ -10,12 +10,6 @@ import UIKit
 class ArticlesTableViewController: BaseTableViewController,NaviBarMenu {
 
     
-    override func getDataArray(currentPage: Int, pageSize:Int)
-    {
-        getArticleList(currentPage, pageSize:pageSize)
-    }
-    
-    
     func getArticleList(currentPage: Int, pageSize:Int)
     {
         DataClient().getArticleList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
@@ -33,6 +27,8 @@ class ArticlesTableViewController: BaseTableViewController,NaviBarMenu {
             currentPage++
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
+                 self.endLoad()
+
             })
 
         }
@@ -40,9 +36,13 @@ class ArticlesTableViewController: BaseTableViewController,NaviBarMenu {
         
     }
     
+    override func awakeFromNib() {
+        httpGet = getArticleList
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
     }

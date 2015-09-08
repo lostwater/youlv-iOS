@@ -80,12 +80,20 @@ class DiscoveryTableViewController: UITableViewController,ImagePlayerViewDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        adsUrlsArray.removeAllObjects()
         getTopics(1,pageSize: 10)
         imagePlayer.imagePlayerViewDelegate = self
         imagePlayer.scrollInterval = 5
         imagePlayer.pageControlPosition = ICPageControlPosition.BottomCenter
         imagePlayer.hidePageControl = false
         getAds()
+        
+        adsUrlsArray.addObject(NSURL(string: "http://images.ali213.net/picfile/pic/2013/02/21/927_138.jpg")!)
+        adsUrlsArray.addObject(NSURL(string: "http://bbs.szonline.net/UploadFile/album/2011/5/71587/23/20110523165858_16553.jpg")!)
+        adsUrlsArray.addObject(NSURL(string: "http://bbs.szonline.net/UploadFile/album/2011/5/71587/23/20110523165858_66558.jpg")!)
+        self.imagePlayer.reloadData()
+
+       
     }
     
     func displayTopics()
@@ -115,7 +123,7 @@ class DiscoveryTableViewController: UITableViewController,ImagePlayerViewDelegat
     }
     
     func imagePlayerView(imagePlayerView: ImagePlayerView!, loadImageForImageView imageView: UIImageView!, index: Int) {
-        imageView.sd_setImageWithURL(self.adsUrlsArray.objectAtIndex(index) as! NSURL, placeholderImage: headImage)
+        imageView.sd_setImageWithURL(self.adsUrlsArray.objectAtIndex(index) as! NSURL, placeholderImage: defualtPic)
 
     }
     

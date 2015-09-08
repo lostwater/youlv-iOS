@@ -9,14 +9,10 @@
 import UIKit
 
 class InterviewTableViewController: BaseTableViewController {
-    
-    override func getDataArray(currentPage: Int, pageSize:Int)
-    {
-        getInterviewList(currentPage, pageSize:pageSize)
+    override func awakeFromNib() {
+        httpGet = getInterviewList
     }
-    
-    
-    
+
     func getInterviewList(currentPage: Int, pageSize:Int)
     {
         DataClient().getInterviewList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
@@ -35,6 +31,8 @@ class InterviewTableViewController: BaseTableViewController {
             currentPage++
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
+                 self.endLoad()
+
             })
 
             

@@ -36,13 +36,15 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
     var titleButton : UIButton?
     
 
-    
+    override func awakeFromNib() {
+        httpGet = getOrderList
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
-        getOrderList(currentPage, pageSize: 10)
+
        
     }
     
@@ -50,13 +52,7 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
         super.viewDidAppear(animated)
         tabBarController?.navigationItem.title = "商机"
     }
-    
-    override func getDataArray(currentPage: Int, pageSize:Int)
-    {
-        getOrderList(currentPage, pageSize:pageSize)
-    }
-    
-    
+
     
     func getOrderList(currentPage: Int, pageSize:Int)
     {
@@ -75,6 +71,7 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
             currentPage++
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
+                self.endLoad()
             })
         }
         

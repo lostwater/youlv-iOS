@@ -40,6 +40,7 @@ class UserHomeTableViewController: UITableViewController {
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in
             self.displayData(dictData)
             self.tableView.reloadData()
+            
         })
         
     }

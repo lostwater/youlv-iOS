@@ -27,18 +27,19 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
     @IBOutlet weak var menuButton2: UIButton!
     @IBOutlet weak var menuButton3: UIButton!
 
+    override func awakeFromNib() {
+          httpGet = getDiscussList
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
         //getDiscussList(currentPage,pageSize: 10)
 
     }
     
-    override func getDataArray(currentPage: Int, pageSize:Int)
-    {
-        getDiscussList(currentPage, pageSize:pageSize)
-    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -59,10 +60,12 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
         let array = dictData.objectForKey("discuessList") as? NSArray
         if (array?.count ?? 0) > 0
         {
-            dataArray.addObjectsFromArray(array! as Array)
-            currentPage++
+            
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                self.dataArray.addObjectsFromArray(array! as Array)
+                self.currentPage++
                 self.tableView.reloadData()
+                self.endLoad()
             })
 
         }
