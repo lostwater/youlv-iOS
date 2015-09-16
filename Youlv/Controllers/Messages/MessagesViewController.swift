@@ -45,13 +45,25 @@ class MessagesViewController: UIViewController,UITableViewDataSource,UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 4
     }
     
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as! UITableViewCell
+        if indexPath.item == 1
+        {
+            return tableView.dequeueReusableCellWithIdentifier("MessageCell2", forIndexPath: indexPath) as! UITableViewCell
+        }
+        if indexPath.item == 2
+        {
+            return tableView.dequeueReusableCellWithIdentifier("MessageCell3", forIndexPath: indexPath) as! UITableViewCell
+        }
+        if indexPath.item == 3
+        {
+            return tableView.dequeueReusableCellWithIdentifier("MessageCell4", forIndexPath: indexPath) as! UITableViewCell
+        }
+        return tableView.dequeueReusableCellWithIdentifier("MessageCell1", forIndexPath: indexPath) as! UITableViewCell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

@@ -118,6 +118,7 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         {
             tryAutoLogin()
         }
+        
     }
     
     func tryAutoLogin()

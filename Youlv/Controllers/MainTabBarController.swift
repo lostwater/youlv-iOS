@@ -9,7 +9,7 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-
+    static var redirectViewController : UIViewController?
     
     @IBOutlet var NewPubButton: UIButton!
     override func viewDidLoad() {
@@ -18,6 +18,16 @@ class MainTabBarController: UITabBarController {
         //setTabBar()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if MainTabBarController.redirectViewController != nil
+        {
+            presentViewController(MainTabBarController.redirectViewController!, animated: true, completion: { () -> Void in
+                MainTabBarController.redirectViewController = nil
+            })
+        }
     }
 
     override func awakeFromNib() {
@@ -63,8 +73,16 @@ class MainTabBarController: UITabBarController {
             vc.tabBarItem?.setTitlePositionAdjustment(UIOffset(horizontal: 0,vertical: 20))
         }
         viewControllers?[2].tabBarItem?.enabled = false;
-        
-  
+        removeMessagesAndDiscovery()
+    }
+    
+    func removeMessagesAndDiscovery()
+    {
+        let vc1 = viewControllers?[1]
+        let vc2 = viewControllers?[3]
+        viewControllers?.removeAtIndex(1)
+        viewControllers?.removeAtIndex(2)
+
     }
     
     func setTabBar()

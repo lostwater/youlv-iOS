@@ -12,7 +12,10 @@ class NewViewController: UIViewController {
 
 
     @IBAction func buttonNewOpClicked(sender: AnyObject) {
-        gotoVC("NewOpNC")
+        //dismissViewControllerAnimated(false, completion: { () -> Void in
+            self.gotoVC("NewOpNC")
+        //})
+        
     }
     @IBAction func buttonNewTopicClicked(sender: AnyObject) {
         gotoVC("NewTopicNC")
@@ -27,12 +30,8 @@ class NewViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(animated: Bool) {
-        if(isCancellingNew)
-        {
-            isCancellingNew = false
-            self.dismissViewControllerAnimated(false, completion: nil)
-        }
+    override func viewWillAppear(animated: Bool) {
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,22 +48,32 @@ class NewViewController: UIViewController {
         return true;
     }
     
-
-    
     func gotoVC(name: String)
     {
         let storyboard = UIStoryboard(name: "NewPublish", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier(name) as! UIViewController
-        self.presentViewController(vc, animated: true, completion:nil)
-        //self.presentViewController(vc, animated: true, completion:nil)
+        MainTabBarController.redirectViewController = vc
 
+        let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! MainTabBarController
+        //let this =
+        //self.pres
+        self.dismissViewControllerAnimated(false, completion: { () -> Void in
+                        //self.presentViewController(vc, animated: true, completion: nil)
+        })
+
+        //self.presentViewController(vc, animated: true, completion:nil)
+        //self.view.hidden = true
+        
     }
     
     func selfDismiss()
     {
         self.dismissViewControllerAnimated(false,completion:nil)
-
+        
     }
+
+   
+
 
 
     /*

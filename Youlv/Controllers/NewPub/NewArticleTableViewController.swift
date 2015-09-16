@@ -11,7 +11,7 @@ import UIKit
 class NewArticleTableViewController: UITableViewController {
 
     @IBAction func buttonCancelClicked(sender: AnyObject) {
-        isCancellingNew = true
+    
         self.dismissViewControllerAnimated(false, completion: nil)
     }
 }

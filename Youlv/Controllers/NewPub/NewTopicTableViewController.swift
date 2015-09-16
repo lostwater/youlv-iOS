@@ -11,7 +11,7 @@ import UIKit
 class NewTopicTableViewController: UITableViewController {
 
     @IBAction func buttonCancelClicked(sender: AnyObject) {
-        isCancellingNew = true
+   
         self.dismissViewControllerAnimated(false,completion:nil);
     }
     
@@ -70,7 +70,7 @@ class NewTopicTableViewController: UITableViewController {
     
     func postTopicCompleted(dict:NSDictionary?, error:NSError?)
     {
-        isCancellingNew = true
+    
         self.dismissViewControllerAnimated(false, completion:nil)
     }
 

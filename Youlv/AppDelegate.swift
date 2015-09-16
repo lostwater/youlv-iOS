@@ -13,7 +13,6 @@ let bgGreyColor = UIColorFromRGB(0xF1F0F5)
 let bgNaviColor = UIColor(white: 0, alpha: 0.1)
 
 var appNaviMenuView : UIView?
-var isCancellingNew = false
 var headImage = UIImage(named:"pichead")
 var defualtPic = UIImage(named:"th.jpeg")
 

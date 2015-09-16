@@ -162,8 +162,9 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
     {
         if datePicker == nil
         {
-            datePicker = THDatePickerViewController.datePicker();
+            datePicker = THDatePickerViewController.datePicker()
         }
+        
         datePicker?.date = deadDate;
         datePicker?.delegate = self;
         datePicker?.setAllowClearDate(false)
@@ -182,6 +183,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
                 return false
             }
         })
+        //mz_presentFormSheetWithViewController(datePicker!, animated: true) { (MZFormSheetController) -> Void in}
         presentSemiViewControllerWithMyOptions(datePicker)
     }
     

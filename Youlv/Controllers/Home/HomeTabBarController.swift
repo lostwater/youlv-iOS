@@ -29,7 +29,7 @@ class HomeTabBarController: TopTabBarController
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!)
     {
         let i = item.tag
-        setNaviMenu(viewControllers![i] as! NaviBarMenu)
+        //setNaviMenu(viewControllers![i] as! NaviBarMenu)
         navigationItem.leftBarButtonItem = nil
         if i == 3
         {

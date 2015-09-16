@@ -22,8 +22,7 @@ class NewOpTableViewController: UITableViewController {
     @IBAction func buttonCancelClicked(sender: AnyObject) {
         let newVC: AnyObject! = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewVC")
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        isCancellingNew = true
-        self.dismissViewControllerAnimated(false, completion:nil)
+        self.dismissViewControllerAnimated(true, completion:nil)
     }
     
     @IBOutlet var titleTextField: UITextField!
@@ -66,8 +65,8 @@ class NewOpTableViewController: UITableViewController {
         {
             let newVC: AnyObject! = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewVC")
             let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-            isCancellingNew = true
-            self.dismissViewControllerAnimated(false, completion:nil)
+        
+            self.dismissViewControllerAnimated(true, completion:nil)
         }
     }
     
