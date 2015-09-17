@@ -184,7 +184,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
             }
         })
         //mz_presentFormSheetWithViewController(datePicker!, animated: true) { (MZFormSheetController) -> Void in}
-        presentSemiViewControllerWithMyOptions(datePicker)
+        presentSemiViewControllerWithMyOptions(datePicker!)
     }
     
     func addTag()

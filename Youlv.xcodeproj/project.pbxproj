@@ -50,6 +50,7 @@
 		0B6191F81AE9295200A8258A /* NewTopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6191F71AE9295200A8258A /* NewTopicTableViewController.swift */; };
 		0B6251671B0DF9D20028FD77 /* DRNRealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6251641B0DF9D20028FD77 /* DRNRealTimeBlurView.m */; };
 		0B6251681B0DF9D20028FD77 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B6251661B0DF9D20028FD77 /* UIImage+BoxBlur.m */; };
+		0B6704B01BAA650A007075E1 /* KNSemiCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6704AF1BAA650A007075E1 /* KNSemiCustom.swift */; };
 		0B6C6B5A1B9F22BD00AB98D6 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B6C6B531B9F22BD00AB98D6 /* arrow@2x.png */; };
 		0B6C6B5B1B9F22BD00AB98D6 /* Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C6B541B9F22BD00AB98D6 /* Refresh.swift */; };
 		0B6C6B5C1B9F22BD00AB98D6 /* RefreshBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C6B551B9F22BD00AB98D6 /* RefreshBaseView.swift */; };
@@ -527,6 +528,7 @@
 		0B6251641B0DF9D20028FD77 /* DRNRealTimeBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRNRealTimeBlurView.m; sourceTree = "<group>"; };
 		0B6251651B0DF9D20028FD77 /* UIImage+BoxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxBlur.h"; sourceTree = "<group>"; };
 		0B6251661B0DF9D20028FD77 /* UIImage+BoxBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxBlur.m"; sourceTree = "<group>"; };
+		0B6704AF1BAA650A007075E1 /* KNSemiCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KNSemiCustom.swift; sourceTree = "<group>"; };
 		0B6C6B531B9F22BD00AB98D6 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		0B6C6B541B9F22BD00AB98D6 /* Refresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
 		0B6C6B551B9F22BD00AB98D6 /* RefreshBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshBaseView.swift; sourceTree = "<group>"; };
@@ -1337,6 +1339,7 @@
 				0BC050CC1AEE9629003360CE /* Helper.swift */,
 				0B2F31211B089E810019DFAB /* OCHelper.m */,
 				0B71BD4A1B09022300257C17 /* EaseMobHelper.swift */,
+				0B6704AF1BAA650A007075E1 /* KNSemiCustom.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -2898,6 +2901,7 @@
 				0B10C9F31ADB090800695853 /* HomeTabBarController.swift in Sources */,
 				0BDA4E841B2F53E2004B6753 /* ChatGroupDetailViewController.m in Sources */,
 				0BDA4E801B2F53E2004B6753 /* EMChatViewCell.m in Sources */,
+				0B6704B01BAA650A007075E1 /* KNSemiCustom.swift in Sources */,
 				0BBE37451AE1067400FA0018 /* JoinGroupsCellView.swift in Sources */,
 				0BBE374D1AE15DC700FA0018 /* StartGroupChat1ViewController.swift in Sources */,
 				0BDA4E711B2F53E2004B6753 /* ConvertToCommonEmoticonsHelper.m in Sources */,
