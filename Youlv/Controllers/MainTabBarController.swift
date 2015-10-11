@@ -70,7 +70,7 @@ class MainTabBarController: UITabBarController {
         viewControllers?[4].tabBarItem?.image = normalimage4
         for vc in viewControllers!
         {
-            vc.tabBarItem?.setTitlePositionAdjustment(UIOffset(horizontal: 0,vertical: 20))
+            vc.tabBarItem?.setTitlePositionAdjustment = UIOffset(horizontal: 0,vertical: 20)
         }
         viewControllers?[2].tabBarItem?.enabled = false;
         removeMessagesAndDiscovery()
@@ -91,8 +91,8 @@ class MainTabBarController: UITabBarController {
         tabBar.shadowImage = UIImage()
         tabBar.barTintColor = UIColor.clearColor()
         
-        var bgframe = CGRectMake(0, -10, tabBar.frame.size.width, 60)
-        var bgView = UIView(frame: bgframe)
+        let bgframe = CGRectMake(0, -10, tabBar.frame.size.width, 60)
+        let bgView = UIView(frame: bgframe)
         bgView.backgroundColor = UIColor.groupTableViewBackgroundColor()
         //var blurView = DRNRealTimeBlurView(frame: bgframe)
         //view.addSubview(blurView)
@@ -131,8 +131,8 @@ class MainTabBarController: UITabBarController {
     func presentNewVC()
     {
         
-        var storyBoard = UIStoryboard(name:"NewPublish",bundle:nil)
-        var newVC = storyBoard.instantiateInitialViewController() as! NewViewController
+        let storyBoard = UIStoryboard(name:"NewPublish",bundle:nil)
+        let newVC = storyBoard.instantiateInitialViewController() as! NewViewController
         
         //newVC.backGroundImageView.image = captureScreen()
         //let root = self.view.window!.rootViewController

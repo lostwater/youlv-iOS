@@ -46,12 +46,12 @@ class TopTabBarController: UITabBarController {
         //bg.setBackgroundImage(UIImage(named: "bgtabbar86px"), forToolbarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         //self.view.addSubview(bg);
         
-        var bgframe = CGRectMake(-25, 0, tabBar.frame.size.width + 50, 44)
+        let bgframe = CGRectMake(-25, 0, tabBar.frame.size.width + 50, 44)
         //var bgImage = UIImage(named: "bgtabbar86px")
         //var bgIV = UIImageView(frame: bgframe)
         //bgIV.image = bgImage
         //bgIV.contentMode = UIViewContentMode.ScaleToFill
-        var blurView = DRNRealTimeBlurView(frame: bgframe)
+        let blurView = DRNRealTimeBlurView(frame: bgframe)
         view.addSubview(blurView)
         tabBar.frame.origin = CGPointMake(25,9)
         blurView.addSubview(tabBar)

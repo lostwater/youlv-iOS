@@ -24,7 +24,7 @@ class DiscussCommentTableViewCell: UITableViewCell {
         {
             likeReply()
             LikedButton.selected = true
-            var likedCount = LikedButton.titleLabel!.text!.toInt()! + 1
+            let likedCount = Int(LikedButton.titleLabel!.text!)! + 1
             LikedButton.setTitle(String(likedCount), forState: UIControlState.Normal)
             LikedButton.setTitle(String(likedCount), forState: UIControlState.Selected)
         }
@@ -44,16 +44,16 @@ class DiscussCommentTableViewCell: UITableViewCell {
         CommentContent.lineBreakMode = NSLineBreakMode.ByWordWrapping
         CommentContent.text = commentString
         
-        var attCommentStr = NSAttributedString(string: CommentContent.text!)
+        let attCommentStr = NSAttributedString(string: CommentContent.text!)
         var range = NSMakeRange(0,attCommentStr.length)
         var strDict = attCommentStr.attributesAtIndex(0, effectiveRange: &range)
-        var commentTextSize = attCommentStr.boundingRectWithSize(CommentContent.frame.size, options: NSStringDrawingOptions.UsesFontLeading, context: nil).size
+        let commentTextSize = attCommentStr.boundingRectWithSize(CommentContent.frame.size, options: NSStringDrawingOptions.UsesFontLeading, context: nil).size
         CommentContent.frame.size = commentTextSize
 
         self.tag = dataDict.objectForKey("id") as! Int
 
         UserImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String), placeholderImage: UIImage(named:"pichead"))
-        UserImageView.userId = (dataDict.objectForKey("lawyerId") as! String).toInt()!
+        UserImageView.userId = Int((dataDict.objectForKey("lawyerId") as! String))!
         UserName.text = dataDict.objectForKey("lawyerName") as? String
         
         
@@ -69,7 +69,7 @@ class DiscussCommentTableViewCell: UITableViewCell {
         LikedButton.setTitleColor(appBlueColor, forState: UIControlState.Selected)
         LikedButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
 
-        let isMarked = (dataDict.objectForKey("isPraise") as! String).toInt()
+        let isMarked = Int((dataDict.objectForKey("isPraise") as! String))
         
         LikedButton.selected = Bool(isMarked!)
         

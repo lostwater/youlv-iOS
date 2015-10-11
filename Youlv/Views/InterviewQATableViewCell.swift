@@ -78,7 +78,7 @@ class InterviewQATableViewCell: UITableViewCell {
     {
         if data?.objectForKey("errcode") as? Int == 0
         {
-            let count = likedButton.titleLabel!.text!.toInt()! + 1
+            let count = Int(likedButton.titleLabel!.text!)! + 1
             likedButton.setTitle(String(count), forState: UIControlState.Selected)
             likedButton.selected = true
         }

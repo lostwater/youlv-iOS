@@ -77,8 +77,8 @@ class DiscussTableViewCell: UITableViewCell
         bookMarkedButton?.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
         bookMarkedButton?.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
 
-        var storeCount = dataDict.objectForKey("storeCount") as? Int
-        var isStore = dataDict.objectForKey("isStore") as? Bool
+        let storeCount = dataDict.objectForKey("storeCount") as? Int
+        let isStore = dataDict.objectForKey("isStore") as? Bool
         if storeCount != nil
         {
         bookMarkedButton?.setTitle(String(storeCount!)

@@ -215,7 +215,7 @@ class SignupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if !signUpSucceeded && identifier == "goRecommendedTopics"
         {
             signup()

@@ -70,7 +70,7 @@ class ResearchTableViewController: UITableViewController {
             voteContent = voteContent + "\n\n" + ((o as! NSDictionary).objectForKey("option_content") as! String)
         }
 
-        let textHeight = calTextSizeWithDefualtFont(voteContent, 17, self.view.frame.width - 32).height
+        let textHeight = calTextSizeWithDefualtFont(voteContent, fontSize: 17, width: self.view.frame.width - 32).height
         return textHeight + basicHeight
     }
     
@@ -78,8 +78,8 @@ class ResearchTableViewController: UITableViewController {
         if segue.identifier == "goResearchDetail"
         {
             let vc = segue.destinationViewController as! ResearchDetailTableViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            var selectedData = researchArry?.objectAtIndex(selectedIndex!) as! NSDictionary
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
+            let selectedData = researchArry?.objectAtIndex(selectedIndex!) as! NSDictionary
             vc.researchId = selectedData.objectForKey("vote_id") as? Int
             vc.content = selectedData.objectForKey("vote_content") as? String
             vc.optionsContentArray  = selectedData.objectForKey("vote_options") as! NSMutableArray

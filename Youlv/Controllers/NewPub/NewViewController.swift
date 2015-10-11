@@ -51,7 +51,7 @@ class NewViewController: UIViewController {
     func gotoVC(name: String)
     {
         let storyboard = UIStoryboard(name: "NewPublish", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier(name) as! UIViewController
+        let vc = storyboard.instantiateViewControllerWithIdentifier(name) 
         MainTabBarController.redirectViewController = vc
 
         let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! MainTabBarController

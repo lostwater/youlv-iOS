@@ -13,7 +13,7 @@ class AvatarImageView: UIImageView {
     var isPushEnabled = true
     
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.userInteractionEnabled = true
         let singleTap = UITapGestureRecognizer(target: self, action:Selector("tapped"))
@@ -38,7 +38,7 @@ class AvatarImageView: UIImageView {
     {
         for var next = self.superview; next != nil ; next = next?.superview
         {
-            var nextResponder = next?.nextResponder()
+            let nextResponder = next?.nextResponder()
             if nextResponder!.isKindOfClass(UIViewController.classForCoder())
             {
                 return nextResponder as? UIViewController

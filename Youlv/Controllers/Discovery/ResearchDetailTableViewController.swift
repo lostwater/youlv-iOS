@@ -41,10 +41,10 @@ class ResearchDetailTableViewController: UITableViewController {
     
     func displayData()
     {
-        var voteSum = dataDict!.objectForKey("vote_sum") as! Int
+        let voteSum = dataDict!.objectForKey("vote_sum") as! Int
         votedCount.text = "共" + String(voteSum) + "人参与投票"
         pieChart.diameter = Int32(pieChart.frame.size.height - CGFloat(16))
-        var components = NSMutableArray()
+        let components = NSMutableArray()
         if voteSum == 0
         {
             let  component = PCPieComponent()
@@ -116,18 +116,18 @@ class ResearchDetailTableViewController: UITableViewController {
         let index = indexPath.item
         if (index == 0)
         {
-            return tableView.dequeueReusableCellWithIdentifier("OptionHeadCell", forIndexPath: indexPath) as! UITableViewCell
+            return tableView.dequeueReusableCellWithIdentifier("OptionHeadCell", forIndexPath: indexPath) 
         }
         else if(index == 1)
         {
-            let cell = tableView.dequeueReusableCellWithIdentifier("OptionCell", forIndexPath: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("OptionCell", forIndexPath: indexPath) 
             cell.textLabel?.text = content
             return cell
 
         }
         else
         {
-            let cell = tableView.dequeueReusableCellWithIdentifier("OptionCell", forIndexPath: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("OptionCell", forIndexPath: indexPath) 
             cell.textLabel?.text = (optionsContentArray.objectAtIndex(index - 2) as! NSDictionary).objectForKey("option_content") as? String
             return cell
         }

@@ -57,7 +57,7 @@ class StartGroupChat2ViewController: UIViewController,UITableViewDataSource,UITa
     
     func emCreateGroup()
     {
-        var groupStyleSetting = EMGroupStyleSetting()
+        let groupStyleSetting = EMGroupStyleSetting()
         groupStyleSetting.groupMaxUsersCount = groupMaxUsers
         groupStyleSetting.groupStyle = EMGroupStyle.eGroupStyle_PublicOpenJoin
         //groupStyleSetting.groupStyle = eGroupStyle_PublicOpenJoin
@@ -74,7 +74,7 @@ class StartGroupChat2ViewController: UIViewController,UITableViewDataSource,UITa
 
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "goMessagesVC" && !isCreated
         {
             createGroup()
@@ -86,7 +86,7 @@ class StartGroupChat2ViewController: UIViewController,UITableViewDataSource,UITa
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("GroupCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("GroupCell", forIndexPath: indexPath) 
         
         cell.imageView?.image = UIImage(named: "checkoff")
         cell.textLabel?.text = optionsArray[indexPath.item]

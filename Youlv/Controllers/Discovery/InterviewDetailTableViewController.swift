@@ -179,7 +179,7 @@ class InterviewDetailViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let basicHeight : CGFloat = 99
         let text = (dataArray.objectAtIndex(indexPath.item) as! NSDictionary).objectForKey("discuss_content") as! String
-        let textHeight = calTextSizeWithDefualtFont(text, self.view.frame.width - 32).height
+        let textHeight = calTextSizeWithDefualtFont(text, width: self.view.frame.width - 32).height
         return textHeight + basicHeight
     		
     }

@@ -33,7 +33,7 @@ class TranslucentNavController: UINavigationController {
         navigationBar.translucent = false;
         navigationBar.tintColor = UIColor.whiteColor();
         navigationBar.backItem?.title = "";
-        var navAppearance = UINavigationBar.appearance();
+        let navAppearance = UINavigationBar.appearance();
         navAppearance.titleTextAttributes =
             [
                 NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 24)!,

@@ -75,7 +75,7 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
         if segue.identifier == "goRepliedDiscussDetail" || segue.identifier == "goPostedDiscussDetail"
         {
             let discussDetail = segue.destinationViewController as! DiscussDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
             let dataDict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
             
             discussDetail.dataDict = dataDict
@@ -109,7 +109,7 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
         {
             let baseHeight :CGFloat = 100.0
             let topicContentText = content.objectForKey("topic_content") as! String
-            let textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
+            let textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
             
             return textHeight+baseHeight
             
@@ -119,7 +119,7 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
             let baseHeight :CGFloat = 100.0+90.0
             let topicContentText = content.objectForKey("topic_content") as! String
             let operatorContentText = content.objectForKey("operate_content") as! String
-            var textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
+            var textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
             textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, self.view.frame.width - 32).height
             return textHeight+baseHeight
             
@@ -133,7 +133,7 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
     @IBAction func menuButtonUserHomeClicked(sender: AnyObject) {
         _naviMenuView.hidden = true
 
-        let userHomeVC = UIStoryboard(name: "User", bundle: nil).instantiateViewControllerWithIdentifier("UserHomeVC") as! UIViewController
+        let userHomeVC = UIStoryboard(name: "User", bundle: nil).instantiateViewControllerWithIdentifier("UserHomeVC") 
         navigationController?.pushViewController(userHomeVC, animated: true)
     }
     
@@ -162,7 +162,7 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
     
     func setNaviMenu()
     {
-        setMenuLoc(_naviMenuView, view, menuWidth, menuHeight)
+        setMenuLoc(_naviMenuView, view: view, menuWidth: menuWidth, menuHeight: menuHeight)
         
         naviMenuView = _naviMenuView
         selectedTitle = menuButton0.titleForState(UIControlState.Normal)

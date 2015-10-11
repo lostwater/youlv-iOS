@@ -76,7 +76,7 @@ class EventDetailViewController: UIViewController {
     
     func markEvent()
     {
-        var parameters : NSDictionary = ["activeId":eventId!
+        let parameters : NSDictionary = ["activeId":eventId!
             , "sessionId":sessionId]
         DataClient().postMarkEvent(parameters) { (data, error) -> () in
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in

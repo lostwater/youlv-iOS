@@ -56,7 +56,7 @@ class InterviewAskViewController: UIViewController {
     
     
 
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "unwindToInterviewDetail" && !isDidSend
         {
             send()

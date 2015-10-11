@@ -38,7 +38,7 @@ class StartGroupChat1ViewController : UIViewController ,FSMediaPickerDelegate {
         // Do any additional setup after loading the view.
     }
     @IBAction func uploadPicClicked(sender: AnyObject) {
-        var mediaPicker = FSMediaPicker();
+        let mediaPicker = FSMediaPicker();
         mediaPicker.mediaType = FSMediaTypePhoto
         mediaPicker.editMode = FSEditModeCircular
         mediaPicker.delegate = self;
@@ -50,7 +50,7 @@ class StartGroupChat1ViewController : UIViewController ,FSMediaPickerDelegate {
         // Dispose of any resources that can be recreated.
     }
     func mediaPicker(mediaPicker: FSMediaPicker!, didFinishWithMediaInfo mediaInfo: [NSObject : AnyObject]!) {
-        var m = mediaInfo as NSDictionary;
+        let m = mediaInfo as NSDictionary;
         groupPic =  m.circularEditedImage;
         groupPicButton.setImage(groupPic, forState: UIControlState.Normal)
     }
@@ -63,7 +63,7 @@ class StartGroupChat1ViewController : UIViewController ,FSMediaPickerDelegate {
         
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "goGroupOptions"
         {
             let gn : String = groupName.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())

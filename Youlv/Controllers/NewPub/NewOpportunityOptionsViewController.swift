@@ -109,7 +109,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "optionsSetted"
         {
-            var vc = segue.destinationViewController as! NewOpTableViewController
+            let vc = segue.destinationViewController as! NewOpTableViewController
             vc.cityName = cityName
             vc.cityId = cityId
             vc.tagList = tagList
@@ -122,7 +122,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
         }
         if segue.identifier == "setWhiteList" || segue.identifier == "setBlackList"
         {
-            var vc = segue.destinationViewController as! GeneralContactsTableViewController
+            let vc = segue.destinationViewController as! GeneralContactsTableViewController
             vc.isSelectable  = true
         }
     }
@@ -194,12 +194,12 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
         {
             return
         }
-        if newTagTextField.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == ""
+        if newTagTextField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == ""
         {
             return
         }
        
-        tagList = tagList.arrayByAddingObject(newTagTextField.text)
+        tagList = tagList.arrayByAddingObject(newTagTextField.text!)
         
         tagsListView.setTags(tagList as [AnyObject])
         tagsListView.display()
@@ -233,7 +233,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
         dismissSemiModalView()
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let city = cityList?.objectAtIndex(row) as! NSDictionary
         return city.objectForKey("city_name") as! String
     }
@@ -258,7 +258,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
         {
             if indexPath.item == 0
             {
-                let cell = tableView.dequeueReusableCellWithIdentifier("publicCell", forIndexPath: indexPath) as! UITableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("publicCell", forIndexPath: indexPath) 
                 cell.accessoryType = UITableViewCellAccessoryType.Checkmark
                 cell.tag = 0
                 return cell
@@ -266,7 +266,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
             }
             if indexPath.item == 1
             {
-                let cell = tableView.dequeueReusableCellWithIdentifier("whiteCell", forIndexPath: indexPath) as! UITableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("whiteCell", forIndexPath: indexPath) 
                 cell.accessoryType = UITableViewCellAccessoryType.None
                 cell.tag = 1
                 return cell
@@ -274,7 +274,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
             }
             if indexPath.item == 2
             {
-                let cell = tableView.dequeueReusableCellWithIdentifier("blackCell", forIndexPath: indexPath) as! UITableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("blackCell", forIndexPath: indexPath) 
                 cell.accessoryType = UITableViewCellAccessoryType.None
                 cell.tag = 2
                 return cell
@@ -285,7 +285,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
         {
             if indexPath.item == 0
             {
-                let cell = tableView.dequeueReusableCellWithIdentifier("publicCell", forIndexPath: indexPath) as! UITableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("publicCell", forIndexPath: indexPath) 
                 cell.accessoryType = UITableViewCellAccessoryType.None
                 //cell.accessoryType = UITableViewCellAccessoryType.Checkmark
                 cell.tag = 0
@@ -294,7 +294,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
             }
             if indexPath.item == 1
             {
-                let cell = tableView.dequeueReusableCellWithIdentifier("whiteCell", forIndexPath: indexPath) as! UITableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("whiteCell", forIndexPath: indexPath) 
                 cell.tag = 1
                 cell.accessoryType = UITableViewCellAccessoryType.Checkmark
                 return cell
@@ -310,7 +310,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
             }
             if indexPath.item == 3
             {
-                let cell = tableView.dequeueReusableCellWithIdentifier("blackCell", forIndexPath: indexPath) as! UITableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("blackCell", forIndexPath: indexPath) 
                 cell.tag = 2
                 cell.accessoryType = UITableViewCellAccessoryType.None
                 return cell
@@ -323,7 +323,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
         {
             if indexPath.item == 0
             {
-                let cell = tableView.dequeueReusableCellWithIdentifier("publicCell", forIndexPath: indexPath) as! UITableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("publicCell", forIndexPath: indexPath) 
                 //cell.accessoryType = UITableViewCellAccessoryType.Checkmark
                 cell.tag = 0
                 cell.accessoryType = UITableViewCellAccessoryType.None
@@ -332,7 +332,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
             }
             if indexPath.item == 1
             {
-                let cell = tableView.dequeueReusableCellWithIdentifier("whiteCell", forIndexPath: indexPath) as! UITableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("whiteCell", forIndexPath: indexPath) 
                 cell.tag = 1
                 cell.accessoryType = UITableViewCellAccessoryType.None
                 return cell
@@ -341,7 +341,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
             
             if indexPath.item == 2
             {
-                let cell = tableView.dequeueReusableCellWithIdentifier("blackCell", forIndexPath: indexPath) as! UITableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("blackCell", forIndexPath: indexPath) 
                 cell.tag = 2
                 cell.accessoryType = UITableViewCellAccessoryType.Checkmark
                 return cell

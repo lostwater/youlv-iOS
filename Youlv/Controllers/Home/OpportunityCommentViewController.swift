@@ -17,7 +17,7 @@ class OpportunityCommentViewController: UIViewController {
     
     func send()
     {
-        var parameters : NSDictionary = ["orderId":opportunityId,"content":textView.text,"sessionId":sessionId]
+        let parameters : NSDictionary = ["orderId":opportunityId,"content":textView.text,"sessionId":sessionId]
         DataClient().postOpportunityComment(parameters) { (data, error) -> () in
             self.sendCompleted(data,error: error)
         }
@@ -38,7 +38,7 @@ class OpportunityCommentViewController: UIViewController {
         textView.becomeFirstResponder()
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "SendAndUnwindFromComment"
         {
             if isSend

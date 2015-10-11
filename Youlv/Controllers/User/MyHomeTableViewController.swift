@@ -43,7 +43,7 @@ class MyHomeTableViewController: UITableViewController {
         userImageView.sd_setImageWithURL(NSURL(string: dataDict!.objectForKey("lawyer_photoUrl") as! String), placeholderImage: headImage)
         userName.text = dataDict!.objectForKey("lawyer_name") as? String
         location.text = (dataDict!.objectForKey("lawyer_cityName") as! String)
-        var office = dataDict!.objectForKey("lawyer_lawOffice") as! String
+        let office = dataDict!.objectForKey("lawyer_lawOffice") as! String
         if office != ""
         {
             location.text = location.text! + ", " + office

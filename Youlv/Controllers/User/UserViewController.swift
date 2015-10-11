@@ -168,7 +168,7 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
         {
             let baseHeight :CGFloat = 115.0
             let topicContentText = content.objectForKey("topic_content") as! String
-            let textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
+            let textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
             
             return textHeight+baseHeight
             
@@ -178,8 +178,8 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let baseHeight :CGFloat = 115.0+95.0
             let topicContentText = content.objectForKey("topic_content") as! String
             let operatorContentText = content.objectForKey("operate_content") as! String
-            var textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
-            textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, self.view.frame.width - 32).height
+            var textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
+            textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, width: self.view.frame.width - 32).height
             return textHeight+baseHeight
             
         }
@@ -197,7 +197,7 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
         {
             let baseHeight :CGFloat = 115.0
             let topicContentText = content.objectForKey("topic_content") as! String
-            let textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
+            let textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
             
             return textHeight+baseHeight
             
@@ -207,8 +207,8 @@ class UserViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let baseHeight :CGFloat = 115.0+95.0
             let topicContentText = content.objectForKey("topic_content") as! String
             let operatorContentText = content.objectForKey("operate_content") as! String
-            var textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
-            textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, self.view.frame.width - 32).height
+            var textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
+            textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, width: self.view.frame.width - 32).height
             return textHeight+baseHeight
             
         }

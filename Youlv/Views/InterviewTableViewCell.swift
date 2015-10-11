@@ -43,7 +43,7 @@ class InterviewTableViewCell: UITableViewCell {
     
     func displayData(dataDict : NSDictionary)
     {
-        var isLive = dataDict.objectForKey("view_isLive") as! Bool
+        let isLive = dataDict.objectForKey("view_isLive") as! Bool
         if isLive
         {
             isLiveImageView.image = UIImage(named:"icononlive")

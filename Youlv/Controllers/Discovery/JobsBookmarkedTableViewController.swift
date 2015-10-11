@@ -64,8 +64,8 @@ class JobsBookmarkedTableViewController: UITableViewController {
         if segue.identifier == "goMarkedJobDetail"
         {
             let vc = segue.destinationViewController as! JobDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            var selectedData = jobsArray?.objectAtIndex(selectedIndex!) as! NSDictionary
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
+            let selectedData = jobsArray?.objectAtIndex(selectedIndex!) as! NSDictionary
             vc.jobId = selectedData.objectForKey("position_id") as? Int
             vc.companyImageUrl = selectedData.objectForKey("position_officePhoto") as? String
         }

@@ -83,9 +83,9 @@ class EventsTableViewController: BaseTableViewController,NaviBarMenu {
         if segue.identifier == "goEventDetail"
         {
             let eventDetail = segue.destinationViewController as! EventDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            var selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
-            eventDetail.eventId = (dataArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)?.toInt()
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
+            _ = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
+            eventDetail.eventId = Int(((dataArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String))!)
         }
     }
     
@@ -115,7 +115,7 @@ class EventsTableViewController: BaseTableViewController,NaviBarMenu {
     
     func setNaviMenu()
     {
-        setMenuLoc(_naviMenuView, view, menuWidth, menuHeight)
+        setMenuLoc(_naviMenuView, view: view, menuWidth: menuWidth, menuHeight: menuHeight)
         
         naviMenuView = _naviMenuView
         selectedTitle = menuButton0.titleForState(UIControlState.Normal)

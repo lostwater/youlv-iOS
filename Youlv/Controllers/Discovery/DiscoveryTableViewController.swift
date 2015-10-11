@@ -62,13 +62,13 @@ class DiscoveryTableViewController: UITableViewController,ImagePlayerViewDelegat
         }
         
         let errorPointer = NSErrorPointer()
-        let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as! NSDictionary
+        let dict = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves)) as! NSDictionary
         
         let dictData = dict.objectForKey("data") as! NSDictionary
         adsArray = (dictData.objectForKey("adList") as? NSArray)!
         for a in adsArray!
         {
-            var adict = a as! NSDictionary
+            let adict = a as! NSDictionary
              adsUrlsArray.addObject(NSURL(string: adict.objectForKey("photoUrl") as! String)!)
         }
 

@@ -59,7 +59,7 @@ class OpportunityDetailViewController: UIViewController {
     
     func likeOpportunity()
     {
-        var parameters : NSDictionary = ["orderId":opportunityId, "sessionId":sessionId]
+        let parameters : NSDictionary = ["orderId":opportunityId, "sessionId":sessionId]
         DataClient().postLikeOpportunity(parameters) { (data, error) -> () in
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.likeOpportunityCompleted(data,error: error)

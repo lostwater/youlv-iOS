@@ -65,16 +65,16 @@ class InterviewTableViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let basicHeight : CGFloat = 168.0
         let text = (dataArray.objectAtIndex(indexPath.item) as! NSDictionary).objectForKey("view_content") as! String
-        let textHeight = calTextSizeWithDefualtFont(text, self.view.frame.width - 32).height
+        let textHeight = calTextSizeWithDefualtFont(text, width: self.view.frame.width - 32).height
         return textHeight + basicHeight
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goInterviewDetail"
         {
-            var vc = segue.destinationViewController as! InterviewDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            var selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
+            let vc = segue.destinationViewController as! InterviewDetailViewController
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
+            let selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
             vc.dataDictFromList = selectedData
             vc.interviewId = selectedData.objectForKey("view_id") as? Int
             

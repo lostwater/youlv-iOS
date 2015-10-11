@@ -23,7 +23,7 @@ class ImageListView: UIView
         {
             let x = CGFloat(i)*46.0
             let f = CGRectMake(x, 0.0, 30.0, 30.0)
-            var iv = UIImageView(frame: f)
+            let iv = UIImageView(frame: f)
             iv.sd_setImageWithURL(NSURL(string: imageUrlList.objectAtIndex(i) as! String  ), placeholderImage: headImage)
 
             if (x + 120 > frameWidth && i < imageUrlList.count - 1)

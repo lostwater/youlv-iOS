@@ -16,7 +16,7 @@ class DiscussReplyViewController: UIViewController {
     
     func send()
     {
-        var parameters : NSDictionary = ["topicId":topicId,"content":textView.text,"sessionId":sessionId]
+        let parameters : NSDictionary = ["topicId":topicId,"content":textView.text,"sessionId":sessionId]
         DataClient().postDiscussReply(parameters) { (data, error) -> () in
             self.sendCompleted(data,error: error)
         }
@@ -38,7 +38,7 @@ class DiscussReplyViewController: UIViewController {
     
 
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "SendAndUnwindFromReply"
         {
             if isSend

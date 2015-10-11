@@ -44,10 +44,10 @@ class ArticleCommentTableViewCell: UITableViewCell {
         CommentContent.lineBreakMode = NSLineBreakMode.ByWordWrapping
         CommentContent.text = commentString
         
-        var attCommentStr = NSAttributedString(string: CommentContent.text!)
+        let attCommentStr = NSAttributedString(string: CommentContent.text!)
         var range = NSMakeRange(0,attCommentStr.length)
         var strDict = attCommentStr.attributesAtIndex(0, effectiveRange: &range)
-        var commentTextSize = attCommentStr.boundingRectWithSize(CommentContent.frame.size, options: NSStringDrawingOptions.UsesFontLeading, context: nil).size
+        let commentTextSize = attCommentStr.boundingRectWithSize(CommentContent.frame.size, options: NSStringDrawingOptions.UsesFontLeading, context: nil).size
         CommentContent.frame.size = commentTextSize
         
         //self.tag = dataDict.objectForKey("id") as! Int

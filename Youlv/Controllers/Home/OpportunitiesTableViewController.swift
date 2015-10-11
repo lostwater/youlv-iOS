@@ -84,7 +84,7 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
         if segue.identifier == "goOpportunityDetail"
         {
             let vc = segue.destinationViewController as! OpportunityDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
             vc.dataDict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
             vc.opportunityId = (dataArray.objectAtIndex(selectedIndex!) as! NSDictionary).objectForKey("order_id") as! Int
         }
@@ -100,7 +100,7 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let text = (dataArray.objectAtIndex(indexPath.row) as! NSDictionary).objectForKey("order_content") as! String
-        return calTextSizeWithDefualtFont(text,self.view.frame.size.width - 20).height+160.0
+        return calTextSizeWithDefualtFont(text,width: self.view.frame.size.width - 20).height+160.0
     }
     
     
@@ -126,7 +126,7 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
 
     func setNaviMenu()
     {
-        setMenuLoc(_naviMenuView, view, menuWidth, menuHeight)
+        setMenuLoc(_naviMenuView, view: view, menuWidth: menuWidth, menuHeight: menuHeight)
     
         naviMenuView = _naviMenuView
         selectedTitle = menuButton0.titleForState(UIControlState.Normal)

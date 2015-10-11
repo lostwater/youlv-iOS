@@ -23,7 +23,7 @@ class ResearchTableViewCell: UITableViewCell {
         publishTime.text = dataDict.objectForKey("vote_createDate") as? String
         
         var voteContent = dataDict.objectForKey("vote_content") as! String
-        var voteOptions = dataDict.objectForKey("vote_options") as! NSArray
+        let voteOptions = dataDict.objectForKey("vote_options") as! NSArray
         for o in voteOptions
         {
             voteContent = voteContent + "\n\n" + ((o as! NSDictionary).objectForKey("option_content") as! String)

@@ -16,20 +16,20 @@ class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UI
     @IBAction func selectAllClicked(sender: AnyObject) {
         if selectedAll
         {
-            for cell  in tableView.visibleCells()
+            for cell  in tableView.visibleCells
             {
                 
-                (cell as! UITableViewCell).selected = false
+                (cell ).selected = false
                 
             }
             selectAllIcon.image = UIImage(named:"checkoff")
         }
         else
         {
-            for cell  in tableView.visibleCells()
+            for cell  in tableView.visibleCells
             {
                 
-                (cell as! UITableViewCell).selected = true
+                (cell ).selected = true
                 
             }
             selectAllIcon.image = UIImage(named:"checkon")
@@ -101,10 +101,10 @@ class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UI
     
     func followUsers()
     {
-        var ids = NSMutableArray()
-        for c in tableView.visibleCells()
+        let ids = NSMutableArray()
+        for c in tableView.visibleCells
         {
-            let cell = c as! UITableViewCell
+            let cell = c 
             if cell.selected
             {
                 ids.addObject(cell.tag)

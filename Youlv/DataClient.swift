@@ -345,7 +345,7 @@ class DataClient
     
     func postOrder(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "order/reportOrder"
+        let path = serverUrl + "order/reportOrder"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -353,7 +353,7 @@ class DataClient
     
     func postLogin(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "user/login"
+        let path = serverUrl + "user/login"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -361,7 +361,7 @@ class DataClient
     
     func postSignup(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "user/reg"
+        let path = serverUrl + "user/reg"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -369,7 +369,7 @@ class DataClient
     
     func postTopicReply(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "topic/reportTopic"
+        let path = serverUrl + "topic/reportTopic"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -377,7 +377,7 @@ class DataClient
     
     func postTopic(groupId: Int, content: String , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "topic/reportTopic"
+        let path = serverUrl + "topic/reportTopic"
         let parameters = NSDictionary(objects:[groupId,content,sessionId], forKeys: ["groupId","content","sessionId"])
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
@@ -386,7 +386,7 @@ class DataClient
     
     func postDiscussReply(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "topic/topicReply"
+        let path = serverUrl + "topic/topicReply"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -395,7 +395,7 @@ class DataClient
     func postArticleComment(articleId: Int, comment:String, completion: (NSDictionary?, NSError?)->())
         
     {
-        var path = serverUrl + "article/aticleComment"
+        let path = serverUrl + "article/aticleComment"
         let parameters = NSDictionary(objects:[articleId,comment,sessionId], forKeys: ["articleId","comment","sessionId"])
         nativePost(path,parameters: parameters,completion: { (dict, error) -> Void in
             completion(dict, error)
@@ -532,7 +532,7 @@ class DataClient
     {
         var path = serverUrl + "topic/findAdColumn?"
         path = path + "&sessionId=" + String(sessionId)
-        var session = NSURLSession.sharedSession()
+        let session = NSURLSession.sharedSession()
         let url = NSURL(string: path)
         let task = session.dataTaskWithURL(url!, completionHandler: { (data, responese, error) -> Void in
             completion(data, error)
@@ -622,7 +622,7 @@ class DataClient
     
     func postFollowUser(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "atten/makeatten"
+        let path = serverUrl + "atten/makeatten"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -639,7 +639,7 @@ class DataClient
     */
     func postCreateGroup(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "group/creategroup"
+        let path = serverUrl + "group/creategroup"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -648,7 +648,7 @@ class DataClient
     
     func postOpportunityComment(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "order/orderComment"
+        let path = serverUrl + "order/orderComment"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -657,7 +657,7 @@ class DataClient
     
     func postLikeOpportunity(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "order/orderInterest"
+        let path = serverUrl + "order/orderInterest"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -667,7 +667,7 @@ class DataClient
     
     func postMarkTopic(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "topic/attentionTopic"
+        let path = serverUrl + "topic/attentionTopic"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -676,7 +676,7 @@ class DataClient
     
     func postLikeArticle(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "article/articlePraise"
+        let path = serverUrl + "article/articlePraise"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -686,7 +686,7 @@ class DataClient
     
     func postMarkArticle(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "article/articleStore"
+        let path = serverUrl + "article/articleStore"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -695,7 +695,7 @@ class DataClient
     
     func postMarkEvent(parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var path = serverUrl + "active/activeStore"
+        let path = serverUrl + "active/activeStore"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -705,7 +705,7 @@ class DataClient
     func postMarkJob(jobId : Int, completion: (NSDictionary?, NSError?)->())
     {
         let parameters = NSDictionary(objects:[jobId,sessionId], forKeys: ["positionId","sessionId"])
-        var path = serverUrl + "position/positionStore"
+        let path = serverUrl + "position/positionStore"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -716,7 +716,7 @@ class DataClient
     func postMarkInterview(interViewId : Int, completion: (NSDictionary?, NSError?)->())
     {
         let parameters = NSDictionary(objects:[interViewId,sessionId], forKeys: ["microViewId","sessionId"])
-        var path = serverUrl + "microview/attentionView"
+        let path = serverUrl + "microview/attentionView"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -725,7 +725,7 @@ class DataClient
     func postLikeInterviewComment(commentId : Int, completion: (NSDictionary?, NSError?)->())
     {
         let parameters = NSDictionary(objects:[commentId,sessionId], forKeys: ["discussId","sessionId"])
-        var path = serverUrl + "microview/discussPraise"
+        let path = serverUrl + "microview/discussPraise"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -735,7 +735,7 @@ class DataClient
     func postInterviewComment(interviewId : Int, content : String,  completion: (NSDictionary?, NSError?)->())
     {
         let parameters = NSDictionary(objects:[interviewId,content,sessionId], forKeys: ["microViewId","content","sessionId"])
-        var path = serverUrl + "microview/viewDiscuss"
+        let path = serverUrl + "microview/viewDiscuss"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -744,7 +744,7 @@ class DataClient
     func postInterviewAsk(interviewId : Int, content : String,  completion: (NSDictionary?, NSError?)->())
     {
         let parameters = NSDictionary(objects:[interviewId,content,sessionId,1], forKeys: ["microViewId","content","sessionId","type"])
-        var path = serverUrl + "microview/viewDiscuss"
+        let path = serverUrl + "microview/viewDiscuss"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -753,8 +753,8 @@ class DataClient
     
     func postLikeTopicReply(replyId : Int , completion: (NSDictionary?, NSError?)->())
     {
-        var parameters : NSDictionary = ["replyId":replyId,"sessionId":sessionId]
-        var path = serverUrl + "topic/topicReplyPraise"
+        let parameters : NSDictionary = ["replyId":replyId,"sessionId":sessionId]
+        let path = serverUrl + "topic/topicReplyPraise"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -765,7 +765,7 @@ class DataClient
     func postCreateGroup(name: String, desc: String, isPublic: Bool, isApproval: Bool, password: String, maxUsers: Int, completion: (NSDictionary?, NSError?)->())
     {
         let parameters = NSDictionary(objects:[name,desc,isPublic,isApproval,password,maxUsers,sessionId], forKeys: ["groupName","desc","isPublic","isApproval","password","maxUsers","sessionId"])
-        var path = serverUrl + "group/creategroup"
+        let path = serverUrl + "group/creategroup"
         httpPost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -775,7 +775,7 @@ class DataClient
     func postAddGroupMember(groupId : String, lawyerId : Int, completion: (NSDictionary?, NSError?)->())
     {
         let parameters = NSDictionary(objects:[groupId,lawyerId,sessionId], forKeys: ["groupId","lawyerIds","sessionId"])
-        var path = serverUrl + "group/addme2group"
+        let path = serverUrl + "group/addme2group"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -783,7 +783,7 @@ class DataClient
     
     func postDeleteGroupMember(groupId : String, lawyerId : Int, completion: (NSDictionary?, NSError?)->()){
         let parameters = NSDictionary(objects:[groupId,lawyerId,sessionId], forKeys: ["groupId","lawyerId","sessionId"])
-        var path = serverUrl + "group/delmefgroup"
+        let path = serverUrl + "group/delmefgroup"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -791,7 +791,7 @@ class DataClient
     
     func postDelGroup(groupId : String, completion: (NSDictionary?, NSError?)->()){
         let parameters = NSDictionary(objects:[groupId,sessionId], forKeys: ["groupId","sessionId"])
-        var path = serverUrl + "group/delgroup"
+        let path = serverUrl + "group/delgroup"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -800,7 +800,7 @@ class DataClient
     func postMarkTopics(topicIds : [Int], completion: (NSDictionary?, NSError?)->()){
         //let parameters = NSDictionary(objects:[sessionId], forKeys: ["sessionId"])
         let parameters = NSDictionary(objects:[topicIds,sessionId], forKeys: ["topicIds","sessionId"])
-        var path = serverUrl + "topic/attenHotTopics"
+        let path = serverUrl + "topic/attenHotTopics"
         nativePost(path, parameters: parameters, completion: { (dict, error) -> () in
             completion(dict, error)
         })
@@ -822,7 +822,7 @@ class DataClient
     
     func postFollowUsers(userIds : [Int], completion: (NSDictionary?, NSError?)->()){
         let parameters = NSDictionary(objects:[userIds,sessionId], forKeys: ["lawyerIds","sessionId"])
-        var path = serverUrl + "laywer/attenHotLawyers"
+        let path = serverUrl + "laywer/attenHotLawyers"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -831,7 +831,7 @@ class DataClient
     
     func postFollowUsers(userIds : NSArray, completion: (NSDictionary?, NSError?)->()){
         let parameters = NSDictionary(objects:[userIds,sessionId], forKeys: ["lawyerIds","sessionId"])
-        var path = serverUrl + "laywer/attenHotLawyers"
+        let path = serverUrl + "laywer/attenHotLawyers"
         jsonPost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -850,7 +850,7 @@ class DataClient
     
     func postSendMobile(mobile:String,type:Int, completion: (NSDictionary?, NSError?)->()){
         let parameters = NSDictionary(objects:[mobile,type], forKeys: ["mobile","bizType"])
-        var path = serverUrl + "code/captcha"
+        let path = serverUrl + "code/captcha"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })
@@ -881,11 +881,11 @@ class DataClient
     func jsonPost(pathString : String, parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
         let errorPointer = NSErrorPointer()
-        var manager = AFHTTPRequestOperationManager()
+        let manager = AFHTTPRequestOperationManager()
         manager.responseSerializer = AFHTTPResponseSerializer()
         manager.requestSerializer = AFJSONRequestSerializer()
         let r = AFHTTPRequestSerializer().requestWithMethod("POST", URLString: pathString, parameters: parameters, error: errorPointer)
-        print(NSString(data: r.HTTPBody!, encoding: NSUTF8StringEncoding))
+        print(NSString(data: r.HTTPBody!, encoding: NSUTF8StringEncoding), terminator: "")
         manager.POST(pathString, parameters: parameters, success: { (requestOperation, data) -> Void in
         
             let dict = data as? NSDictionary
@@ -913,7 +913,7 @@ class DataClient
     
     func httpPost(pathString : String, parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        var manager = AFHTTPRequestOperationManager()
+        let manager = AFHTTPRequestOperationManager()
         //manager.requestSerializer = AFHTTPRequestSerializer()
         //manager.responseSerializer = AFJSONResponseSerializer()
         
@@ -937,11 +937,11 @@ class DataClient
     func nativeGet(pathString : String, parameters : NSDictionary?, completion: (NSDictionary?, NSError?)->())
     {
         
-        var session = NSURLSession.sharedSession()
+        let session = NSURLSession.sharedSession()
         let encodedPath = pathString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         let url = NSURL(string: encodedPath)!
-        
-        let task = session.dataTaskWithURL(url){ (data, responese, error) -> Void in
+
+        let task = session.dataTaskWithURL(url) { (data, responese, error) -> Void in
             if data == nil || error != nil
             {
                 
@@ -953,17 +953,51 @@ class DataClient
                 return
             }
             
-            var dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            var dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
             dataString = dataString?.stringByReplacingOccurrencesOfString("\n",withString:"")
             dataString = dataString?.stringByReplacingOccurrencesOfString("\r",withString:"")
-            var formatteddata =  dataString?.dataUsingEncoding(NSUTF8StringEncoding)
-            let errorPointer = NSErrorPointer()
-            
-            let dict = NSJSONSerialization.JSONObjectWithData(formatteddata!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-            if dict == nil
+            let formatteddata =  dataString?.dataUsingEncoding(NSUTF8StringEncoding)
+            _ = NSErrorPointer()
+            do
+            {
+                let dict = try NSJSONSerialization.JSONObjectWithData(formatteddata!, options: NSJSONReadingOptions.MutableLeaves) as? NSDictionary
+                if dict!.objectForKey("errcode") != nil
+                {
+                    if dict!.objectForKey("errcode") as! Int == 1
+                    {
+                        let message = dict!.objectForKey("errmessage") as! String
+                        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                            KVNProgress.showErrorWithStatus(message)
+                            //let av = UIAlertView( title: "错误", message:message, delegate:nil, cancelButtonTitle:"确认")
+                            //av.show()
+                        })
+                        return
+                    }
+                    let message = dict!.objectForKey("errmessage") as! String
+                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                        //KVNProgress.showErrorWithStatus(message)
+                    })
+                    completion(dict, error)
+                }
+                if dict!.objectForKey("result") != nil
+                {
+                    if dict!.objectForKey("result") as! Int == 1
+                    {
+                        let message = dict!.objectForKey("errmessage") as! String
+                        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                            KVNProgress.showErrorWithStatus(message)
+                            //let av = UIAlertView( title: "错误", message:message, delegate:nil, cancelButtonTitle:"确认")
+                            //av.show()
+                        })
+                        return
+                    }
+                    completion(dict, error)
+                }
+            }
+            catch
             {
                 //let ds = NSString(data: formatteddata, encoding: NSUTF8StringEncoding)
-                print(dataString)
+                print(dataString, terminator: "")
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                     KVNProgress.showErrorWithStatus("数据出错")
                     //let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
@@ -971,38 +1005,7 @@ class DataClient
                 })
                 
                 return
-            }
-            if dict!.objectForKey("errcode") != nil
-            {
-                if dict!.objectForKey("errcode") as! Int == 1
-                {
-                    let message = dict!.objectForKey("errmessage") as! String
-                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                        KVNProgress.showErrorWithStatus(message)
-                        //let av = UIAlertView( title: "错误", message:message, delegate:nil, cancelButtonTitle:"确认")
-                        //av.show()
-                    })
-                    return
-                }
-                let message = dict!.objectForKey("errmessage") as! String
-                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                    //KVNProgress.showErrorWithStatus(message)
-                })
-                completion(dict, error)
-            }
-            if dict!.objectForKey("result") != nil
-            {
-                if dict!.objectForKey("result") as! Int == 1
-                {
-                    let message = dict!.objectForKey("errmessage") as! String
-                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                        KVNProgress.showErrorWithStatus(message)
-                        //let av = UIAlertView( title: "错误", message:message, delegate:nil, cancelButtonTitle:"确认")
-                        //av.show()
-                    })
-                    return
-                }
-                completion(dict, error)
+
             }
         }
         
@@ -1016,7 +1019,7 @@ class DataClient
         var session = NSURLSession.sharedSession()
         let request = serializeJsonRequest(pathString,parameters:parameters)
         
-        print(NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding))
+        print(NSString(data: request.HTTPBody!, encoding: NSUTF8StringEncoding), terminator: "")
         let task = session.dataTaskWithRequest(request) { ( data, responese, error ) -> Void in
             if data == nil || error != nil
             {
@@ -1031,19 +1034,10 @@ class DataClient
             }
             //let ds = NSString(data: data, encoding: NSUTF8StringEncoding)
             //print(ds)
-            let errorPointer = NSErrorPointer()
-            let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-            if dict == nil
+            do
             {
-                let ds = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
-                NSLog(ds)
-                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                    KVNProgress.showError()
-                    //let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
-                    //av.show()
-                })
-                return
-            }
+            let dict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as? NSDictionary
+            
             if dict!.objectForKey("errcode") != nil
             {
                 if dict!.objectForKey("errcode") as! Int == 1
@@ -1076,6 +1070,20 @@ class DataClient
                 }
                 completion(dict, error)
             }
+            }
+            catch
+            {
+
+                    let ds = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
+                    NSLog(ds)
+                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                        KVNProgress.showError()
+                        //let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
+                        //av.show()
+                    })
+                    return
+                
+            }
             
         }
         task.resume()
@@ -1086,11 +1094,11 @@ class DataClient
     func postSignup(phone: String, password: String, code: String, name:String , completion: (NSDictionary?, NSError?)->())
     {
         var path = serverUrl + "user/reg"
-        var postData = NSMutableData(data: ("phone="+phone).dataUsingEncoding(NSUTF8StringEncoding)!)
+        let postData = NSMutableData(data: ("phone="+phone).dataUsingEncoding(NSUTF8StringEncoding)!)
         postData.appendData(("&password="+password).dataUsingEncoding(NSUTF8StringEncoding)!)
         path = path + "?phone="+phone
         path = path + "&password="+password
-        var request = NSMutableURLRequest(URL: NSURL(string: path)!,
+        let request = NSMutableURLRequest(URL: NSURL(string: path)!,
             cachePolicy: .UseProtocolCachePolicy,
             timeoutInterval: 10.0)
         request.HTTPMethod = "GET"
@@ -1099,23 +1107,13 @@ class DataClient
         let session = NSURLSession.sharedSession()
         let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
-                println(error)
+                print(error)
             } else {
                 let httpResponse = response as? NSHTTPURLResponse
-                println(httpResponse)
-                let errorPointer = NSErrorPointer()
-                let dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: errorPointer) as? NSDictionary
-                if dict == nil
-                {
-                    //let ds = NSString(data: data, encoding: NSUTF8StringEncoding)
-                    //print(ds)
-                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                        
-                        let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
-                        av.show()
-                    })
-                    return
-                }
+                print(httpResponse)
+                
+                do{
+                let dict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as? NSDictionary
                 if dict!.objectForKey("errcode") as! Int == 1
                 {
                     let message = dict!.objectForKey("errmessage") as! String
@@ -1126,7 +1124,18 @@ class DataClient
                     return
                 }
                 completion(dict, error)
-                
+                }
+                catch
+                {
+                    //let ds = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    //print(ds)
+                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                        
+                        let av = UIAlertView( title: "数据出错", message:nil, delegate:nil, cancelButtonTitle:"确认")
+                        av.show()
+                    })
+                    return
+                }
             }
         })
         
@@ -1139,7 +1148,7 @@ class DataClient
         let parameters = NSDictionary()
         
         //(objects:[username,sessionId], forKeys: ["name","introducation","lawOffice",])
-        var path = serverUrl + "topic/attenHotTopics"
+        let path = serverUrl + "topic/attenHotTopics"
         nativePost(path, parameters: parameters, completion: { (data, error) -> () in
             completion(data, error)
         })

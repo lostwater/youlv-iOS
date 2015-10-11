@@ -26,7 +26,7 @@ class HomeTabBarController: TopTabBarController
     var naviMenuView : UIView?
     var isTabsSet = false
     
-    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!)
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem)
     {
         let i = item.tag
         //setNaviMenu(viewControllers![i] as! NaviBarMenu)
@@ -100,7 +100,7 @@ class HomeTabBarController: TopTabBarController
         ]
         for var i = 0; i < viewControllers!.count; ++i
         {
-            var vc = viewControllers![i] as! UIViewController
+            let vc = viewControllers![i] 
             vc.tabBarItem?.image = normalimages[i]! as UIImage
             vc.tabBarItem?.selectedImage = selectedimages[i]! as UIImage
             vc.tabBarItem.title = ""            
@@ -113,7 +113,7 @@ class HomeTabBarController: TopTabBarController
     
     func addCenterButton()
     {
-        var centerButton = UIButton();
+        let centerButton = UIButton();
         centerButton.frame = CGRectMake(0,0,50,50);
         centerButton.backgroundColor = UIColor.blackColor();
         centerButton.setTitle("Add", forState: UIControlState.Normal);

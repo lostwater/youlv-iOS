@@ -74,9 +74,9 @@ func resizeTextView(textView : UITextView) -> CGSize
     //textView.size
     
     textView.frame.size.height = textsize.height
-    let cs = textView.constraints()
+    let cs = textView.constraints
     cs.filter{
-        let c = $0 as! NSLayoutConstraint
+        let c = $0 
         if c.firstAttribute == NSLayoutAttribute.Height
         {
             return true
@@ -93,9 +93,9 @@ func resizeTextView(textView : UITextView) -> CGSize
 
 func collapseView(view: UIView)
 {
-    let cs = view.constraints()
+    let cs = view.constraints
     cs.filter{
-        let c = $0 as! NSLayoutConstraint
+        let c = $0 
         if c.firstAttribute == NSLayoutAttribute.Height
         {
             return true
@@ -111,9 +111,9 @@ func collapseView(view: UIView)
 
 func getHeightConstaint(view: UIView) ->CGFloat
 {
-    let cs = view.constraints()
+    let cs = view.constraints
     cs.filter{
-        let c = $0 as! NSLayoutConstraint
+        let c = $0 
         if c.firstAttribute == NSLayoutAttribute.Height
         {
             return true

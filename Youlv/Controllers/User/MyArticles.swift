@@ -55,7 +55,7 @@ class MyArticles:BaseTableViewController{
         if segue.identifier == "goArticleDetail"
         {
             let vc = segue.destinationViewController as! ArticleDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
             var selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
             vc.dataDict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
         }

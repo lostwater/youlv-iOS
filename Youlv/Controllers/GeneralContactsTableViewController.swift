@@ -17,12 +17,12 @@ class GeneralContactsTableViewController: UITableViewController {
         {
         get
         {
-            var heads = NSMutableArray()
-            if let selected = tableView.indexPathsForSelectedRows()
+            let heads = NSMutableArray()
+            if let selected = tableView.indexPathsForSelectedRows
             {
                 for s in selected
                 {
-                    let dataDict = dataArray.objectAtIndex((s as! NSIndexPath).item) as! NSDictionary
+                    let dataDict = dataArray.objectAtIndex((s ).item) as! NSDictionary
                     let headUrl = dataDict.objectForKey("lawyer_name") as! String
                     heads.addObject(headUrl)
                 }
@@ -35,12 +35,12 @@ class GeneralContactsTableViewController: UITableViewController {
         {
         get
         {
-            var heads = NSMutableArray()
-            if let selected = tableView.indexPathsForSelectedRows()
+            let heads = NSMutableArray()
+            if let selected = tableView.indexPathsForSelectedRows
             {
                 for s in selected
                 {
-                    let dataDict = dataArray.objectAtIndex((s as! NSIndexPath).item) as! NSDictionary
+                    let dataDict = dataArray.objectAtIndex((s ).item) as! NSDictionary
                     let userId = dataDict.objectForKey("lawyer_id") as! Int
                     heads.addObject(userId)
                 }

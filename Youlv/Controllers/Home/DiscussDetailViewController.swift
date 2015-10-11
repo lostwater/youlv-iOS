@@ -63,7 +63,7 @@ class DiscussDetailViewController: ViewControllerWithTableView{
 
     func markTopic()
     {
-        var parameters : NSDictionary = ["topicId":topicId!, "sessionId":sessionId]
+        let parameters : NSDictionary = ["topicId":topicId!, "sessionId":sessionId]
         DataClient().postMarkTopic(parameters) { (data, error) -> () in
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.markTopicCompleted(data,error: error)
@@ -217,7 +217,7 @@ class DiscussDetailViewController: ViewControllerWithTableView{
         var attCommentStr = NSAttributedString(string: commentString)
         var range = NSMakeRange(0,attCommentStr.length)
         var strDict = attCommentStr.attributesAtIndex(0, effectiveRange: &range)
-         var commentTextSize = calTextSizeWithDefualtFont(commentString, tableView.frame.width - 74)
+         var commentTextSize = calTextSizeWithDefualtFont(commentString, width: tableView.frame.width - 74)
         return commentTextSize.height + 38
     }
     

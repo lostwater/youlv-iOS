@@ -104,7 +104,7 @@ class MyTopicsTableViewController: UITableViewController {
         if segue.identifier == "goRepliedDiscussDetail" || segue.identifier == "goPostedDiscussDetail"
         {
             let discussDetail = segue.destinationViewController as! DiscussDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
             let dataDict = discussArray!.objectAtIndex(selectedIndex!) as? NSDictionary
 
             discussDetail.dataDict = dataDict
@@ -157,7 +157,7 @@ class MyTopicsTableViewController: UITableViewController {
         {
             let baseHeight :CGFloat = 115.0
             let topicContentText = dataDict.objectForKey("topic_content") as! String
-            let textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
+            let textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
             
             return textHeight+baseHeight
             
@@ -167,7 +167,7 @@ class MyTopicsTableViewController: UITableViewController {
             let baseHeight :CGFloat = 115.0+90.0
             let topicContentText = dataDict.objectForKey("topic_content") as! String
             let operatorContentText = dataDict.objectForKey("reply_content") as! String
-            var textHeight = calTextSizeWithDefualtFont(topicContentText, self.view.frame.width - 32).height
+            var textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
             textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, self.view.frame.width - 32).height
             return textHeight+baseHeight
         }

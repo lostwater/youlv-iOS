@@ -2462,7 +2462,9 @@
 		0B5FDEF01AD6A2EF00773360 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = com.RamyTech;
 				TargetAttributes = {
 					0B5FDEF71AD6A2EF00773360 = {
@@ -3101,6 +3103,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Li Xiaosong (8PTH65AJNZ)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -3186,6 +3189,7 @@
 					"$(PROJECT_DIR)/Youlv/EaseMobIM/3rdparty/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/Youlv/EaseMobIM/3rdparty/VoiceConvert/opencore-amrwb",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YoulvTest.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "133d04b5-2d99-4a18-b261-589402340520";
 				SWIFT_OBJC_BRIDGING_HEADER = "Youlv/Youlv-Bridging-Header.h";
@@ -3216,6 +3220,7 @@
 					"$(PROJECT_DIR)/Youlv/EaseMobIM/3rdparty/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/Youlv/EaseMobIM/3rdparty/VoiceConvert/opencore-amrwb",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YoulvTest.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "133d04b5-2d99-4a18-b261-589402340520";
 				SWIFT_OBJC_BRIDGING_HEADER = "Youlv/Youlv-Bridging-Header.h";
@@ -3239,6 +3244,7 @@
 				);
 				INFOPLIST_FILE = YoulvTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YoulvTest. $(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Youlv.app/Youlv";
@@ -3258,6 +3264,7 @@
 				);
 				INFOPLIST_FILE = YoulvTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YoulvTest. $(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Youlv.app/Youlv";

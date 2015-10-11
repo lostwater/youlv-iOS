@@ -20,7 +20,7 @@ class NewTopicReplyViewController: UIViewController {
     
     func send()
     {
-        var parameters : NSDictionary = ["groupId":groupId,"content":textView.text,"sessionId":sessionId]
+        let parameters : NSDictionary = ["groupId":groupId,"content":textView.text,"sessionId":sessionId]
         DataClient().postTopicReply(parameters) { (data, error) -> () in
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.sendCompleted(data,error: error)

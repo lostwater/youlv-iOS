@@ -48,7 +48,7 @@ class MyFriendsViewController: UIViewController,UITableViewDataSource,UITableVie
         if segue.identifier == "goUserHome"
         {
             let vc = segue.destinationViewController as! UserViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()!.item
+            let selectedIndex = tableView.indexPathForSelectedRow!.item
             vc.userId = (dataArray.objectAtIndex(selectedIndex) as! NSDictionary).objectForKey("lawyer_id") as! Int
         }
     }
@@ -74,7 +74,7 @@ class MyFriendsViewController: UIViewController,UITableViewDataSource,UITableVie
     
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ContactCell", forIndexPath: indexPath) 
         let dataDict = dataArray.objectAtIndex(indexPath.item) as! NSDictionary
         cell.imageView?.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("lawyer_photoUrl") as! String))
         cell.textLabel!.text =  dataDict.objectForKey("lawyer_name") as? String

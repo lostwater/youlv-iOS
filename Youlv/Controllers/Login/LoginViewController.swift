@@ -194,10 +194,10 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     }
     
     
-    func loadAccountAndPassword()
+    func loadAccountAndPassword() throws
     {
         var error = NSErrorPointer()
-        if (SFHFKeychainUtils.getPasswordForUsername("", andServiceName: serviceName, error: error) != nil)
+        if (try SFHFKeychainUtils.getPasswordForUsername("", andServiceName: serviceName) != "")
         {
             NSLog("密码读取成功")
         }
@@ -205,16 +205,18 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     
     func saveAccountAndPassword()
     {
-        var error = NSErrorPointer()
-        if SFHFKeychainUtils.storeUsername(userAccount.text, andPassword: passowrd.text, forServiceName: serviceName, updateExisting: true, error: error)
-        {
+        let error = NSErrorPointer()
+        do {
+            try SFHFKeychainUtils.storeUsername(userAccount.text, andPassword: passowrd.text, forServiceName: serviceName, updateExisting: true)
             NSLog("密码保存成功")
+        } catch let error1 as NSError {
+            error.memory = error1
         }
         
         accountKeyWrapper.setObject(userAccount.text, forKey: kSecAttrService)
         passwordKeyWrapper.setObject(passowrd.text, forKey: kSecAttrService)
         
-        myAccount = userAccount.text
+        myAccount = userAccount.text!
 
     }
 

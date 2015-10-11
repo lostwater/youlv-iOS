@@ -14,16 +14,16 @@ extension UIViewController
 func goMainVC()
 {
     
-    var sb = UIStoryboard(name:"Main",bundle:nil)
-    var vc = sb.instantiateInitialViewController() as! UIViewController
+    let sb = UIStoryboard(name:"Main",bundle:nil)
+    let vc = sb.instantiateInitialViewController()! as UIViewController
     self.presentViewController(vc,animated:true,completion:nil)
     
 }
 
 func goRecommendTopics()
 {
-    var sb = UIStoryboard(name:"Login",bundle:nil)
-    var vc = sb.instantiateViewControllerWithIdentifier("RecommendedTopicsVC") as! UIViewController
+    let sb = UIStoryboard(name:"Login",bundle:nil)
+    let vc = sb.instantiateViewControllerWithIdentifier("RecommendedTopicsVC") 
     self.navigationController?.pushViewController(vc,animated:true)
 }
     

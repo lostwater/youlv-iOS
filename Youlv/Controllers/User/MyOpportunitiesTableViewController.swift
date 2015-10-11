@@ -110,7 +110,7 @@ class MyOpportunitiesTableViewController: UITableViewController {
         if switcher.selectedSegmentIndex == 0
         {
             let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
-            var contentText = content.objectForKey("order_content") as? String
+            let contentText = content.objectForKey("order_content") as? String
             let contentTextSize = calTextSizeWithDefaultSettings(contentText!)
             
             return contentTextSize.height + 160.0
@@ -119,7 +119,7 @@ class MyOpportunitiesTableViewController: UITableViewController {
         else
         {
             let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
-            var opportunityText = content.objectForKey("orderContent") as? String
+            let opportunityText = content.objectForKey("orderContent") as? String
             let opportunityTextSize = calTextSizeWithDefaultSettings(opportunityText!)
             var replyText = content.objectForKey("replycontent") as? String
             let replyTextSize = calTextSizeWithDefaultSettings(opportunityText!)
@@ -133,7 +133,7 @@ class MyOpportunitiesTableViewController: UITableViewController {
         if segue.identifier == "goPostedOpportunityDetail"
         {
             let opportunityDetail = segue.destinationViewController as! OpportunityDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
             opportunityDetail.dataDict = ordersArray!.objectAtIndex(selectedIndex!) as? NSDictionary
             opportunityDetail.opportunityId = opportunityDetail.dataDict?.objectForKey("order_id") as! Int
         }
@@ -149,7 +149,7 @@ class MyOpportunitiesTableViewController: UITableViewController {
 
     func replaceNavTitle()
     {
-        var typeSwitcher = UISegmentedControl();
+        let typeSwitcher = UISegmentedControl();
         typeSwitcher.insertSegmentWithTitle("我发布的", atIndex: 0, animated: false)
         typeSwitcher.insertSegmentWithTitle("回应我的", atIndex: 1, animated: false)
         typeSwitcher.selectedSegmentIndex = 0

@@ -71,9 +71,9 @@ class MyEventsTableViewController: BaseTableViewController {
         if segue.identifier == "goEventDetail"
         {
             let eventDetail = segue.destinationViewController as! EventDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
-            var selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
-            eventDetail.eventId = (dataArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)?.toInt()
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
+            _ = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
+            eventDetail.eventId = Int(((dataArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String))!)
         }
     }
     

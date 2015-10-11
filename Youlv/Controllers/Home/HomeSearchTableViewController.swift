@@ -137,7 +137,7 @@ class HomeSearchTableViewController: UITableViewController {
         if segue.identifier == "goRepliedDiscussDetail" || segue.identifier == "goPostedDiscussDetail"
         {
             let discussDetail = segue.destinationViewController as! DiscussDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
             let dataDict = cellDataArray!.objectAtIndex(selectedIndex!) as? NSDictionary
             
             discussDetail.dataDict = dataDict
@@ -147,21 +147,21 @@ class HomeSearchTableViewController: UITableViewController {
         if segue.identifier == "goEventDetail"
         {
             let eventDetail = segue.destinationViewController as! EventDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
             var selectedData = cellDataArray!.objectAtIndex(selectedIndex!) as! NSDictionary
-            eventDetail.eventId = (cellDataArray!.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)?.toInt()
+            eventDetail.eventId = Int((cellDataArray!.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)?)
         }
         if segue.identifier == "goOpportunityDetail"
         {
             let vc = segue.destinationViewController as! OpportunityDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
             vc.dataDict = cellDataArray!.objectAtIndex(selectedIndex!) as? NSDictionary
             vc.opportunityId = (cellDataArray!.objectAtIndex(selectedIndex!) as! NSDictionary).objectForKey("order_id") as! Int
         }
         if segue.identifier == "goArticleDetail"
         {
             let vc = segue.destinationViewController as! ArticleDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow()?.item
+            let selectedIndex = tableView.indexPathForSelectedRow?.item
             var selectedData = cellDataArray!.objectAtIndex(selectedIndex!) as! NSDictionary
             vc.dataDict = cellDataArray!.objectAtIndex(selectedIndex!) as? NSDictionary
         }

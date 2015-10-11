@@ -18,7 +18,7 @@ class TopicsTableViewController: UITableViewController {
     var selectedGroupId : Int
         {
         get{
-            if let selectedIndex = tableView.indexPathForSelectedRow()
+            if let selectedIndex = tableView.indexPathForSelectedRow
             {
               
                 let dataDict = topicsArray!.objectAtIndex(selectedIndex.item) as! NSDictionary
@@ -86,7 +86,7 @@ class TopicsTableViewController: UITableViewController {
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TopicCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TopicCell", forIndexPath: indexPath) 
         let dataDict = topicsArray!.objectAtIndex(indexPath.item) as! NSDictionary
         //cell.imageView?.sd_setImageWithURL(url: NSURL(dataDict.objectForKey("") as! String))
         cell.textLabel!.text =  dataDict.objectForKey("group_name") as? String

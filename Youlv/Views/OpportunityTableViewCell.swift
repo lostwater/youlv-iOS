@@ -95,9 +95,9 @@ class OpportunityTableViewCell: UITableViewCell {
             }
         }
         
-        if count(opportunityTitleLable.text!) > 11
+        if (opportunityTitleLable.text!).characters.count > 11
         {
-            opportunityTitleLable.text = opportunityTitleLable.text!.substringToIndex(advance(opportunityTitleLable.text!.startIndex,10)) + "..."
+            opportunityTitleLable.text = opportunityTitleLable.text!.substringToIndex(opportunityTitleLable.text!.startIndex.advancedBy(10)) + "..."
         }
 
     }

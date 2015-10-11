@@ -22,7 +22,7 @@ class ArticleCommentsTableViewController: ViewControllerWithPagedTableView {
     
     
     @IBAction func sendButtonClicked(sender: AnyObject) {
-        DataClient().postArticleComment(articleId!, comment: newCommentTextField.text) { (dict, error) -> () in
+        DataClient().postArticleComment(articleId!, comment: newCommentTextField.text!) { (dict, error) -> () in
             if dict != nil
             {
                 let message = dict!.objectForKey("errmessage") as! String
@@ -98,7 +98,7 @@ class ArticleCommentsTableViewController: ViewControllerWithPagedTableView {
         let info = notification.userInfo!
         let value: AnyObject  = info[UIKeyboardFrameEndUserInfoKey]!
         
-        let rawFrame = value.CGRectValue()
+        let rawFrame = value.CGRectValue
         let keyboardFrame = view.convertRect(rawFrame, fromView: nil)
         
         inputViewToBottom.constant = keyboardFrame.height
@@ -118,12 +118,12 @@ class ArticleCommentsTableViewController: ViewControllerWithPagedTableView {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         let content = dataArray.objectAtIndex(indexPath.item) as! NSDictionary
-        var commentString = content.objectForKey("comment") as! String
+        let commentString = content.objectForKey("comment") as! String
         
-        var attCommentStr = NSAttributedString(string: commentString)
+        let attCommentStr = NSAttributedString(string: commentString)
         var range = NSMakeRange(0,attCommentStr.length)
         var strDict = attCommentStr.attributesAtIndex(0, effectiveRange: &range)
-        var commentTextSize = calTextSizeWithDefualtFont(commentString, tableView.frame.width - 74)
+        var commentTextSize = calTextSizeWithDefualtFont(commentString, width: tableView.frame.width - 74)
         return commentTextSize.height + 38
     }
     

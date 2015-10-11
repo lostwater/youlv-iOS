@@ -78,7 +78,7 @@ class ArticleDetailViewController: UIViewController {
     
     func likeThis()
     {
-        var parameters : NSDictionary = ["articleId":articleId!,"sessionId":sessionId]
+        let parameters : NSDictionary = ["articleId":articleId!,"sessionId":sessionId]
         DataClient().postLikeArticle(parameters) { (data, error) -> () in
                 self.likeThisCompleted(data,error: error)
         }
