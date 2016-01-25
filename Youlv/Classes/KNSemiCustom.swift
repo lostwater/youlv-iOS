@@ -12,18 +12,18 @@ extension UIViewController
 {
     func presentSemiViewWithMyOptions(view:UIView)
     {
-        self.presentSemiView(view, withOptions:[KNSemiModalOptionKeys.pushParentBack:false,
-            KNSemiModalOptionKeys.animationDuration : 1.0,
-            KNSemiModalOptionKeys.shadowOpacity     : 0.3
+        self.presentSemiView(view, withOptions:["KNSemiModalOptionPushParentBack":false,
+            "KNSemiModalOptionAnimationDuration" : 1.0,
+            "KNSemiModalOptionKeysShadowOpacity"     : 0.3
         ])
         
     }
     
     func presentSemiViewControllerWithMyOptions(vc:UIViewController)
     {
-        self.presentSemiViewController(vc, withOptions:[KNSemiModalOptionKeys.pushParentBack:false,
-            KNSemiModalOptionKeys.animationDuration : 1.0,
-            KNSemiModalOptionKeys.shadowOpacity     : 0.3
+        self.presentSemiViewController(vc,withOptions:["KNSemiModalOptionPushParentBack":false,
+            "KNSemiModalOptionAnimationDuration" : 1.0,
+            "KNSemiModalOptionKeysShadowOpacity"     : 0.3
             ])
         
     }

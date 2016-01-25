@@ -14,7 +14,6 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
     let menuHeight : CGFloat = 212
 
     
-    
     @IBOutlet var _naviMenuView: UIView!
     @IBOutlet var _titleButton: UIButton!
     var naviMenuView : UIView?
@@ -27,10 +26,6 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
     @IBOutlet weak var menuButton2: UIButton!
     @IBOutlet weak var menuButton3: UIButton!
 
-    override func awakeFromNib() {
-          httpGet = getDiscussList
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -41,35 +36,21 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
     }
     
     
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.navigationItem.title = "讨论"
     }
    
 
-    func getDiscussList(currentPage: Int, pageSize:Int)
+    override func httpGet()
     {
-        DataClient().getDiscussList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getDiscussListCompleted(dict, error: error)
-        })
-    }
-    
-    func getDiscussListCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        let array = dictData.objectForKey("discuessList") as? NSArray
-        if (array?.count ?? 0) > 0
-        {
-            
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.dataArray.addObjectsFromArray(array! as Array)
-                self.currentPage++
-                self.tableView.reloadData()
-                self.endLoad()
-            })
-
+        super.httpGet()
+        httpClient.getTopicEventList {(dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
         }
     }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goRepliedDiscussDetail" || segue.identifier == "goPostedDiscussDetail"
@@ -88,43 +69,24 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
-        var cell : DiscussTableViewCell?
-        if content.objectForKey("operate_type") as! Int == 0
-        {
-           cell = tableView.dequeueReusableCellWithIdentifier("DiscussPostedCell", forIndexPath: indexPath) as? DiscussTableViewCell
-
-        }
-            //if content.objectForKey("operate_type") as! Int == 1
-        else
-        {
-            cell = tableView.dequeueReusableCellWithIdentifier("DiscussRepliedCell", forIndexPath: indexPath) as? DiscussTableViewCell
-        }
-        cell?.displayData(content)
-        return cell!
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
-        if content.objectForKey("operate_type") as! Int == 0
-        {
-            let baseHeight :CGFloat = 100.0
-            let topicContentText = content.objectForKey("topic_content") as! String
-            let textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
-            
-            return textHeight+baseHeight
-            
-        }
-        else
-        {
-            let baseHeight :CGFloat = 100.0+90.0
-            let topicContentText = content.objectForKey("topic_content") as! String
-            let operatorContentText = content.objectForKey("operate_content") as! String
-            var textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
-            textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, self.view.frame.width - 32).height
-            return textHeight+baseHeight
-            
-        }
+                var cell : TopicEventCell?
+                if content.objectForKey("type") as! Int == 0
+                {
+                   cell = tableView.dequeueReusableCellWithIdentifier("TopicCell", forIndexPath: indexPath) as? TopicEventCell
         
+                }
+                    //if content.objectForKey("operate_type") as! Int == 1
+                else
+                {
+                    cell = tableView.dequeueReusableCellWithIdentifier("TopicRefCell", forIndexPath: indexPath) as? TopicEventCell
+                }
+
+
+        cell?.configure(content)
+        cell?.setNeedsLayout()
+        cell?.setNeedsDisplay()
+        cell?.layoutIfNeeded()
+        return cell!
     }
     
 

@@ -93,6 +93,8 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     override func viewDidLoad() {
          //self.goMainVC()
         
+        //HTTPClient().login("18917566917", password: "qwer1234") { (dict, error) -> () in }
+        
         super.viewDidLoad()
         self.navigationController?.navigationBar.backItem?.title = "";
         passowrd.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
@@ -102,12 +104,10 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
         
         passowrd.addDoneOnKeyboardWithTarget(self, action:"passwordTextFieldEnd")
         //returnKeyHandler = IQKeyboardReturnKeyHandler(viewController: self)
-        //userDefaults = NSUserDefaults()
+        userDefaults = NSUserDefaults()
         //let key = userDefaults.boolForKey("firstUse")
-        
-        let version = majorVersion
-        //if userDefaults.stringForKey("lastRunVersion") != majorVersion
-            if true
+
+        if userDefaults.stringForKey("lastRunVersion") != majorVersion
         {
             navigationItem.rightBarButtonItem?.title = ""
             setIntro()
@@ -147,34 +147,19 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
             showEmptyAlert()
             return
         }
-        let parameters = NSDictionary(objects:[userAccount.text,passowrd.text], forKeys: ["phone","password"])
-        DataClient().postLogin(parameters) { (dict, error) -> () in
+        httpClient.login(userAccount.text!, password: passowrd.text!, completion: { (dict, error) -> () in
             self.loginCompleted(dict,error: error)
-                    }
+        })
     }
     
     func loginCompleted(dict:NSDictionary?,error:NSError?)
     {
         
-        easeMobLogin()
-        if dict?.objectForKey("errcode") as? Int == 0
-        {
-            sessionId = dict!.objectForKey("sessionId") as! String
-            myLawyerId = dict!.objectForKey("lawyerId") as! Int
-            
-            saveAccountAndPassword()
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.goMainVC()
-            })
-
-        }
-        else
-        {
-            let message = dict?.objectForKey("errcode") as? String
-            let av = UIAlertView( title: "登录失败", message:message, delegate:nil, cancelButtonTitle:"确认")
-            av.show()
-        }
-        //self.goMainVC()
+        //easeMobLogin()
+        saveAccountAndPassword()
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.goMainVC()
+        })
         
     }
     
@@ -185,18 +170,12 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
             {
                 NSLog("登陆成功")
             }
-            //if error.errorCode == EMErrorType.
-            //{
-                
-            //}
-            
         }, onQueue: nil)
     }
     
     
     func loadAccountAndPassword() throws
     {
-        var error = NSErrorPointer()
         if (try SFHFKeychainUtils.getPasswordForUsername("", andServiceName: serviceName) != "")
         {
             NSLog("密码读取成功")

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7CED0927ABAB776EFD538273A0E9A6C6C4551619",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "646fb212-6d06-11e3-a2a4-57cd746879f3++1155" : 0,
+    "7CED0927ABAB776EFD538273A0E9A6C6C4551619" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "448FDFF6-1AE8-4E95-822E-2FE8ADD40E58",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "646fb212-6d06-11e3-a2a4-57cd746879f3++1155" : "Youlv\/Youlv\/Classes\/MJRefresh\/MJRefresh.bundle",
+    "7CED0927ABAB776EFD538273A0E9A6C6C4551619" : "Youlv"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Youlv",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Youlv.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.0.179\/BloodSugar",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "646fb212-6d06-11e3-a2a4-57cd746879f3++1155"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.ramy-inc.com:ios-team\/Youlv-IOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7CED0927ABAB776EFD538273A0E9A6C6C4551619"
+    }
+  ]
+}

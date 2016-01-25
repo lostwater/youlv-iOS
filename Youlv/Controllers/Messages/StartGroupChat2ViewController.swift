@@ -40,7 +40,7 @@ class StartGroupChat2ViewController: UIViewController,UITableViewDataSource,UITa
     {
         if selected == 2
         {
-            pw = password.text
+            pw = password.text!
         }
         DataClient().postCreateGroup(groupName, desc: groupDesc, isPublic: isPublic, isApproval: isApproval, password: pw, maxUsers: groupMaxUsers) { (dict, error) -> () in
             self.createGroupCompleted(dict, error: error)

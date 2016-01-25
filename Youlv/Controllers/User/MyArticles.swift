@@ -11,7 +11,7 @@
 class MyArticles:BaseTableViewController{
     
     
-    override func getDataArray(currentPage: Int, pageSize:Int)
+     func getDataArray(currentPage: Int, pageSize:Int)
     {
         getArticleList(currentPage, pageSize:pageSize)
     }
@@ -31,8 +31,7 @@ class MyArticles:BaseTableViewController{
         if (array?.count ?? 0) > 0
         {
             dataArray.addObjectsFromArray(array! as Array)
-            currentPage++
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
             })
             
@@ -64,7 +63,7 @@ class MyArticles:BaseTableViewController{
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ArticleCell", forIndexPath: indexPath) as! ArticleTableViewCell
-        cell.displayData(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
+        //cell.displayData(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
         
     }

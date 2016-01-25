@@ -39,6 +39,8 @@ let groupMaxUsers = 300
 let serviceName = "com.RamyTech.Youlv"
 
 var userDefaults = NSUserDefaults.standardUserDefaults()
+var httpClient = HTTPClient()
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -125,6 +127,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableView.appearance().layoutMargins = UIEdgeInsetsZero
         UITableViewCell.appearance().layoutMargins = UIEdgeInsetsZero
         UITableViewCell.appearance().preservesSuperviewLayoutMargins = false
+        
+//        if #available(iOS 8.0, *) {
+//            UITableView.appearance().layoutMargins = UIEdgeInsetsZero
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//        if #available(iOS 8.0, *) {
+//            UITableViewCell.appearance().layoutMargins = UIEdgeInsetsZero
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//        if #available(iOS 8.0, *) {
+//            UITableViewCell.appearance().preservesSuperviewLayoutMargins = false
+//        } else {
+//            // Fallback on earlier versions
+//        }
     }
     
     func setAppearance()

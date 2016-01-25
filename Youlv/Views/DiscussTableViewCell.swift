@@ -22,15 +22,15 @@ class DiscussTableViewCell: UITableViewCell
     @IBOutlet var operatorImageView: AvatarImageView?
     @IBOutlet var topicUserName: UILabel?
     @IBOutlet var operatorName: UILabel?
-    @IBOutlet var operatorTime: UILabel!
+    @IBOutlet var operatorTime: UILabel?
     @IBOutlet var bookMarkedButton: UIButton?
     @IBOutlet var likedButton: UIButton?
-    @IBOutlet var topicTextView: UITextView!
+    @IBOutlet var topicTextView: UITextView?
     @IBOutlet var operatorTextView: UITextView?
     @IBOutlet weak var topicTitle: UILabel?
     @IBOutlet weak var operateType: UILabel?
     
-    @IBOutlet var topicTextHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var topicTextHeightConstraint: NSLayoutConstraint?
     @IBOutlet var operatorTextHeightConstraint: NSLayoutConstraint?
     
     var isAvatarPushEnabled = true
@@ -43,8 +43,13 @@ class DiscussTableViewCell: UITableViewCell
     
     func displayData(dataDict : NSDictionary)
     {
+        let userDict = dataDict.objectForKey("user") as! NSDictionary
+        let topicDict = dataDict.objectForKey("topic") as! NSDictionary
+        let topicTypeDict = topicDict.objectForKey("type") as! NSDictionary
+        let topicUserDict = topicDict.objectForKey("user") as! NSDictionary
+        
         topicUserImageViewer?.isPushEnabled = isAvatarPushEnabled
-        discussOperateType = DiscussOperateType(rawValue: dataDict.objectForKey("operate_type") as! Int)
+        discussOperateType = DiscussOperateType(rawValue: dataDict.objectForKey("type") as! Int)
         if discussOperateType == DiscussOperateType.Bookmark
         {
             operateType?.text = "收藏了话题"
@@ -53,32 +58,36 @@ class DiscussTableViewCell: UITableViewCell
         {
             operateType?.text = "回应了话题"
         }
-        let topic_photoUrl = dataDict.objectForKey("topic_photoUrl") as! String
-        let operate_photoUrl = dataDict.objectForKey("operate_photoUrl") as! String
+        let topic_photoUrl = topicTypeDict.objectForKey("topictype_img") as! String
+        let operate_photoUrl = userDict.objectForKey("avatar") as! String
+        
         topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl), placeholderImage: headImage)
         operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl), placeholderImage: headImage)
-        topicUserImageViewer?.userId = dataDict.objectForKey("topic_lawyerId") as! Int
-        let opId = dataDict.objectForKey("operate_lawyerId") as! Int
-        operatorImageView?.userId = opId
-        topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
-        topicTitle?.text = dataDict.objectForKey("topic_title") as? String
-        operatorName?.text = dataDict.objectForKey("operate__lawyerName") as? String
-        let time = NSDate(fromString:dataDict.objectForKey("operate_createDate") as! String)
-        operatorTime.text = defaultDateFormatter.stringFromDate(time!)
-        likedButton?.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+        
+        topicUserImageViewer?.userId = topicUserDict.objectForKey("uid") as! Int
+        operatorImageView?.userId = userDict.objectForKey("uid") as! Int
+
+        topicUserName?.text = topicUserDict.objectForKey("name") as? String
+        topicTitle?.text = topicDict.objectForKey("title") as? String
+        operatorName?.text = userDict.objectForKey("name") as? String
+        
+        let time = NSDate(fromString:dataDict.objectForKey("ctime") as! String)
+        operatorTime?.text = defaultDateFormatter.stringFromDate(time!)
+        
+        likedButton?.setTitle(String(dataDict.objectForKey("up_num") as! Int)
 , forState: UIControlState.Normal)
-        likedButton?.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
+        likedButton?.setTitle(String(dataDict.objectForKey("up_num") as! Int)
             , forState: UIControlState.Selected)
         likedButton?.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
         likedButton?.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
-        likedButton?.selected = dataDict.objectForKey("topic_isPraise") as! Bool
+        likedButton?.selected = dataDict.objectForKey("up_or_not") as! Bool
         
         
         bookMarkedButton?.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
         bookMarkedButton?.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
 
-        let storeCount = dataDict.objectForKey("storeCount") as? Int
-        let isStore = dataDict.objectForKey("isStore") as? Bool
+        let storeCount = dataDict.objectForKey("up_num") as? Int
+        let isStore = dataDict.objectForKey("up_or_not") as? Bool
         if storeCount != nil
         {
         bookMarkedButton?.setTitle(String(storeCount!)
@@ -91,17 +100,14 @@ class DiscussTableViewCell: UITableViewCell
             bookMarkedButton?.selected = isStore!
         }
 
-        topicTextView.text = dataDict.objectForKey("topic_content") as? String
-        operatorTextView?.text = dataDict.objectForKey("operate_content") as? String
-        resizeTextView(topicTextView)
+        topicTextView?.text = topicDict.objectForKey("text") as? String
+        operatorTextView?.text = dataDict.objectForKey("comment") as? String
+        //resizeTextView(topicTextView)
         
         if operatorTextView != nil
         {
-            resizeTextView(operatorTextView!)
-            //if operatorTextView!.text == ""
-            //{
-            //    collapseView(operatorTextView!)
-            //}
+            //resizeTextView(operatorTextView!)
+
         }
 
     }
@@ -114,7 +120,7 @@ class DiscussTableViewCell: UITableViewCell
 
         topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl), placeholderImage: UIImage(named:"pichead"))
         topicUserImageViewer?.userId = dataDict.objectForKey("topic_lawyerId") as! Int
-        operatorTime.text = dataDict.objectForKey("topic_createDate") as? String
+        operatorTime?.text = dataDict.objectForKey("topic_createDate") as? String
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
 
         bookMarkedButton?.setTitle(String(dataDict.objectForKey("topic_praiseCount") as! Int)
@@ -126,9 +132,9 @@ class DiscussTableViewCell: UITableViewCell
         //bookMarkedButton?.selected = dataDict.objectForKey("isStore") as! Bool
 
         //bookMarkedButton?.hidden = true
-        topicTextView.text = dataDict.objectForKey("topic_content") as? String
+        topicTextView?.text = dataDict.objectForKey("topic_content") as? String
 
-        resizeTextView(topicTextView)
+        resizeTextView(topicTextView!)
         
         if operatorTextView != nil
         {
@@ -142,7 +148,7 @@ class DiscussTableViewCell: UITableViewCell
     {
         discussOperateType = DiscussOperateType.Post
         let topic_photoUrl = dataDict.objectForKey("topic_lawyerPhotoUrl") as! String
-        operatorTime.text = dataDict.objectForKey("topic_createDate") as? String
+        operatorTime?.text = dataDict.objectForKey("topic_createDate") as? String
         topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl), placeholderImage: UIImage(named:"pichead"))
         topicUserImageViewer?.userId = dataDict.objectForKey("topic_lawyerId") as! Int
         topicUserName?.text = dataDict.objectForKey("topic_lawyerName") as? String
@@ -154,9 +160,9 @@ class DiscussTableViewCell: UITableViewCell
         bookMarkedButton?.setImage(UIImage(named: "iconfavorite"), forState: UIControlState.Selected)
         bookMarkedButton?.setImage(UIImage(named: "iconfavoriteoutline"), forState: UIControlState.Normal)
         //bookMarkedButton?.selected = dataDict.objectForKey("isStore") as! Bool
-        topicTextView.text = dataDict.objectForKey("topic_content") as? String
+        topicTextView?.text = dataDict.objectForKey("topic_content") as? String
 
-        resizeTextView(topicTextView)
+        resizeTextView(topicTextView!)
         
         if operatorTextView != nil
         {
@@ -172,12 +178,12 @@ class DiscussTableViewCell: UITableViewCell
         operatorImageView?.sd_setImageWithURL(NSURL(string: operate_photoUrl), placeholderImage: UIImage(named:"pichead"))
         operatorImageView?.userId = dataDict.objectForKey("reply_lawyerId") as! Int
         operatorName?.text = dataDict.objectForKey("reply_lawyerName") as? String
-        operatorTime.text = dataDict.objectForKey("reply_createDate") as? String
+        operatorTime?.text = dataDict.objectForKey("reply_createDate") as? String
         //bookMarkedButton?.hidden = true
 
-        topicTextView.text = dataDict.objectForKey("topic_content") as? String
+        topicTextView?.text = dataDict.objectForKey("topic_content") as? String
         operatorTextView?.text = dataDict.objectForKey("reply_content") as? String
-        resizeTextView(topicTextView)
+        resizeTextView(topicTextView!)
         
         if operatorTextView != nil
         {
@@ -188,7 +194,7 @@ class DiscussTableViewCell: UITableViewCell
     
     func resetTextViewSize()
     {
-        resizeTextView(topicTextView)
+        resizeTextView(topicTextView!)
         
         if operatorTextView != nil
         {

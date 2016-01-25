@@ -36,9 +36,6 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
     var titleButton : UIButton?
     
 
-    override func awakeFromNib() {
-        httpGet = getOrderList
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,33 +49,15 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
         super.viewDidAppear(animated)
         tabBarController?.navigationItem.title = "商机"
     }
-
     
-    func getOrderList(currentPage: Int, pageSize:Int)
-    {
-        DataClient().getOrderList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getOrderListCompleted(dict, error: error)
-        })
-    }
-    
-    func getOrderListCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        let array = dictData.objectForKey("orderList") as? NSArray
-        if (array?.count ?? 0) > 0
-        {
-            dataArray.addObjectsFromArray(array! as Array)
-            currentPage++
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.tableView.reloadData()
-                self.endLoad()
-            })
+    override func httpGet() {
+        super.httpGet()
+        httpClient.getCaseList{(dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
         }
-        
-        
-
-        
     }
+
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goOpportunityDetail"
@@ -92,22 +71,26 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityTableViewCell", forIndexPath: indexPath) as! OpportunityTableViewCell
+        var cell : OpportunityTableViewCell?
         let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
-        cell.displayData(content)
-        return cell
+        let type = content.objectForKey("type") as! Int
+        if type < 3
+        {
+            cell = tableView.dequeueReusableCellWithIdentifier("CaseCell", forIndexPath: indexPath) as! OpportunityTableViewCell
+        }
+        else
+        {
+            cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! OpportunityTableViewCell
+        }
+        cell!.configure(content)
+        return cell!
     }
+    
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let text = (dataArray.objectAtIndex(indexPath.row) as! NSDictionary).objectForKey("order_content") as! String
-        return calTextSizeWithDefualtFont(text,width: self.view.frame.size.width - 20).height+160.0
+        return UITableViewAutomaticDimension
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
     
     func setMenuTextAndHide(selectedButton : UIButton)

@@ -11,8 +11,8 @@ import UIKit
 class NewOpTableViewController: UITableViewController {
 
     @IBAction func buttonPubClicked(sender: AnyObject) {
-        thetitle = titleTextField.text
-        content = contentContainer.text
+        thetitle = titleTextField.text!
+        content = contentContainer.text!
          postDict = NSDictionary(objects: [thetitle, content, privilege, tagList, blackList, whiteList,cityId, cityName,deadDate, sessionId], forKeys: ["tile","content","type","keyWords","blackList","whiteList","cityId","cityName","deaddate","sessionId"])
         DataClient().postOrder(postDict!, completion: { (data, error) -> () in
             

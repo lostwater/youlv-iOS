@@ -63,6 +63,9 @@
 		0B6FA2381B177336001414B0 /* InterviewAskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6FA2371B177336001414B0 /* InterviewAskViewController.swift */; };
 		0B71BD4B1B09022300257C17 /* EaseMobHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B71BD4A1B09022300257C17 /* EaseMobHelper.swift */; };
 		0B71BD4E1B0906C700257C17 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B71BD4D1B0906C700257C17 /* KeychainItemWrapper.m */; };
+		0B769A311C528D18001108E3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B769A301C528D18001108E3 /* HTTPClient.swift */; };
+		0B7839751C553D7100F6A3C4 /* HomeBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7839741C553D7000F6A3C4 /* HomeBaseViewController.swift */; };
+		0B7839771C55CEBA00F6A3C4 /* TopicEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7839761C55CEBA00F6A3C4 /* TopicEventCell.swift */; };
 		0B786E581B0B8E36008B80BC /* MyEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B786E571B0B8E36008B80BC /* MyEventsTableViewController.swift */; };
 		0B786E5A1B0B8E63008B80BC /* MyArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B786E591B0B8E63008B80BC /* MyArticles.swift */; };
 		0B786E5C1B0B94BF008B80BC /* MyHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B786E5B1B0B94BF008B80BC /* MyHomeTableViewController.swift */; };
@@ -542,6 +545,9 @@
 		0B71BD4A1B09022300257C17 /* EaseMobHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseMobHelper.swift; sourceTree = "<group>"; };
 		0B71BD4C1B0906C700257C17 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		0B71BD4D1B0906C700257C17 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		0B769A301C528D18001108E3 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPClient.swift; path = Classes/HTTPClient.swift; sourceTree = "<group>"; };
+		0B7839741C553D7000F6A3C4 /* HomeBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBaseViewController.swift; sourceTree = "<group>"; };
+		0B7839761C55CEBA00F6A3C4 /* TopicEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicEventCell.swift; sourceTree = "<group>"; };
 		0B786E571B0B8E36008B80BC /* MyEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventsTableViewController.swift; sourceTree = "<group>"; };
 		0B786E591B0B8E63008B80BC /* MyArticles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyArticles.swift; sourceTree = "<group>"; };
 		0B786E5B1B0B94BF008B80BC /* MyHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHomeTableViewController.swift; sourceTree = "<group>"; };
@@ -1208,6 +1214,7 @@
 				0BCECFBB1AD99A7A006BE53A /* Youlv-Bridging-Header.h */,
 				0B5FDEFD1AD6A2EF00773360 /* AppDelegate.swift */,
 				0BEF298C1AFBC870001C7D43 /* DataClient.swift */,
+				0B769A301C528D18001108E3 /* HTTPClient.swift */,
 				0BBE37411AE1060500FA0018 /* Views */,
 				0BCECFEB1ADAAD76006BE53A /* Controllers */,
 				0B10C9E81ADAEE8E00695853 /* StoryBoards */,
@@ -1362,6 +1369,7 @@
 				0BC050C21AEE4443003360CE /* OpportunitiesTableViewController.swift */,
 				0BEF298E1AFD2CC2001C7D43 /* OpportunityDetailViewController.swift */,
 				0BB5B5941B0DABA9008A2A85 /* OpportunityCommentViewController.swift */,
+				0B7839741C553D7000F6A3C4 /* HomeBaseViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1389,6 +1397,7 @@
 				0B8BB8E51B0777380034B006 /* ResearchTableViewCell.swift */,
 				0B242CBC1B4D8ACB0080771D /* UserImagesTableViewCell.swift */,
 				0BD91B981B62C3A800C8CC7F /* GroupTableViewCell.swift */,
+				0B7839761C55CEBA00F6A3C4 /* TopicEventCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2426,6 +2435,7 @@
 				0B5FDEF51AD6A2EF00773360 /* Frameworks */,
 				0B5FDEF61AD6A2EF00773360 /* Resources */,
 				E75F57A321247F7FE2DDC08C /* Copy Pods Resources */,
+				DAA32742A312DE85C53A9C40 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2445,6 +2455,7 @@
 				0B5FDF0A1AD6A2EF00773360 /* Frameworks */,
 				0B5FDF0B1AD6A2EF00773360 /* Resources */,
 				2CE336171D52621D51D4E00F /* Copy Pods Resources */,
+				5DD786C3BB244586461FE3F4 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2758,6 +2769,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		5DD786C3BB244586461FE3F4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YoulvTests/Pods-YoulvTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A9DCA3575BFBADEA6E4634F8 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2771,6 +2797,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DAA32742A312DE85C53A9C40 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Youlv/Pods-Youlv-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E75F57A321247F7FE2DDC08C /* Copy Pods Resources */ = {
@@ -2827,6 +2868,7 @@
 				0BB5B5951B0DABA9008A2A85 /* OpportunityCommentViewController.swift in Sources */,
 				0BA1EC351B0243F9004F3546 /* DiscussDetailViewController.swift in Sources */,
 				0B3C725D1B00B2E200D264E2 /* DiscussTableViewCell.swift in Sources */,
+				0B7839771C55CEBA00F6A3C4 /* TopicEventCell.swift in Sources */,
 				0BDA4E831B2F53E2004B6753 /* MessageReadManager.m in Sources */,
 				0BDA4E811B2F53E2004B6753 /* MessageModel.m in Sources */,
 				0BDA4E951B2F53E2004B6753 /* ApplyFriendCell.m in Sources */,
@@ -2928,6 +2970,7 @@
 				0BDA4E8B1B2F53E2004B6753 /* GroupSubjectChangingViewController.m in Sources */,
 				0BDA4E4B1B2F53E2004B6753 /* PSTCollectionViewFlowLayout.m in Sources */,
 				0BDA4E661B2F53E2004B6753 /* AppDelegate+EaseMob.m in Sources */,
+				0B7839751C553D7100F6A3C4 /* HomeBaseViewController.swift in Sources */,
 				0BDA4EA01B2F53E2004B6753 /* PushNotificationViewController.m in Sources */,
 				0BDA4E261B2F53E2004B6753 /* EMCDDeviceManager+Remind.m in Sources */,
 				0BDA4E361B2F53E2004B6753 /* EMSDImageCache.m in Sources */,
@@ -3001,6 +3044,7 @@
 				0BDA4E581B2F53E2004B6753 /* THProgressView.m in Sources */,
 				0BDA4E791B2F53E2004B6753 /* EMChatBaseBubbleView.m in Sources */,
 				0BDA4E6B1B2F53E2004B6753 /* CallViewController.m in Sources */,
+				0B769A311C528D18001108E3 /* HTTPClient.swift in Sources */,
 				0BDA4E8C1B2F53E2004B6753 /* PublicGroupDetailViewController.m in Sources */,
 				0BDA4E2A1B2F53E2004B6753 /* EmojiEmoticons.m in Sources */,
 				0BCAEE221AD7CC6300421B7A /* TopTabBarController.swift in Sources */,
@@ -3099,8 +3143,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Li Xiaosong (8PTH65AJNZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Li Xiaosong (8PTH65AJNZ)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -3121,7 +3165,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "133d04b5-2d99-4a18-b261-589402340520";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3145,8 +3189,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Li Xiaosong (8PTH65AJNZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Li Xiaosong (8PTH65AJNZ)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3159,7 +3203,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "133d04b5-2d99-4a18-b261-589402340520";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3171,20 +3215,17 @@
 			baseConfigurationReference = AC61B62063B859E8AC526E62 /* Pods-Youlv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Faxintong Technology Co., Ltd. (B5877S76EH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Faxintong Technology Co., Ltd. (B5877S76EH)";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = Youlv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Youlv/Classes/VoiceLib",
-					"$(PROJECT_DIR)/Youlv/IM/3rdparty/UMeng",
-					"$(PROJECT_DIR)/Youlv/UUChat/OtherResources/VoiceLib",
 					"$(PROJECT_DIR)/Youlv/EaseMobIM/3rdparty/UMeng",
 					"$(PROJECT_DIR)/Youlv/EaseMobIM/3rdparty/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/Youlv/EaseMobIM/3rdparty/VoiceConvert/opencore-amrwb",
@@ -3202,20 +3243,17 @@
 			baseConfigurationReference = BC08593F6B57076AEFC6518F /* Pods-Youlv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Faxintong Technology Co., Ltd. (B5877S76EH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Faxintong Technology Co., Ltd. (B5877S76EH)";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PrefixHeader.pch;
 				INFOPLIST_FILE = Youlv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Youlv/Classes/VoiceLib",
-					"$(PROJECT_DIR)/Youlv/IM/3rdparty/UMeng",
-					"$(PROJECT_DIR)/Youlv/UUChat/OtherResources/VoiceLib",
 					"$(PROJECT_DIR)/Youlv/EaseMobIM/3rdparty/UMeng",
 					"$(PROJECT_DIR)/Youlv/EaseMobIM/3rdparty/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/Youlv/EaseMobIM/3rdparty/VoiceConvert/opencore-amrwb",

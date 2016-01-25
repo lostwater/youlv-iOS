@@ -52,27 +52,21 @@ class ArticleDetailViewController: UIViewController {
     
     func displayData(dataDict : NSDictionary)
     {
-        articleId = (dataDict.objectForKey("articleId") as? Int)!
+        let userDict = dataDict.objectForKey("user") as! NSDictionary
+        articleId = (dataDict.objectForKey("article_id") as? Int)!
         userImageView.image = headImage
-        userName.text = dataDict.objectForKey("lawyerName") as? String
+        userName.text = userDict.objectForKey("name") as? String
         
-        articleTime.text = defaultDateFormatter.stringFromDate(NSDate(fromString: (dataDict.objectForKey("createDate") as! String)))
-        articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("url") as! String),placeholderImage:defualtPic)
+        articleTime.text = defaultDateFormatter.stringFromDate(NSDate(fromString: (dataDict.objectForKey("ctime") as! String)))
+        articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("article_img") as! String),placeholderImage:defualtPic)
         articleTitle.text = dataDict.objectForKey("title") as? String
-        articleTextView.text =  dataDict.objectForKey("acro") as? String
+        articleTextView.text =  dataDict.objectForKey("text") as? String
         //commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Normal)
         //commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Selected)
-        likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Normal)
-        likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Selected)
-        let isLiked = dataDict.objectForKey("isStore") as! Bool
-        if isLiked
-        {
-            likedButton.selected = true
-        }
-        else
-        {
-            likedButton.selected = false
-        }
+        //likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Normal)
+        //likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Selected)
+        likedButton.selected = dataDict.objectForKey("up_or_not") as! Bool
+
 
     }
     

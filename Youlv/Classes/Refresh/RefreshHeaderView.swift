@@ -90,14 +90,14 @@ class RefreshHeaderView: RefreshBaseView {
     }
     
     //监听UIScrollView的contentOffset属性
-    override  func observeValueForKeyPath(keyPath: String?!, ofObject object: AnyObject?!, change: [String : AnyObject]?!, context: UnsafeMutablePointer<Void>) {
+    override  func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if (!self.userInteractionEnabled || self.hidden){
             return
         }
         if (self.State == RefreshState.Refreshing) {
             return
         }
-        if RefreshContentOffset.isEqualToString(keyPath){
+        if RefreshContentOffset.isEqualToString(keyPath!){
             self.adjustStateWithContentOffset()
         }
     }

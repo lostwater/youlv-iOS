@@ -14,7 +14,7 @@ class HomeNavigationController: UINavigationController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         var homeStoryBoard = UIStoryboard(name:"Home",bundle:nil)
-        var vc = homeStoryBoard.instantiateInitialViewController() as! UIViewController
+        var vc = homeStoryBoard.instantiateInitialViewController()!
         
     }
     

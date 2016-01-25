@@ -85,7 +85,7 @@ func resizeTextView(textView : UITextView) -> CGSize
     }
     if(cs.first != nil)
     {
-        let constrainth = cs.first as! NSLayoutConstraint
+        let constrainth = cs.first!
         constrainth.constant = textsize.height + 16
     }
     return textsize
@@ -104,7 +104,7 @@ func collapseView(view: UIView)
     }
     if(cs.first != nil)
     {
-        let constraint = cs.first as! NSLayoutConstraint
+        let constraint = cs.first!
         constraint.constant = 0
     }
 }
@@ -122,7 +122,7 @@ func getHeightConstaint(view: UIView) ->CGFloat
     }
     if(cs.first != nil)
     {
-        let constraint = cs.first as! NSLayoutConstraint
+        let constraint = cs.first!
         return constraint.constant
     }
     return 0

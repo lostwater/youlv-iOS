@@ -1,46 +1,40 @@
 PODS:
-  - AFNetworking (2.6.0):
-    - AFNetworking/NSURLConnection (= 2.6.0)
-    - AFNetworking/NSURLSession (= 2.6.0)
-    - AFNetworking/Reachability (= 2.6.0)
-    - AFNetworking/Security (= 2.6.0)
-    - AFNetworking/Serialization (= 2.6.0)
-    - AFNetworking/UIKit (= 2.6.0)
-  - AFNetworking/NSURLConnection (2.6.0):
+  - AFNetworking (3.0.4):
+    - AFNetworking/NSURLSession (= 3.0.4)
+    - AFNetworking/Reachability (= 3.0.4)
+    - AFNetworking/Security (= 3.0.4)
+    - AFNetworking/Serialization (= 3.0.4)
+    - AFNetworking/UIKit (= 3.0.4)
+  - AFNetworking/NSURLSession (3.0.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.0)
-  - AFNetworking/Security (2.6.0)
-  - AFNetworking/Serialization (2.6.0)
-  - AFNetworking/UIKit (2.6.0):
-    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (3.0.4)
+  - AFNetworking/Security (3.0.4)
+  - AFNetworking/Serialization (3.0.4)
+  - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - BlurryModalSegue (1.1.2):
     - MZAppearance (~> 1.1.1)
     - UIImage+BlurredFrame (~> 0.0.4)
   - EaseMobSDKFull (2.1.7)
   - FSMediaPicker (0.0.2)
-  - ImagePlayerView (1.0.3)
-  - IQKeyboardManager (3.3.1)
-  - KNSemiModalViewController (0.3)
-  - KVNProgress (2.2.1)
+  - ImagePlayerView (1.1.2)
+  - IQKeyboardManager (3.3.6)
+  - KNSemiModalViewController_hons82 (0.4.4)
+  - KVNProgress (2.2.2)
   - MYBlurIntroductionView (1.0.3)
-  - MZAppearance (1.1.5)
-  - MZFormSheetController (3.1.0):
+  - MZAppearance (1.1.6)
+  - MZFormSheetController (3.1.3):
     - MZAppearance
-    - MZFormSheetController/Core (= 3.1.0)
-  - MZFormSheetController/Core (3.1.0):
+    - MZFormSheetController/Core (= 3.1.3)
+  - MZFormSheetController/Core (3.1.3):
     - MZAppearance
-  - SDWebImage (3.7.3):
-    - SDWebImage/Core (= 3.7.3)
-  - SDWebImage/Core (3.7.3)
-  - THCalendarDatePicker (1.2.2):
-    - KNSemiModalViewController (~> 0.3)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+  - THCalendarDatePicker (1.2.5):
+    - KNSemiModalViewController_hons82 (~> 0.4.3)
   - UIImage+BlurredFrame (0.0.4)
 
 DEPENDENCIES:
@@ -50,7 +44,6 @@ DEPENDENCIES:
   - FSMediaPicker
   - ImagePlayerView
   - IQKeyboardManager
-  - KNSemiModalViewController
   - KVNProgress
   - MYBlurIntroductionView
   - MZFormSheetController
@@ -58,19 +51,19 @@ DEPENDENCIES:
   - THCalendarDatePicker
 
 SPEC CHECKSUMS:
-  AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   BlurryModalSegue: 35cdad34eba31228e4d84073033a9ea7d6537aa4
   EaseMobSDKFull: 43858ca9a62bbe1fa4c7c006f944a3e52a4bff48
   FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
-  ImagePlayerView: c5db63e0548d711b16b2c7a3acae720216d0082b
-  IQKeyboardManager: 860a5b9df32cc1435a3e967a08ed87de3e59c12e
-  KNSemiModalViewController: 8c0056377714b5170c52c65977d540200405411f
-  KVNProgress: 7001d2d16a2755cee5599e8e485befe056f2197b
+  ImagePlayerView: 127c82f198721aa7bcad57f87598cd125043aa84
+  IQKeyboardManager: 037cf3aec1d0a045108859a47818714eb1bfc149
+  KNSemiModalViewController_hons82: 22aead5ef5d8ca749bc1babb43fa7d6f14b030a3
+  KVNProgress: 4697347e21e37fdaa5264ebc24e377c205a50328
   MYBlurIntroductionView: b12651c25574580472ff34989a4c5b81c157009f
-  MZAppearance: 6e9dc64e42074c0a19812a327f590746c3283bab
-  MZFormSheetController: a29e904f8832bcaa08a9751106e10beb4df751df
-  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  THCalendarDatePicker: 7aba6dd640b27f4354f4392c4c895ff8622e00b8
+  MZAppearance: 0c06d3fa9cc55142f1da14bc8631fbe8fd6e19d5
+  MZFormSheetController: da2df509805d757e04b052915057d8e1a338b050
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  THCalendarDatePicker: 65c63c1814d1a27defc89f4b72ec7a1d01d5503d
   UIImage+BlurredFrame: ad2f7195c6947ea3117c7d202f75a51958d5061a
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0

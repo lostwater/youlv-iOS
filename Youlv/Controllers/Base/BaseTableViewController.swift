@@ -11,13 +11,12 @@ import UIKit
 class BaseTableViewController: UITableViewController {
 
     var dataArray = NSMutableArray()
-    var currentPage = 1
     var isLoading = false
     
-    var httpGet : ((currentPage: Int, pageSize:Int)->Void)?
+    var nextUrl : String?
 
     
-    func getDataArray(currentPage: Int, pageSize:Int)
+    func getDataArray()
     {
         if isLoading
         {
@@ -26,23 +25,76 @@ class BaseTableViewController: UITableViewController {
         else
         {
             isLoading = true
-            httpGet!(currentPage: currentPage, pageSize:10)
+            httpGet()
         }
     }
     
     func endLoad()
     {
         isLoading = false
-        tableView.headerEndRefreshing()
-        tableView.footerEndRefreshing()
+    }
+    
+    func httpGet()
+    {
+        if isLoading
+        {
+            return
+        }
+        else
+        {
+            isLoading = true
+        }
+
+    }
+    
+    func httpGetNext()
+    {
+        if isLoading
+        {
+            return
+        }
+        else
+        {
+            isLoading = true
+        }
+        httpClient.httpGet(nextUrl!) {(dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
+        }    
+    }
+    
+    func httpGetCompleted(dict : NSDictionary?, error : NSError?)
+    {
+        nextUrl = dict?.objectForKey("next") as? String
+        let array = dict!.objectForKey("results") as? NSArray
+        if (array?.count ?? 0) > 0
+        {
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.dataArray.addObjectsFromArray(array! as Array)
+                self.tableView.reloadData()
+                self.endLoad()
+                self.tableView.setNeedsLayout()
+                self.tableView.layoutIfNeeded()
+                self.tableView.reloadData()
+                self.tableView.beginUpdates()
+                self.tableView.endUpdates()
+            })
+            
+        }
+    }
+    
+    override func awakeFromNib()
+    {
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRefresh()
-        currentPage = 1
         dataArray.removeAllObjects()
-        getDataArray(currentPage,pageSize:10)
+        httpGet()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -50,12 +102,23 @@ class BaseTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+//    override func viewDidAppear(animated:Bool)
+//    {
+//        super.viewDidAppear(animated)
+//        
+//        
+//        tableView.reloadData()
+//        tableView.setNeedsLayout()
+//        tableView.layoutIfNeeded()
+//        tableView.reloadData()
+//    }
+    
     func refreshDataArrary()
     {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.currentPage = 1
+            
             self.dataArray.removeAllObjects()
-            self.getDataArray(self.currentPage,pageSize:10)
+            self.getDataArray()
         })
         
 
@@ -78,19 +141,20 @@ class BaseTableViewController: UITableViewController {
                 self.tableView.footerEndRefreshing()
                 return
             }
-                self.getDataArray(self.currentPage,pageSize: 10)
+            if (self.nextUrl ?? "").isEmpty
+            {
+                self.endLoad()
+            }
+            else
+            {
+                self.httpGetNext()
+            }
                 //self.tableView.setFooterHidden(true)
         })
     }
 
     
-    func viewWillAppear2(animated: Bool)
-    {
-        currentPage = 1
-        dataArray.removeAllObjects()
-        getDataArray(currentPage,pageSize:10)
 
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -116,13 +180,8 @@ class BaseTableViewController: UITableViewController {
         return dataArray.count
     }
     
-     func tableView2(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-            if indexPath.item == dataArray.count - 1
-            {
-                getDataArray(currentPage,pageSize: 10)
-            }
-    }
+
+    
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

@@ -9,63 +9,12 @@
 import UIKit
 
 class MyEventsTableViewController: BaseTableViewController {
-    override func awakeFromNib() {
-        httpGet = getEventList
-    }
-    
-
-    func getEventList(currentPage: Int, pageSize:Int)
-    {
-        DataClient().getEventList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getEventListCompleted(dict, error: error)
-        })
-    }
-
-    
-    func getEventListCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        let array = dictData.objectForKey("activeList") as? NSArray
-        if (array?.count ?? 0) > 0
-        {
-            dataArray.addObjectsFromArray(array! as Array)
-            currentPage++
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.tableView.reloadData()
-                self.tableView.headerEndRefreshing()
-                self.tableView.footerEndRefreshing()
-
-            })
-            
-            
+    override func httpGet() {
+        super.httpGet()
+        httpClient.getArticleList { (dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
         }
-        
     }
-    
-    var eventsArray : NSArray?
-    
-    
-    
-    
-    let client = DataClient()
-    func getMyEventsList(currentPage: Int, pageSize:Int)
-    {
-        client.getMyEventsList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getMyEventsListCompleted(dict, error: error)
-        })
-    }
-    
-    func getMyEventsListCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        eventsArray = (dictData.objectForKey("activeList") as? NSArray)!
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
-        
-    }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goEventDetail"
@@ -77,25 +26,10 @@ class MyEventsTableViewController: BaseTableViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
-    // MARK: - Table view data source
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventTableViewCell
-        cell.displayData(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
+        cell.configure(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
         
     }

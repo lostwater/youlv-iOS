@@ -34,8 +34,8 @@ class TopicsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.titleView = searchBar
-        tableView.headerViewForSection(0)?.textLabel.textColor = appBlueColor
-        tableView.headerViewForSection(0)?.textLabel.text = "热门"
+        tableView.headerViewForSection(0)?.textLabel!.textColor = appBlueColor
+        tableView.headerViewForSection(0)?.textLabel!.text = "热门"
         getTopicList(currentPage, pageSize:10)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

@@ -10,34 +10,11 @@ import UIKit
 class ArticlesTableViewController: BaseTableViewController,NaviBarMenu {
 
     
-    func getArticleList(currentPage: Int, pageSize:Int)
-    {
-        DataClient().getArticleList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getArticleListCompleted(dict, error: error)
-        })
-    }
-    
-    func getArticleListCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        let array = dictData.objectForKey("articleList") as? NSArray
-        if (array?.count ?? 0) > 0
-        {
-            dataArray.addObjectsFromArray(array! as Array)
-            currentPage++
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.tableView.reloadData()
-                 self.endLoad()
-
-            })
-
+    override func httpGet() {
+        super.httpGet()
+        httpClient.getArticleList { (dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
         }
-        
-        
-    }
-    
-    override func awakeFromNib() {
-        httpGet = getArticleList
     }
 
     
@@ -60,7 +37,7 @@ class ArticlesTableViewController: BaseTableViewController,NaviBarMenu {
         {
             let vc = segue.destinationViewController as! ArticleDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item
-            var selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
+            //var selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
             vc.dataDict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
         }
     }
@@ -68,7 +45,7 @@ class ArticlesTableViewController: BaseTableViewController,NaviBarMenu {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ArticleCell", forIndexPath: indexPath) as! ArticleTableViewCell
-        cell.displayData(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
+        cell.configure(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
         
     }

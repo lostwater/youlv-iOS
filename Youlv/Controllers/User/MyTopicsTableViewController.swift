@@ -168,7 +168,7 @@ class MyTopicsTableViewController: UITableViewController {
             let topicContentText = dataDict.objectForKey("topic_content") as! String
             let operatorContentText = dataDict.objectForKey("reply_content") as! String
             var textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
-            textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, self.view.frame.width - 32).height
+            textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, width: self.view.frame.width - 32).height
             return textHeight+baseHeight
         }
 

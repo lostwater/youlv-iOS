@@ -101,15 +101,15 @@ class SignupViewController: UIViewController {
 //             showErrorMessage("用户名不能为空")
 //            return
 //        }
-        storedUsername = mobile.text
-        storedPassword = password.text
+        storedUsername = mobile.text!
+        storedPassword = password.text!
         if storedUsername == "" ||   storedPassword == ""
         {
             showEmptyAlert()
             return
         }
         //let parameters = NSDictionary(objects:[storedUsername,storedPassword], forKeys: ["phone","password"])
-        DataClient().postSignup(storedUsername,password: storedPassword,code: validCode.text,name: userName.text){ (data, error) -> () in
+        DataClient().postSignup(storedUsername,password: storedPassword,code: validCode.text!,name: userName.text!){ (data, error) -> () in
             self.signupCompleted(data,error: error)
         }
     }
@@ -170,7 +170,7 @@ class SignupViewController: UIViewController {
     func askValidCode()
     {
         
-        DataClient().postSendMobile(mobile.text, type: 0) { (dict, error) -> () in
+        DataClient().postSendMobile(mobile.text!, type: 0) { (dict, error) -> () in
             self.askValdCodeCompleted(dict,error: error)
         }
         let av = UIAlertView(title: "", message: "验证码已发送", delegate: nil, cancelButtonTitle: "确认")

@@ -51,7 +51,7 @@ class InterviewDetailViewController: BaseTableViewController {
     var dataDictFromList : NSDictionary?
     
 
-    override func getDataArray(currentPage: Int, pageSize:Int)
+     func getDataArray(currentPage: Int, pageSize:Int)
     {
         getInterviewDetail(currentPage, pageSize:pageSize)
     }
@@ -74,8 +74,7 @@ class InterviewDetailViewController: BaseTableViewController {
         if (array?.count ?? 0) > 0
         {
             dataArray.addObjectsFromArray(array! as Array)
-            currentPage++
-            
+                       
         }
         dataDict = dictData.objectForKey("viewDetail") as? NSDictionary
         dispatch_sync(dispatch_get_main_queue(), { () -> Void in

@@ -10,8 +10,7 @@ import UIKit
 
 class InterviewTableViewController: BaseTableViewController {
     override func awakeFromNib() {
-        httpGet = getInterviewList
-    }
+            }
 
     func getInterviewList(currentPage: Int, pageSize:Int)
     {
@@ -28,7 +27,7 @@ class InterviewTableViewController: BaseTableViewController {
         if (array?.count ?? 0) > 0
         {
             dataArray.addObjectsFromArray(array! as Array)
-            currentPage++
+
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
                  self.endLoad()

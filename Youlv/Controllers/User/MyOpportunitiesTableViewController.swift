@@ -94,14 +94,14 @@ class MyOpportunitiesTableViewController: UITableViewController {
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityTableViewCell", forIndexPath: indexPath) as! OpportunityTableViewCell
             let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
-            cell.displayData(content)
+            cell.configure(content)
             return cell
         }
         else
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityReplyCell", forIndexPath: indexPath) as! OpportunityReplyTableViewCell
             let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
-            cell.displayData(content)
+            //cell.configure(content)
             return cell
         }
     }

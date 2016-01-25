@@ -135,7 +135,7 @@ class UserHomeTableViewController: UITableViewController {
             let topicContentText = content.objectForKey("topic_content") as! String
             let operatorContentText = content.objectForKey("operate_content") as! String
             var textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
-            textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, self.view.frame.width - 32).height
+            textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, width: self.view.frame.width - 32).height
             return textHeight+baseHeight
             
         }

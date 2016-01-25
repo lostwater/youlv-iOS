@@ -10,12 +10,12 @@
 
 #define MY_APP_BLUE_COLOR [UIColor colorWithRed:0.0 green:177/255.0f blue:241/255.0f alpha:1.0]
 //#define MY_APP_BLUE_COLOR  [UIColor cyanColor]
-#define CORNER_RADIUS 10.0f
-#define LABEL_MARGIN 5.0f
-#define BOTTOM_MARGIN 5.0f
-#define FONT_SIZE 12.0f
-#define HORIZONTAL_PADDING 7.0f
-#define VERTICAL_PADDING 3.0f
+#define CORNER_RADIUS 8.0f
+#define LABEL_MARGIN 2.0f
+#define BOTTOM_MARGIN 2.0f
+#define FONT_SIZE 10.0f
+#define HORIZONTAL_PADDING 4.0f
+#define VERTICAL_PADDING 2.0f
 #define BACKGROUND_COLOR [UIColor clearColor]
 #define TEXT_COLOR MY_APP_BLUE_COLOR
 #define TEXT_SHADOW_COLOR [UIColor whiteColor]
@@ -27,14 +27,33 @@
 
 @synthesize view, textArray;
 
+
+
 - (id)initWithFrame:(CGRect)frame
 {
 
     self = [super initWithFrame:frame];
     if (self) {
+        [self commonInit];
         [self addSubview:view];
     }
     return self;
+}
+
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self commonInit];
+        [self addSubview:view];
+    }
+    return self;
+}
+
+- (void)commonInit
+{
+    self.contentMode = UIViewContentModeRedraw;
+    self.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 - (void)setTags:(NSArray *)array

@@ -17,7 +17,7 @@ class SettingsTableViewController: UITableViewController {
         passwordKeyWrapper.resetKeychainItem()
         
         let sb = UIStoryboard(name: "Login", bundle: nil)
-        let vc = sb.instantiateInitialViewController() as! UIViewController
+        let vc = sb.instantiateInitialViewController()!
         presentViewController(vc, animated: true, completion: nil )
         
     }

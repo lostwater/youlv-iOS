@@ -59,25 +59,25 @@ class HomeSearchTableViewController: UITableViewController {
         let searchTitle = searchText.text
         if searchType == SearchType.Discuss
         {
-            DataClient().searchDiscuss(searchTitle, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+            DataClient().searchDiscuss(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
                 self.searchCompleted(dict,error: error)
             })
         }
         if searchType == SearchType.Opportunity
         {
-            DataClient().searchOrders(searchTitle, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+            DataClient().searchOrders(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
                 self.searchCompleted(dict,error: error)
             })
         }
         if searchType == SearchType.Event
         {
-            DataClient().searchActive(searchTitle, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+            DataClient().searchActive(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
                 self.searchCompleted(dict,error: error)
             })
         }
         if searchType == SearchType.Article
         {
-            DataClient().searchArticle(searchTitle, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+            DataClient().searchArticle(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
                 self.searchCompleted(dict,error: error)
             })
         }
@@ -148,8 +148,8 @@ class HomeSearchTableViewController: UITableViewController {
         {
             let eventDetail = segue.destinationViewController as! EventDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item
-            var selectedData = cellDataArray!.objectAtIndex(selectedIndex!) as! NSDictionary
-            eventDetail.eventId = Int((cellDataArray!.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)?)
+            //var selectedData = cellDataArray!.objectAtIndex(selectedIndex!) as! NSDictionary
+            eventDetail.eventId = Int((cellDataArray!.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String)!)
         }
         if segue.identifier == "goOpportunityDetail"
         {
@@ -162,7 +162,7 @@ class HomeSearchTableViewController: UITableViewController {
         {
             let vc = segue.destinationViewController as! ArticleDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item
-            var selectedData = cellDataArray!.objectAtIndex(selectedIndex!) as! NSDictionary
+            //var selectedData = cellDataArray!.objectAtIndex(selectedIndex!) as! NSDictionary
             vc.dataDict = cellDataArray!.objectAtIndex(selectedIndex!) as? NSDictionary
         }
     }

@@ -41,30 +41,24 @@ class ArticleTableViewCell: UITableViewCell {
     }
     
     
-    func displayData(dataDict : NSDictionary)
+    func configure(dataDict : NSDictionary)
     {
-        self.tag = (dataDict.objectForKey("articleId") as? Int)!
-        articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("url") as! String),placeholderImage:defualtPic)
-        articleTitle.text = dataDict.objectForKey("title") as? String
-        //articleTextView.text =  dataDict.objectForKey("acro") as? String
-        articleContent.text =  dataDict.objectForKey("acro") as? String
-
-        userName.text = dataDict.objectForKey("lawyerName") as? String
-        articleTime.text =  defaultDateFormatter.stringFromDate(NSDate(fromString: (dataDict.objectForKey("createDate") as! String)))
-        commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Normal)
-        commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Selected)
-        likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Normal)
-        likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Selected)
-        let isLiked = dataDict.objectForKey("isStore") as! Bool
-        if isLiked
-        {
-            likedButton.selected = true
-        }
-        else
-        {
-            likedButton.selected = false
-        }
+        let userDict = dataDict.objectForKey("user") as! NSDictionary
+        self.tag = (dataDict.objectForKey("article_id") as? Int)!
         
+        articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("article_img") as! String),placeholderImage:defualtPic)
+        articleTitle.text = dataDict.objectForKey("title") as? String
+        articleContent.text =  dataDict.objectForKey("text") as? String
+
+        userName.text = userDict.objectForKey("name") as? String
+        articleTime.text =  defaultDateFormatter.stringFromDate(NSDate(fromString: (dataDict.objectForKey("ctime") as! String)))
+        
+        //commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Normal)
+        //commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Selected)
+        //likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Normal)
+        //likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Selected)
+        likedButton.selected  = dataDict.objectForKey("up_or_not") as! Bool
+
     }
 
     

@@ -9,7 +9,7 @@
 
 class JoinGroupTableViewController: BaseTableViewController {
     
-    override func getDataArray(currentPage: Int, pageSize: Int) {
+     func getDataArray(currentPage: Int, pageSize: Int) {
         getGroupList(currentPage, pageSize:pageSize)
 
     }
@@ -28,7 +28,7 @@ class JoinGroupTableViewController: BaseTableViewController {
         if (array?.count ?? 0) > 0
         {
             dataArray.addObjectsFromArray(array! as Array)
-            currentPage++
+           
             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
             })

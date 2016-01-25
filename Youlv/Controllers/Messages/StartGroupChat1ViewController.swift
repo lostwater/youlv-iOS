@@ -66,7 +66,7 @@ class StartGroupChat1ViewController : UIViewController ,FSMediaPickerDelegate {
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "goGroupOptions"
         {
-            let gn : String = groupName.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            let gn : String = groupName.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
             if gn == ""
             {
                 let av = UIAlertView(title: nil, message: "群名不能为空", delegate: nil, cancelButtonTitle: "确认")
@@ -81,8 +81,8 @@ class StartGroupChat1ViewController : UIViewController ,FSMediaPickerDelegate {
         if segue.identifier == "goGroupOptions"
         {
             let vc = segue.destinationViewController as! StartGroupChat2ViewController
-            vc.groupName = groupName.text
-            vc.groupDesc = groupIntro.text
+            vc.groupName = groupName.text!
+            vc.groupDesc = groupIntro.text!
             vc.groupPic = groupPic
         }
     }

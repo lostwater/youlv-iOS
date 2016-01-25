@@ -24,25 +24,16 @@ class EventTableViewCell: UITableViewCell {
     }
     
    
-    func displayData(dataDict : NSDictionary)
+    func configure(dataDict : NSDictionary)
     {
-        eventImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String),placeholderImage:defualtPic)
-        eventName.text = dataDict.objectForKey("title") as? String
-        eventValid.text = "截止到 " + defaultDateFormatter.stringFromDate(NSDate(fromString: dataDict.objectForKey("activeTime") as! String))
+        eventImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("activity_img") as! String),placeholderImage:defualtPic)
+        eventName.text = dataDict.objectForKey("name") as? String
+        eventValid.text = "截止到 " + defaultDateFormatter.stringFromDate(NSDate(fromString: dataDict.objectForKey("start_time") as! String))
 
-        eventLikedButton.setTitle(String(dataDict.objectForKey("praiseCount") as! Int), forState: UIControlState.Normal)
-        eventLikedButton.setTitle(String(dataDict.objectForKey("praiseCount") as! Int), forState: UIControlState.Selected)
+        //eventLikedButton.setTitle(String(dataDict.objectForKey("praiseCount") as! Int), forState: UIControlState.Normal)
+        //eventLikedButton.setTitle(String(dataDict.objectForKey("praiseCount") as! Int), forState: UIControlState.Selected)
         
-        let isMarked = dataDict.objectForKey("isCollect") as! Int
-        if Bool(isMarked)
-        {
-            eventLikedButton.selected = true
-        }
-        else
-        {
-            eventLikedButton.selected = false
-        }
-        
+        eventLikedButton.selected = dataDict.objectForKey("interest_or_not") as! Bool
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

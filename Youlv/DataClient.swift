@@ -872,7 +872,7 @@ class DataClient
     func serializeJsonRequest(pathString : String, parameters : NSDictionary) -> NSMutableURLRequest
     {
         let errorPointer = NSErrorPointer()
-        let manager = AFHTTPRequestOperationManager()
+        let manager = AFHTTPSessionManager()
         return  AFHTTPRequestSerializer().requestWithMethod("POST", URLString: pathString, parameters: parameters, error: errorPointer)
     }
     
@@ -881,7 +881,7 @@ class DataClient
     func jsonPost(pathString : String, parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
         let errorPointer = NSErrorPointer()
-        let manager = AFHTTPRequestOperationManager()
+        let manager = AFHTTPSessionManager()
         manager.responseSerializer = AFHTTPResponseSerializer()
         manager.requestSerializer = AFJSONRequestSerializer()
         let r = AFHTTPRequestSerializer().requestWithMethod("POST", URLString: pathString, parameters: parameters, error: errorPointer)
@@ -913,7 +913,7 @@ class DataClient
     
     func httpPost(pathString : String, parameters : NSDictionary , completion: (NSDictionary?, NSError?)->())
     {
-        let manager = AFHTTPRequestOperationManager()
+        let manager = AFHTTPSessionManager()
         //manager.requestSerializer = AFHTTPRequestSerializer()
         //manager.responseSerializer = AFJSONResponseSerializer()
         

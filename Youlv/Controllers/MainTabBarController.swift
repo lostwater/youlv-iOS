@@ -46,11 +46,10 @@ class MainTabBarController: UITabBarController {
     func setTabBarItems()
     {
 
-        self.viewControllers?[0] = UIStoryboard(name:"Home",bundle:nil).instantiateInitialViewController() as! UIViewController;
-        self.viewControllers?[1] = UIStoryboard(name:"Messages",bundle:nil).instantiateInitialViewController() as! UIViewController
-        self.viewControllers?[3] = UIStoryboard(name:"Discovery",bundle:nil).instantiateInitialViewController() as! UIViewController
-        self.viewControllers?[4]=UIStoryboard(name:"User",bundle:nil).instantiateInitialViewController() as! UIViewController
-        
+        self.viewControllers?[0] = UIStoryboard(name:"Home",bundle:nil).instantiateInitialViewController()!
+        self.viewControllers?[1] = UIStoryboard(name:"Messages",bundle:nil).instantiateInitialViewController()!
+        self.viewControllers?[3] = UIStoryboard(name:"Discovery",bundle:nil).instantiateInitialViewController()!
+        self.viewControllers?[4]=UIStoryboard(name:"User",bundle:nil).instantiateInitialViewController()!
         
         let normalimage1 = UIImage(named: "buttonhomepagegrey") as UIImage?
         let selectedimage1 = UIImage(named: "buttonhomepageblue") as UIImage?
@@ -70,16 +69,16 @@ class MainTabBarController: UITabBarController {
         viewControllers?[4].tabBarItem?.image = normalimage4
         for vc in viewControllers!
         {
-            vc.tabBarItem?.setTitlePositionAdjustment = UIOffset(horizontal: 0,vertical: 20)
+            vc.tabBarItem?.titlePositionAdjustment = UIOffset(horizontal: 0,vertical: 20)
         }
         viewControllers?[2].tabBarItem?.enabled = false;
-        removeMessagesAndDiscovery()
+        //removeMessagesAndDiscovery()
     }
     
     func removeMessagesAndDiscovery()
     {
-        let vc1 = viewControllers?[1]
-        let vc2 = viewControllers?[3]
+        //let vc1 = viewControllers?[1]
+        //let vc2 = viewControllers?[3]
         viewControllers?.removeAtIndex(1)
         viewControllers?.removeAtIndex(2)
 
@@ -149,7 +148,7 @@ class MainTabBarController: UITabBarController {
         let rect = window!.bounds
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
-        window?.layer.renderInContext(context)
+        window?.layer.renderInContext(context!)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img
