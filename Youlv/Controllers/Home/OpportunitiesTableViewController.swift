@@ -60,13 +60,14 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goOpportunityDetail"
+        if segue.destinationViewController.isKindOfClass(OpportunityDetailViewController)
         {
             let vc = segue.destinationViewController as! OpportunityDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item
             vc.dataDict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
-            vc.opportunityId = (dataArray.objectAtIndex(selectedIndex!) as! NSDictionary).objectForKey("order_id") as! Int
+
         }
+
     }
     
     
@@ -86,13 +87,7 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
         return cell!
     }
     
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-
-    
-    
+   
     func setMenuTextAndHide(selectedButton : UIButton)
     {
         menuButton0.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)

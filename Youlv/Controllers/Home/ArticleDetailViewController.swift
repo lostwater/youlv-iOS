@@ -33,21 +33,24 @@ class ArticleDetailViewController: UIViewController {
         shareMenuView.hidden = true
     }
     @IBAction func likedButtonClicked(sender: AnyObject) {
-        if  !likedButton.selected
-        {
-            likeThis()
+        httpClient.articleUp(articleId!) { (dict, error) -> () in
+            self.likedButton.selected = !self.likedButton.selected
         }
 
     }
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         if(dataDict != nil)
         {
             displayData(dataDict!)
         }
-        likedButton.setImage(UIImage(named:"buttoninterestlargeoutline"), forState: UIControlState.Normal)
-        likedButton.setImage(UIImage(named:"buttoninterestlarge"), forState: UIControlState.Selected)
+        likedButton.setTitle("点赞", forState: UIControlState.Normal)
+        likedButton.setTitle("取消点赞", forState: UIControlState.Selected)
+
+        likedButton.setImage(UIImage(named:"buttonlikeoutline"), forState: UIControlState.Normal)
+        likedButton.setImage(UIImage(named:"buttonlike"), forState: UIControlState.Selected)
     }
     
     func displayData(dataDict : NSDictionary)
@@ -61,33 +64,13 @@ class ArticleDetailViewController: UIViewController {
         articleImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("article_img") as! String),placeholderImage:defualtPic)
         articleTitle.text = dataDict.objectForKey("title") as? String
         articleTextView.text =  dataDict.objectForKey("text") as? String
-        //commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Normal)
-        //commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Selected)
-        //likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Normal)
-        //likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Selected)
-        likedButton.selected = dataDict.objectForKey("up_or_not") as! Bool
+        //commentButton.setTitle(String(dataDict.objectForKey("comment_num") as! Int) + "条评论", forState: UIControlState.Normal)
+        //commentButton.setTitle(String(dataDict.objectForKey("comment_num") as! Int) + "条评论", forState: UIControlState.Selected)
+        likedButton.selected  = dataDict.objectForKey("up_or_not") as! Bool
 
 
     }
-    
-    func likeThis()
-    {
-        let parameters : NSDictionary = ["articleId":articleId!,"sessionId":sessionId]
-        DataClient().postLikeArticle(parameters) { (data, error) -> () in
-                self.likeThisCompleted(data,error: error)
-        }
-    }
-    
-    func likeThisCompleted(data:NSDictionary?,error:NSError?)
-    {
-        if data?.objectForKey("errcode") as? Int == 0
-        {
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.likedButton.selected = true
-            })
-          
-        }       
-    }
+
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

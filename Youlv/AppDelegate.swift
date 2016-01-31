@@ -41,6 +41,8 @@ let serviceName = "com.RamyTech.Youlv"
 var userDefaults = NSUserDefaults.standardUserDefaults()
 var httpClient = HTTPClient()
 
+var myUserInfo : NSDictionary?
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

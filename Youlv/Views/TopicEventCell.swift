@@ -22,17 +22,28 @@ class TopicEventCell: UITableViewCell
     @IBOutlet weak var topicTitle: UILabel?
     @IBOutlet weak var operateType: UILabel?
     
+    @IBAction func bookMarkClicked(sender: AnyObject) {
+        httpClient.topicEventUp(tag) { (dict, error) -> () in
+            self.bookMarkedButton?.selected  = !self.bookMarkedButton!.selected
+        }
+        
+    }
+    
     var isAvatarPushEnabled = false
+    var topicId = 0
+    var topicEventId = 0
     
     func configure(dataDict : NSDictionary)
     {
-        tag = dataDict.objectForKey("topicevent_id") as! Int
         
         let userDict = dataDict.objectForKey("user") as! NSDictionary
         let topicDict = dataDict.objectForKey("topic") as! NSDictionary
         let topicTypeDict = topicDict.objectForKey("type") as! NSDictionary
         let topicUserDict = topicDict.objectForKey("user") as! NSDictionary
         
+        tag = dataDict.objectForKey("topicevent_id") as! Int
+        topicEventId = dataDict.objectForKey("topicevent_id") as! Int
+        topicId = topicDict.objectForKey("topic_id") as! Int
         topicUserImageViewer?.isPushEnabled = isAvatarPushEnabled
         let type = dataDict.objectForKey("type") as! Int
         if type == 2
@@ -48,14 +59,17 @@ class TopicEventCell: UITableViewCell
             eventTitle?.text = topicTypeDict.objectForKey("title") as? String
         }
         
-        let topic_photoUrl = topicTypeDict.objectForKey("topictype_img") as! String
+        let topic_photoUrl = topicTypeDict.objectForKey("topictype_avatar_img") as! String
         let user_photoUrl = userDict.objectForKey("avatar") as! String
         
         topicUserImageViewer?.sd_setImageWithURL(NSURL(string: topic_photoUrl), placeholderImage: headImage)
         userImageView?.sd_setImageWithURL(NSURL(string: user_photoUrl), placeholderImage: headImage)
         
         topicUserImageViewer?.userId = topicUserDict.objectForKey("uid") as! Int
+        topicUserImageViewer?.userDict = topicUserDict
+
         userImageView?.userId = userDict.objectForKey("uid") as! Int
+        userImageView?.userDict = userDict
         
         topicUserName?.text = topicUserDict.objectForKey("name") as? String
         topicTitle?.text = topicTypeDict.objectForKey("title") as? String
@@ -80,8 +94,16 @@ class TopicEventCell: UITableViewCell
         let isStore = dataDict.objectForKey("up_or_not") as? Bool
         if storeCount != nil
         {
-            bookMarkedButton?.setTitle(String(storeCount!), forState: UIControlState.Normal)
-            bookMarkedButton?.setTitle(String(storeCount!), forState: UIControlState.Selected)
+            if isStore!
+            {
+                bookMarkedButton?.setTitle(String(storeCount! - 1), forState: UIControlState.Normal)
+                bookMarkedButton?.setTitle(String(storeCount!), forState: UIControlState.Selected)
+            }
+            else
+            {
+                bookMarkedButton?.setTitle(String(storeCount!), forState: UIControlState.Normal)
+                bookMarkedButton?.setTitle(String(storeCount! + 1), forState: UIControlState.Selected)
+            }
         }
         if isStore != nil
         {

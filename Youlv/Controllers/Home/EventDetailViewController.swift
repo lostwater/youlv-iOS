@@ -29,79 +29,51 @@ class EventDetailViewController: UIViewController {
     }
    
     @IBAction func bookMarkButtonClicked(sender: AnyObject) {
-        if !bookMarkButton.selected
-        {
             markEvent()
-        }
     }
-    var dataDict : NSDictionary?
+    var dict : NSDictionary?
     var eventId : Int?
     
     func loadData()
     {
-        eventImageView.sd_setImageWithURL(NSURL(string: dataDict?.objectForKey("photoUrl") as! String),placeholderImage:defualtPic)
-        eventName.text = dataDict?.objectForKey("title") as? String
-        eventTextView.text = dataDict?.objectForKey("content") as? String
+        eventImageView.sd_setImageWithURL(NSURL(string: dict?.objectForKey("activity_img") as! String),placeholderImage:defualtPic)
+        eventName.text = dict?.objectForKey("name") as? String
+        eventTextView.text = dict?.objectForKey("text") as? String
+        eventLocation.text = dict?.objectForKey("location") as? String
         //eventLocation.text = dataDict?.objectForKey("content") as? String
-        let eventTimeText = "开始: " + defaultDateFormatter.stringFromDate(NSDate(fromString: (dataDict!.objectForKey("activeTime") as! String)))
+        let eventTimeText = "开始: " + defaultDateFormatter.stringFromDate(NSDate(fromString: (dict!.objectForKey("start_time") as! String)))
         eventTime.text = eventTimeText
-        let photoDicts = dataDict?.objectForKey("attentionPhotos") as? NSArray
-        if photoDicts != nil
-        {
-            var photoUrls = NSArray()
-            for photo in photoDicts!
-            {
-                photoUrls = photoUrls.arrayByAddingObject((photo as! NSDictionary).objectForKey("photoUrl") as! String)
-            }
-            membersImageList.setImages(photoUrls)
-        }
-        bookMarkButton.selected = dataDict?.objectForKey("isCollect") as! Bool
-    }
-    
-    func getEventDetail()
-    {
-        DataClient().getEventDetail(eventId!, completion: { (dict, error) -> () in
-            self.getEventDetailCompleted(dict,error: error)
-        })
-    }
-    
-    func getEventDetailCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        self.dataDict = dict!.objectForKey("data") as? NSDictionary
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.loadData()
-        })
         
+        let interestedUsers = dict?.objectForKey("interest_users") as? NSArray
+        let avatars = interestedUsers?.mutableArrayValueForKey("avatar")
+        
+        if avatars != nil
+        {
+            membersImageList.setImages(avatars!)
+        }
+        
+        bookMarkButton.selected = dict?.objectForKey("interest_or_not") as! Bool
+        
+        eventId = dict?.objectForKey("activity_id") as? Int
     }
+
     
     func markEvent()
     {
-        let parameters : NSDictionary = ["activeId":eventId!
-            , "sessionId":sessionId]
-        DataClient().postMarkEvent(parameters) { (data, error) -> () in
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.markEventCompleted(data,error: error)
-                
+        httpClient.eventUp(eventId!) { (dict, error) -> () in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.bookMarkButton.selected = !self.bookMarkButton.selected
             })
         }
-    }
-    
-    func markEventCompleted(data:NSDictionary?,error:NSError?)
-    {
-        if data?.objectForKey("errcode") as? Int == 0
-        {
-            bookMarkButton.selected = true
-        }
-        
-        
     }
     
     
     override func viewDidLoad() {
         //bookMarkButton.setImage(UIImage(named:""), forState: UIControlState.Normal)
-        bookMarkButton.setImage(UIImage(named:"buttoncollectedevent"), forState: UIControlState.Selected)
-        getEventDetail()
-        
+        //bookMarkButton.setImage(UIImage(named:"buttoncollectedevent"), forState: UIControlState.Selected)
+        loadData()
+
+
     }
     
     override func viewDidAppear(animated: Bool) {

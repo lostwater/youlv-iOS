@@ -15,11 +15,11 @@ class JobDetailViewController: UIViewController {
     @IBOutlet var companyName: UILabel!
     @IBOutlet var isMarkedButton: UIButton!
     @IBAction func isMarkedButtonClicked(sender: AnyObject) {
-        if !isMarkedButton.selected
-        {
-            isMarkedButton.selected = !isMarkedButton.selected
-            DataClient().postMarkJob(jobId!) { (data, error) -> () in
-            }
+        httpClient.bookMarkJob(jobId!) { (dict, error) -> () in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                KVNProgress.showSuccess()
+                self.isMarkedButton.selected = !self.isMarkedButton.selected
+            })
         }
     }
     
@@ -59,23 +59,6 @@ class JobDetailViewController: UIViewController {
     var companyImageUrl : String?
     
     
-    let client = DataClient()
-    func getJobDetail()
-    {
-        client.getJobDetail(jobId!, completion: { (dict, error) -> () in
-            self.getJobDetailCompleted(dict, error: error)
-        })
-    }
-    
-    func getJobDetailCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        dataDict = dict!.objectForKey("data") as? NSDictionary
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.displayData()
-        })
-        
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
        
@@ -96,61 +79,33 @@ class JobDetailViewController: UIViewController {
         requirementExpandButton.setImage(UIImage(named:"buttonarrowdown"), forState: UIControlState.Normal)
         requirementExpandButton.setImage(UIImage(named:"buttonarrowup"), forState: UIControlState.Selected)
         displayExpandableViews()
-        getJobDetail()
-
+        displayData()
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /*
-"position_id":1,
-"position_salary":"100-200",
-"position_createDate":"2015-04-21 09:43:52",
-"position_officeName":"易律",
-"position_cityName":"北京市",
-"position_title":"易律招聘",
-"position_content":"招聘",
-"position_type":1,
-"position_education":"本科",
-"position_experience":"",
-"position_keywords":"高大尚",
-"office_introduction":"全国最大的律师平台",
-"office_keywords":"1,2,3,4,上山打老虎",
-"position_isCollection":6
-*/
     func displayData()
     {
         //isMarkedButton.selected = (dataDict!.objectForKey("position_isCollection") as? Bool)!
+        jobId = dataDict!.objectForKey("id") as? Int
+        companyImageUrl =  dataDict!.objectForKey("agency_img") as? String
+        lawyerName.text = dataDict!.objectForKey("name") as? String
+        companyName.text = dataDict!.objectForKey("agency_name") as? String
+        salary.text = dataDict!.objectForKey("salary") as? String
+        location.text = dataDict!.objectForKey("location") as? String
+        edu.text = dataDict!.objectForKey("degree_qualification") as? String
+        exp.text = dataDict!.objectForKey("time_qualification") as? String
 
-        lawyerName.text = dataDict!.objectForKey("position_title") as? String
-        companyName.text = dataDict!.objectForKey("position_officeName") as? String
-        salary.text = dataDict!.objectForKey("position_salary") as? String
-        location.text = dataDict!.objectForKey("position_cityName") as? String
-        edu.text = dataDict!.objectForKey("position_education") as? String
-        exp.text = dataDict!.objectForKey("position_experience") as? String
-        if dataDict!.objectForKey("position_type") as! Int == 1
-        {
-            jobType.text = "全职"
-        }
-        else
-        {
-            jobType.text = "兼职"
-            
-        }
+        jobType.text = dataDict!.objectForKey("type") as? String
         
         companyImageView.sd_setImageWithURL(NSURL(string:companyImageUrl ?? ""))
         companyIntroName.text =  dataDict!.objectForKey("position_officeName") as? String
         companyIntro.text = dataDict!.objectForKey("office_introduction") as? String
         
-        let jobTagsValue = NSArray(object: dataDict!.objectForKey("position_keywords")!) as [AnyObject]
-        jobTags.setTags(jobTagsValue)
-        jobTags.display()
+        //let jobTagsValue = NSArray(object: dataDict!.objectForKey("position_goods")!) as [AnyObject]
+        //jobTags.setTags(jobTagsValue)
+        //jobTags.display()
         
-        requirementTextView.text = dataDict!.objectForKey("position_content") as? String
+        requirementTextView.text = dataDict!.objectForKey("position_requirements") as? String
         
 
     }

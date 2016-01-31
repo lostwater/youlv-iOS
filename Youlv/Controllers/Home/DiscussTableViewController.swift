@@ -27,7 +27,7 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
     @IBOutlet weak var menuButton3: UIButton!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
       
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
@@ -40,6 +40,8 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.navigationItem.title = "讨论"
+        
+        super.viewDidLoad()
     }
    
 
@@ -53,16 +55,15 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goRepliedDiscussDetail" || segue.identifier == "goPostedDiscussDetail"
+        if segue.destinationViewController.isKindOfClass(DiscussDetailViewController)
         {
             let discussDetail = segue.destinationViewController as! DiscussDetailViewController
-            let selectedIndex = tableView.indexPathForSelectedRow?.item
-            let dataDict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
+            let dict = dataArray[tableView.indexPathForSelectedRow!.item] as! NSDictionary
+            discussDetail.topicId = (dict.objectForKey("topic") as! NSDictionary).objectForKey("topic_id") as! Int
             
-            discussDetail.dataDict = dataDict
-            discussDetail.topicId = dataDict?.objectForKey("topic_id") as? Int
-            discussDetail.isFromMyTopic = false
         }
+
+
     }
     
 

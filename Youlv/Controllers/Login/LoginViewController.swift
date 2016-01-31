@@ -91,10 +91,7 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     var introView = MYBlurIntroductionView()
 
     override func viewDidLoad() {
-         //self.goMainVC()
-        
-        //HTTPClient().login("18917566917", password: "qwer1234") { (dict, error) -> () in }
-        
+
         super.viewDidLoad()
         self.navigationController?.navigationBar.backItem?.title = "";
         passowrd.setValue(UIColor.whiteColor(), forKeyPath: "_placeholderLabel.textColor")
@@ -155,23 +152,16 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     func loginCompleted(dict:NSDictionary?,error:NSError?)
     {
         
-        //easeMobLogin()
         saveAccountAndPassword()
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            //let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewControllerWithIdentifier("RecommendedTopicsVC")
+            //self.navigationController?.pushViewController(vc, animated: true)
             self.goMainVC()
         })
         
     }
     
-    func easeMobLogin()
-    {
-        EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(userAccount.text, password: passowrd.text, completion: { (loginInfo, error) -> Void in
-            if error == nil && loginInfo != nil
-            {
-                NSLog("登陆成功")
-            }
-        }, onQueue: nil)
-    }
+ 
     
     
     func loadAccountAndPassword() throws

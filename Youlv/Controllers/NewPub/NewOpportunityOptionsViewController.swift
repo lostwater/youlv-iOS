@@ -51,7 +51,22 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
 
     }
     
+    @IBAction func datePicked(sender: AnyObject) {
+        deadDate = datePicker.date
+        dismissSemiModalView()
+        displayDate()
+    }
+    
+    
+    @IBAction func dateChanged(sender: AnyObject) {
+        deadDate = datePicker.date
+        displayDate()
+    }
+    @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var cityPicker: UIPickerView!
+    
+    @IBOutlet weak var targetText: UITextField!
+    
     
     @IBAction func tagTextFieldDidEnd(sender: AnyObject) {
         hideKB()
@@ -63,8 +78,6 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
     }
     
     
-    var datePicker : THDatePickerViewController?
-
     var thetitle = ""
     var content = ""
     
@@ -81,7 +94,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
         }
     }
     
-    var tagList = NSArray()
+    var tagList = NSMutableArray()
     var blackList = NSArray()
     var whiteList = NSArray()
     var deadDate = NSDate()
@@ -96,8 +109,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         formatter.dateFormat = "yyyy.MM.dd"
-        getCityList()
-       
+        deadlineDataButton.setTitle(formatter.stringFromDate(NSDate()), forState: UIControlState.Normal)
         // Do any additional setup after loading the view.
     }
 
@@ -107,18 +119,17 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "optionsSetted"
+        if segue.identifier == "OpportunityOptionsSet"
         {
-            let vc = segue.destinationViewController as! NewOpTableViewController
-            vc.cityName = cityName
-            vc.cityId = cityId
+            let vc = segue.destinationViewController as! NewOpportunityTableViewController
+            vc.target = targetText?.text ?? ""
             vc.tagList = tagList
-            vc.blackList = blackList
-            vc.whiteList = whiteList
+            //vc.blackList = blackList
+            //vc.whiteList = whiteList
             vc.deadDate = deadDate
+            //vc.privilege = privilege
             vc.thetitle = thetitle
             vc.content = content
-            vc.privilege = privilege
         }
         if segue.identifier == "setWhiteList" || segue.identifier == "setBlackList"
         {
@@ -160,31 +171,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
     
     func showCalender()
     {
-        if datePicker == nil
-        {
-            datePicker = THDatePickerViewController.datePicker()
-        }
-        
-        datePicker?.date = deadDate;
-        datePicker?.delegate = self;
-        datePicker?.setAllowClearDate(false)
-        datePicker?.setAutoCloseOnSelectDate(true)
-        datePicker?.selectedBackgroundColor = UIColor(red:125/255.0, green:208/255.0, blue:0/255.0, alpha:1.0)
-        datePicker?.currentDateColor = UIColor(red:242/255.0, green:121/255.0, blue:53/255.0, alpha:1.0)
-        
-        datePicker?.setDateHasItemsCallback({ (data) -> Bool in
-            let tmp = (arc4random() % 30)+1;
-            if tmp % 5 == 0
-            {
-                return true
-            }
-            else
-            {
-                return false
-            }
-        })
-        //mz_presentFormSheetWithViewController(datePicker!, animated: true) { (MZFormSheetController) -> Void in}
-        presentSemiViewControllerWithMyOptions(datePicker!)
+        presentSemiViewWithMyOptions(datePicker)
     }
     
     func addTag()
@@ -199,9 +186,9 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
             return
         }
        
-        tagList = tagList.arrayByAddingObject(newTagTextField.text!)
+        tagList.addObject(["name" : newTagTextField.text!])
         
-        tagsListView.setTags(tagList as [AnyObject])
+        tagsListView.setTags(tagList.mutableArrayValueForKey("name") as [AnyObject])
         tagsListView.display()
         newTagTextField.text = nil
     }
@@ -233,9 +220,10 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
         dismissSemiModalView()
     }
     
+    
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let city = cityList?.objectAtIndex(row) as! NSDictionary
-        return city.objectForKey("city_name") as! String
+        return city.objectForKey("city_name") as? String
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

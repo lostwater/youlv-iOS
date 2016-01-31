@@ -8,56 +8,19 @@
 
 import UIKit
 
-class JobsTableViewController: UITableViewController {
+class JobsTableViewController: BaseTableViewController {
     
-    var currentPage = 1
-    var jobsArray : NSArray?
-    
-    let client = DataClient()
-    func getJobList(currentPage: Int, pageSize:Int)
-    {
-        client.getJobList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getJobListCompleted(dict, error: error)
-        })
-    }
-    
-    func getJobListCompleted(dict:NSDictionary?,error:NSError?)
-    {
+    override func httpGet() {
+        super.httpGet()
+        httpClient.getJobList {(dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
+        }
 
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        jobsArray = (dictData.objectForKey("positionList") as? NSArray)!
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
-        
-    }
-    
-    
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        getJobList(currentPage,pageSize: 10)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return jobsArray?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("JobCell", forIndexPath: indexPath) as! JobTableViewCell
-        cell.displayData(jobsArray?.objectAtIndex(indexPath.item) as! NSDictionary)
+        cell.configure(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
     }
     
@@ -66,9 +29,8 @@ class JobsTableViewController: UITableViewController {
         {
             let vc = segue.destinationViewController as! JobDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item
-            let selectedData = jobsArray?.objectAtIndex(selectedIndex!) as! NSDictionary
-            vc.jobId = selectedData.objectForKey("position_id") as? Int
-            vc.companyImageUrl = selectedData.objectForKey("position_officePhoto") as? String
+            let selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
+            vc.dataDict  = selectedData
         }
     }
 

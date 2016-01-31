@@ -31,6 +31,10 @@ class BaseTableViewController: UITableViewController {
     
     func endLoad()
     {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.headerEndRefreshing()
+            self.tableView.footerEndRefreshing()
+        })
         isLoading = false
     }
     
@@ -58,12 +62,15 @@ class BaseTableViewController: UITableViewController {
             isLoading = true
         }
         httpClient.httpGet(nextUrl!) {(dict, error) -> () in
+            
             self.httpGetCompleted(dict, error: error)
         }    
     }
     
     func httpGetCompleted(dict : NSDictionary?, error : NSError?)
     {
+        
+       
         nextUrl = dict?.objectForKey("next") as? String
         let array = dict!.objectForKey("results") as? NSArray
         if (array?.count ?? 0) > 0
@@ -78,6 +85,7 @@ class BaseTableViewController: UITableViewController {
                 self.tableView.reloadData()
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
+                
             })
             
         }
@@ -94,7 +102,7 @@ class BaseTableViewController: UITableViewController {
         super.viewDidLoad()
         setupRefresh()
         dataArray.removeAllObjects()
-        httpGet()
+        getDataArray()	
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -144,6 +152,7 @@ class BaseTableViewController: UITableViewController {
             if (self.nextUrl ?? "").isEmpty
             {
                 self.endLoad()
+                
             }
             else
             {
@@ -167,10 +176,6 @@ class BaseTableViewController: UITableViewController {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
-    }
-    
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
     }
     
 

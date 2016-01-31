@@ -140,7 +140,7 @@ class HomeSearchTableViewController: UITableViewController {
             let selectedIndex = tableView.indexPathForSelectedRow?.item
             let dataDict = cellDataArray!.objectAtIndex(selectedIndex!) as? NSDictionary
             
-            discussDetail.dataDict = dataDict
+            discussDetail.mainEventDict = dataDict
             discussDetail.topicId = dataDict?.objectForKey("topic_id") as? Int
             discussDetail.isFromMyTopic = false
         }

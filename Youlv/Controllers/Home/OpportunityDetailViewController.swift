@@ -20,18 +20,19 @@ class OpportunityDetailViewController: UIViewController {
     @IBOutlet var opportunityImageView: UIImageView!
     @IBOutlet var opportunityTitle: UILabel!
     @IBOutlet var opportunityTags: DWTagList!
-    @IBOutlet var opportunityTextView: UITextView!
+    @IBOutlet var opportunityTextView: UILabel!
     @IBOutlet var opportunityValidUntil: UILabel!
     @IBOutlet var opportunityCityButton: UIButton!
     @IBOutlet var opportunityPayment: UILabel!
     @IBOutlet var opportunityPaymentImageView: UIImageView!
     
+     @IBOutlet weak var tagHeight: NSLayoutConstraint!
     
     @IBOutlet var textViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var paymentHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet var publisherCreditView: RSTapRateView!
-    @IBOutlet var publisherImageView: UIImageView!
+    @IBOutlet var publisherImageView: AvatarImageView!
     @IBOutlet var publisherFansCount: UILabel!
     @IBOutlet var publisherPublicationsCount: UILabel!
     @IBOutlet var publisherInterestsCount: UILabel!
@@ -43,9 +44,9 @@ class OpportunityDetailViewController: UIViewController {
         //performSegueWithIdentifier("UnwindToGroupTopics", sender: self)
     }
     @IBAction func likeButtonClicked(sender: AnyObject) {
-        likeOpportunity()
-
-
+        httpClient.opportunityUp(caseId) { (dict, error) -> () in
+            self.likeButton.selected = !self.likeButton.selected
+        }
     }
     @IBAction func btnHelpClicked(sender: AnyObject) {
         let av = UIAlertView(title: nil, message: "更多疑问，可以拨打客服电话4400-865-8605，或发送邮件给我info@iruyi.com", delegate: nil, cancelButtonTitle: "确定")
@@ -57,100 +58,76 @@ class OpportunityDetailViewController: UIViewController {
         // Initialization code
     }
     
-    func likeOpportunity()
+   
+    var caseId = 0
+    func configure(dict : NSDictionary)
     {
-        let parameters : NSDictionary = ["orderId":opportunityId, "sessionId":sessionId]
-        DataClient().postLikeOpportunity(parameters) { (data, error) -> () in
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.likeOpportunityCompleted(data,error: error)
-                
-            })
-        }
-    }
-    
-    func likeOpportunityCompleted(data:NSDictionary?,error:NSError?)
-    {
-        UIAlertView(title: data?.objectForKey("errmessage") as? String, message: nil, delegate: nil, cancelButtonTitle: "ok").show()
-        if data?.objectForKey("errcode") as? Int == 0
+        caseId = dict.objectForKey("case_id") as! Int
+        var type = dict.objectForKey("type") as! Int
+        opportunityTitle.text = dict.objectForKey("title") as? String
+        
+        let tagList = dict.objectForKey("tag") as! NSArray
+        let tagnames = tagList.mutableArrayValueForKey("name")
+        
+        if tagnames.count > 0
         {
-            likeButton.hidden = true
-            commentButton.hidden = false
+            opportunityTags.setTags(tagnames as [AnyObject])
+            opportunityTags.display()
+            tagHeight?.constant = opportunityTags.fittedSize().height ?? 0
+            
+            if tagHeight?.constant < 30
+            {
+                tagHeight?.constant = 30
+            }
+            view.setNeedsUpdateConstraints()
+            view.setNeedsLayout()
+            view.updateConstraintsIfNeeded()
+            view.layoutIfNeeded()
         }
+
+        
+        opportunityTextView.text = dict.objectForKey("text") as? String
+        
+        opportunityCityButton.setTitle(dict.objectForKey("target") as? String, forState: UIControlState.Normal)
+        opportunityValidUntil.text = "截止到: " + defaultDateFormatter.stringFromDate(NSDate(fromString: dict.objectForKey("deadline") as! String))
+        
+        //opportunityPayment.text = "协作佣金: " + String(dataDict!.objectForKey("order_price") as! Int)
+        //opportunityLikedButton.titleLabel?.text = String(dataDict!.objectForKey("order_interestCount") as! Int)
+        //resizeTextView(opportunityTextView)
+        if type == 0
+        {
+            type = 1
+        }
+        setOpportunityType(OpportunityType(rawValue: type)!)
+        
+        
+        let userDict = dict.objectForKey("user") as! NSDictionary
+        publisherCreditView.rating = userDict.objectForKey("credit") as! Int
+        publisherImageView.sd_setImageWithURL(NSURL(string:userDict.objectForKey("avatar") as! String), placeholderImage: headImage)
+        publisherFansCount.text = String(userDict.objectForKey("followed_num") as! Int)
+        publisherImageView.userId = userDict.objectForKey("uid") as! Int
+        publisherImageView.userDict = userDict
+        publisherPublicationsCount.text = String(userDict.objectForKey("casesource_upload_num") as! Int)
+        publisherInterestsCount.text = String(userDict.objectForKey("casesource_interest_num") as! Int)
         
     }
-    
-    /*
-    "lawyerRelate":{
-    "lawyer_id":1,
-    "lawyer_name":"zhangsan",
-    "lawyer_photoUrl":"111111",
-    "fansCount":3,
-    "issueCount":2,
-    "interestCountMy":5
-    */
-    func getPubishUser()
-    {
-        DataClient().getOrderDetail(opportunityId, completion: { (dict, error) -> () in
-            self.getPubishUserCompleted(dict,error: error)
-        })
-    }
-    
-    func getPubishUserCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        let userData = (dict!.objectForKey("data") as! NSDictionary).objectForKey("lawyerRelate") as! NSDictionary
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.displayData(userData)
-        })
-        
-    }
-    
-    func displayData(dataDict : NSDictionary)
-    {
-        publisherCreditView.rating = 5
-        publisherImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("lawyer_photoUrl") as! String), placeholderImage: headImage)
-        publisherFansCount.text = String(dataDict.objectForKey("fansCount") as! Int)
-        publisherPublicationsCount.text = String(dataDict.objectForKey("issueCount") as! Int)
-        publisherInterestsCount.text = String(dataDict.objectForKey("interestCountMy") as! Int)
-    }
-    
+  
+
     
     
     override func viewDidLoad() {
         
-        likeButton.hidden = true
-        commentButton.hidden = true
+        //likeButton.hidden = true
+        //commentButton.hidden = true
+        likeButton.setImage(UIImage(named:"buttonheartoutline"), forState: UIControlState.Normal)
+        likeButton.setImage(UIImage(named:"buttonheart"), forState: UIControlState.Selected)
+        likeButton.setTitle( "我感兴趣", forState: UIControlState.Normal)
+        likeButton.setTitle( "不感兴趣", forState: UIControlState.Selected)
+
 
         if dataDict != nil
         {
-            let type = dataDict!.objectForKey("order_type") as! Int
-           
-            opportunityTitle.text = dataDict!.objectForKey("order_title") as?	 String
-            opportunityTextView.text = dataDict!.objectForKey("order_content") as! String
-            opportunityCityButton.setTitle(dataDict!.objectForKey("order_cityName") as? String, forState: UIControlState.Normal)
-            opportunityValidUntil.text = "截止到: " + defaultDateFormatter.stringFromDate(NSDate(fromString: dataDict!.objectForKey("order_deadDate") as! String))
-
-            opportunityPayment.text = "协作佣金: " + String(dataDict!.objectForKey("order_price") as! Int)
-             opportunityTags.setTags(NSArray(object: dataDict!.objectForKey("order_keyWords")!) as [AnyObject])
-            opportunityTags.display()
-            //opportunityLikedButton.titleLabel?.text = String(dataDict!.objectForKey("order_interestCount") as! Int)
-            resizeTextView(opportunityTextView)
-            setOpportunityType(OpportunityType(rawValue: type)!)
-            
-            if dataDict!.objectForKey("order_isInterest") != nil
-            {
-                if (dataDict!.objectForKey("order_isInterest") as! Bool)
-                {
-                    likeButton.hidden = true
-                    commentButton.hidden = false
-                }
-                else
-                {
-                    likeButton.hidden = false
-                    commentButton.hidden = true
-                }
-            }
-        
-            getPubishUser()
+            configure(dataDict!)
         }
         
         
@@ -203,14 +180,9 @@ class OpportunityDetailViewController: UIViewController {
         }
         
     }
+
     
-    func resetTextViewSize() -> CGFloat
-    {
-        let size = CGSizeMake(self.view.frame.size.width - 20, CGFloat.max)
-        
-        let textSize = opportunityTextView.text.sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(14)])
-        opportunityTextView.frame.size = textSize
-        return textSize.height
-    }
+
+
 
 }

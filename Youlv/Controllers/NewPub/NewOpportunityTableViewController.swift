@@ -8,20 +8,34 @@
 
 import UIKit
 
-class NewOpTableViewController: UITableViewController {
+class NewOpportunityTableViewController: UITableViewController {
 
+    @IBAction func opportunityOptionsSet(segue: UIStoryboardSegue)
+    {
+        
+    }
+    
     @IBAction func buttonPubClicked(sender: AnyObject) {
         thetitle = titleTextField.text!
         content = contentContainer.text!
-         postDict = NSDictionary(objects: [thetitle, content, privilege, tagList, blackList, whiteList,cityId, cityName,deadDate, sessionId], forKeys: ["tile","content","type","keyWords","blackList","whiteList","cityId","cityName","deaddate","sessionId"])
-        DataClient().postOrder(postDict!, completion: { (data, error) -> () in
-            
+        let postDict = NSMutableDictionary()
+        postDict.setValue(thetitle, forKey: "title")
+        postDict.setValue(content, forKey: "text")
+        postDict.setValue(type, forKey: "type")
+        postDict.setValue(target, forKey: "target")
+        postDict.setValue(formatter.stringFromDate(deadDate), forKey: "deadline")
+        postDict.setValue(tagList as [AnyObject], forKey: "tag")
+    
+        
+        // postDict = NSDictionary(objects: [thetitle, content, privilege, tagList, blackList, whiteList,cityId, cityName,deadDate, sessionId], forKeys: ["tile","content","type","keyWords","blackList","whiteList","cityId","cityName","deaddate","sessionId"])
+        httpClient.postNewCase(postDict, completion: { (dict, error) -> () in
+            self.postOrderCompleted(dict, error: error)
         })
     }
     
     @IBAction func buttonCancelClicked(sender: AnyObject) {
-        let newVC: AnyObject! = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewVC")
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        //let newVC: AnyObject! = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewVC")
+        //let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
         self.dismissViewControllerAnimated(true, completion:nil)
     }
     
@@ -44,6 +58,11 @@ class NewOpTableViewController: UITableViewController {
     
     var thetitle = ""
     var content = ""
+    var type = 1
+    var target = "北京市"
+
+    
+    
     var privilege = 0
     
     var tagList = NSArray()
@@ -52,22 +71,22 @@ class NewOpTableViewController: UITableViewController {
     var deadDate = NSDate()
     var formatter = NSDateFormatter()
     
-    var cityList : NSArray?
-    var cityId = 1
-    var cityName = "北京市"
-    var postDict : NSDictionary?
+    //var cityList : NSArray?
+    //var cityId = 1
+    
+
     
   
     
-    func postOrderCompleted(data:NSData?, error:NSError?)
+    func postOrderCompleted(dict:NSDictionary?, error:NSError?)
     {
-        if data != nil
-        {
-            let newVC: AnyObject! = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewVC")
-            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        KVNProgress.showSuccess()
+        self.dismissViewControllerAnimated(true, completion:nil)
+
+            //let newVC: AnyObject! = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("NewVC")
+            //let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
         
-            self.dismissViewControllerAnimated(true, completion:nil)
-        }
+            
     }
     
     override func viewDidLoad() {
@@ -75,6 +94,7 @@ class NewOpTableViewController: UITableViewController {
         typeSegment.selectedSegmentIndex = privilege
         titleTextField.text = thetitle
         contentContainer.text = content
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

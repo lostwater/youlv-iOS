@@ -13,7 +13,7 @@ class MyProfileTableViewController: UITableViewController {
     @IBOutlet weak var tableViewCellIntro: UITableViewCell!
     @IBOutlet weak var textViewIntro: UITextView!
     
-    @IBOutlet var userImageView: UIImageView!
+    @IBOutlet var userImageView: AvatarImageView!
     @IBOutlet var userName: UITextField!
     @IBOutlet var userIntroTextView: UITextView!
     @IBOutlet weak var userIntro: UITextField!
@@ -32,26 +32,6 @@ class MyProfileTableViewController: UITableViewController {
     
     var editEabled = false
 
-    var dataDict : NSDictionary?
-    
-    
-    func getMyProfile()
-    {
-        DataClient().getMyProfile({ (dict, error) -> () in
-            self.getMyProfileCompleted(dict,error: error)
-        })
-    }
-    
-    
-    func getMyProfileCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        
-        self.dataDict = dict!.objectForKey("data") as? NSDictionary
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.displayData()
-        })
-        
-    }
     
     func updateProfile()
     {
@@ -60,12 +40,12 @@ class MyProfileTableViewController: UITableViewController {
     
     func displayData()
     {
-        userImageView.sd_setImageWithURL(NSURL(string: dataDict!.objectForKey("lawyer_photoUrl") as! String),placeholderImage:headImage)
-        userName.text = dataDict!.objectForKey("lawyer_name") as? String
-        userIntro.text = dataDict!.objectForKey("lawyer_introduction") as? String
-        userIntroTextView.text = dataDict!.objectForKey("lawyer_introduction") as? String
-        orgName.text = dataDict!.objectForKey("lawyer_lawOffice") as? String
-        location.text = dataDict!.objectForKey("lawyer_cityName") as? String
+        userImageView.sd_setImageWithURL(NSURL(string: myUserInfo!.objectForKey("avatar") as! String),placeholderImage:headImage)
+        userName.text = myUserInfo!.objectForKey("name") as? String
+        userIntro.text = myUserInfo!.objectForKey("about") as? String
+        //userIntroTextView.text = dataDict!.objectForKey("lawyer_introduction") as? String
+        orgName.text = myUserInfo!.objectForKey("agency") as? String
+        location.text = myUserInfo!.objectForKey("location") as? String
         
     }
     
@@ -100,11 +80,12 @@ class MyProfileTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        userImageView.isPushEnabled = false
         userName.enabled = false
         userIntro.enabled = false
         orgName.enabled = false
         location.enabled = false
-        getMyProfile()
+        displayData()
 
     }
 

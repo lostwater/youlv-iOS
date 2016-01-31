@@ -38,7 +38,7 @@ class EventsTableViewController: BaseTableViewController,NaviBarMenu {
 
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
         //setNaviMenu()
         //AddNaviMenuToHome(naviMenuView!, titleButton!, self)
 
@@ -55,6 +55,7 @@ class EventsTableViewController: BaseTableViewController,NaviBarMenu {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.navigationItem.title = "活动"
+        super.viewDidLoad()
     }
     
     
@@ -64,8 +65,8 @@ class EventsTableViewController: BaseTableViewController,NaviBarMenu {
         {
             let eventDetail = segue.destinationViewController as! EventDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item
-            _ = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
-            eventDetail.eventId = Int(((dataArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String))!)
+            eventDetail.dict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
+            //eventDetail.eventId = Int(((dataArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String))!)
         }
     }
     

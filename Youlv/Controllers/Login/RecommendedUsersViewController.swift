@@ -8,7 +8,7 @@
 
 
 
-class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class RecommendedUsersViewController: ViewControllerWithPagedTableView {
     
     
     @IBOutlet weak var selectAllText: UIBarButtonItem!
@@ -51,48 +51,33 @@ class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UI
         followUsers()
         goMainVC()
     }
-    var currentPage = 1
-    var usersArray : NSArray?
-    let client = DataClient()
+
     
     var selectedImage = UIImage(named:"checkoff")
     
     override func viewDidLoad() {
-        getRecommendedUsers(currentPage,pageSize: 10)
+        self.mainTableView = tableView
+        selectAllIcon.image = UIImage(named:"checkoff")
+        
+        super.viewDidLoad()
+
+    }
+    
+    override func httpGet() {
+        httpClient.getRecommendedUsers { (dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
+        }
         
     }
     
-    func getRecommendedUsers(currentPage: Int, pageSize:Int)
-    {
-        client.getRecommendedUsers(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getRecommendedUsersCompleted(dict, error: error)
-        })
-    }
-    
-    func getRecommendedUsersCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        usersArray = (dictData.objectForKey("lawyerList") as? NSArray)!
-        dispatch_sync(dispatch_get_main_queue(), {() -> Void in
-            self.tableView.reloadData()
-        })
-        
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usersArray?.count ?? 0
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! ContactTableViewCell
-        let content = usersArray!.objectAtIndex(indexPath.row) as! NSDictionary
-        //cell.imageView?.sd_setImageWithURL(NSURL(string: content.objectForKey("") as! String))
+        let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
+        cell.userHead.sd_setImageWithURL(NSURL(string: content.objectForKey("avatar") as! String))
         cell.userName.text = content.objectForKey("name") as? String
-        cell.intro?.text = content.objectForKey("introduction") as? String
+        cell.intro?.text = content.objectForKey("about") as? String
+        cell.tag = content.objectForKey("uid") as! Int
         //cell.imageView?.hidden = true
         
         //cell.imageView!.frame.origin = CGPointMake(300,  cell.imageView!.frame.origin.y)
@@ -107,11 +92,13 @@ class RecommendedUsersViewController: UIViewController,UITableViewDataSource, UI
             let cell = c 
             if cell.selected
             {
-                ids.addObject(cell.tag)
+                ids.addObject(String(cell.tag))
             }
         }
         
-        DataClient().postFollowUsers(ids){ (dict, erorr) -> () in}
+        httpClient.followUser(ids) { (dict, error) -> () in
+            KVNProgress.showSuccessWithStatus("关注成功")
+        }
     }
     
     

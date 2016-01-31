@@ -52,45 +52,28 @@ class SignupViewController: UIViewController {
     
     var signUpSucceeded = false
     var error = EMError()
-    var validCodeAnswer = ""
-    
-    func easeMobSignup()
-    {
-        EaseMob.sharedInstance().chatManager.asyncRegisterNewAccount(storedUsername, password: storedPassword, withCompletion: { (username, password, error) -> Void in
-            self.emSignupCompleted(username, password: password, error: error)
-        }, onQueue: nil)
-    }
-    
-    func emSignupCompleted(username:String,password:String,error:EMError?)
-    {
-        if(error == nil)
-        {
-            NSLog("EM注册成功")
-            //dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                //self.goMainVC()
-           // })
-        }
-        else
-        {
-            
-            NSLog("EM注册失败")
-        }
-    }
+    var validToken = ""
+    var validPhone = ""
     
     
     func signup()
     {
-        userName.text = "d"
-        if validCode.text == ""
+        userName.text = "youlv"
+        if mobile.text == ""
         {
-            //showErrorMessage("验证码不能为空")
-            //return
-        }
-        if validCode.text != validCodeAnswer
-        {
-            showErrorMessage("验证码错误")
+            showErrorMessage("请输入手机号")
             return
         }
+        if validCode.text == ""
+        {
+            showErrorMessage("请输入验证码")
+            return
+        }
+        //if validCode.text != validToken || mobile.text != validPhone
+        //{
+           // showErrorMessage("验证码错误")
+            //return
+        //}
         if password.text != confirmpassword.text
         {
             showErrorMessage("两次密码输入不同")
@@ -108,45 +91,30 @@ class SignupViewController: UIViewController {
             showEmptyAlert()
             return
         }
-        //let parameters = NSDictionary(objects:[storedUsername,storedPassword], forKeys: ["phone","password"])
-        DataClient().postSignup(storedUsername,password: storedPassword,code: validCode.text!,name: userName.text!){ (data, error) -> () in
-            self.signupCompleted(data,error: error)
+        
+        httpClient.register(storedUsername, password: storedPassword, token: validCode.text!) { (dict, error) -> () in
+            self.registerCompleted(dict,error: error)
         }
     }
     
-    func signupCompleted(data:NSDictionary?,error:NSError?)
+    func registerCompleted(dict:NSDictionary?,error:NSError?)
     {
-        
-        if data!.objectForKey("errcode") as! Int == 0
-        {
-            NSLog("YL注册成功")
-            easeMobSignup()
             saveAccountAndPassword()
             login()
-        }
-        else
-        {
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                let av = UIAlertView(title:"注册失败", message: data!.objectForKey("errmessage") as? String, delegate: nil, cancelButtonTitle: "确定")
-                av.show()
-            })
-        }
     }
+    
     
     func login()
     {
-        let parameters = NSDictionary(objects:[storedUsername,storedPassword], forKeys: ["phone","password"])
-        DataClient().postLogin(parameters) { (dict, error) -> () in
+        httpClient.login(storedUsername, password: storedPassword, completion: { (dict, error) -> () in
             self.loginCompleted(dict,error: error)
-        }
+        })
     }
     
+
     func loginCompleted(dict:NSDictionary?,error:NSError?)
     {
-        easeMobLogin()
-            sessionId = dict!.objectForKey("sessionId") as! String
-            myLawyerId = dict!.objectForKey("lawyerId") as! Int
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.signUpSucceeded = true
             self.performSegueWithIdentifier("goRecommendedTopics", sender: self)
         })
@@ -166,21 +134,20 @@ class SignupViewController: UIViewController {
     
     
     
-    
     func askValidCode()
     {
-        
-        DataClient().postSendMobile(mobile.text!, type: 0) { (dict, error) -> () in
+        httpClient.sendSMS(mobile.text!) { (dict, error) -> () in
             self.askValdCodeCompleted(dict,error: error)
         }
-        let av = UIAlertView(title: "", message: "验证码已发送", delegate: nil, cancelButtonTitle: "确认")
-        av.show()
+        
     }
     
     func askValdCodeCompleted(dict:NSDictionary?,error:NSError?)
     {
-        
-        validCodeAnswer = dict!.objectForKey("code") as! String
+        //validToken = dict!.objectForKey("token") as! String
+        //validPhone = dict!.objectForKey("phone") as! String
+        let av = UIAlertView(title: "", message: "验证码已发送", delegate: nil, cancelButtonTitle: "确认")
+        av.show()
     }
     
     func saveAccountAndPassword()

@@ -9,20 +9,23 @@
 import UIKit
 
 class MyEventsTableViewController: BaseTableViewController {
+
     override func httpGet() {
         super.httpGet()
-        httpClient.getArticleList { (dict, error) -> () in
+        httpClient.getMyActivityList {(dict, error) -> () in
             self.httpGetCompleted(dict, error: error)
         }
+        
     }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goEventDetail"
+        if segue.destinationViewController.isKindOfClass(EventDetailViewController)
         {
             let eventDetail = segue.destinationViewController as! EventDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item
-            _ = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
-            eventDetail.eventId = Int(((dataArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String))!)
+            eventDetail.dict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
+            //eventDetail.eventId = Int(((dataArray.objectAtIndex(selectedIndex!).objectForKey("activeId") as? String))!)
         }
     }
     
@@ -33,8 +36,5 @@ class MyEventsTableViewController: BaseTableViewController {
         return cell
         
     }
-    
-    
 
-    
 }

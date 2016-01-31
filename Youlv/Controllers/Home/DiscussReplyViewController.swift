@@ -16,18 +16,18 @@ class DiscussReplyViewController: UIViewController {
     
     func send()
     {
-        let parameters : NSDictionary = ["topicId":topicId,"content":textView.text,"sessionId":sessionId]
-        DataClient().postDiscussReply(parameters) { (data, error) -> () in
-            self.sendCompleted(data,error: error)
+        httpClient.commentTopic(topicId, text: textView.text!) { (dict, error) -> () in
+            self.sendCompleted(dict,error: error)
         }
     }
     
     func sendCompleted(data:NSDictionary?,error:NSError?)
     {
         isSend = true
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            KVNProgress.showSuccess()
             self.performSegueWithIdentifier("SendAndUnwindFromReply", sender: self)
-            //UIAlertView(title: data?.objectForKey("errmessage") as? String, message: nil, delegate: nil, cancelButtonTitle: "ok").show()
+            
             })
         
     }

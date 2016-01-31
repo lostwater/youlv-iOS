@@ -53,11 +53,19 @@ class ArticleTableViewCell: UITableViewCell {
         userName.text = userDict.objectForKey("name") as? String
         articleTime.text =  defaultDateFormatter.stringFromDate(NSDate(fromString: (dataDict.objectForKey("ctime") as! String)))
         
-        //commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Normal)
-        //commentButton.setTitle(String(dataDict.objectForKey("commentCount") as! Int), forState: UIControlState.Selected)
-        //likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Normal)
-        //likedButton.setTitle(String(dataDict.objectForKey("storeCount") as! Int), forState: UIControlState.Selected)
+        commentButton.setTitle(String(dataDict.objectForKey("comment_num") as! Int) + "条评论", forState: UIControlState.Normal)
+        commentButton.setTitle(String(dataDict.objectForKey("comment_num") as! Int) + "条评论", forState: UIControlState.Selected)
         likedButton.selected  = dataDict.objectForKey("up_or_not") as! Bool
+        if likedButton.selected
+        {
+            likedButton.setTitle(String(dataDict.objectForKey("up_num") as! Int - 1), forState: UIControlState.Normal)
+            likedButton.setTitle(String(dataDict.objectForKey("up_num") as! Int), forState: UIControlState.Selected)
+        }
+        else
+        {
+            likedButton.setTitle(String(dataDict.objectForKey("up_num") as! Int), forState: UIControlState.Normal)
+            likedButton.setTitle(String(dataDict.objectForKey("up_num") as! Int + 1), forState: UIControlState.Selected)
+        }
 
     }
 

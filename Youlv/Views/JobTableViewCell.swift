@@ -29,7 +29,7 @@ class JobTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func displayData(dataDict : NSDictionary)
+    func configure(dict : NSDictionary)
     {
         dateFormatter.dateFormat="yyyy.MM.dd"
         /*
@@ -45,23 +45,17 @@ class JobTableViewCell: UITableViewCell {
         }
         */
         
-        //jobImageView.sd_setImageWithURL(NSURL(string:dataDict.objectForKey("position_officePhoto") as! String)!)
-        companyName.text = dataDict.objectForKey("position_officeName") as? String
-        let type = dataDict.objectForKey("position_type") as! Int
-        if type == 1
-        {
-            jobPosition.text = "全职"
-        }
-        if type == 0
-        {
-            jobPosition.text = "兼职"
-        }
-        let time = NSDate(fromString:dataDict.objectForKey("position_createDate") as! String)
-        jobTime.text = dateFormatter.stringFromDate(time!)
+        jobImageView.sd_setImageWithURL(NSURL(string:dict.objectForKey("agency_img") as! String)!)
+        companyName.text = dict.objectForKey("agency_name") as? String
+        jobPosition.text = dict.objectForKey("name") as? String
 
-        salaryLabel.text = dataDict.objectForKey("position_salary") as? String
-        //jobTime.text =  dataDict.objectForKey("position_createDate") as? String
-        jobLocation.text = dataDict.objectForKey("position_cityName") as? String
+       
+        //let time = NSDate(fromString:dataDict.objectForKey("position_createDate") as! String)
+        //jobTime.text = dateFormatter.stringFromDate(time!)
+
+        salaryLabel.text = dict.objectForKey("salary") as? String
+        jobTime.text =  ""
+        jobLocation.text = dict.objectForKey("location") as? String
 
 
     }

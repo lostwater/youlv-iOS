@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupTopicsTableViewController: UITableViewController {
+class GroupTopicsTableViewController: BaseTableViewController {
 
     @IBOutlet weak var topicImageView: UIImageView!
     @IBOutlet weak var userImageView: UIImageView!
@@ -21,87 +21,71 @@ class GroupTopicsTableViewController: UITableViewController {
     @IBOutlet weak var groupTitle: UILabel!
     @IBOutlet weak var newReplyButton: UIButton!
     
+    
+    @IBOutlet weak var buttonFollow: UIButton!
+    
+    @IBAction func buttonFollowClicked(sender: AnyObject) {
+        let groupId = groupDict.objectForKey("topictype_id") as! Int
+        httpClient.topicGroupUp(groupId) { (dict, error) -> () in
+            self.buttonFollow.selected = !self.buttonFollow.selected
+        }
+    }
+    
+    
     @IBAction func unwindToGroupTopics(segue: UIStoryboardSegue)
     {
         //performSegueWithIdentifier("UnwindToGroupTopics", sender: self)
     }
     
-    var groupId : Int = 0
-    var repliedArray : NSArray?
-    var currentPage = 1
+    
+    var groupDict : NSDictionary!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        topicImageView.image = defualtPic
-        getTopicGroupDetail(currentPage,pageSize: 10)
         
     }
     
-    func getTopicGroupDetail(currentPage: Int, pageSize:Int)
+    override func httpGet()
     {
-        DataClient().getTopicGroupDetail(groupId, currentPage: currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getTopicGroupDetailCompleted(dict, error: error)
-        })
-    }
-    
-    func getTopicGroupDetailCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        repliedArray = (dictData.objectForKey("topicList") as? NSArray)!
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.displayData(dictData.objectForKey("group_topmsg") as! NSDictionary)
-            self.tableView.reloadData()
-        })
-        
-    }
-    
-    
-    func displayData(dataDict : NSDictionary)
-    {
-        groupTitle.text = ""
-        fansCount.text = String(dataDict.objectForKey("fansCount") as! Int)
-        readCount.text = String(dataDict.objectForKey("readerCount") as! Int)
-        repliedCount.text = String(dataDict.objectForKey("topicCount") as! Int)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goNewTopicReply"
-        {
-            let vc = segue.destinationViewController as! NewTopicReplyViewController
-            vc.groupId = groupId
+        let groupId = groupDict.objectForKey("topictype_id") as! Int
+        super.httpGet()
+        httpClient.getTopicEventList(groupId) {(dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
         }
     }
     
     
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.destinationViewController.isKindOfClass(DiscussDetailViewController)
+        {
+            let discussDetail = segue.destinationViewController as! DiscussDetailViewController
+            discussDetail.topicId = (tableView.cellForRowAtIndexPath(tableView.indexPathForSelectedRow!) as! TopicEventCell).topicId
+            
+        }
         
-        return repliedArray?.count ?? 0
     }
+    
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let content = repliedArray!.objectAtIndex(indexPath.row) as! NSDictionary
-        var cell : DiscussTableViewCell?
-        cell = tableView.dequeueReusableCellWithIdentifier("TopicCell", forIndexPath: indexPath) as? DiscussTableViewCell
-        cell?.displayData(content)
-        return cell!
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let content = repliedArray!.objectAtIndex(indexPath.row) as! NSDictionary
-
-            let baseHeight :CGFloat = 115.0+90.0
-            let topicContentText = content.objectForKey("topic_content") as! String
-            let operatorContentText = content.objectForKey("operate_content") as! String
-            var textHeight = calTextSizeWithDefualtFont(topicContentText, width: self.view.frame.width - 32).height
-            textHeight = textHeight + calTextSizeWithDefualtFont(operatorContentText, width: self.view.frame.width - 32).height
-            return textHeight+baseHeight
+        let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
+        var cell : TopicEventCell?
+        if content.objectForKey("type") as! Int == 0
+        {
+            cell = tableView.dequeueReusableCellWithIdentifier("TopicCell", forIndexPath: indexPath) as? TopicEventCell
+            
+        }
+            //if content.objectForKey("operate_type") as! Int == 1
+        else
+        {
+            cell = tableView.dequeueReusableCellWithIdentifier("TopicRefCell", forIndexPath: indexPath) as? TopicEventCell
+        }
         
+        
+        cell?.configure(content)
+        cell?.setNeedsLayout()
+        cell?.setNeedsDisplay()
+        cell?.layoutIfNeeded()
+        return cell!
     }
     
     
@@ -109,7 +93,21 @@ class GroupTopicsTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         self.navigationController?.navigationBar.barTintColor = UIColor.clearColor()
         self.navigationController?.navigationBar.translucent = true
-        navigationController?.navigationBar.setBackgroundImage(UIImage(named:"bgTransNavi"), forBarMetrics: UIBarMetrics.Default)        //let view = self.tableView.headerViewForSection(0)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named:"bgTransNavi"), forBarMetrics: UIBarMetrics.Default)
+        
+        userImageView.sd_setImageWithURL(NSURL(string : groupDict.objectForKey("topictype_avatar_img") as! String)!, placeholderImage:defualtPic)
+        topicImageView.sd_setImageWithURL(NSURL(string : groupDict.objectForKey("topictype_background_img") as! String)!, placeholderImage:defualtPic)
+        fansCount.text = String(groupDict.objectForKey("follow_num") as! Int)
+        readCount.text = String(groupDict.objectForKey("read_num") as! Int)
+        repliedCount.text = String(groupDict.objectForKey("topic_num") as! Int)
+        groupTitle.text = groupDict.objectForKey("title") as? String
+        
+        buttonFollow.selected = groupDict.objectForKey("follow_or_not") as! Bool
+        
+       super.viewDidLoad()
+        //let view = self.tableView.headerViewForSection(0)
+        
+        
         //view!.frame = CGRectMake(0,-44,view!.frame.size.width,view!.frame.size.height)
         
     }

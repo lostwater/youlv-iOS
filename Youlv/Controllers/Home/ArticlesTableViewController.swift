@@ -10,14 +10,6 @@ import UIKit
 class ArticlesTableViewController: BaseTableViewController,NaviBarMenu {
 
     
-    override func httpGet() {
-        super.httpGet()
-        httpClient.getArticleList { (dict, error) -> () in
-            self.httpGetCompleted(dict, error: error)
-        }
-    }
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //setNaviMenu()
@@ -27,13 +19,19 @@ class ArticlesTableViewController: BaseTableViewController,NaviBarMenu {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-         tabBarController?.navigationItem.title = "文章"
+        tabBarController?.navigationItem.title = "文章"
+    }
+    
+    override func httpGet() {
+        super.httpGet()
+        httpClient.getArticleList { (dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
+        }
     }
     
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goArticleDetail"
+        if segue.destinationViewController.isKindOfClass(ArticleDetailViewController)
         {
             let vc = segue.destinationViewController as! ArticleDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item

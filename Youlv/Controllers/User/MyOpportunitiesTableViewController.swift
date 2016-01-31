@@ -8,142 +8,90 @@
 
 import UIKit
 
-class MyOpportunitiesTableViewController: UITableViewController {
+class MyOpportunitiesTableViewController: BaseTableViewController {
 
-    var ordersArray : NSArray?
-    var currentPage = 1
     
     @IBOutlet weak var switcher: UISegmentedControl!
     
     @IBAction func switcherChanged(sender: AnyObject) {
         if switcher.selectedSegmentIndex == 0
         {
-            currentPage = 1
-            getMyPostOpportunities(currentPage, pageSize:10)
+            getMyUpload()
         }
         if switcher.selectedSegmentIndex == 1
         {
-            currentPage = 1
-            getMyRepiliedOpportunities(currentPage, pageSize:10)
+            getMyInterst()
         }
         
     }
+    
     override func viewDidLoad() {
+        //replaceNavTitle()
         super.viewDidLoad()
         if switcher.selectedSegmentIndex == 0
         {
-            currentPage = 1
-            getMyPostOpportunities(currentPage, pageSize:10)
+            getMyUpload()
         }
         if switcher.selectedSegmentIndex == 1
         {
-            currentPage = 1
-            getMyRepiliedOpportunities(currentPage, pageSize:10)
+            getMyInterst()
         }
     }
     
     
-    let client = DataClient()
-    func getMyPostOpportunities(currentPage: Int, pageSize:Int)
-    {
-        client.getMyPostOpportunities(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getMyPostOpportunitiesCompleted(dict, error: error)
-        })
-    }
-    
-    func getMyPostOpportunitiesCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        ordersArray = (dictData.objectForKey("orderList") as? NSArray)!
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
-    }
-    
-    func getMyRepiliedOpportunities(currentPage: Int, pageSize:Int)
-    {
-        client.getMyRepiliedOpportunities(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getMyRepiliedOpportunitiesCompleted(dict, error: error)
-        })
-    }
-
-    func getMyRepiliedOpportunitiesCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        ordersArray = dict!.objectForKey("data") as? NSArray
-        //ordersArray = (dictData.objectForKey("orderList") as? NSArray)!
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
-    }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
+    override func httpGet() {
         
-        return ordersArray?.count ?? 0
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if switcher.selectedSegmentIndex == 0
-        {
-            let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityTableViewCell", forIndexPath: indexPath) as! OpportunityTableViewCell
-            let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
-            cell.configure(content)
-            return cell
-        }
-        else
-        {
-            let cell = tableView.dequeueReusableCellWithIdentifier("OpportunityReplyCell", forIndexPath: indexPath) as! OpportunityReplyTableViewCell
-            let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
-            //cell.configure(content)
-            return cell
-        }
-    }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if switcher.selectedSegmentIndex == 0
-        {
-            let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
-            let contentText = content.objectForKey("order_content") as? String
-            let contentTextSize = calTextSizeWithDefaultSettings(contentText!)
-            
-            return contentTextSize.height + 160.0
+    func getMyUpload()
+    {
+        super.httpGet()
+        httpClient.getCaseList{(dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
+        }
 
+    }
+    
+    func getMyInterst()
+    {
+        super.httpGet()
+        httpClient.getCaseList{(dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
         }
-        else
-        {
-            let content = ordersArray!.objectAtIndex(indexPath.row) as! NSDictionary
-            let opportunityText = content.objectForKey("orderContent") as? String
-            let opportunityTextSize = calTextSizeWithDefaultSettings(opportunityText!)
-            var replyText = content.objectForKey("replycontent") as? String
-            let replyTextSize = calTextSizeWithDefaultSettings(opportunityText!)
-            
-            return opportunityTextSize.height + replyTextSize.height + 200.0
-        }
+
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goPostedOpportunityDetail"
+        if segue.destinationViewController.isKindOfClass(OpportunityDetailViewController)
         {
-            let opportunityDetail = segue.destinationViewController as! OpportunityDetailViewController
+            let vc = segue.destinationViewController as! OpportunityDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item
-            opportunityDetail.dataDict = ordersArray!.objectAtIndex(selectedIndex!) as? NSDictionary
-            opportunityDetail.opportunityId = opportunityDetail.dataDict?.objectForKey("order_id") as! Int
+            vc.dataDict = dataArray.objectAtIndex(selectedIndex!) as? NSDictionary
+            
         }
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell : OpportunityTableViewCell?
+        let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
+        let type = content.objectForKey("type") as! Int
+        if type < 3
+        {
+            cell = tableView.dequeueReusableCellWithIdentifier("CaseCell", forIndexPath: indexPath) as! OpportunityTableViewCell
+        }
+        else
+        {
+            cell = tableView.dequeueReusableCellWithIdentifier("InfoCell", forIndexPath: indexPath) as! OpportunityTableViewCell
+        }
+        cell!.configure(content)
+        return cell!
     }
+    
+
 
    
 
@@ -151,7 +99,7 @@ class MyOpportunitiesTableViewController: UITableViewController {
     {
         let typeSwitcher = UISegmentedControl();
         typeSwitcher.insertSegmentWithTitle("我发布的", atIndex: 0, animated: false)
-        typeSwitcher.insertSegmentWithTitle("回应我的", atIndex: 1, animated: false)
+        typeSwitcher.insertSegmentWithTitle("我收藏的", atIndex: 1, animated: false)
         typeSwitcher.selectedSegmentIndex = 0
         self.navigationItem.titleView = typeSwitcher
     }

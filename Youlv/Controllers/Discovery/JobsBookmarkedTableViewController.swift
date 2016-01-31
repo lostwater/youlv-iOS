@@ -8,55 +8,19 @@
 
 import UIKit
 
-class JobsBookmarkedTableViewController: UITableViewController {
-
-    var currentPage = 1
-    var jobsArray : NSArray?
+class JobsBookmarkedTableViewController: BaseTableViewController {
     
-    let client = DataClient()
-    func getMarkedJobList(currentPage: Int, pageSize:Int)
-    {
-        client.getMarkedJobList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getMarkedJobListCompleted(dict, error: error)
-        })
-    }
-    
-    func getMarkedJobListCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        jobsArray = (dictData.objectForKey("storeList") as? NSArray)!
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
+    override func httpGet() {
+        super.httpGet()
+        httpClient.getJobList {(dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
+        }
         
-    }
-    
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        getMarkedJobList(1,pageSize: 10)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Table view data source
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return jobsArray?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("JobCell", forIndexPath: indexPath) as! JobTableViewCell
-        cell.displayData(jobsArray?.objectAtIndex(indexPath.item) as! NSDictionary)
+        cell.configure(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell
     }
     
@@ -65,9 +29,8 @@ class JobsBookmarkedTableViewController: UITableViewController {
         {
             let vc = segue.destinationViewController as! JobDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item
-            let selectedData = jobsArray?.objectAtIndex(selectedIndex!) as! NSDictionary
-            vc.jobId = selectedData.objectForKey("position_id") as? Int
-            vc.companyImageUrl = selectedData.objectForKey("position_officePhoto") as? String
+            let selectedData = dataArray.objectAtIndex(selectedIndex!) as! NSDictionary
+            vc.dataDict  = selectedData
         }
     }
 

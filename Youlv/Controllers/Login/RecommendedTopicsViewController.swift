@@ -8,7 +8,7 @@
 
 
 
-class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class RecommendedTopicsViewController: ViewControllerWithPagedTableView {
     
     @IBOutlet weak var selectAllText: UIBarButtonItem!
     @IBOutlet weak var selectAllIcon: UIBarButtonItem!
@@ -41,48 +41,30 @@ class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, U
     @IBOutlet weak var tableView: UITableView!
     
     var selectedAll = false
-    var currentPage = 1
-    var topicsArray : NSArray?
-    let client = DataClient()
     var postFinished = false
 
     override func viewDidLoad() {
-        getRecommendedTopics(currentPage, pageSize: 10)
+        self.mainTableView = tableView
         selectAllIcon.image = UIImage(named:"checkoff")
+        
+        super.viewDidLoad()
     }
     
-    func getRecommendedTopics(currentPage: Int, pageSize:Int)
-    {
-        client.getRecommendedTopics(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getRecommendedTopicsCompleted(dict, error: error)
-        })
-    }
-    
-    func getRecommendedTopicsCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        let dictData = dict!.objectForKey("data") as! NSDictionary
-        topicsArray = (dictData.objectForKey("topicList") as? NSArray)!
-        dispatch_sync(dispatch_get_main_queue(), {() -> Void in
-            self.tableView.reloadData()
-        })
+    override func httpGet() {
+        httpClient.getTopicList { (dict, error) -> () in
+            self.httpGetCompleted(dict, error: error)
+        }
         
     }
     
-     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return topicsArray?.count ?? 0
-    }
-    
-     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! ContactTableViewCell
-        let content = topicsArray!.objectAtIndex(indexPath.row) as! NSDictionary
-        //cell.imageView?.sd_setImageWithURL(NSURL(string: content.objectForKey("") as! String))
+        let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
+        cell.userHead.sd_setImageWithURL(NSURL(string: content.objectForKey("topictype_avatar_img") as! String))
+        //cell.imageView?.sd_setImageWithURL(NSURL(string: content.objectForKey("topictype_avatar_img") as! String))
         cell.userName.text = content.objectForKey("title") as? String
-        cell.intro?.text = content.objectForKey("content") as? String
-        cell.tag = content.objectForKey("articleId") as! Int
+        cell.intro?.text = content.objectForKey("desc") as? String
+        cell.tag = content.objectForKey("topictype_id") as! Int
         return cell
     }
     
@@ -118,11 +100,13 @@ class RecommendedTopicsViewController: UIViewController,UITableViewDataSource, U
             let cell = c 
             if cell.selected
             {
-                ids.addObject(cell.tag)
+                ids.addObject(String(cell.tag))
             }
         }
         
-        DataClient().postMarkTopics(ids){ (dict, erorr) -> () in}
+        httpClient.followTopicTypes(ids) { (dict, error) -> () in
+            KVNProgress.showSuccessWithStatus("关注成功")
+        }
     }
   
     

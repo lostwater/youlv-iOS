@@ -47,7 +47,7 @@ class MyFriendsViewController: UIViewController,UITableViewDataSource,UITableVie
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goUserHome"
         {
-            let vc = segue.destinationViewController as! UserViewController
+            let vc = segue.destinationViewController as! UserHomeTableViewController
             let selectedIndex = tableView.indexPathForSelectedRow!.item
             vc.userId = (dataArray.objectAtIndex(selectedIndex) as! NSDictionary).objectForKey("lawyer_id") as! Int
         }

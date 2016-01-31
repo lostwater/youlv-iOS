@@ -11,13 +11,15 @@ class AvatarImageView: UIImageView {
     
     var userId = 0
     var isPushEnabled = true
-    
+    var userDict : NSDictionary?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.userInteractionEnabled = true
         let singleTap = UITapGestureRecognizer(target: self, action:Selector("tapped"))
         self.addGestureRecognizer(singleTap)
+        layer.cornerRadius = self.frame.height/2
+        
     }
     
     func tapped()
@@ -27,8 +29,9 @@ class AvatarImageView: UIImageView {
         let sourceVC = sourceViewController()
         if sourceVC != nil
         {
-            let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("userVC") as! UserViewController
+            let vc = UIStoryboard(name: "User", bundle: nil).instantiateViewControllerWithIdentifier("userVC") as! UserHomeTableViewController
             vc.userId = userId
+            vc.userDict = userDict
             sourceVC!.navigationController?.pushViewController(vc, animated:true)
         }
         }

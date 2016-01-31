@@ -20,14 +20,7 @@ class DiscussCommentTableViewCell: UITableViewCell {
     @IBOutlet var LikedButton: UIButton!
     
     @IBAction func likedButtonClicked(sender: AnyObject) {
-        if !LikedButton.selected
-        {
-            likeReply()
-            LikedButton.selected = true
-            let likedCount = Int(LikedButton.titleLabel!.text!)! + 1
-            LikedButton.setTitle(String(likedCount), forState: UIControlState.Normal)
-            LikedButton.setTitle(String(likedCount), forState: UIControlState.Selected)
-        }
+        likeReply()
     }
     
    
@@ -37,58 +30,54 @@ class DiscussCommentTableViewCell: UITableViewCell {
         LikedButton.setImage(UIImage(named:"buttonlikecommentblue"), forState: UIControlState.Selected)
     }
     
-    func displayData(dataDict : NSDictionary)
+    func configure(dict : NSDictionary)
     {
-        let commentString = dataDict.objectForKey("content") as! String
-        CommentContent.numberOfLines = 0
-        CommentContent.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        CommentContent.text = commentString
+        let userDict = dict.objectForKey("user") as! NSDictionary
+        CommentContent.text = dict.objectForKey("comment") as? String
+        tag = dict.objectForKey("topicevent_id") as! Int
         
-        let attCommentStr = NSAttributedString(string: CommentContent.text!)
-        var range = NSMakeRange(0,attCommentStr.length)
-        var strDict = attCommentStr.attributesAtIndex(0, effectiveRange: &range)
-        let commentTextSize = attCommentStr.boundingRectWithSize(CommentContent.frame.size, options: NSStringDrawingOptions.UsesFontLeading, context: nil).size
-        CommentContent.frame.size = commentTextSize
-
-        self.tag = dataDict.objectForKey("id") as! Int
-
-        UserImageView.sd_setImageWithURL(NSURL(string: dataDict.objectForKey("photoUrl") as! String), placeholderImage: UIImage(named:"pichead"))
-        UserImageView.userId = Int((dataDict.objectForKey("lawyerId") as! String))!
-        UserName.text = dataDict.objectForKey("lawyerName") as? String
+        UserImageView.sd_setImageWithURL(NSURL(string: userDict.objectForKey("avatar") as! String), placeholderImage: UIImage(named:"pichead"))
+        UserImageView.userId = userDict.objectForKey("uid") as! Int
+        UserName.text = userDict.objectForKey("name") as? String
+        UserImageView.userDict = userDict
         
-        
-        //var commentSize = NSString(string: CommentContent.text!).sizeWithAttributes(attrs: [NSObject : AnyObject]?)
-        
-        
-        CommentTime.text = dateToText(NSDate(fromString: dataDict.objectForKey("createDate") as! String))
-        LikedButton.setTitle(dataDict.objectForKey("praiseCount") as? String, forState: UIControlState.Normal)
-        LikedButton.setTitle(dataDict.objectForKey("praiseCount") as? String, forState: UIControlState.Selected)
-    
- 
+        CommentTime.text = dateToText(NSDate(fromString: dict.objectForKey("ctime") as! String))
+        LikedButton.setTitle(dict.objectForKey("up_num") as? String, forState: UIControlState.Normal)
+        LikedButton.setTitle(dict.objectForKey("up_num") as? String, forState: UIControlState.Selected)
         
         LikedButton.setTitleColor(appBlueColor, forState: UIControlState.Selected)
         LikedButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+        
+        LikedButton.selected = dict.objectForKey("up_or_not") as! Bool
 
-        let isMarked = Int((dataDict.objectForKey("isPraise") as! String))
-        
-        LikedButton.selected = Bool(isMarked!)
-        
+
     }
+    
     
     func likeReply()
     {
-        DataClient().postLikeTopicReply(self.tag) { (data, error) -> () in
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.likeReplyCompleted(data,error: error)
-                
-            })
+        httpClient.topicEventUp(tag) { (dict, error) -> () in
+            self.likeReplyCompleted(dict, error: error)
         }
     }
     
     func likeReplyCompleted(data:NSDictionary?,error:NSError?)
     {
 
-        
+        if !LikedButton.selected
+        {
+            LikedButton.selected = true
+            //let likedCount = Int(LikedButton.titleLabel!.text!)! + 1
+            //LikedButton.setTitle(String(likedCount), forState: UIControlState.Normal)
+            //LikedButton.setTitle(String(likedCount), forState: UIControlState.Selected)
+        }
+        else
+        {
+            LikedButton.selected = false
+            //let likedCount = Int(LikedButton.titleLabel!.text!)! - 1
+            //LikedButton.setTitle(String(likedCount), forState: UIControlState.Normal)
+           // LikedButton.setTitle(String(likedCount), forState: UIControlState.Selected)
+        }
         
     }
 

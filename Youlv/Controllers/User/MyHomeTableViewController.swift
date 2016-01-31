@@ -10,49 +10,30 @@
 
 class MyHomeTableViewController: UITableViewController {
 
-    @IBOutlet var userImageView: UIImageView!
+    @IBOutlet var userImageView: AvatarImageView!
     @IBOutlet weak var userName: UILabel!
 
     @IBOutlet weak var location: UILabel!
     
     @IBOutlet weak var fellowsCount: UIButton!
     @IBOutlet weak var fansCount: UIButton!
-    
-    var dataDict : NSDictionary?
-    
-    func getMyProfile()
-    {
-        DataClient().getUserProfileWithTopicList(myLawyerId,currentPage: 1,pageSize: 0,completion: { (dict, error) -> () in
-            self.getMyProfileCompleted(dict,error: error)
-        })
-    }
-    
-    func getMyProfileCompleted(dict:NSDictionary?,error:NSError?)
-    {
 
-        self.dataDict = dict!.objectForKey("data") as? NSDictionary
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.displayData()
-            
-        })
-        
-    }
     
     func displayData()
     {
-        userImageView.sd_setImageWithURL(NSURL(string: dataDict!.objectForKey("lawyer_photoUrl") as! String), placeholderImage: headImage)
-        userName.text = dataDict!.objectForKey("lawyer_name") as? String
-        location.text = (dataDict!.objectForKey("lawyer_cityName") as! String)
-        let office = dataDict!.objectForKey("lawyer_lawOffice") as! String
-        if office != ""
+        userImageView.sd_setImageWithURL(NSURL(string: myUserInfo!.objectForKey("avatar") as! String), placeholderImage: headImage)
+        userName.text = myUserInfo!.objectForKey("name") as? String
+        location.text = myUserInfo!.objectForKey("location") as? String
+        let office = myUserInfo!.objectForKey("agency") as? String
+        if office ?? "" != ""
         {
-            location.text = location.text! + ", " + office
+            location.text = location.text! + ", " + office!
         }
 
-        var fellowstitle = String(dataDict!.objectForKey("lawyer_attentionCount")as! Int)
+        var fellowstitle = String(myUserInfo!.objectForKey("follow_num")as! Int)
         fellowstitle = "关注 " + fellowstitle
         fellowsCount.setTitle(fellowstitle, forState: UIControlState.Normal)
-        var fanstitle = String(dataDict!.objectForKey("lawyer_fansCount")as! Int)
+        var fanstitle = String(myUserInfo!.objectForKey("followed_num")as! Int)
         fanstitle = "粉丝 " + fanstitle
         fansCount.setTitle(fanstitle, forState: UIControlState.Normal)
         
@@ -61,7 +42,9 @@ class MyHomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMyProfile()
+        userImageView.isPushEnabled = false
+
+        displayData()
 
     }
     
