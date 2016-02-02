@@ -16,9 +16,7 @@ class JoinGroupTableViewController: BaseTableViewController {
     
     func getGroupList(currentPage: Int, pageSize:Int)
     {
-        DataClient().getGroupList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getGroupListCompleted(dict, error: error)
-        })
+        
     }
     
     func getGroupListCompleted(dict:NSDictionary?,error:NSError?)

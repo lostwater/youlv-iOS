@@ -56,9 +56,7 @@ class GeneralContactsTableViewController: UITableViewController {
     
     func  getFriendsList()
     {
-        DataClient().getMyFollowedUsers({ (dict, error) -> () in
-            self.getFriendsListCompleted(dict, error: error)
-        })
+
     }
     
     func getFriendsListCompleted(dict:NSDictionary?,error:NSError?)

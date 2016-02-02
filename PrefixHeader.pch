@@ -17,9 +17,9 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-#import "ChatDemoUIDefine.h"
-#import "EMAlertView.h"
-#import "TTGlobalUICommon.h"
+//#import "ChatDemoUIDefine.h"
+//#import "EMAlertView.h"
+//#import "TTGlobalUICommon.h"
 #import "UIViewController+HUD.h"
 #import "UIViewController+DismissKeyboard.h"
 #import "NSString+Valid.h"

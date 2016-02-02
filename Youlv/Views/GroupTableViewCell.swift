@@ -44,24 +44,5 @@ class GroupTableViewCell: UITableViewCell {
         groupIntro.text = intro
     }
     
-    func joinGroup()
-    {
-        DataClient().postAddGroupMember(groupId, lawyerId: myLawyerId, completion: { (dict, error) -> () in
-            self.joinGroupCompleted(dict,error: error)
-        })
-    }
-    
-    func joinGroupCompleted(dict:NSDictionary?,error:NSError?)
-    {
-        
-        emJoinGroup()
-    }
-    
-    func emJoinGroup()
-    {
-        EaseMob.sharedInstance().chatManager.asyncJoinPublicGroup(groupId, completion: { (group, error) -> Void in
-            
-            }, onQueue: nil)
-    }
 
 }

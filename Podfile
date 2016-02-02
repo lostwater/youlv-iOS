@@ -3,33 +3,32 @@
 
 target 'Youlv' do
 pod 'FSMediaPicker'
-pod 'MZFormSheetController'
 pod 'BlurryModalSegue'
 pod 'SDWebImage'
-
-pod 'THCalendarDatePicker'
 pod 'EaseMobSDKFull'
 pod 'AFNetworking'
-
 pod 'MYBlurIntroductionView'
 pod 'IQKeyboardManager'
 pod 'KVNProgress'
 pod 'ImagePlayerView'
+pod 'KNSemiModalViewController'
+pod 'EaseUI', :git => 'https://github.com/easemob/easeui-ios-cocoapods.git'
+
 end
 
 target 'YoulvTests' do
 pod 'FSMediaPicker'
-pod 'MZFormSheetController'
 pod 'BlurryModalSegue'
 pod 'SDWebImage'
-pod 'THCalendarDatePicker'
 pod 'EaseMobSDKFull'
 pod 'AFNetworking'
-
 pod 'MYBlurIntroductionView'
 pod 'IQKeyboardManager'
 pod 'KVNProgress'
 pod 'ImagePlayerView'
+pod 'KNSemiModalViewController'
+pod 'EaseUI', :git => 'https://github.com/easemob/easeui-ios-cocoapods.git'
+
 end
 
 

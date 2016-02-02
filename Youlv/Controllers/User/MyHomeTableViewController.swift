@@ -43,9 +43,13 @@ class MyHomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userImageView.isPushEnabled = false
+        //displayData()
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         displayData()
-
     }
     
     override func didReceiveMemoryWarning() {

@@ -42,9 +42,7 @@ class StartGroupChat2ViewController: UIViewController,UITableViewDataSource,UITa
         {
             pw = password.text!
         }
-        DataClient().postCreateGroup(groupName, desc: groupDesc, isPublic: isPublic, isApproval: isApproval, password: pw, maxUsers: groupMaxUsers) { (dict, error) -> () in
-            self.createGroupCompleted(dict, error: error)
-        }
+
     }
     
     func createGroupCompleted(dict:NSDictionary? , error:NSError?)

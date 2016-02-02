@@ -20,24 +20,7 @@ class ResearchDetailTableViewController: UITableViewController {
     var content : String?
     
     
-    let client = DataClient()
-    func getResearchDetail()
-    {
-        client.getResearchDetail(researchId!, completion: { (dict, error) -> () in
-            self.getResearchDetailCompleted(dict, error: error)
-        })
-    }
     
-    func getResearchDetailCompleted(dict:NSDictionary?,error:NSError?)
-    {
- 
-        dataDict = dict!.objectForKey("data") as? NSDictionary
-        optionsResult = dataDict!.objectForKey("vote_result") as? NSDictionary
-        dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-          self.displayData()
-        })
-        
-    }
     
     func displayData()
     {
@@ -93,7 +76,7 @@ class ResearchDetailTableViewController: UITableViewController {
         pieChart.titleFont = UIFont(name:"HelveticaNeue", size:16)
         //pieChart. = UIFont(Name:"HelveticaNeue", size:16)
         pieChart.showArrow = false
-        getResearchDetail()
+ 
     }
 
     override func didReceiveMemoryWarning() {

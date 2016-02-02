@@ -47,7 +47,7 @@ class MyOpportunitiesTableViewController: BaseTableViewController {
     func getMyUpload()
     {
         super.httpGet()
-        httpClient.getCaseList{(dict, error) -> () in
+        httpClient.getMyUploadedCaseList{(dict, error) -> () in
             self.httpGetCompleted(dict, error: error)
         }
 
@@ -56,7 +56,7 @@ class MyOpportunitiesTableViewController: BaseTableViewController {
     func getMyInterst()
     {
         super.httpGet()
-        httpClient.getCaseList{(dict, error) -> () in
+        httpClient.getMyInterestedCaseList{(dict, error) -> () in
             self.httpGetCompleted(dict, error: error)
         }
 

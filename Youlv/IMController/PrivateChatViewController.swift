@@ -9,35 +9,26 @@
 import UIKit
 
 
-class PrivateChatViewController: ChatViewController{
-    var userPhone = ""
-    var username = ""
-
-    var conversation : EMConversation?
-    override func viewDidLoad() {
-        self.navigationItem.title = self.username
-        super.viewDidLoad()
-        setupChatVCWithChatter( userPhone, conversationType: EMConversationType.eConversationTypeChat)
-        //EaseMob.sharedInstance().chatManager.conversationForChatter!(userPhone, conversationType: EMConversationType.eConversationTypeChat)
+class PrivateChatViewController: EaseMessageViewController,EaseMessageViewControllerDataSource{
     
-    }
+    var myUserDict : NSDictionary?
+    var userDict : NSDictionary?
     
-    func emSendText(message : String)
-    {
-       let emmessage = ChatSendHelper.sendTextMessageWithString(message, toUsername: userPhone, isChatGroup: false, requireEncryption: false, ext: nil)
-
+    func messageViewController(viewController: EaseMessageViewController!, modelForMessage message: EMMessage!) -> IMessageModel! {
+        let model = EaseMessageModel(message: message)
+        if message.from == myUserDict?.objectForKey("name") as! String
+        {
+            model.avatarImage = headImage
+            model.avatarURLPath = myUserDict?.objectForKey("avatar") as! String
+            model.nickname  = myUserDict?.objectForKey("name") as! String
+        }
+        else
+        {
+            model.avatarImage = headImage
+            model.avatarURLPath = userDict?.objectForKey("avatar") as! String
+            model.nickname  = userDict?.objectForKey("name") as! String
+        }
+        return model
     }
-    
-    func emSendImage(image : UIImage)
-    {
-        let emmessage = ChatSendHelper.sendImageMessageWithImage(image, toUsername: userPhone, isChatGroup: false, requireEncryption: false, ext: nil)
-    }
-    
-    func emSendVoice(voice : EMChatVoice)
-    {
-         let emmessage = ChatSendHelper.sendVoice(voice, toUsername: userPhone, isChatGroup: false, requireEncryption: false, ext: nil)
-
-    }
-
 
 }

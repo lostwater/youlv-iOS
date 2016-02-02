@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyProfileTableViewController: UITableViewController {
+class MyProfileTableViewController: UITableViewController,FSMediaPickerDelegate  {
 
     @IBOutlet weak var tableViewCellIntro: UITableViewCell!
     @IBOutlet weak var textViewIntro: UITextView!
@@ -35,7 +35,15 @@ class MyProfileTableViewController: UITableViewController {
     
     func updateProfile()
     {
-        
+        httpClient.updateMyProfile(userImageView.image!, name: userName.text ?? "",  agency: orgName.text ?? "", location: location.text ?? "") { (dict, error) -> () in
+           //myUserInfo?.d
+            //myUserInfo?.
+            myUserInfo?.setValue(dict?.valueForKey("avatar") as! String, forKey: "avatar")
+             myUserInfo?.setValue(self.userName.text, forKey: "name")
+             myUserInfo?.setValue(self.orgName.text, forKey: "agency")
+             myUserInfo?.setValue(self.location.text, forKey: "location")
+             //myUserInfo?.setValue(userImageView.image!, forKey: "avatar")
+        }
     }
     
     func displayData()
@@ -86,13 +94,40 @@ class MyProfileTableViewController: UITableViewController {
         orgName.enabled = false
         location.enabled = false
         displayData()
+        
+        userImageView.userInteractionEnabled = true
+        let singleTap = UITapGestureRecognizer(target: self, action:Selector("avatarTapped"))
+        userImageView.addGestureRecognizer(singleTap)
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func avatarTapped()
+    {
+        if editEabled
+        {
+            let mediaPicker = FSMediaPicker();
+            mediaPicker.mediaType = FSMediaTypePhoto
+            mediaPicker.editMode = FSEditModeCircular
+            mediaPicker.delegate = self;
+            mediaPicker.showFromView(self.view);
+        }
     }
+    
+    func mediaPicker(mediaPicker: FSMediaPicker!, didFinishWithMediaInfo mediaInfo: [NSObject : AnyObject]!) {
+        let m = mediaInfo as NSDictionary;
+        let pic =  m.circularEditedImage;
+        userImageView.image = pic
+    }
+    
+    func mediaPicker(mediaPicker: FSMediaPicker!, willPresentImagePickerController imagePicker: UIImagePickerController!) {
+        
+    }
+    
+    func mediaPickerDidCancel(mediaPicker: FSMediaPicker!) {
+        
+    }
+
+
 
 
 }

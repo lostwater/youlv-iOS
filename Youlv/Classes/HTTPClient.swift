@@ -93,6 +93,40 @@ class HTTPClient{
         }
     }
     
+    
+    func updateMyProfile(avatar : UIImage, name : String, agency : String, location : String, completion: (NSDictionary?, NSError?)->())
+    {
+        let path = domain + "api/accounts/profile/" + String(myUserInfo?.objectForKey("uid") as! Int) + "/"
+        let imageData = UIImageJPEGRepresentation(avatar, 0.1)
+        let paras = NSMutableDictionary()
+        paras.setValue(name, forKey: "name")
+        paras.setValue(agency, forKey: "agency")
+        paras.setValue(location, forKey: "location")
+        let request = AFHTTPRequestSerializer().multipartFormRequestWithMethod("POST", URLString: path, parameters: (paras as! [String:AnyObject]), constructingBodyWithBlock: { (formData) -> Void in
+                formData.appendPartWithFileData(imageData!, name: "avatar", fileName: "avatar.jpg", mimeType: "image/jpeg")
+            }, error: nil)
+        request.setValue(token, forHTTPHeaderField: "token")
+
+        let manager = AFHTTPSessionManager()
+        manager.responseSerializer = AFJSONResponseSerializer()
+        let task = manager.uploadTaskWithStreamedRequest(request, progress: nil) { (respones, object, error) -> Void in
+            if error == nil
+            {
+                let dict = object as! NSDictionary
+                KVNProgress.showSuccessWithStatus("更新成功")
+                completion(dict,error)
+            }
+            else
+            
+            {
+                KVNProgress.showErrorWithStatus("更新失败")
+            }
+        }
+        
+        task.resume()
+        //manager.POST(String, parameters: AnyObject?, success: ((NSURLSessionDataTask, AnyObject?) -> Void)?, failure: ((NSURLSessionDataTask?, NSError) -> Void)?)
+    }
+    
     func sendSMS(phone : String, completion: (NSDictionary?, NSError?)->())
     {
         let path = domain + "api/accounts/send-sms/"
@@ -180,7 +214,7 @@ class HTTPClient{
             completion(dict, error)
             self.token = dict?.objectForKey("token") as! String
             self.getUserInfo(dict?.objectForKey("user") as! Int, completion: { (dict, error) -> () in
-                myUserInfo = dict
+                myUserInfo = NSMutableDictionary(dictionary: dict!)
                 self.easeMobLogin()
             })
         }
@@ -202,6 +236,24 @@ class HTTPClient{
             completion(dict, error)
         }
     }
+    
+   
+    func getMyFollowedUsers(completion: (NSDictionary?, NSError?)->())
+    {
+        let path = domain + "api/accounts/follower/list/"
+        httpGet(path) { (dict, error) -> () in
+            completion(dict, error)
+        }
+    }
+    
+    func getMyFollowUsers(completion: (NSDictionary?, NSError?)->())
+    {
+        let path = domain + "api/accounts/follow/list/"
+        httpGet(path) { (dict, error) -> () in
+            completion(dict, error)
+        }
+    }
+    
     
     func getMyTopicEventList(completion: (NSDictionary?, NSError?)->())
     {

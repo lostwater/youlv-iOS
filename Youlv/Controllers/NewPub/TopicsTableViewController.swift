@@ -52,4 +52,8 @@ class TopicsTableViewController: BaseTableViewController{
             vc.groupDict = dict!
         }
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 44
+    }
 }

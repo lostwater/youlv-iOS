@@ -20,7 +20,7 @@ class InterviewQATableViewCell: UITableViewCell {
     @IBAction func likedButtonClicked(sender: AnyObject) {
         if !likedButton.selected
         {
-            likeComment()
+        
         }
     }
     
@@ -66,23 +66,6 @@ class InterviewQATableViewCell: UITableViewCell {
     }
     
     
-    func likeComment()
-    {
-            DataClient().postLikeInterviewComment(self.tag) { (data, error) -> () in
-                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                    self.likeCommentCompleted(data,error: error)})
-        }
-    }
-    
-    func likeCommentCompleted(data:NSDictionary?,error:NSError?)
-    {
-        if data?.objectForKey("errcode") as? Int == 0
-        {
-            let count = Int(likedButton.titleLabel!.text!)! + 1
-            likedButton.setTitle(String(count), forState: UIControlState.Selected)
-            likedButton.selected = true
-        }
-      
-    }
+
 
 }

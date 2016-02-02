@@ -61,9 +61,7 @@ class InterviewDetailViewController: BaseTableViewController {
 
     func getInterviewDetail(currentPage: Int, pageSize:Int)
     {
-        DataClient().getInterviewDetail(interviewId!, currentPage:currentPage, pageSize:pageSize) { (dict, error) -> () in
-            self.getInterviewDetailCompleted(dict,error: error)
-        }
+ 
     }
     
     func getInterviewDetailCompleted(dict:NSDictionary?,error:NSError?)
@@ -87,9 +85,7 @@ class InterviewDetailViewController: BaseTableViewController {
     
     func markInterview()
     {
-        DataClient().postMarkInterview(interviewId!) { (dict, error) -> () in
-            self.markInterviewCompleted(dict, error: error)
-        }
+
     }
     
     func markInterviewCompleted(dict:NSDictionary?, error:NSError?)

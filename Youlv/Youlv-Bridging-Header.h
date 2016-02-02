@@ -11,6 +11,7 @@
 
 #import "KeyboardManager.h"
 #import "KVNProgress.h"
+#import "UIViewController+KNSemiModal.h"
 
 #import "FSMediaPicker.h"
 #import "BlurryModalSegue.h"
@@ -18,25 +19,20 @@
 #import "RSTapRateView.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "PCPieChart.h"
-#import "THDatePickerViewController.h"
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 #import "SFHFKeychainUtils.h"
 #import "MYBlurIntroductionView.h"
 #import "KeychainItemWrapper.h"
-#import "MZFormSheetController.h"
 
 
 #import "CPTextViewPlaceholder.h"
 #import "NSDate+Utils.h"
 #import "DRNRealTimeBlurView.h"
 
-
-#import "ChatViewController.h"
 #import "EMChatManagerDefs.h"
 
 #import "EaseMob.h"
-#import "ChatSendHelper.h"
-#import "ConvertToCommonEmoticonsHelper.h"
-#import "EMCommandMessageBody.h"
+#import "EaseUI.h"
+
 //

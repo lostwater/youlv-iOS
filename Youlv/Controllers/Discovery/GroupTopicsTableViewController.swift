@@ -42,6 +42,8 @@ class GroupTopicsTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         
+        
+        
     }
     
     override func httpGet()
@@ -95,6 +97,7 @@ class GroupTopicsTableViewController: BaseTableViewController {
         self.navigationController?.navigationBar.translucent = true
         navigationController?.navigationBar.setBackgroundImage(UIImage(named:"bgTransNavi"), forBarMetrics: UIBarMetrics.Default)
         
+        super.viewDidLoad()
         userImageView.sd_setImageWithURL(NSURL(string : groupDict.objectForKey("topictype_avatar_img") as! String)!, placeholderImage:defualtPic)
         topicImageView.sd_setImageWithURL(NSURL(string : groupDict.objectForKey("topictype_background_img") as! String)!, placeholderImage:defualtPic)
         fansCount.text = String(groupDict.objectForKey("follow_num") as! Int)
@@ -103,8 +106,6 @@ class GroupTopicsTableViewController: BaseTableViewController {
         groupTitle.text = groupDict.objectForKey("title") as? String
         
         buttonFollow.selected = groupDict.objectForKey("follow_or_not") as! Bool
-        
-       super.viewDidLoad()
         //let view = self.tableView.headerViewForSection(0)
         
         

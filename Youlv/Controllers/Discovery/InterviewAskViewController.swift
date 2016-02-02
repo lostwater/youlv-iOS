@@ -23,13 +23,7 @@ class InterviewAskViewController: UIViewController {
     
     func send()
     {
-        DataClient().postInterviewAsk(interviewId, content: text.text) { (dict, error) -> () in
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.sendCompleted(dict, error: error)
-            })
 
-           
-        }
     }
     
     func sendCompleted(dict:NSDictionary?, error:NSError?)

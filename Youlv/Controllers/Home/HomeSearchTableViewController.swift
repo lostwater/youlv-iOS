@@ -29,7 +29,7 @@ class HomeSearchTableViewController: UITableViewController {
     
     @IBAction func doSearchClicked(sender: AnyObject) {
         currentPage = 1
-        search(currentPage)
+        //search(currentPage)
     }
     
     var searchType = SearchType.Discuss
@@ -54,35 +54,35 @@ class HomeSearchTableViewController: UITableViewController {
         //self.navigationItem.titleView = SearchBar
     }
     
-    func search(page : Int)
-    {
-        let searchTitle = searchText.text
-        if searchType == SearchType.Discuss
-        {
-            DataClient().searchDiscuss(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
-                self.searchCompleted(dict,error: error)
-            })
-        }
-        if searchType == SearchType.Opportunity
-        {
-            DataClient().searchOrders(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
-                self.searchCompleted(dict,error: error)
-            })
-        }
-        if searchType == SearchType.Event
-        {
-            DataClient().searchActive(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
-                self.searchCompleted(dict,error: error)
-            })
-        }
-        if searchType == SearchType.Article
-        {
-            DataClient().searchArticle(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
-                self.searchCompleted(dict,error: error)
-            })
-        }
-
-    }
+//    func search(page : Int)
+//    {
+//        let searchTitle = searchText.text
+//        if searchType == SearchType.Discuss
+//        {
+//            DataClient().searchDiscuss(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+//                self.searchCompleted(dict,error: error)
+//            })
+//        }
+//        if searchType == SearchType.Opportunity
+//        {
+//            DataClient().searchOrders(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+//                self.searchCompleted(dict,error: error)
+//            })
+//        }
+//        if searchType == SearchType.Event
+//        {
+//            DataClient().searchActive(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+//                self.searchCompleted(dict,error: error)
+//            })
+//        }
+//        if searchType == SearchType.Article
+//        {
+//            DataClient().searchArticle(searchTitle!, currentPage: currentPage, pageSize: 10, completion: { (dict, error) -> () in
+//                self.searchCompleted(dict,error: error)
+//            })
+//        }
+//
+//    }
     
     func searchCompleted(dict:NSDictionary?,error:NSError?)
     {

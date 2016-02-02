@@ -81,9 +81,7 @@ class RecommendedTopicsViewController: ViewControllerWithPagedTableView {
     }
     
     
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        
-        
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {      
         if identifier == "nextToUsers" && !postFinished
         {
             return true

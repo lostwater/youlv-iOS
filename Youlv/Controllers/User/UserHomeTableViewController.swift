@@ -18,8 +18,25 @@ class UserHomeTableViewController: BaseTableViewController {
     @IBOutlet weak var buttonFellows: UIButton!
     @IBOutlet weak var buttonFans: UIButton!
     
+    @IBOutlet weak var buttonChat: UIButton!
+    @IBOutlet weak var buttonFollow: UIButton!
     var userId = 0
     var userDict : NSDictionary?
+    
+    @IBAction func chatButtonClicked(sender: AnyObject) {
+        let chatVC = PrivateChatViewController(conversationChatter: userDict!.objectForKey("huanxin_name") as! String, conversationType: EMConversationType.eConversationTypeChat)
+        chatVC.title = userDict?.objectForKey("name") as? String
+        self.navigationController?.pushViewController(chatVC, animated: true)
+    }
+    
+    
+    
+    @IBAction func buttonFollowClicked(sender: AnyObject) {
+        httpClient.followUser(userId) { (dict, error) -> () in
+            
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +45,7 @@ class UserHomeTableViewController: BaseTableViewController {
     
     override func httpGet()
     {
-            }
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -83,7 +100,9 @@ class UserHomeTableViewController: BaseTableViewController {
         userIntroTextView.text = userDict?.objectForKey("about") as? String
         userIntroTextView.textColor = UIColor.whiteColor()
         userName.text =  userDict?.objectForKey("name") as? String
-        userAdd.text = (userDict?.objectForKey("location") as! String) + ", " + (userDict?.objectForKey("agency") as! String)
+        let location = userDict?.objectForKey("location") as? String ?? ""
+        let agency = userDict?.objectForKey("agency") as? String ?? ""
+        userAdd.text = location + ", " + agency
         var fellowstitle = String(userDict?.objectForKey("follow_num")as! Int)
         fellowstitle = "关注 " + fellowstitle
         buttonFellows.setTitle(fellowstitle, forState: UIControlState.Normal)

@@ -46,6 +46,9 @@ class JobTableViewCell: UITableViewCell {
         */
         
         jobImageView.sd_setImageWithURL(NSURL(string:dict.objectForKey("agency_img") as! String)!)
+        
+        jobImageView.layer.cornerRadius = jobImageView.frame.height/2
+        
         companyName.text = dict.objectForKey("agency_name") as? String
         jobPosition.text = dict.objectForKey("name") as? String
 

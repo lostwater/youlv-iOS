@@ -41,7 +41,7 @@ let serviceName = "com.RamyTech.Youlv"
 var userDefaults = NSUserDefaults.standardUserDefaults()
 var httpClient = HTTPClient()
 
-var myUserInfo : NSDictionary?
+var myUserInfo : NSMutableDictionary?
 
 
 @UIApplicationMain
@@ -56,14 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setAppearance()
         application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         
-        var apnsCertName = "propush"
+        var apnsCertName = "YoulvNotiProKey"
         #if DEBUG
-            apnsCertName = "devpush";
+            apnsCertName = "YoulvNotiDevKey";
         #else
-            apnsCertName = "propush";
+            apnsCertName = "YoulvNotiProKey";
         #endif
         
-        EaseMob.sharedInstance().registerSDKWithAppKey("yoolegal#yoolegal", apnsCertName: apnsCertName)
+        EaseMob.sharedInstance().registerSDKWithAppKey("yoolegal#yoo", apnsCertName: apnsCertName)
         EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         

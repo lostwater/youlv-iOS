@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegate, UIPickerViewDataSource,UIPickerViewDelegate,UITableViewDataSource,UITableViewDelegate {
+class NewOpportunityOptionsViewController: UIViewController,  UIPickerViewDataSource,UIPickerViewDelegate,UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var privilegeTable: UITableView!
     @IBAction func opportunityBWListDidSet(segue: UIStoryboardSegue)
@@ -152,9 +152,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
     func getCityList()
     {
         
-        DataClient().getCityList(1, pageSize: 100, completion: { (dict, error) -> () in
-            self.getCityListCompleted(dict,error: error)
-        })
+
     }
     
     func getCityListCompleted(dict:NSDictionary?,error:NSError?)
@@ -198,15 +196,7 @@ class NewOpportunityOptionsViewController: UIViewController, THDatePickerDelegat
         newTagTextField.resignFirstResponder()
     }
     
-    func datePickerDonePressed(datePicker: THDatePickerViewController){
-        deadDate = datePicker.date
-        displayDate()
-        dismissSemiModalView()
-    }
-    
-    func datePickerCancelPressed(datePicker: THDatePickerViewController){
-        dismissSemiModalView()
-    }
+
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return cityList?.count ?? 0

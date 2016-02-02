@@ -13,12 +13,10 @@ class ResearchTableViewController: UITableViewController {
     var currentPage = 1
     var researchArry : NSArray?
     
-    let client = DataClient()
+    //let client = DataClient()
     func getResearchList(currentPage: Int, pageSize:Int)
     {
-        client.getResearchList(currentPage, pageSize: pageSize, completion: { (dict, error) -> () in
-            self.getResearchListCompleted(dict, error: error)
-        })
+
     }
     
     func getResearchListCompleted(dict:NSDictionary?,error:NSError?)

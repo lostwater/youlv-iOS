@@ -100,11 +100,7 @@ class DiscussDetailViewController: ViewControllerWithPagedTableView{
     func markTopic()
     {
         let parameters : NSDictionary = ["topicId":topicId!, "sessionId":sessionId]
-        DataClient().postMarkTopic(parameters) { (data, error) -> () in
-            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                self.markTopicCompleted(data,error: error)
-            })
-        }
+        
     }
     
     func markTopicCompleted(data:NSDictionary?,error:NSError?)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessagesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class MessagesViewController: UIViewController{
 
 
     @IBOutlet weak var newChatMenuView: UIView!
@@ -16,6 +16,7 @@ class MessagesViewController: UIViewController,UITableViewDataSource,UITableView
     @IBOutlet weak var newChatMenuButton: UIBarButtonItem!
     @IBAction func newChatMenuButtonClicked(sender: AnyObject) {
         newChatMenuView.hidden = false;
+        self.addChildViewController(ChatListViewController())
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,37 +39,7 @@ class MessagesViewController: UIViewController,UITableViewDataSource,UITableView
          newChatMenuView.hidden = true;
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.item == 1
-        {
-            return tableView.dequeueReusableCellWithIdentifier("MessageCell2", forIndexPath: indexPath) 
-        }
-        if indexPath.item == 2
-        {
-            return tableView.dequeueReusableCellWithIdentifier("MessageCell3", forIndexPath: indexPath) 
-        }
-        if indexPath.item == 3
-        {
-            return tableView.dequeueReusableCellWithIdentifier("MessageCell4", forIndexPath: indexPath) 
-        }
-        return tableView.dequeueReusableCellWithIdentifier("MessageCell1", forIndexPath: indexPath) 
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 64
-    }
+
     
 
     /*
