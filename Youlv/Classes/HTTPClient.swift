@@ -50,11 +50,15 @@ class HTTPClient{
             },
             failure:
                 { (dataTask, error) -> Void in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        KVNProgress.showError()
+                    })
                     NSLog(error.localizedDescription)
             }
         )
 
     }
+    
     
     func httpGet(pathString : String, parameters : NSDictionary?, completion: (NSDictionary?, NSError?)->())
     {
@@ -79,6 +83,9 @@ class HTTPClient{
             },
             failure:
             { (dataTask, error) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    KVNProgress.showError()
+                })
                 NSLog(error.localizedDescription)
             }
         )
@@ -113,6 +120,10 @@ class HTTPClient{
             if error == nil
             {
                 let dict = object as! NSDictionary
+                myUserInfo?.setValue(dict.valueForKey("avatar") as! String, forKey: "avatar")
+                myUserInfo?.setValue(dict.valueForKey("name"), forKey: "name")
+                myUserInfo?.setValue(dict.valueForKey("agency"), forKey: "agency")
+                myUserInfo?.setValue(dict.valueForKey("location"), forKey: "location")
                 KVNProgress.showSuccessWithStatus("更新成功")
                 completion(dict,error)
             }
@@ -156,6 +167,9 @@ class HTTPClient{
             },
             failure:
             { (dataTask, error) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    KVNProgress.showError()
+                })
                 NSLog(error.localizedDescription)
             }
         )
@@ -194,14 +208,14 @@ class HTTPClient{
             },
             failure:
             { (dataTask, error) -> Void in
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    KVNProgress.showError()
+                })
                 NSLog(error.localizedDescription)
             }
         )
-
     }
     
-    
-
 
     func login(phone : String, password : String, completion: (NSDictionary?, NSError?)->())
     {
@@ -211,11 +225,16 @@ class HTTPClient{
         paras.setValue(password, forKey: "password")
         
         httpPost(path, parameters: paras) { (dict, error) -> () in
-            completion(dict, error)
+            
             self.token = dict?.objectForKey("token") as! String
             self.getUserInfo(dict?.objectForKey("user") as! Int, completion: { (dict, error) -> () in
                 myUserInfo = NSMutableDictionary(dictionary: dict!)
                 self.easeMobLogin()
+                self.getMyFollowUsers()
+                self.getMyGroupList()
+
+                completion(dict, error)
+
             })
         }
     }
@@ -240,16 +259,26 @@ class HTTPClient{
    
     func getMyFollowedUsers(completion: (NSDictionary?, NSError?)->())
     {
-        let path = domain + "api/accounts/follower/list/"
+        let path = domain + "api/accounts/users/follower/list/"
         httpGet(path) { (dict, error) -> () in
+            
             completion(dict, error)
+        }
+    }
+    
+    func getMyFollowUsers()
+    {
+        let path = domain + "api/accounts/users/follow/list/"
+        httpGet(path) { (dict, error) -> () in
+            userList = NSMutableArray(array: dict?.objectForKey("results") as! NSArray)
         }
     }
     
     func getMyFollowUsers(completion: (NSDictionary?, NSError?)->())
     {
-        let path = domain + "api/accounts/follow/list/"
+        let path = domain + "api/accounts/users/follow/list/"
         httpGet(path) { (dict, error) -> () in
+            userList = NSMutableArray(array: dict?.objectForKey("results") as! NSArray)
             completion(dict, error)
         }
     }
@@ -263,6 +292,7 @@ class HTTPClient{
         }
     }
 
+    
     
     func getTopicEventList(completion: (NSDictionary?, NSError?)->())
     {
@@ -326,7 +356,7 @@ class HTTPClient{
     
     func getMyActivityList(completion: (NSDictionary?, NSError?)->())
     {
-        let path = domain + "api/case/activity/list?filter_status=self_all"
+        let path = domain + "api/case/activity/list?filter_status=self_interest"
         httpGet(path) { (dict, error) -> () in
             completion(dict, error)
         }
@@ -388,13 +418,142 @@ class HTTPClient{
         }
     }
     
+    func getUserInfoByEasemob(easemobId : String, completion: (NSDictionary?, NSError?)->())
+    {
+        let path = domain + "api/accounts/profile/" + easemobId
+        httpGet(path) { (dict, error) -> () in
+            completion(dict, error)
+            if dict != nil
+            {
+                userList?.addObject(dict!)
+            }
+        }
+    }
+
+    
     func getUserTopicEvents(userId : Int, completion: (NSDictionary?, NSError?)->())
     {
         let path = domain + "api/case/topicevent/list?filter_user_id" + String(userId)
+
         httpGet(path) { (dict, error) -> () in
             completion(dict, error)
         }
     }
+    
+    func getGroupList(completion: (NSDictionary?, NSError?)->())
+    {
+        let path = domain + "api/accounts/group/list/all/"
+        httpGet(path) { (dict, error) -> () in
+            completion(dict, error)
+            
+        }
+    }
+    
+    func getMyGroupList(completion: (NSDictionary?, NSError?)->())
+    {
+        let path = domain + "api/accounts/group/list/"
+        httpGet(path) { (dict, error) -> () in
+            groupList = NSMutableArray(array: dict?.objectForKey("results") as! NSArray)
+            completion(dict, error)
+        }
+    }
+    
+    func getMyGroupList()
+    {
+        let path = domain + "api/accounts/group/list/"
+        httpGet(path) { (dict, error) -> () in
+            groupList = NSMutableArray(array: dict?.objectForKey("results") as! NSArray)
+        }
+    }
+    
+    
+    func createGroup(avatar : UIImage, name : String, desc : String, completion: (NSDictionary?, NSError?)->())
+    {
+        let path = domain + "api/accounts/group/create/"
+        let imageData = UIImageJPEGRepresentation(avatar, 0.1)
+        let paras = NSMutableDictionary()
+        paras.setValue(name, forKey: "groupname")
+        paras.setValue(desc, forKey: "desc")
+        
+        let request = AFHTTPRequestSerializer().multipartFormRequestWithMethod("POST", URLString: path, parameters: (paras as! [String:AnyObject]), constructingBodyWithBlock: { (formData) -> Void in
+            formData.appendPartWithFileData(imageData!, name: "groupavatar", fileName: "avatar.jpg", mimeType: "image/jpeg")
+            }, error: nil)
+        request.setValue(token, forHTTPHeaderField: "token")
+        
+        let manager = AFHTTPSessionManager()
+        manager.responseSerializer = AFJSONResponseSerializer()
+        let task = manager.uploadTaskWithStreamedRequest(request, progress: nil) { (respones, object, error) -> Void in
+            if error == nil
+            {
+                let dict = object as! NSDictionary
+                KVNProgress.showSuccess()
+                self.getMyGroupList()
+                completion(dict,error)
+            }
+            else
+                
+            {
+                KVNProgress.showError()
+            }
+        }
+        
+        task.resume()
+        //manager.POST(String, parameters: AnyObject?, success: ((NSURLSessionDataTask, AnyObject?) -> Void)?, failure: ((NSURLSessionDataTask?, NSError) -> Void)?)
+    }
+    
+    func updateGroup(groupId : Int, avatar : UIImage, name : String, desc : String, completion: (NSDictionary?, NSError?)->())
+    {
+        let path = domain + "api/accounts/group/modify/" + String(groupId) + "/"
+        let imageData = UIImageJPEGRepresentation(avatar, 0.1)
+        let paras = NSMutableDictionary()
+        paras.setValue(name, forKey: "groupname")
+        paras.setValue(desc, forKey: "desc")
+        
+        let request = AFHTTPRequestSerializer().multipartFormRequestWithMethod("POST", URLString: path, parameters: (paras as! [String:AnyObject]), constructingBodyWithBlock: { (formData) -> Void in
+            formData.appendPartWithFileData(imageData!, name: "groupavatar", fileName: "avatar.jpg", mimeType: "image/jpeg")
+            }, error: nil)
+        request.setValue(token, forHTTPHeaderField: "token")
+        
+        let manager = AFHTTPSessionManager()
+        manager.responseSerializer = AFJSONResponseSerializer()
+        let task = manager.uploadTaskWithStreamedRequest(request, progress: nil) { (respones, object, error) -> Void in
+            if error == nil
+            {
+                let dict = object as! NSDictionary
+                KVNProgress.showSuccess()
+                self.getMyGroupList()
+                completion(dict,error)
+            }
+            else
+                
+            {
+                KVNProgress.showError()
+            }
+        }
+        task.resume()
+        //manager.POST(String, parameters: AnyObject?, success: ((NSURLSessionDataTask, AnyObject?) -> Void)?, failure: ((NSURLSessionDataTask?, NSError) -> Void)?)
+    }
+    
+    func joinGroup(groupId : Int,  completion: (NSDictionary?, NSError?)->())
+    {
+        let path = domain + "api/accounts/group/add/"
+        let paras = NSMutableDictionary()
+        paras.setValue(groupId, forKey: "group_id")
+        httpPost(path, parameters: paras) { (dict, error) -> () in
+            self.getMyGroupList()
+            completion(dict, error)}
+    }
+    
+    func exitGroup(groupId : Int,  completion: (NSDictionary?, NSError?)->())
+    {
+        let path = domain + "api/accounts/group/drop/"
+        let paras = NSMutableDictionary()
+        paras.setValue(groupId, forKey: "group_id")
+        httpPost(path, parameters: paras) { (dict, error) -> () in
+            self.getMyGroupList()
+            completion(dict, error)}
+    }
+
 
     
     func postNewCase(paras : NSDictionary, completion: (NSDictionary?, NSError?)->())
@@ -496,6 +655,7 @@ class HTTPClient{
     {
         let path = domain + "api/accounts/follow/\(String(userId))/"
         httpPost(path, parameters: NSDictionary()) { (dict, error) -> () in
+            self.getMyFollowUsers()
             completion(dict, error)}
     }
 
@@ -504,6 +664,7 @@ class HTTPClient{
         let users = userIds.componentsJoinedByString(",")
         let path = domain + "api/accounts/follow/\(users)/"
         httpPost(path, parameters: NSDictionary()) { (dict, error) -> () in
+            self.getMyFollowUsers()
             completion(dict, error)}
     }
     

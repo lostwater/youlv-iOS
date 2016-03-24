@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--MainTabBarController-->
@@ -137,17 +138,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuv-cZ-ywx">
-                                <rect key="frame" x="215" y="255" width="60" height="89"/>
-                                <animations/>
-                                <accessibility key="accessibilityConfiguration" label=""/>
-                                <state key="normal" backgroundImage="buttonnewopportunity">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonNewOpClicked:" destination="mbG-lH-bgl" eventType="touchUpInside" id="hQg-6d-T4h"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pm-zn-PLN">
                                 <rect key="frame" x="280" y="555" width="41" height="40"/>
                                 <animations/>
@@ -173,9 +163,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hff-Sh-wBF">
-                                <rect key="frame" x="315" y="256" width="60" height="89"/>
+                                <rect key="frame" x="320" y="245" width="80" height="111"/>
                                 <animations/>
-                                <state key="normal" backgroundImage="buttonnewtopic">
+                                <state key="normal" backgroundImage="huati">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -192,23 +182,44 @@
                                     <action selector="buttonNewArticleClicked:" destination="mbG-lH-bgl" eventType="touchUpInside" id="Hrh-z4-piX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uuv-cZ-ywx">
+                                <rect key="frame" x="200" y="244" width="80" height="111"/>
+                                <animations/>
+                                <accessibility key="accessibilityConfiguration" label=""/>
+                                <state key="normal" backgroundImage="anyuan">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonNewOpClicked:" destination="mbG-lH-bgl" eventType="touchUpInside" id="hQg-6d-T4h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6Fk-nk-TMa" firstAttribute="top" secondItem="yxa-1c-N9G" secondAttribute="bottom" constant="20" id="0tS-f3-y99"/>
                             <constraint firstAttribute="centerY" secondItem="Uuv-cZ-ywx" secondAttribute="centerY" constant="0.5" id="93F-Dq-c3Z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GkW-aC-Pab" secondAttribute="trailing" constant="105" id="DG7-td-xnz"/>
+                            <constraint firstItem="GkW-aC-Pab" firstAttribute="top" secondItem="yxa-1c-N9G" secondAttribute="bottom" constant="235" id="Gx3-0k-k6r"/>
                             <constraint firstAttribute="centerY" secondItem="GkW-aC-Pab" secondAttribute="centerY" constant="0.5" id="Ixa-aX-jFG"/>
                             <constraint firstAttribute="centerX" secondItem="rPv-mb-iVS" secondAttribute="centerX" id="MNo-ux-gGB"/>
                             <constraint firstAttribute="centerX" secondItem="7pm-zn-PLN" secondAttribute="centerX" id="OEY-a0-NQG"/>
                             <constraint firstAttribute="bottom" secondItem="7pm-zn-PLN" secondAttribute="bottom" constant="5" id="SF2-a0-zNC"/>
                             <constraint firstItem="GkW-aC-Pab" firstAttribute="leading" secondItem="Hff-Sh-wBF" secondAttribute="trailing" constant="40" id="Uq8-It-XId"/>
-                            <constraint firstAttribute="centerX" secondItem="Hff-Sh-wBF" secondAttribute="centerX" constant="-45" id="dNW-7b-zu4"/>
+                            <constraint firstAttribute="centerX" secondItem="Hff-Sh-wBF" secondAttribute="centerX" constant="-60" id="dNW-7b-zu4"/>
+                            <constraint firstItem="Uuv-cZ-ywx" firstAttribute="centerX" secondItem="PuR-z8-ibX" secondAttribute="centerX" constant="-60" id="dai-ra-zj0"/>
                             <constraint firstAttribute="centerY" secondItem="Hff-Sh-wBF" secondAttribute="centerY" id="df6-PR-Llz"/>
                             <constraint firstAttribute="centerX" secondItem="6Fk-nk-TMa" secondAttribute="centerX" id="ekK-8w-2Lz"/>
                             <constraint firstItem="rPv-mb-iVS" firstAttribute="top" secondItem="6Fk-nk-TMa" secondAttribute="bottom" constant="19" id="gbK-nm-myj"/>
                             <constraint firstItem="Hff-Sh-wBF" firstAttribute="leading" secondItem="Uuv-cZ-ywx" secondAttribute="trailing" constant="40" id="mIk-b8-vVd"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mIk-b8-vVd"/>
+                                <exclude reference="Ixa-aX-jFG"/>
+                                <exclude reference="Uq8-It-XId"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="" id="iFV-9f-WUv"/>
@@ -225,6 +236,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="anyuan" width="80" height="111"/>
         <image name="buttondiscoveryblue" width="25" height="40"/>
         <image name="buttondiscoverygrey" width="25" height="40"/>
         <image name="buttonhomepageblue" width="25" height="40"/>
@@ -233,9 +245,8 @@
         <image name="buttonmessageblue" width="25" height="40"/>
         <image name="buttonmessagegrey" width="25" height="40"/>
         <image name="buttonnewarticle" width="60" height="89"/>
-        <image name="buttonnewopportunity" width="60" height="89"/>
-        <image name="buttonnewtopic" width="60" height="89"/>
         <image name="buttonplus" width="40" height="40"/>
         <image name="buttonplusafter" width="41" height="40"/>
+        <image name="huati" width="80" height="111"/>
     </resources>
 </document>

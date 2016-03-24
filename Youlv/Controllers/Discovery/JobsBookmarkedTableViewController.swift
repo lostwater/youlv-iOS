@@ -25,7 +25,7 @@ class JobsBookmarkedTableViewController: BaseTableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goMarkedJobDetail"
+        if segue.destinationViewController.isKindOfClass(JobDetailViewController)
         {
             let vc = segue.destinationViewController as! JobDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item

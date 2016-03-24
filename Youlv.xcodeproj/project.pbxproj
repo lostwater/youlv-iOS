@@ -74,6 +74,8 @@
 		0B8BB8E61B0777380034B006 /* ResearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8BB8E51B0777380034B006 /* ResearchTableViewCell.swift */; };
 		0B93C9FD1ADC26D7003117BE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */; };
 		0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */; };
+		0B9D1E521C625CD1007EE79A /* GroupDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D1E511C625CD1007EE79A /* GroupDetailTableViewController.swift */; };
+		0B9D1E541C6267A2007EE79A /* GroupMembersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D1E531C6267A2007EE79A /* GroupMembersTableViewController.swift */; };
 		0BA1EC311B023A8F004F3546 /* DiscussCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1EC301B023A8F004F3546 /* DiscussCommentTableViewCell.swift */; };
 		0BA1EC351B0243F9004F3546 /* DiscussDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1EC341B0243F9004F3546 /* DiscussDetailViewController.swift */; };
 		0BA1EC371B034D4C004F3546 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1EC361B034D4C004F3546 /* EventDetailViewController.swift */; };
@@ -221,6 +223,8 @@
 		0B8BB8E51B0777380034B006 /* ResearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchTableViewCell.swift; sourceTree = "<group>"; };
 		0B93C9FC1ADC26D7003117BE /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0B93C9FE1ADC3C0F003117BE /* RecommenedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommenedViewController.swift; sourceTree = "<group>"; };
+		0B9D1E511C625CD1007EE79A /* GroupDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailTableViewController.swift; sourceTree = "<group>"; };
+		0B9D1E531C6267A2007EE79A /* GroupMembersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMembersTableViewController.swift; sourceTree = "<group>"; };
 		0BA1EC301B023A8F004F3546 /* DiscussCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussCommentTableViewCell.swift; sourceTree = "<group>"; };
 		0BA1EC341B0243F9004F3546 /* DiscussDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussDetailViewController.swift; sourceTree = "<group>"; };
 		0BA1EC361B034D4C004F3546 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -579,6 +583,7 @@
 		0BC050D01AEF3C2E003360CE /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				0B9D1E531C6267A2007EE79A /* GroupMembersTableViewController.swift */,
 				0B001B7B1B1A253A00689F80 /* JoinGroupTableViewController.swift */,
 				0BCECFF61ADAE23F006BE53A /* MessagesViewController.swift */,
 				0BBE374C1AE15DC700FA0018 /* StartGroupChat1ViewController.swift */,
@@ -586,6 +591,7 @@
 				0B6FA2351B164145001414B0 /* StartGroupChat2ViewController.swift */,
 				0B2AF2D71AE7EFE400F7A5F9 /* ContactsTableViewController.swift */,
 				0BD91B961B62C30200C8CC7F /* MyGroupsTableViewController.swift */,
+				0B9D1E511C625CD1007EE79A /* GroupDetailTableViewController.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -862,6 +868,7 @@
 				0BB5B5951B0DABA9008A2A85 /* OpportunityCommentViewController.swift in Sources */,
 				0BA1EC351B0243F9004F3546 /* DiscussDetailViewController.swift in Sources */,
 				0B7839771C55CEBA00F6A3C4 /* TopicEventCell.swift in Sources */,
+				0B9D1E521C625CD1007EE79A /* GroupDetailTableViewController.swift in Sources */,
 				0BD29F181B41917A004B1A9D /* NSDate+Utils.m in Sources */,
 				0BC050C91AEE76F4003360CE /* EventsTableViewController.swift in Sources */,
 				0B6251671B0DF9D20028FD77 /* DRNRealTimeBlurView.m in Sources */,
@@ -883,6 +890,7 @@
 				0BCECFC01AD99B8E006BE53A /* HomeNavigationController.swift in Sources */,
 				0BD29F201B43C679004B1A9D /* ViewControllerWithTableView.swift in Sources */,
 				0B93C9FF1ADC3C0F003117BE /* RecommenedViewController.swift in Sources */,
+				0B9D1E541C6267A2007EE79A /* GroupMembersTableViewController.swift in Sources */,
 				0B8BB8E21B0614290034B006 /* InterviewQATableViewCell.swift in Sources */,
 				0B6C6B5E1B9F22BD00AB98D6 /* RefreshFooterView.swift in Sources */,
 				0BB7F7661AEB6CA200F72D80 /* DWTagList.m in Sources */,
@@ -1003,8 +1011,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1049,8 +1057,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1095,6 +1103,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Youlv/Youlv-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1104,8 +1113,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PrefixHeader.pch;
@@ -1122,6 +1131,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Youlv/Youlv-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -21,13 +21,23 @@ class TopicsTableViewController: BaseTableViewController{
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let dict = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
-        let cell = tableView.dequeueReusableCellWithIdentifier("TopicCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = dict.objectForKey("title") as? String
-        cell.detailTextLabel?.text = dict.objectForKey("desc") as? String
-        cell.tag = dict.objectForKey("topictype_id") as! Int
-        cell.imageView?.sd_setImageWithURL(NSURL(string:dict.objectForKey("topictype_avatar_img") as! String)!, placeholderImage: headImage)
+
+        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! ContactTableViewCell
+        let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
+        cell.userHead.sd_setImageWithURL(NSURL(string: content.objectForKey("topictype_avatar_img") as! String))
+        //cell.imageView?.sd_setImageWithURL(NSURL(string: content.objectForKey("topictype_avatar_img") as! String))
+        cell.userName.text = content.objectForKey("title") as? String
+        cell.intro?.text = content.objectForKey("desc") as? String
+        cell.tag = content.objectForKey("topictype_id") as! Int
         return cell
+        
+//       let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as ContactTableViewCell
+//        cell.
+//        cell.textLabel?.text = dict.objectForKey("title") as? String
+//        cell.detailTextLabel?.text = dict.objectForKey("desc") as? String
+//        cell.tag = dict.objectForKey("topictype_id") as! Int
+ //       cell.imageView?.sd_setImageWithURL(NSURL(string:dict.objectForKey("topictype_avatar_img") as! String)!, placeholderImage: headImage)
+   //     return cell
 
     }
     

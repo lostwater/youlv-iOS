@@ -15,7 +15,10 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func signOutButtonClicked(sender: AnyObject) {
         accountKeyWrapper.resetKeychainItem()
         passwordKeyWrapper.resetKeychainItem()
-        
+        userDefaults.setObject("", forKey: "userId")
+        userDefaults.setObject("", forKey: "password")
+        userDefaults.synchronize()
+
         let sb = UIStoryboard(name: "Login", bundle: nil)
         let vc = sb.instantiateInitialViewController()!
         presentViewController(vc, animated: true, completion: nil )

@@ -28,14 +28,20 @@ class NewOpportunityOptionsViewController: UIViewController,  UIPickerViewDataSo
         })
     }
     
+    @IBOutlet weak var dateDateText: UITextField!
+    
     @IBAction func opportunityBWListDidCancel(segue: UIStoryboardSegue)
     {
         privilege = 0
     }
     
-    
-    @IBOutlet var deadlineDataButton: UIButton!
+
     @IBAction func deadlineDataButtonClicked(sender: AnyObject) {
+        
+        dateDateText.resignFirstResponder()
+        newTagTextField.resignFirstResponder()
+        targetText.resignFirstResponder()
+
         showCalender()
     }
     
@@ -56,6 +62,8 @@ class NewOpportunityOptionsViewController: UIViewController,  UIPickerViewDataSo
         dismissSemiModalView()
         displayDate()
     }
+    
+    
     
     
     @IBAction func dateChanged(sender: AnyObject) {
@@ -99,9 +107,9 @@ class NewOpportunityOptionsViewController: UIViewController,  UIPickerViewDataSo
     var whiteList = NSArray()
     var deadDate = NSDate()
     var formatter = NSDateFormatter()
-    
+    var deadDateString = ""
     var headUrls = NSArray()
-    
+    var target = ""
     var cityList : NSArray?
     var cityId = 1
     var cityName = "北京市"
@@ -109,7 +117,16 @@ class NewOpportunityOptionsViewController: UIViewController,  UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         formatter.dateFormat = "yyyy.MM.dd"
-        deadlineDataButton.setTitle(formatter.stringFromDate(NSDate()), forState: UIControlState.Normal)
+        
+        dateDateText.text = deadDateString
+        
+        tagsListView.setTags(tagList.mutableArrayValueForKey("name") as [AnyObject])
+        tagsListView.display()
+        
+        targetText.text = target
+        //deadlineDataButton.setTitle("输入日期", forState: UIControlState.Normal)
+        //deadDate = nil
+        //deadlineDataButton.setTitle(formatter.stringFromDate(NSDate()), forState: UIControlState.Normal)
         // Do any additional setup after loading the view.
     }
 
@@ -127,6 +144,7 @@ class NewOpportunityOptionsViewController: UIViewController,  UIPickerViewDataSo
             //vc.blackList = blackList
             //vc.whiteList = whiteList
             vc.deadDate = deadDate
+            vc.deadDateString = deadDateString
             //vc.privilege = privilege
             vc.thetitle = thetitle
             vc.content = content
@@ -141,7 +159,9 @@ class NewOpportunityOptionsViewController: UIViewController,  UIPickerViewDataSo
     
     func displayDate()
     {
-        deadlineDataButton.setTitle(formatter.stringFromDate(deadDate), forState: UIControlState.Normal)
+        deadDateString = formatter.stringFromDate(deadDate)
+        dateDateText.text = deadDateString
+        //deadlineDataButton.setTitle(formatter.stringFromDate(deadDate), forState: UIControlState.Normal)
     }
     
     func showCityList()

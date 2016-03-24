@@ -120,8 +120,16 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     
     func tryAutoLogin()
     {
-        storedPassword = passwordKeyWrapper.objectForKey(kSecAttrService) as? String
-        storedAccount = accountKeyWrapper.objectForKey(kSecAttrService) as? String
+//        storedPassword = passwordKeyWrapper.objectForKey(kSecAttrService) as? String
+//        storedAccount = accountKeyWrapper.objectForKey(kSecAttrService) as? String
+//        if userAccount.text == nil || passowrd.text == nil
+//        {
+//            //KVNProgress.showWithStatus("自动登录失败")
+//        }
+        
+        storedAccount = userDefaults.stringForKey("userId")
+        storedPassword = userDefaults.stringForKey("password")
+        
         
         userAccount.text = storedAccount
         passowrd.text = storedPassword
@@ -174,16 +182,22 @@ class LoginViewController: UIViewController,MYIntroductionDelegate {
     
     func saveAccountAndPassword()
     {
-        let error = NSErrorPointer()
-        do {
-            try SFHFKeychainUtils.storeUsername(userAccount.text, andPassword: passowrd.text, forServiceName: serviceName, updateExisting: true)
-            NSLog("密码保存成功")
-        } catch let error1 as NSError {
-            error.memory = error1
-        }
+//        let error = NSErrorPointer()
+//        do {
+//            try SFHFKeychainUtils.storeUsername(userAccount.text, andPassword: passowrd.text, forServiceName: serviceName, updateExisting: true)
+//            NSLog("密码保存成功")
+//        } catch let error1 as NSError {
+//            //KVNProgress.showWithStatus("账户保存失败")
+//            //KVNProgress.showWithStatus(error1.localizedDescription)
+//            error.memory = error1
+//        }
         
-        accountKeyWrapper.setObject(userAccount.text, forKey: kSecAttrService)
-        passwordKeyWrapper.setObject(passowrd.text, forKey: kSecAttrService)
+        userDefaults.setObject(userAccount.text, forKey: "userId")
+        userDefaults.setObject(passowrd.text, forKey: "password")
+        userDefaults.synchronize()
+        
+//        accountKeyWrapper.setObject(userAccount.text, forKey: kSecAttrService)
+//        passwordKeyWrapper.setObject(passowrd.text, forKey: kSecAttrService)
         
         myAccount = userAccount.text!
 

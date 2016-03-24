@@ -29,11 +29,11 @@ class JobDetailViewController: UIViewController {
     @IBOutlet var exp: UILabel!
     @IBOutlet var edu: UILabel!
     
-    @IBOutlet var companyImageView: UIImageView!
+    @IBOutlet var companyImageView: AvatarImageView!
     @IBOutlet var companyIntroName: UILabel!
     @IBOutlet var companyIntro: UILabel!
     @IBOutlet var companyIntroExpandButton: UIButton!
-    @IBOutlet var companyTextView: UITextView!
+    @IBOutlet var companyTextView: UITextView?
     @IBAction func companyIntroExpandButtonClicked(sender: AnyObject) {
         companyIntroExpandButton.selected = !companyIntroExpandButton.selected
         displayExpandableViews()
@@ -42,13 +42,17 @@ class JobDetailViewController: UIViewController {
     @IBOutlet var jobTagsExpandButton: UIButton!
     @IBOutlet var jobTags: DWTagList!
     @IBOutlet var jobTagsHeightContraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var CompanyIntroHeight: NSLayoutConstraint!
+    
+    
     @IBAction func jobTagsExpandButtonClicked(sender: AnyObject) {
         jobTagsExpandButton.selected = !jobTagsExpandButton.selected
         displayExpandableViews()
     }
     
     @IBOutlet var requirementExpandButton: UIButton!
-    @IBOutlet var requirementTextView: UITextView!
+    @IBOutlet var requirementText: UILabel!
     @IBAction func requirementExpandButtonClicked(sender: AnyObject) {
         requirementExpandButton.selected = !requirementExpandButton.selected
         displayExpandableViews()
@@ -78,7 +82,7 @@ class JobDetailViewController: UIViewController {
         jobTagsExpandButton.setImage(UIImage(named:"buttonarrowup"), forState: UIControlState.Selected)
         requirementExpandButton.setImage(UIImage(named:"buttonarrowdown"), forState: UIControlState.Normal)
         requirementExpandButton.setImage(UIImage(named:"buttonarrowup"), forState: UIControlState.Selected)
-        displayExpandableViews()
+        //displayExpandableViews()
         displayData()
         // Do any additional setup after loading the view.
     }
@@ -97,15 +101,29 @@ class JobDetailViewController: UIViewController {
 
         jobType.text = dataDict!.objectForKey("type") as? String
         
-        companyImageView.sd_setImageWithURL(NSURL(string:companyImageUrl ?? ""))
-        companyIntroName.text =  dataDict!.objectForKey("position_officeName") as? String
-        companyIntro.text = dataDict!.objectForKey("office_introduction") as? String
+        if companyImageUrl ?? "" != ""
+        {
+            companyImageView.sd_setImageWithURL(NSURL(string:companyImageUrl!))
+        }
         
-        //let jobTagsValue = NSArray(object: dataDict!.objectForKey("position_goods")!) as [AnyObject]
-        //jobTags.setTags(jobTagsValue)
-        //jobTags.display()
+        companyIntroName.text =  dataDict!.objectForKey("agency_name") as? String
+        companyIntro.text = ""
+        //companyIntro.text = dataDict!.objectForKey("office_introduction") as? String
+        if dataDict!.objectForKey("position_goods")!.isKindOfClass(NSString)
+        {
+            let tags = NSArray(object: dataDict!.objectForKey("position_goods")!) as [AnyObject]
+            jobTags.setTags(tags)
+            jobTags.display()
+
+        }
+        else
+        {
+            let tags = dataDict!.objectForKey("position_goods") as! [AnyObject]
+            jobTags.setTags(tags)
+            jobTags.display()
+        }
         
-        requirementTextView.text = dataDict!.objectForKey("position_requirements") as? String
+        requirementText.text = ""
         
 
     }
@@ -116,19 +134,19 @@ class JobDetailViewController: UIViewController {
         UIView.setAnimationDuration(0.3)
         if companyIntroExpandButton.selected
         {
-            resizeTextView(companyTextView)
+             companyIntro.text = dataDict!.objectForKey("agency_desc") as? String
         }
         else
         {
-            collapseView(companyTextView)
+             companyIntro.text = ""
         }
         if requirementExpandButton.selected
         {
-            resizeTextView(requirementTextView)
+            requirementText.text = dataDict!.objectForKey("position_requirements") as? String
         }
         else
         {
-            collapseView(requirementTextView)
+            requirementText.text = ""
         }
         if jobTagsExpandButton.selected
         {

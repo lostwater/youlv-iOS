@@ -25,7 +25,8 @@ class ImageListView: UIView
             let f = CGRectMake(x, 0.0, 30.0, 30.0)
             let iv = UIImageView(frame: f)
             iv.sd_setImageWithURL(NSURL(string: imageUrlList.objectAtIndex(i) as! String  ), placeholderImage: headImage)
-
+            iv.layer.masksToBounds = true
+            iv.layer.cornerRadius = self.frame.height/2
             if (x + 120 > frameWidth && i < imageUrlList.count - 1)
             {
                 iv.image = UIImage(named:"buttonmoremember")

@@ -29,7 +29,7 @@ class DiscussDetailViewController: ViewControllerWithPagedTableView{
     @IBAction func followButtonClicked(sender: AnyObject) {
         if !FellowButton.selected
         {
-            markTopic()
+
         }
     }
     
@@ -97,20 +97,6 @@ class DiscussDetailViewController: ViewControllerWithPagedTableView{
 
     
 
-    func markTopic()
-    {
-        let parameters : NSDictionary = ["topicId":topicId!, "sessionId":sessionId]
-        
-    }
-    
-    func markTopicCompleted(data:NSDictionary?,error:NSError?)
-    {
-        UIAlertView(title: data?.objectForKey("errmessage") as? String, message: nil, delegate: nil, cancelButtonTitle: "ok").show()
-        if data!.objectForKey("errcode") as! Int == 0
-        {
-            FellowButton.selected = true
-        }
-    }
     
     func displayTopic(dict : NSDictionary?)
     {

@@ -69,7 +69,11 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
+        if dataArray.count < (indexPath.row - 1)
+        {
+            return UITableViewCell()
+        }
+        let content = dataArray.objectAtIndex(indexPath.row) as!  NSDictionary
                 var cell : TopicEventCell?
                 if content.objectForKey("type") as! Int == 0
                 {
@@ -81,8 +85,6 @@ class DiscussTableViewController: BaseTableViewController,NaviBarMenu {
                 {
                     cell = tableView.dequeueReusableCellWithIdentifier("TopicRefCell", forIndexPath: indexPath) as? TopicEventCell
                 }
-
-
         cell?.configure(content)
         cell?.setNeedsLayout()
         cell?.setNeedsDisplay()

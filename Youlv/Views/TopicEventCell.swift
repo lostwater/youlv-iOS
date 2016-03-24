@@ -45,6 +45,8 @@ class TopicEventCell: UITableViewCell
         topicEventId = dataDict.objectForKey("topicevent_id") as! Int
         topicId = topicDict.objectForKey("topic_id") as! Int
         topicUserImageViewer?.isPushEnabled = isAvatarPushEnabled
+        topicUserImageViewer?.layer.cornerRadius = 25
+        
         let type = dataDict.objectForKey("type") as! Int
         if type == 2
         {

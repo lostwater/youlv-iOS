@@ -79,12 +79,14 @@ class ViewControllerWithPagedTableView: UIViewController, UITableViewDataSource,
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.dataArray.addObjectsFromArray(array! as Array)
                 self.mainTableView?.reloadData()
-                self.endLoad()
+                
                 self.mainTableView?.setNeedsLayout()
                 self.mainTableView?.layoutIfNeeded()
                 self.mainTableView?.reloadData()
                 self.mainTableView?.beginUpdates()
                 self.mainTableView?.endUpdates()
+                
+                self.endLoad()
             })
             
         }
@@ -130,9 +132,11 @@ class ViewControllerWithPagedTableView: UIViewController, UITableViewDataSource,
             if self.isLoading
             {
                 self.mainTableView?.headerEndRefreshing()
-                return
             }
-            self.refreshDataArrary()
+            else
+            {
+                self.refreshDataArrary()
+            }
             
             }
         )

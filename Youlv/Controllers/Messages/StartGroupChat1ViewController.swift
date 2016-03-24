@@ -14,6 +14,7 @@ class StartGroupChat1ViewController : UIViewController ,FSMediaPickerDelegate {
     @IBOutlet weak var groupName: UITextField!
     @IBOutlet weak var groupIntro: UITextField!
     @IBAction func nextClicked(sender: AnyObject) {
+        
     }
 
     @IBAction func groupNameEnd(sender: AnyObject) {
@@ -31,6 +32,33 @@ class StartGroupChat1ViewController : UIViewController ,FSMediaPickerDelegate {
 
     
     var groupPic:UIImage?
+    
+    var groupCreated = false
+    
+    func createGroup()
+    {
+        let gn : String = groupName.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        if gn == ""
+        {
+            let av = UIAlertView(title: nil, message: "群名不能为空", delegate: nil, cancelButtonTitle: "确认")
+            av.show()
+            return
+        }
+        
+        var avatar = groupPicButton.imageView?.image
+        if groupIntro.text == nil
+        {
+            groupIntro.text = "无"
+        }
+        if avatar == nil
+        {
+            avatar = headImage
+        }
+        httpClient.createGroup(avatar!, name: gn, desc: groupIntro.text!) { (dict, error) -> () in
+            self.groupCreated = true
+            self.performSegueWithIdentifier("GroupCreated", sender: self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +101,11 @@ class StartGroupChat1ViewController : UIViewController ,FSMediaPickerDelegate {
                 av.show()
                 return false
             }
+        }
+        if identifier == "GroupCreated" && !groupCreated
+        {
+            createGroup()
+            return false
         }
         return true
     }

@@ -75,11 +75,12 @@ class BaseTableViewController: UITableViewController {
         let array = dict!.objectForKey("results") as? NSArray
         if (array?.count ?? 0) > 0
         {
-            
+            self.endLoad()
+
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.dataArray.addObjectsFromArray(array! as Array)
                 self.tableView.reloadData()
-                self.endLoad()
+                
                 self.tableView.setNeedsLayout()
                 self.tableView.layoutIfNeeded()
                 self.tableView.reloadData()
@@ -137,9 +138,11 @@ class BaseTableViewController: UITableViewController {
             if self.isLoading
             {
                 self.tableView.headerEndRefreshing()
-                return
             }
+            else
+            {
                 self.refreshDataArrary()
+            }
             
             }
         )

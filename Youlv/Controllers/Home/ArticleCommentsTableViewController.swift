@@ -76,6 +76,10 @@ class ArticleCommentsTableViewController: ViewControllerWithPagedTableView {
     }
     
      override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if dataArray.count < (indexPath.row - 1)
+        {
+            return UITableViewCell()
+        }
         let cell = tableView.dequeueReusableCellWithIdentifier("ArticleCommentCell", forIndexPath: indexPath) as! ArticleCommentTableViewCell
         cell.configure(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
         return cell

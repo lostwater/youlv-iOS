@@ -24,7 +24,7 @@ class MyFriendsViewController: ViewControllerWithPagedTableView {
     
     
     override func httpGet() {
-        httpClient.getMyFollowedUsers { (dict, error) -> () in
+        httpClient.getMyFollowUsers { (dict, error) -> () in
             self.httpGetCompleted(dict, error: error)
         }
     }

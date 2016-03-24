@@ -31,8 +31,8 @@ class MyTopicsTableViewController: BaseTableViewController {
         if segue.destinationViewController.isKindOfClass(DiscussDetailViewController)
         {
             let discussDetail = segue.destinationViewController as! DiscussDetailViewController
-            discussDetail.topicId = tableView.cellForRowAtIndexPath(tableView.indexPathForSelectedRow!)?.tag
-            
+            let dict = dataArray[tableView.indexPathForSelectedRow!.item] as! NSDictionary
+            discussDetail.topicId = (dict.objectForKey("topic") as! NSDictionary).objectForKey("topic_id") as! Int
         }
         
     }

@@ -42,8 +42,15 @@ class ArticlesTableViewController: BaseTableViewController,NaviBarMenu {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if dataArray.count < (indexPath.row - 1)
+        {
+            return UITableViewCell()
+        }
         let cell = tableView.dequeueReusableCellWithIdentifier("ArticleCell", forIndexPath: indexPath) as! ArticleTableViewCell
-        cell.configure(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
+        do {
+            try cell.configure(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
+        }
+        catch {}
         return cell
         
     }

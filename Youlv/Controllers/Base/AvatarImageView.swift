@@ -18,29 +18,38 @@ class AvatarImageView: UIImageView {
         self.userInteractionEnabled = true
         let singleTap = UITapGestureRecognizer(target: self, action:Selector("tapped"))
         self.addGestureRecognizer(singleTap)
+        layer.masksToBounds = true
+        layer.cornerRadius = self.frame.height/2
+
         
         
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        layer.masksToBounds = true
         layer.cornerRadius = self.frame.height/2
+        layer.masksToBounds = true
     }
     
+
     
     
     func tapped()
     {
         if isPushEnabled && userDict != nil
         {
-        let sourceVC = sourceViewController()
-        if sourceVC != nil
-        {
-            let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("UserHomeVC") as! UserHomeTableViewController
-            vc.userId = userId
-            vc.userDict = userDict
-            sourceVC!.navigationController?.pushViewController(vc, animated:true)
-        }
+            if userDict?.objectForKey("uid") as! Int != myUserInfo?.objectForKey("uid") as! Int
+            {
+                let sourceVC = sourceViewController()
+                if sourceVC != nil
+                {
+                    let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateViewControllerWithIdentifier("UserHomeVC") as! UserHomeTableViewController
+                    vc.userId = userId
+                    vc.userDict = userDict
+                    sourceVC!.navigationController?.pushViewController(vc, animated:true)
+                }
+            }
         }
     }
     

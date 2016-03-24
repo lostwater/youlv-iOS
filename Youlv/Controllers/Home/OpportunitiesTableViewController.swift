@@ -47,7 +47,7 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        tabBarController?.navigationItem.title = "商机"
+        tabBarController?.navigationItem.title = "案源"
     }
     
     override func httpGet() {
@@ -73,6 +73,10 @@ class OpportunitiesTableViewController: BaseTableViewController,NaviBarMenu {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell : OpportunityTableViewCell?
+        if dataArray.count < (indexPath.row - 1)
+        {
+            return UITableViewCell()
+        }
         let content = dataArray.objectAtIndex(indexPath.row) as! NSDictionary
         let type = content.objectForKey("type") as! Int
         if type < 3

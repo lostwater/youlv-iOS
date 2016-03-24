@@ -38,10 +38,7 @@ class MyProfileTableViewController: UITableViewController,FSMediaPickerDelegate 
         httpClient.updateMyProfile(userImageView.image!, name: userName.text ?? "",  agency: orgName.text ?? "", location: location.text ?? "") { (dict, error) -> () in
            //myUserInfo?.d
             //myUserInfo?.
-            myUserInfo?.setValue(dict?.valueForKey("avatar") as! String, forKey: "avatar")
-             myUserInfo?.setValue(self.userName.text, forKey: "name")
-             myUserInfo?.setValue(self.orgName.text, forKey: "agency")
-             myUserInfo?.setValue(self.location.text, forKey: "location")
+         
              //myUserInfo?.setValue(userImageView.image!, forKey: "avatar")
         }
     }

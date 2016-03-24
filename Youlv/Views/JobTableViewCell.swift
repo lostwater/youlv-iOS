@@ -44,8 +44,11 @@ class JobTableViewCell: UITableViewCell {
         "position_officePhoto":"www..photo"
         }
         */
-        
-        jobImageView.sd_setImageWithURL(NSURL(string:dict.objectForKey("agency_img") as! String)!)
+        let url = dict.objectForKey("agency_img") as? String
+        if (url ?? "") != ""
+        {
+            jobImageView.sd_setImageWithURL(NSURL(string: url!)!)
+        }
         
         jobImageView.layer.cornerRadius = jobImageView.frame.height/2
         
@@ -57,8 +60,11 @@ class JobTableViewCell: UITableViewCell {
         //jobTime.text = dateFormatter.stringFromDate(time!)
 
         salaryLabel.text = dict.objectForKey("salary") as? String
-        jobTime.text =  ""
+        jobTime.text =  dict.objectForKey("need_time") as? String
         jobLocation.text = dict.objectForKey("location") as? String
+        
+        jobImageView.layer.masksToBounds = true
+        jobImageView.layer.cornerRadius = jobImageView.frame.height/2
 
 
     }

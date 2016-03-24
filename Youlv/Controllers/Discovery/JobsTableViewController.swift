@@ -18,14 +18,20 @@ class JobsTableViewController: BaseTableViewController {
 
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.navigationItem.title = "招聘"
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("JobCell", forIndexPath: indexPath) as! JobTableViewCell
-        cell.configure(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)
+        do {try cell.configure(dataArray.objectAtIndex(indexPath.item) as! NSDictionary)}
+        catch {}
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "goJobDetail"
+        if segue.destinationViewController.isKindOfClass(JobDetailViewController)
         {
             let vc = segue.destinationViewController as! JobDetailViewController
             let selectedIndex = tableView.indexPathForSelectedRow?.item

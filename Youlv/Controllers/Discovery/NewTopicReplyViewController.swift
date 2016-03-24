@@ -20,7 +20,7 @@ class NewTopicReplyViewController: UIViewController {
     
     func send()
     {
-        let parameters : NSDictionary = ["groupId":groupId,"content":textView.text,"sessionId":sessionId]
+        //let parameters : NSDictionary = ["groupId":groupId,"content":textView.text,"sessionId":sessionId]
         
         
     }

@@ -26,6 +26,7 @@ class UserHomeTableViewController: BaseTableViewController {
     @IBAction func chatButtonClicked(sender: AnyObject) {
         let chatVC = PrivateChatViewController(conversationChatter: userDict!.objectForKey("huanxin_name") as! String, conversationType: EMConversationType.eConversationTypeChat)
         chatVC.title = userDict?.objectForKey("name") as? String
+        chatVC.userDict = userDict
         self.navigationController?.pushViewController(chatVC, animated: true)
     }
     
@@ -33,7 +34,7 @@ class UserHomeTableViewController: BaseTableViewController {
     
     @IBAction func buttonFollowClicked(sender: AnyObject) {
         httpClient.followUser(userId) { (dict, error) -> () in
-            
+            self.buttonFollow.selected = !self.buttonFollow.selected
         }
     }
     
@@ -47,8 +48,8 @@ class UserHomeTableViewController: BaseTableViewController {
     {
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         displayData()
         super.httpGet()
         httpClient.getUserTopicEvents(userId, completion: { (dict, error) -> () in
@@ -109,6 +110,8 @@ class UserHomeTableViewController: BaseTableViewController {
         var fanstitle = String(userDict?.objectForKey("followed_num")as! Int)
         fanstitle = "粉丝 " + fanstitle
         buttonFans.setTitle(fanstitle, forState: UIControlState.Normal)
+        
+        userId = userDict?.objectForKey("uid") as! Int
 
     }
 
@@ -118,13 +121,13 @@ class UserHomeTableViewController: BaseTableViewController {
         if(self.tableView.contentOffset.y > 0)
         {
             UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.shortHeader()
+                //self.shortHeader()
             })
         }
         else
         {
             UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.fullHeader()
+                //self.fullHeader()
             })
         }
         

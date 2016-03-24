@@ -17,7 +17,7 @@ class OpportunityCommentViewController: UIViewController {
     
     func send()
     {
-        let parameters : NSDictionary = ["orderId":opportunityId,"content":textView.text,"sessionId":sessionId]
+        //let parameters : NSDictionary = ["orderId":opportunityId,"content":textView.text,"sessionId":sessionId]
     }
     
     func sendCompleted(data:NSDictionary?,error:NSError?)

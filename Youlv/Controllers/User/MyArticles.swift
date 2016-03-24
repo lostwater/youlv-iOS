@@ -12,7 +12,7 @@ class MyArticles:BaseTableViewController{
     
     override func httpGet() {
         super.httpGet()
-        httpClient.getArticleList { (dict, error) -> () in
+        httpClient.getMyArticleList { (dict, error) -> () in
             self.httpGetCompleted(dict, error: error)
         }
     }

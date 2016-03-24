@@ -59,18 +59,18 @@ class NewOpportunityTableViewController: UITableViewController {
     var thetitle = ""
     var content = ""
     var type = 1
-    var target = "北京市"
+    var target = ""
 
     
     
     var privilege = 0
     
-    var tagList = NSArray()
+    var tagList = NSMutableArray()
     var blackList = NSArray()
     var whiteList = NSArray()
     var deadDate = NSDate()
     var formatter = NSDateFormatter()
-    
+    var deadDateString = ""
     //var cityList : NSArray?
     //var cityId = 1
     
@@ -115,6 +115,9 @@ class NewOpportunityTableViewController: UITableViewController {
             vc.thetitle = thetitle
             vc.content = content
             vc.privilege = privilege
+            vc.tagList = tagList
+            vc.deadDateString = deadDateString
+            vc.target = target
         }
     }
 
